@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../lang.float/index.html">
@@ -75,10 +82,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -137,15 +140,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -300,7 +303,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -332,10 +335,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -394,15 +393,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -566,7 +565,9 @@
     <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
 </a>
                     Module : <span class="modules">lang.float</span></h1>
-                    
+                    <h2>Module Overview</h2>
+<p>This module provides lang library operations on <code>float</code> values defined by the language specification 2019R2.</p>
+
 
             
 
@@ -590,7 +591,7 @@
                         <tr>
                             <td class="module-title truncate functions" id="abs"><a
                                     class="functions" href="functions.html#abs">abs</a></td>
-                            <td class="module-desc"><p>IEEE abs operation</p>
+                            <td class="module-desc"><p>IEEE abs operation.</p>
 </td>
                         </tr>
                     
@@ -625,7 +626,7 @@
                         <tr>
                             <td class="module-title truncate functions" id="cbrt"><a
                                     class="functions" href="functions.html#cbrt">cbrt</a></td>
-                            <td class="module-desc"><p>Cube root
+                            <td class="module-desc"><p>Cube root.
 IEEE rootn(x, 3)</p>
 </td>
                         </tr>
@@ -707,8 +708,6 @@ This is the inverse of <code>value:toString</code> applied to an <code>float</co
                             <td class="module-title truncate functions" id="isFinite"><a
                                     class="functions" href="functions.html#isFinite">isFinite</a></td>
                             <td class="module-desc"><p>Tests whether a float is finite.
-x - the float to be tested
-return - true if <code>x</code> is finite, i.e. neither NaN nor +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </td>
                         </tr>
@@ -717,8 +716,6 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                             <td class="module-title truncate functions" id="isInfinite"><a
                                     class="functions" href="functions.html#isInfinite">isInfinite</a></td>
                             <td class="module-desc"><p>Tests whether a float is infinite.
-x - the float to be tested
-return - true if <code>x</code> is either +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </td>
                         </tr>
@@ -727,16 +724,14 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                             <td class="module-title truncate functions" id="isNaN"><a
                                     class="functions" href="functions.html#isNaN">isNaN</a></td>
                             <td class="module-desc"><p>Tests whether a float is NaN.
-x - the float to be tested
-return - true if <code>x</code> is NaN
-Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
+Exactly one of isFinite, isInfinite and IsNaN will be true for any float value.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="log"><a
                                     class="functions" href="functions.html#log">log</a></td>
-                            <td class="module-desc"><p>Natural logarithm
+                            <td class="module-desc"><p>Natural logarithm.
 IEEE log operation</p>
 </td>
                         </tr>
@@ -744,7 +739,7 @@ IEEE log operation</p>
                         <tr>
                             <td class="module-title truncate functions" id="log10"><a
                                     class="functions" href="functions.html#log10">log10</a></td>
-                            <td class="module-desc"><p>Base 10 log
+                            <td class="module-desc"><p>Base 10 log.
 IEEE log10 operation</p>
 </td>
                         </tr>
@@ -752,8 +747,8 @@ IEEE log10 operation</p>
                         <tr>
                             <td class="module-title truncate functions" id="max"><a
                                     class="functions" href="functions.html#max">max</a></td>
-                            <td class="module-desc"><p>Maximum of all the arguments
--∞ if no args
+                            <td class="module-desc"><p>Maximum of all the arguments.
+(positive)∞ if no args
 NaN if any arg is NaN</p>
 </td>
                         </tr>
@@ -761,7 +756,8 @@ NaN if any arg is NaN</p>
                         <tr>
                             <td class="module-title truncate functions" id="min"><a
                                     class="functions" href="functions.html#min">min</a></td>
-                            <td class="module-desc"><p>Minimum of all the arguments. +∞ if no args
+                            <td class="module-desc"><p>Minimum of all the arguments.
+∞ if no args
 NaN if any arg is NaN</p>
 </td>
                         </tr>
@@ -769,7 +765,7 @@ NaN if any arg is NaN</p>
                         <tr>
                             <td class="module-title truncate functions" id="pow"><a
                                     class="functions" href="functions.html#pow">pow</a></td>
-                            <td class="module-desc"><p><code>x</code> to the power of <code>y</code>
+                            <td class="module-desc"><p><code>x</code> to the power of <code>y</code>.
 IEEE pow(x, y)</p>
 </td>
                         </tr>
@@ -779,12 +775,10 @@ IEEE pow(x, y)</p>
                                     class="functions" href="functions.html#round">round</a></td>
                             <td class="module-desc"><p>Floating point value that is a mathematical integer and closest to <code>x</code>.
 If there are two such integers, choose the one that is even
-(this is the round-to-nearest rounding mode, which is the default for IEEE
-and for Ballerina).
+(this is the round-to-nearest rounding mode, which is the default for IEEE and for Ballerina).
 Same as Java Math.rint method
-Same as .NET Math.round method
+Same as .NET Math.Round method
 IEEE roundToIntegralTiesToEven operation
-XXX different from Java round which returns a long, and rounds ties to +∞
 Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</code></p>
 </td>
                         </tr>
@@ -806,14 +800,15 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                         <tr>
                             <td class="module-title truncate functions" id="sqrt"><a
                                     class="functions" href="functions.html#sqrt">sqrt</a></td>
-                            <td class="module-desc"><p>IEEE squareRoot operation</p>
+                            <td class="module-desc"><p>IEEE squareRoot operation.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="sum"><a
                                     class="functions" href="functions.html#sum">sum</a></td>
-                            <td class="module-desc"><p>Sum of all the arguments. +0.0 if no args
+                            <td class="module-desc"><p>Sum of all the arguments.
+(positive)0.0 if no args
 NaN if any arg is NaN</p>
 </td>
                         </tr>

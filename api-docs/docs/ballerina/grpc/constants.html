@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             
             <div class="primary-list module">
@@ -73,6 +80,10 @@
             </li>
         
         
+            <li>
+                <a data="functions" href="../grpc/index.html#functions">Functions</a>
+            </li>
+        
         
             <li>
                 <a data="constants" href="../grpc/index.html#constants">Constants</a>
@@ -100,10 +111,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -162,15 +169,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -325,7 +332,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -354,6 +361,10 @@
             </li>
         
         
+            <li>
+                <a data="functions" href="../grpc/index.html#functions">Functions</a>
+            </li>
+        
         
             <li>
                 <a data="constants" href="../grpc/index.html#constants">Constants</a>
@@ -381,10 +392,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -443,15 +450,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -851,9 +858,10 @@ outbound request/response accept-encoding/content-encoding option.</p>
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="CLIENT_ERROR"> <b>CLIENT_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}ClientError</li>
+                                <li id="CANCELLED_ERROR"> <b>CANCELLED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}CancelledError</li>
                                 <li>
-                                    <p>Generic errors (mostly to wrap errors from other modules)</p>
+                                    <p>Reference: https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</p>
+<p>Indicates the operation was canceled (typically by the caller).</p>
 
                                 </li>
                             </ul>
@@ -861,9 +869,150 @@ outbound request/response accept-encoding/content-encoding option.</p>
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="LISTENER_ERROR"> <b>LISTENER_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}ListenerError</li>
+                                <li id="UNKNOWN_ERROR"> <b>UNKNOWN_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}UnKnownError</li>
                                 <li>
-                                    
+                                    <p>Indicates unknown error.(e.g. Status value received is unknown)</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="INVALID_ARGUMENT_ERROR"> <b>INVALID_ARGUMENT_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}InvalidArgumentError</li>
+                                <li>
+                                    <p>Indicates client specified an invalid argument.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="DEADLINE_EXCEEDED_ERROR"> <b>DEADLINE_EXCEEDED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}DeadlineExceededError</li>
+                                <li>
+                                    <p>Indicates operation expired before completion.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="NOT_FOUND_ERROR"> <b>NOT_FOUND_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}NotFoundError</li>
+                                <li>
+                                    <p>Indicates some requested entity (e.g., file or directory) was not found.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="ALREADY_EXISTS_ERROR"> <b>ALREADY_EXISTS_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}AleadyExistsError</li>
+                                <li>
+                                    <p>Indicates the attempt to create an entity failed because one already exists.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="PERMISSION_DENIED_ERROR"> <b>PERMISSION_DENIED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}PermissionDeniedError</li>
+                                <li>
+                                    <p>Indicates the caller does not have permission to execute the specified operation.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="UNAUTHENTICATED_ERROR"> <b>UNAUTHENTICATED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}UnauthenticatedError</li>
+                                <li>
+                                    <p>Indicates the request does not have valid authentication credentials for the operation.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="RESOURCE_EXHAUSTED_ERROR"> <b>RESOURCE_EXHAUSTED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}ResourceExhaustedError</li>
+                                <li>
+                                    <p>Indicates some resource has been exhausted.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="FAILED_PRECONDITION_ERROR"> <b>FAILED_PRECONDITION_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}FailedPreconditionError</li>
+                                <li>
+                                    <p>Indicates operation was rejected because the system is not in a state required for the operation's execution.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="ABORTED_ERROR"> <b>ABORTED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}AbortedError</li>
+                                <li>
+                                    <p>Indicates the operation was aborted.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="OUT_OF_RANGE_ERROR"> <b>OUT_OF_RANGE_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}OutOfRangeError</li>
+                                <li>
+                                    <p>Indicates specified value is out of range.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="UNIMPLEMENTED_ERROR"> <b>UNIMPLEMENTED_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}UnimplementedError</li>
+                                <li>
+                                    <p>Indicates operation is not implemented or not supported/enabled in this service.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="INTERNAL_ERROR"> <b>INTERNAL_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}InternalError</li>
+                                <li>
+                                    <p>Indicates internal errors.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="UNAVAILABLE_ERROR"> <b>UNAVAILABLE_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}UnavailableError</li>
+                                <li>
+                                    <p>Indicates the service is currently unavailable.</p>
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="params-listing">
+                            <ul>
+                                <li id="DATA_LOSS_ERROR"> <b>DATA_LOSS_ERROR</b><span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a></span> {ballerina/grpc}DataLossError</li>
+                                <li>
+                                    <p>Indicates unrecoverable data loss or corruption.</p>
+
                                 </li>
                             </ul>
                         </div>

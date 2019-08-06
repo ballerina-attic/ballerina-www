@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
           <a href="index.html">
     <img class="logo" src="html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
       </div>
     </div>
@@ -54,7 +61,7 @@
                 <a href="index.html">
     <img class="logo" src="html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             </div>
         </div>
@@ -74,12 +81,6 @@
              
             <tbody>
              
-              <tr>
-                <td class="module-title modules"><a href="artemis/index.html">artemis</a></td>
-                <td class="module-desc"><p>This module provides the capability to connect with a ActiveMQ Artemis broker using the <a href="https://activemq.apache.org/artemis/docs/latest/core.html">Core API</a>.</p>
-</td>
-              </tr>
-              
               <tr>
                 <td class="module-title modules"><a href="auth/index.html">auth</a></td>
                 <td class="module-desc"><p>This module provides default authentication provider configurations that can be extended to create new authentication providers.</p>
@@ -159,20 +160,14 @@ or non-blocking manner.</p>
               
               <tr>
                 <td class="module-title modules"><a href="java/index.html">java</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides the API for Java interoperability in Ballerina. It includes a set of Ballerina annotations with which Java constructors, methods and fields can provide implementations to Ballerina functions with external function bodies.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="java.jdbc/index.html">java.jdbc</a></td>
                 <td class="module-desc"><p>This module provides the functionality required to access and manipulate data stored in any type of relational database
 that is accessible via Java Database Connectivity (JDBC).</p>
-</td>
-              </tr>
-              
-              <tr>
-                <td class="module-title modules"><a href="java.jms/index.html">java.jms</a></td>
-                <td class="module-desc"><p>The <code>ballerina/jms</code> module provides an API to connect to an external JMS provider like Ballerina Message Broker or
-ActiveMQ.</p>
 </td>
               </tr>
               
@@ -188,73 +183,92 @@ ActiveMQ.</p>
               </tr>
               
               <tr>
-                <td class="module-title modules"><a href="lang.array/index.html">lang.array</a></td>
+                <td class="module-title modules"><a href="kafka/index.html">kafka</a></td>
                 <td class="module-desc"></td>
+              </tr>
+              
+              <tr>
+                <td class="module-title modules"><a href="lang.array/index.html">lang.array</a></td>
+                <td class="module-desc"><p>This module provides lang library list operations defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.decimal/index.html">lang.decimal</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>decimal</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.error/index.html">lang.error</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>error</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.float/index.html">lang.float</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>float</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.future/index.html">lang.future</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>future</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.int/index.html">lang.int</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>int</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.map/index.html">lang.map</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library map operations defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.object/index.html">lang.object</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>object</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.stream/index.html">lang.stream</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>stream</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.string/index.html">lang.string</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library string operations defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.table/index.html">lang.table</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>table</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.typedesc/index.html">lang.typedesc</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>typedesc</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.value/index.html">lang.value</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations for all values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
                 <td class="module-title modules"><a href="lang.xml/index.html">lang.xml</a></td>
-                <td class="module-desc"></td>
+                <td class="module-desc"><p>This module provides lang library operations on <code>xml</code> values defined by the language specification 2019R2.</p>
+</td>
               </tr>
               
               <tr>
@@ -310,7 +324,7 @@ Ballerina supports Observability out of the box. This module provides user api's
               
               <tr>
                 <td class="module-title modules"><a href="rabbitmq/index.html">rabbitmq</a></td>
-                <td class="module-desc"><p>'ballerina/rabbitmq' provides the capability to connect with a RabbitMQ server and perform the following</p>
+                <td class="module-desc"><p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the most popular open-source enterprise messaging systems, modeled on the Advanced Message Queuing Protocol (AMQP) standard. This guide covers Ballerina RabbitMQ module and its public API. This module contains functionality to support messaging with RabbitMQ broker (AMQP 0-9-1).</p>
 </td>
               </tr>
               

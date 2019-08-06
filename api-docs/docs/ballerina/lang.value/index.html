@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../lang.value/index.html">
@@ -71,10 +78,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -133,15 +136,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -296,7 +299,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -324,10 +327,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -386,15 +385,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -558,7 +557,9 @@
     <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
 </a>
                     Module : <span class="modules">lang.value</span></h1>
-                    
+                    <h2>Module Overview</h2>
+<p>This module provides lang library operations for all values defined by the language specification 2019R2.</p>
+
 
             
 
@@ -619,22 +620,7 @@ Returns true if read-only, false otherwise.</p>
                         <tr>
                             <td class="module-title truncate functions" id="mergeJson"><a
                                     class="functions" href="functions.html#mergeJson">mergeJson</a></td>
-                            <td class="module-desc"><p>Return the result of merging json value <code>j1</code> with <code>j2</code>.
-If the merge fails, then return an error.
-The merge of j1 with j2 is defined as follows:</p>
-<ul>
-<li>if j1 is (), then the result is j2</li>
-<li>if j2 is nil, then the result is j1</li>
-<li>if j1 is a mapping and j2 is a mapping, then for each entry [k, j] in j2,
-set j1[k] to the merge of j1[k] with j
-<ul>
-<li>if j1[k] is undefined, then set j1[k] to j</li>
-<li>if any merge fails, then the merge of j1 with j2 fails</li>
-<li>otherwise, the result is j1.</li>
-</ul>
-</li>
-<li>otherwise, the merge fails</li>
-</ul>
+                            <td class="module-desc"><p>Return the result of merging json value <code>j1</code> with <code>j2</code>.</p>
 </td>
                         </tr>
                     
@@ -649,45 +635,6 @@ set j1[k] to the merge of j1[k] with j
                             <td class="module-title truncate functions" id="toString"><a
                                     class="functions" href="functions.html#toString">toString</a></td>
                             <td class="module-desc"><p>Returns a simple, human-readable representation of <code>value</code> as a string.</p>
-<ul>
-<li>if <code>value</code> is a string, then returns <code>value</code></li>
-<li>if <code>value</code> is <code>()</code>, then returns an empty string</li>
-<li>if <code>value</code> is boolean, then the string <code>true</code> or <code>false</code></li>
-<li>if <code>value</code> is an int, then return <code>value</code> represented as a decimal string</li>
-<li>if <code>value</code> is a float or decimal, then return <code>value</code> represented as a decimal string,
-with a decimal point only if necessary, but without any suffix indicating the type of <code>value</code>
-return <code>NaN</code>, <code>Infinity</code> for positive infinity, and <code>-Infinity</code> for negative infinity</li>
-<li>if <code>value</code> is a list, then returns the results toString on each member of the list
-separated by a space character</li>
-<li>if <code>value</code> is a map, then returns key=value for each member separated by a space character</li>
-<li>if <code>value</code> is xml, then returns <code>value</code> in XML format (as if it occurred within an XML element)</li>
-<li>if <code>value</code> is table, TBD</li>
-<li>if <code>value</code> is an error, then a string consisting of the following in order
-<ol>
-<li>the string <code>error</code></li>
-<li>a space character</li>
-<li>the reason string</li>
-<li>if the detail record is non-empty
-<ol>
-<li>a space character</li>
-<li>the result of calling toString on the detail record</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>if <code>value</code> is an object, then
-<ul>
-<li>if <code>value</code> provides a <code>toString</code> method with a string return type and no required methods,
-then the result of calling that method on <code>value</code></li>
-<li>otherwise, <code>object</code> followed by some implementation-dependent string</li>
-</ul>
-</li>
-<li>if <code>value</code> is any other behavioral type, then the identifier for the behavioral type
-(<code>function</code>, <code>future</code>, <code>service</code>, <code>typedesc</code> or <code>handle</code>)
-followed by some implementation-dependent string</li>
-</ul>
-<p>Note that <code>toString</code> may produce the same string for two Ballerina values
-that are not equal (in the sense of the <code>==</code> operator).</p>
 </td>
                         </tr>
                     

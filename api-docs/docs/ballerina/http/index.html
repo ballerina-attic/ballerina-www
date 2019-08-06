@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../http/index.html">
@@ -105,10 +112,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -165,15 +168,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -328,7 +331,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -390,10 +393,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -450,15 +449,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -1011,6 +1010,14 @@ service helloWorld on helloWorldEP {
                         </tr>
                     
                         <tr>
+                            <td class="module-title truncate records" id="ServiceHttp1Settings">
+                                <a class="records"
+                                   href="records/ServiceHttp1Settings.html">ServiceHttp1Settings</a></td>
+                            <td class="module-desc">Provides settings related to HTTP/1.x protocol.
+</td>
+                        </tr>
+                    
+                        <tr>
                             <td class="module-title truncate records" id="ServiceOcspStapling">
                                 <a class="records"
                                    href="records/ServiceOcspStapling.html">ServiceOcspStapling</a></td>
@@ -1152,17 +1159,6 @@ service helloWorld on helloWorldEP {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="Filter">
-                                <a class="objects"
-                                   href="objects/Filter.html">
-                                    Filter
-                                </a>
-                            </td>
-                            <td class="module-desc"><p>Representation of a HTTP Request Filter. This filter will be applied before the request is dispatched to the relevant resource. Any Filter implementation should be structurally similar to the Filter object.</p>
-</td>
-                        </tr>
-                    
-                        <tr>
                             <td class="module-title truncate objects" id="FilterContext">
                                 <a class="objects"
                                    href="objects/FilterContext.html">
@@ -1275,6 +1271,19 @@ This can be used as a reference to fetch the results of the submission.</p>
                         </tr>
                     
                         <tr>
+                            <td class="module-title truncate objects" id="RequestFilter">
+                                <a class="objects"
+                                   href="objects/RequestFilter.html">
+                                    RequestFilter
+                                </a>
+                            </td>
+                            <td class="module-desc"><p>Abstract Representation of a HTTP Request Filter.
+This filter will be applied before the request is dispatched to the relevant resource.
+Any RequestFilter implementation should be structurally similar to or implement the RequestFilter object.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
                             <td class="module-title truncate objects" id="Response">
                                 <a class="objects"
                                    href="objects/Response.html">
@@ -1293,6 +1302,19 @@ This can be used as a reference to fetch the results of the submission.</p>
                                 </a>
                             </td>
                             <td class="module-desc"><p>Configures cache control directives for a <code>Response</code>.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate objects" id="ResponseFilter">
+                                <a class="objects"
+                                   href="objects/ResponseFilter.html">
+                                    ResponseFilter
+                                </a>
+                            </td>
+                            <td class="module-desc"><p>Abstract Representation of a HTTP Response Filter.
+This filter will be applied in the response path.
+Any ResponseFilter implementation should be structurally similar to or implement the ResponseFilter object.</p>
 </td>
                         </tr>
                     
@@ -2245,295 +2267,295 @@ will trip and move to the <code>OPEN</code> state.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CONTINUE_100"><a
-                                    class="constant" href="constants.html#CONTINUE_100">CONTINUE_100</a></td>
+                            <td class="module-title truncate constant" id="STATUS_CONTINUE"><a
+                                    class="constant" href="constants.html#STATUS_CONTINUE">STATUS_CONTINUE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 100 Continue</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="SWITCHING_PROTOCOLS_101"><a
-                                    class="constant" href="constants.html#SWITCHING_PROTOCOLS_101">SWITCHING_PROTOCOLS_101</a></td>
+                            <td class="module-title truncate constant" id="STATUS_SWITCHING_PROTOCOLS"><a
+                                    class="constant" href="constants.html#STATUS_SWITCHING_PROTOCOLS">STATUS_SWITCHING_PROTOCOLS</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 101 Switching Protocols</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="OK_200"><a
-                                    class="constant" href="constants.html#OK_200">OK_200</a></td>
+                            <td class="module-title truncate constant" id="STATUS_OK"><a
+                                    class="constant" href="constants.html#STATUS_OK">STATUS_OK</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 200 OK</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CREATED_201"><a
-                                    class="constant" href="constants.html#CREATED_201">CREATED_201</a></td>
+                            <td class="module-title truncate constant" id="STATUS_CREATED"><a
+                                    class="constant" href="constants.html#STATUS_CREATED">STATUS_CREATED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 201 Created</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="ACCEPTED_202"><a
-                                    class="constant" href="constants.html#ACCEPTED_202">ACCEPTED_202</a></td>
+                            <td class="module-title truncate constant" id="STATUS_ACCEPTED"><a
+                                    class="constant" href="constants.html#STATUS_ACCEPTED">STATUS_ACCEPTED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 202 Accepted</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NON_AUTHORITATIVE_INFORMATION_203"><a
-                                    class="constant" href="constants.html#NON_AUTHORITATIVE_INFORMATION_203">NON_AUTHORITATIVE_INFORMATION_203</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NON_AUTHORITATIVE_INFORMATION"><a
+                                    class="constant" href="constants.html#STATUS_NON_AUTHORITATIVE_INFORMATION">STATUS_NON_AUTHORITATIVE_INFORMATION</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 203 Non Authoritative Information</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NO_CONTENT_204"><a
-                                    class="constant" href="constants.html#NO_CONTENT_204">NO_CONTENT_204</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NO_CONTENT"><a
+                                    class="constant" href="constants.html#STATUS_NO_CONTENT">STATUS_NO_CONTENT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 204 No Content</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="RESET_CONTENT_205"><a
-                                    class="constant" href="constants.html#RESET_CONTENT_205">RESET_CONTENT_205</a></td>
+                            <td class="module-title truncate constant" id="STATUS_RESET_CONTENT"><a
+                                    class="constant" href="constants.html#STATUS_RESET_CONTENT">STATUS_RESET_CONTENT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 205 Reset Content</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PARTIAL_CONTENT_206"><a
-                                    class="constant" href="constants.html#PARTIAL_CONTENT_206">PARTIAL_CONTENT_206</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PARTIAL_CONTENT"><a
+                                    class="constant" href="constants.html#STATUS_PARTIAL_CONTENT">STATUS_PARTIAL_CONTENT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 206 Partial Content</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="MULTIPLE_CHOICES_300"><a
-                                    class="constant" href="constants.html#MULTIPLE_CHOICES_300">MULTIPLE_CHOICES_300</a></td>
+                            <td class="module-title truncate constant" id="STATUS_MULTIPLE_CHOICES"><a
+                                    class="constant" href="constants.html#STATUS_MULTIPLE_CHOICES">STATUS_MULTIPLE_CHOICES</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 300 Multiple Choices</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="MOVED_PERMANENTLY_301"><a
-                                    class="constant" href="constants.html#MOVED_PERMANENTLY_301">MOVED_PERMANENTLY_301</a></td>
+                            <td class="module-title truncate constant" id="STATUS_MOVED_PERMANENTLY"><a
+                                    class="constant" href="constants.html#STATUS_MOVED_PERMANENTLY">STATUS_MOVED_PERMANENTLY</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 301 Moved Permanently</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FOUND_302"><a
-                                    class="constant" href="constants.html#FOUND_302">FOUND_302</a></td>
+                            <td class="module-title truncate constant" id="STATUS_FOUND"><a
+                                    class="constant" href="constants.html#STATUS_FOUND">STATUS_FOUND</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 302 Found</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="SEE_OTHER_303"><a
-                                    class="constant" href="constants.html#SEE_OTHER_303">SEE_OTHER_303</a></td>
+                            <td class="module-title truncate constant" id="STATUS_SEE_OTHER"><a
+                                    class="constant" href="constants.html#STATUS_SEE_OTHER">STATUS_SEE_OTHER</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 303 See Other</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NOT_MODIFIED_304"><a
-                                    class="constant" href="constants.html#NOT_MODIFIED_304">NOT_MODIFIED_304</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NOT_MODIFIED"><a
+                                    class="constant" href="constants.html#STATUS_NOT_MODIFIED">STATUS_NOT_MODIFIED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 304 Not Modified</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="USE_PROXY_305"><a
-                                    class="constant" href="constants.html#USE_PROXY_305">USE_PROXY_305</a></td>
+                            <td class="module-title truncate constant" id="STATUS_USE_PROXY"><a
+                                    class="constant" href="constants.html#STATUS_USE_PROXY">STATUS_USE_PROXY</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 305 Use Proxy</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TEMPORARY_REDIRECT_307"><a
-                                    class="constant" href="constants.html#TEMPORARY_REDIRECT_307">TEMPORARY_REDIRECT_307</a></td>
+                            <td class="module-title truncate constant" id="STATUS_TEMPORARY_REDIRECT"><a
+                                    class="constant" href="constants.html#STATUS_TEMPORARY_REDIRECT">STATUS_TEMPORARY_REDIRECT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 307 Temporary Redirect</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PERMANENT_REDIRECT_308"><a
-                                    class="constant" href="constants.html#PERMANENT_REDIRECT_308">PERMANENT_REDIRECT_308</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PERMANENT_REDIRECT"><a
+                                    class="constant" href="constants.html#STATUS_PERMANENT_REDIRECT">STATUS_PERMANENT_REDIRECT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 308 Permanent Redirect</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="BAD_REQUEST_400"><a
-                                    class="constant" href="constants.html#BAD_REQUEST_400">BAD_REQUEST_400</a></td>
+                            <td class="module-title truncate constant" id="STATUS_BAD_REQUEST"><a
+                                    class="constant" href="constants.html#STATUS_BAD_REQUEST">STATUS_BAD_REQUEST</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 400 Bad Request</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="UNAUTHORIZED_401"><a
-                                    class="constant" href="constants.html#UNAUTHORIZED_401">UNAUTHORIZED_401</a></td>
+                            <td class="module-title truncate constant" id="STATUS_UNAUTHORIZED"><a
+                                    class="constant" href="constants.html#STATUS_UNAUTHORIZED">STATUS_UNAUTHORIZED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 401 Unauthorized</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PAYMENT_REQUIRED_402"><a
-                                    class="constant" href="constants.html#PAYMENT_REQUIRED_402">PAYMENT_REQUIRED_402</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PAYMENT_REQUIRED"><a
+                                    class="constant" href="constants.html#STATUS_PAYMENT_REQUIRED">STATUS_PAYMENT_REQUIRED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 402 Payment Required</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FORBIDDEN_403"><a
-                                    class="constant" href="constants.html#FORBIDDEN_403">FORBIDDEN_403</a></td>
+                            <td class="module-title truncate constant" id="STATUS_FORBIDDEN"><a
+                                    class="constant" href="constants.html#STATUS_FORBIDDEN">STATUS_FORBIDDEN</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 403 Forbidden</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NOT_FOUND_404"><a
-                                    class="constant" href="constants.html#NOT_FOUND_404">NOT_FOUND_404</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NOT_FOUND"><a
+                                    class="constant" href="constants.html#STATUS_NOT_FOUND">STATUS_NOT_FOUND</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 404 Not Found</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="METHOD_NOT_ALLOWED_405"><a
-                                    class="constant" href="constants.html#METHOD_NOT_ALLOWED_405">METHOD_NOT_ALLOWED_405</a></td>
+                            <td class="module-title truncate constant" id="STATUS_METHOD_NOT_ALLOWED"><a
+                                    class="constant" href="constants.html#STATUS_METHOD_NOT_ALLOWED">STATUS_METHOD_NOT_ALLOWED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 405 Method Not Allowed</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NOT_ACCEPTABLE_406"><a
-                                    class="constant" href="constants.html#NOT_ACCEPTABLE_406">NOT_ACCEPTABLE_406</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NOT_ACCEPTABLE"><a
+                                    class="constant" href="constants.html#STATUS_NOT_ACCEPTABLE">STATUS_NOT_ACCEPTABLE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 406 Not Acceptable</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PROXY_AUTHENTICATION_REQUIRED_407"><a
-                                    class="constant" href="constants.html#PROXY_AUTHENTICATION_REQUIRED_407">PROXY_AUTHENTICATION_REQUIRED_407</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PROXY_AUTHENTICATION_REQUIRED"><a
+                                    class="constant" href="constants.html#STATUS_PROXY_AUTHENTICATION_REQUIRED">STATUS_PROXY_AUTHENTICATION_REQUIRED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 407 Proxy Authentication Required</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="REQUEST_TIMEOUT_408"><a
-                                    class="constant" href="constants.html#REQUEST_TIMEOUT_408">REQUEST_TIMEOUT_408</a></td>
+                            <td class="module-title truncate constant" id="STATUS_REQUEST_TIMEOUT"><a
+                                    class="constant" href="constants.html#STATUS_REQUEST_TIMEOUT">STATUS_REQUEST_TIMEOUT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 408 Request Timeout</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CONFLICT_409"><a
-                                    class="constant" href="constants.html#CONFLICT_409">CONFLICT_409</a></td>
+                            <td class="module-title truncate constant" id="STATUS_CONFLICT"><a
+                                    class="constant" href="constants.html#STATUS_CONFLICT">STATUS_CONFLICT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 409 Conflict</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="GONE_410"><a
-                                    class="constant" href="constants.html#GONE_410">GONE_410</a></td>
+                            <td class="module-title truncate constant" id="STATUS_GONE"><a
+                                    class="constant" href="constants.html#STATUS_GONE">STATUS_GONE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 410 Gone</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="LENGTH_REQUIRED_411"><a
-                                    class="constant" href="constants.html#LENGTH_REQUIRED_411">LENGTH_REQUIRED_411</a></td>
+                            <td class="module-title truncate constant" id="STATUS_LENGTH_REQUIRED"><a
+                                    class="constant" href="constants.html#STATUS_LENGTH_REQUIRED">STATUS_LENGTH_REQUIRED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 411 Length Required</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PRECONDITION_FAILED_412"><a
-                                    class="constant" href="constants.html#PRECONDITION_FAILED_412">PRECONDITION_FAILED_412</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PRECONDITION_FAILED"><a
+                                    class="constant" href="constants.html#STATUS_PRECONDITION_FAILED">STATUS_PRECONDITION_FAILED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 412 Precondition Failed</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PAYLOAD_TOO_LARGE_413"><a
-                                    class="constant" href="constants.html#PAYLOAD_TOO_LARGE_413">PAYLOAD_TOO_LARGE_413</a></td>
+                            <td class="module-title truncate constant" id="STATUS_PAYLOAD_TOO_LARGE"><a
+                                    class="constant" href="constants.html#STATUS_PAYLOAD_TOO_LARGE">STATUS_PAYLOAD_TOO_LARGE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 413 Payload Too Large</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="URI_TOO_LONG_414"><a
-                                    class="constant" href="constants.html#URI_TOO_LONG_414">URI_TOO_LONG_414</a></td>
+                            <td class="module-title truncate constant" id="STATUS_URI_TOO_LONG"><a
+                                    class="constant" href="constants.html#STATUS_URI_TOO_LONG">STATUS_URI_TOO_LONG</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 414 URI Too Long</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="UNSUPPORTED_MEDIA_TYPE"><a
-                                    class="constant" href="constants.html#UNSUPPORTED_MEDIA_TYPE">UNSUPPORTED_MEDIA_TYPE</a></td>
+                            <td class="module-title truncate constant" id="STATUS_UNSUPPORTED_MEDIA_TYPE"><a
+                                    class="constant" href="constants.html#STATUS_UNSUPPORTED_MEDIA_TYPE">STATUS_UNSUPPORTED_MEDIA_TYPE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 415 Unsupported Media Type</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="RANGE_NOT_SATISFIABLE_416"><a
-                                    class="constant" href="constants.html#RANGE_NOT_SATISFIABLE_416">RANGE_NOT_SATISFIABLE_416</a></td>
+                            <td class="module-title truncate constant" id="STATUS_RANGE_NOT_SATISFIABLE"><a
+                                    class="constant" href="constants.html#STATUS_RANGE_NOT_SATISFIABLE">STATUS_RANGE_NOT_SATISFIABLE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 416 Range Not Satisfiable</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="EXPECTATION_FAILED_417"><a
-                                    class="constant" href="constants.html#EXPECTATION_FAILED_417">EXPECTATION_FAILED_417</a></td>
+                            <td class="module-title truncate constant" id="STATUS_EXPECTATION_FAILED"><a
+                                    class="constant" href="constants.html#STATUS_EXPECTATION_FAILED">STATUS_EXPECTATION_FAILED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 417 Expectation Failed</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="UPGRADE_REQUIRED_426"><a
-                                    class="constant" href="constants.html#UPGRADE_REQUIRED_426">UPGRADE_REQUIRED_426</a></td>
+                            <td class="module-title truncate constant" id="STATUS_UPGRADE_REQUIRED"><a
+                                    class="constant" href="constants.html#STATUS_UPGRADE_REQUIRED">STATUS_UPGRADE_REQUIRED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 426 Upgrade Required</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="INTERNAL_SERVER_ERROR_500"><a
-                                    class="constant" href="constants.html#INTERNAL_SERVER_ERROR_500">INTERNAL_SERVER_ERROR_500</a></td>
+                            <td class="module-title truncate constant" id="STATUS_INTERNAL_SERVER_ERROR"><a
+                                    class="constant" href="constants.html#STATUS_INTERNAL_SERVER_ERROR">STATUS_INTERNAL_SERVER_ERROR</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 500 Internal Server Error</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="NOT_IMPLEMENTED_501"><a
-                                    class="constant" href="constants.html#NOT_IMPLEMENTED_501">NOT_IMPLEMENTED_501</a></td>
+                            <td class="module-title truncate constant" id="STATUS_NOT_IMPLEMENTED"><a
+                                    class="constant" href="constants.html#STATUS_NOT_IMPLEMENTED">STATUS_NOT_IMPLEMENTED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 501 Not Implemented</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="BAD_GATEWAY_502"><a
-                                    class="constant" href="constants.html#BAD_GATEWAY_502">BAD_GATEWAY_502</a></td>
+                            <td class="module-title truncate constant" id="STATUS_BAD_GATEWAY"><a
+                                    class="constant" href="constants.html#STATUS_BAD_GATEWAY">STATUS_BAD_GATEWAY</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 502 Bad Gateway</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="SERVICE_UNAVAILABLE_503"><a
-                                    class="constant" href="constants.html#SERVICE_UNAVAILABLE_503">SERVICE_UNAVAILABLE_503</a></td>
+                            <td class="module-title truncate constant" id="STATUS_SERVICE_UNAVAILABLE"><a
+                                    class="constant" href="constants.html#STATUS_SERVICE_UNAVAILABLE">STATUS_SERVICE_UNAVAILABLE</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 503 Service Unavailable</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="GATEWAY_TIMEOUT_504"><a
-                                    class="constant" href="constants.html#GATEWAY_TIMEOUT_504">GATEWAY_TIMEOUT_504</a></td>
+                            <td class="module-title truncate constant" id="STATUS_GATEWAY_TIMEOUT"><a
+                                    class="constant" href="constants.html#STATUS_GATEWAY_TIMEOUT">STATUS_GATEWAY_TIMEOUT</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 504 Gateway Timeout</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="HTTP_VERSION_NOT_SUPPORTED_505"><a
-                                    class="constant" href="constants.html#HTTP_VERSION_NOT_SUPPORTED_505">HTTP_VERSION_NOT_SUPPORTED_505</a></td>
+                            <td class="module-title truncate constant" id="STATUS_HTTP_VERSION_NOT_SUPPORTED"><a
+                                    class="constant" href="constants.html#STATUS_HTTP_VERSION_NOT_SUPPORTED">STATUS_HTTP_VERSION_NOT_SUPPORTED</a></td>
                             <td class="module-desc"><p>The HTTP response status code: 505 HTTP Version Not Supported</p>
 </td>
                         </tr>

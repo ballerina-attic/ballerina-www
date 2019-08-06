@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -208,10 +215,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -268,15 +271,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -431,7 +434,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -595,10 +598,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -655,15 +654,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -833,7 +832,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#abs">abs</a></td>
-                                <td width="70%"><p>IEEE abs operation</p>
+                                <td width="70%"><p>IEEE abs operation.</p>
 </td>
                             </tr>
                         </tbody>
@@ -873,7 +872,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#cbrt">cbrt</a></td>
-                                <td width="70%"><p>Cube root
+                                <td width="70%"><p>Cube root.
 IEEE rootn(x, 3)</p>
 </td>
                             </tr>
@@ -964,8 +963,6 @@ This is the inverse of <code>value:toString</code> applied to an <code>float</co
                             <tr>
                                 <td width="30%" ><a class="functions" href="#isFinite">isFinite</a></td>
                                 <td width="70%"><p>Tests whether a float is finite.
-x - the float to be tested
-return - true if <code>x</code> is finite, i.e. neither NaN nor +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </td>
                             </tr>
@@ -975,8 +972,6 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                             <tr>
                                 <td width="30%" ><a class="functions" href="#isInfinite">isInfinite</a></td>
                                 <td width="70%"><p>Tests whether a float is infinite.
-x - the float to be tested
-return - true if <code>x</code> is either +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </td>
                             </tr>
@@ -986,9 +981,7 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                             <tr>
                                 <td width="30%" ><a class="functions" href="#isNaN">isNaN</a></td>
                                 <td width="70%"><p>Tests whether a float is NaN.
-x - the float to be tested
-return - true if <code>x</code> is NaN
-Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
+Exactly one of isFinite, isInfinite and IsNaN will be true for any float value.</p>
 </td>
                             </tr>
                         </tbody>
@@ -996,7 +989,7 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#log">log</a></td>
-                                <td width="70%"><p>Natural logarithm
+                                <td width="70%"><p>Natural logarithm.
 IEEE log operation</p>
 </td>
                             </tr>
@@ -1005,7 +998,7 @@ IEEE log operation</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#log10">log10</a></td>
-                                <td width="70%"><p>Base 10 log
+                                <td width="70%"><p>Base 10 log.
 IEEE log10 operation</p>
 </td>
                             </tr>
@@ -1014,8 +1007,8 @@ IEEE log10 operation</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#max">max</a></td>
-                                <td width="70%"><p>Maximum of all the arguments
--∞ if no args
+                                <td width="70%"><p>Maximum of all the arguments.
+(positive)∞ if no args
 NaN if any arg is NaN</p>
 </td>
                             </tr>
@@ -1024,7 +1017,8 @@ NaN if any arg is NaN</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#min">min</a></td>
-                                <td width="70%"><p>Minimum of all the arguments. +∞ if no args
+                                <td width="70%"><p>Minimum of all the arguments.
+∞ if no args
 NaN if any arg is NaN</p>
 </td>
                             </tr>
@@ -1033,7 +1027,7 @@ NaN if any arg is NaN</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#pow">pow</a></td>
-                                <td width="70%"><p><code>x</code> to the power of <code>y</code>
+                                <td width="70%"><p><code>x</code> to the power of <code>y</code>.
 IEEE pow(x, y)</p>
 </td>
                             </tr>
@@ -1044,12 +1038,10 @@ IEEE pow(x, y)</p>
                                 <td width="30%" ><a class="functions" href="#round">round</a></td>
                                 <td width="70%"><p>Floating point value that is a mathematical integer and closest to <code>x</code>.
 If there are two such integers, choose the one that is even
-(this is the round-to-nearest rounding mode, which is the default for IEEE
-and for Ballerina).
+(this is the round-to-nearest rounding mode, which is the default for IEEE and for Ballerina).
 Same as Java Math.rint method
-Same as .NET Math.round method
+Same as .NET Math.Round method
 IEEE roundToIntegralTiesToEven operation
-XXX different from Java round which returns a long, and rounds ties to +∞
 Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</code></p>
 </td>
                             </tr>
@@ -1074,7 +1066,7 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#sqrt">sqrt</a></td>
-                                <td width="70%"><p>IEEE squareRoot operation</p>
+                                <td width="70%"><p>IEEE squareRoot operation.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1082,7 +1074,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#sum">sum</a></td>
-                                <td width="70%"><p>Sum of all the arguments. +0.0 if no args
+                                <td width="70%"><p>Sum of all the arguments.
+(positive)0.0 if no args
 NaN if any arg is NaN</p>
 </td>
                             </tr>
@@ -1147,7 +1140,7 @@ The representation includes <code>0x</code> for finite numbers.</li>
         </span>
         
     </div>
-    <p><p>IEEE abs operation</p>
+    <p><p>IEEE abs operation.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1157,7 +1150,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>whose absolute value is to be determined</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1170,7 +1164,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>absolute value of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1200,7 +1195,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a cos value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1213,7 +1209,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the arc cosine of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1243,7 +1240,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a sin value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1256,7 +1254,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the arc sin of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1286,7 +1285,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a tan value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1299,7 +1299,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the arc tan of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1329,7 +1330,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> y<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the ordinate coordinate</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1338,7 +1340,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the abscissa coordinate</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1351,7 +1354,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the angle component in polar coordinate</p>
+</li>
             </ul>
         </div>
         
@@ -1371,7 +1375,7 @@ The representation includes <code>0x</code> for finite numbers.</li>
         </span>
         
     </div>
-    <p><p>Cube root
+    <p><p>Cube root.
 IEEE rootn(x, 3)</p>
 </p>
      
@@ -1382,7 +1386,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>value to performe cube root operation on</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1395,7 +1400,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>cube root of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1425,7 +1431,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>value to performe ceiling on</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1438,7 +1445,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>integer ceiling value of the argument in float</p>
+</li>
             </ul>
         </div>
         
@@ -1468,7 +1476,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>an angle, in radians</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1481,7 +1490,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the cos of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -1511,7 +1521,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the number to take cosh</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1524,7 +1535,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>hyperbolic cos of x</p>
+</li>
             </ul>
         </div>
         
@@ -1554,7 +1566,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>exponent</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1567,7 +1580,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>Euler's number raised to the power <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -1597,7 +1611,8 @@ IEEE rootn(x, 3)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>whose value to be floored</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1610,7 +1625,8 @@ IEEE rootn(x, 3)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>floored value</p>
+</li>
             </ul>
         </div>
         
@@ -1641,7 +1657,8 @@ All bit patterns that IEEE defines to be NaNs will all be mapped to the single f
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>int value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1654,7 +1671,8 @@ All bit patterns that IEEE defines to be NaNs will all be mapped to the single f
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p><code>x</code> bit pattern as a float</p>
+</li>
             </ul>
         </div>
         
@@ -1691,7 +1709,8 @@ with the following modifications</p>
                 <ul>
                     <li> s<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>hexadecimal floating point hex string representation</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1704,7 +1723,8 @@ with the following modifications</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a> | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
-                <li></li>
+                <li><p>float value or error</p>
+</li>
             </ul>
         </div>
         
@@ -1743,7 +1763,8 @@ This is the inverse of <code>value:toString</code> applied to an <code>float</co
                 <ul>
                     <li> s<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>string representation of a float</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1756,7 +1777,8 @@ This is the inverse of <code>value:toString</code> applied to an <code>float</co
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a> | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
-                <li></li>
+                <li><p>float value or error</p>
+</li>
             </ul>
         </div>
         
@@ -1777,8 +1799,6 @@ This is the inverse of <code>value:toString</code> applied to an <code>float</co
         
     </div>
     <p><p>Tests whether a float is finite.
-x - the float to be tested
-return - true if <code>x</code> is finite, i.e. neither NaN nor +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </p>
      
@@ -1789,7 +1809,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the float to be tested</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1802,7 +1823,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is finite, i.e. neither NaN nor +∞ nor -∞</p>
+</li>
             </ul>
         </div>
         
@@ -1823,8 +1845,6 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         
     </div>
     <p><p>Tests whether a float is infinite.
-x - the float to be tested
-return - true if <code>x</code> is either +∞ nor -∞
 Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
 </p>
      
@@ -1835,7 +1855,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the float to be tested</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1848,7 +1869,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is either +∞ nor -∞</p>
+</li>
             </ul>
         </div>
         
@@ -1869,9 +1891,7 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         
     </div>
     <p><p>Tests whether a float is NaN.
-x - the float to be tested
-return - true if <code>x</code> is NaN
-Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</p>
+Exactly one of isFinite, isInfinite and IsNaN will be true for any float value.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1881,7 +1901,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the float to be tested</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1894,7 +1915,8 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is NaN</p>
+</li>
             </ul>
         </div>
         
@@ -1914,7 +1936,7 @@ Exactly one of isFinite, isInfinite and IsNaN will be true for any float value</
         </span>
         
     </div>
-    <p><p>Natural logarithm
+    <p><p>Natural logarithm.
 IEEE log operation</p>
 </p>
      
@@ -1925,7 +1947,8 @@ IEEE log operation</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>value to take log</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1938,7 +1961,8 @@ IEEE log operation</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>natural logarithm of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -1958,7 +1982,7 @@ IEEE log operation</p>
         </span>
         
     </div>
-    <p><p>Base 10 log
+    <p><p>Base 10 log.
 IEEE log10 operation</p>
 </p>
      
@@ -1969,7 +1993,8 @@ IEEE log10 operation</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>value to take log</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1982,7 +2007,8 @@ IEEE log10 operation</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>base 10 logarithm of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -2002,8 +2028,8 @@ IEEE log10 operation</p>
         </span>
         
     </div>
-    <p><p>Maximum of all the arguments
--∞ if no args
+    <p><p>Maximum of all the arguments.
+(positive)∞ if no args
 NaN if any arg is NaN</p>
 </p>
      
@@ -2014,7 +2040,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> xs<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>parameters to check for max value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2027,7 +2054,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>maximum value of all provided values</p>
+</li>
             </ul>
         </div>
         
@@ -2047,7 +2075,8 @@ NaN if any arg is NaN</p>
         </span>
         
     </div>
-    <p><p>Minimum of all the arguments. +∞ if no args
+    <p><p>Minimum of all the arguments.
+∞ if no args
 NaN if any arg is NaN</p>
 </p>
      
@@ -2058,7 +2087,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> xs<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>parameters to check for min value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2071,7 +2101,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>minimum value of all provided values</p>
+</li>
             </ul>
         </div>
         
@@ -2091,7 +2122,7 @@ NaN if any arg is NaN</p>
         </span>
         
     </div>
-    <p><p><code>x</code> to the power of <code>y</code>
+    <p><p><code>x</code> to the power of <code>y</code>.
 IEEE pow(x, y)</p>
 </p>
      
@@ -2102,7 +2133,8 @@ IEEE pow(x, y)</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>base value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2111,7 +2143,8 @@ IEEE pow(x, y)</p>
                 <ul>
                     <li> y<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the exponent</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2124,7 +2157,8 @@ IEEE pow(x, y)</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p><code>x</code> raise to the power of <code>y</code></p>
+</li>
             </ul>
         </div>
         
@@ -2146,12 +2180,10 @@ IEEE pow(x, y)</p>
     </div>
     <p><p>Floating point value that is a mathematical integer and closest to <code>x</code>.
 If there are two such integers, choose the one that is even
-(this is the round-to-nearest rounding mode, which is the default for IEEE
-and for Ballerina).
+(this is the round-to-nearest rounding mode, which is the default for IEEE and for Ballerina).
 Same as Java Math.rint method
-Same as .NET Math.round method
+Same as .NET Math.Round method
 IEEE roundToIntegralTiesToEven operation
-XXX different from Java round which returns a long, and rounds ties to +∞
 Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</code></p>
 </p>
      
@@ -2162,7 +2194,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>whose value to be rounded</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2175,7 +2208,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>rounded value</p>
+</li>
             </ul>
         </div>
         
@@ -2205,7 +2239,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>an angle, in radians</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2218,7 +2253,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the sin of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -2248,7 +2284,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the number to take sinh</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2261,7 +2298,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>hyperbolic sin of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -2281,7 +2319,7 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         </span>
         
     </div>
-    <p><p>IEEE squareRoot operation</p>
+    <p><p>IEEE squareRoot operation.</p>
 </p>
      
         <div class="data-wrapper">
@@ -2291,7 +2329,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>value to performe squareRoot operation on</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2304,7 +2343,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>squareRoot of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -2324,7 +2364,8 @@ Note that <code>&lt;int&gt;x</code> is the same as <code>&lt;int&gt;x.round()</c
         </span>
         
     </div>
-    <p><p>Sum of all the arguments. +0.0 if no args
+    <p><p>Sum of all the arguments.
+(positive)0.0 if no args
 NaN if any arg is NaN</p>
 </p>
      
@@ -2335,7 +2376,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> xs<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>float numbers to sum</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2348,7 +2390,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>sum of the parameters</p>
+</li>
             </ul>
         </div>
         
@@ -2378,7 +2421,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>an angle, in radians</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2391,7 +2435,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>the tan of the argument</p>
+</li>
             </ul>
         </div>
         
@@ -2421,7 +2466,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the number to take tanh</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2434,7 +2480,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/float.html">float</a></span>)</li>
-                <li></li>
+                <li><p>hyperbolic tangent of x</p>
+</li>
             </ul>
         </div>
         
@@ -2464,7 +2511,8 @@ NaN if any arg is NaN</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>float value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2477,7 +2525,8 @@ NaN if any arg is NaN</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
-                <li></li>
+                <li><p><code>x</code> bit pattern as an int</p>
+</li>
             </ul>
         </div>
         
@@ -2516,7 +2565,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/float.html">float</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>float value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2529,7 +2579,8 @@ The representation includes <code>0x</code> for finite numbers.</li>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>hexadecimal floating point hex string representation</p>
+</li>
             </ul>
         </div>
         

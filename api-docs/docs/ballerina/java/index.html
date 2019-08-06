@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../java/index.html">
@@ -79,10 +86,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -141,15 +144,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -304,7 +307,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -340,10 +343,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -402,15 +401,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -574,7 +573,9 @@
     <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
 </a>
                     Module : <span class="modules">java</span></h1>
-                    
+                    <h2>Module overview</h2>
+<p>This module provides the API for Java interoperability in Ballerina. It includes a set of Ballerina annotations with which Java constructors, methods and fields can provide implementations to Ballerina functions with external function bodies.</p>
+
 
             
 
@@ -588,24 +589,38 @@
                 <table>
                     
                         <tr>
+                            <td class="module-title truncate records" id="ArrayType">
+                                <a class="records"
+                                   href="records/ArrayType.html">ArrayType</a></td>
+                            <td class="module-desc">ArrayType represents a Java array type. It is used to specify parameter
+types in `Constructor` and `Method` annotations.
+</td>
+                        </tr>
+                    
+                        <tr>
                             <td class="module-title truncate records" id="ConstructorData">
                                 <a class="records"
                                    href="records/ConstructorData.html">ConstructorData</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc">The `ConstructorData` type describes a Java constructor. If the `paramTypes` field is not specified,
+then parameter types are inferred from the corresponding Ballerina function.
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate records" id="FieldData">
                                 <a class="records"
                                    href="records/FieldData.html">FieldData</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc">The `FieldData` type describes a Java field.
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate records" id="MethodData">
                                 <a class="records"
                                    href="records/MethodData.html">MethodData</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc">The `MethodData` type describes a Java method. If the `paramTypes` field is not specified,
+then parameter types are inferred from the corresponding Ballerina function.
+</td>
                         </tr>
                     
                 </table>
@@ -630,9 +645,56 @@
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="toJString"><a
-                                    class="functions" href="functions.html#toJString">toJString</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-title truncate functions" id="createNull"><a
+                                    class="functions" href="functions.html#createNull">createNull</a></td>
+                            <td class="module-desc"><p>Returns a <code>handle</code> that refers to Java null.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="fromString"><a
+                                    class="functions" href="functions.html#fromString">fromString</a></td>
+                            <td class="module-desc"><p>Returns a <code>handle</code> that refers to the Java string representation of the Ballerina <code>string</code>.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="getArrayElement"><a
+                                    class="functions" href="functions.html#getArrayElement">getArrayElement</a></td>
+                            <td class="module-desc"><p>Returns a <code>handle</code> that refers to the element at the specified index in the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="getArrayLength"><a
+                                    class="functions" href="functions.html#getArrayLength">getArrayLength</a></td>
+                            <td class="module-desc"><p>Returns the length of the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="isNull"><a
+                                    class="functions" href="functions.html#isNull">isNull</a></td>
+                            <td class="module-desc"><p>Returns <code>true</code> if this handle refers to Java null.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="setArrayElement"><a
+                                    class="functions" href="functions.html#setArrayElement">setArrayElement</a></td>
+                            <td class="module-desc"><p>Replaces the element at the specified index in the given Java array with the specified element.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="toString"><a
+                                    class="functions" href="functions.html#toString">toString</a></td>
+                            <td class="module-desc"><p>Returns a Ballerina <code>string</code> representation of the Java object referred by the <code>handle</code>.</p>
+<p>If the <code>handle</code> refers to Java null, then this function returns a <code>nil</code> value.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -656,25 +718,50 @@
                         <tr>
                             <td class="module-title truncate annotations" id="Constructor"><a
                                     class="annotations" href="annotations.html#Constructor">Constructor</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>The <code>Constructor</code> annotation describes a Java constructor that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>. If the Ballerina function body is marked as <code>external</code>, it means that the
+implementation of the function is not provided in the Ballerina source module.</p>
+<p>The following code snippet shows an example usage of this annotation. Here, the <code>newJavaLinkedList</code> Ballerina function's
+implementation is provided by the default constructor of the <code>java.util.UUID.LinkedList</code> class.</p>
+<p>import ballerina/java;</p>
+<p>function newJavaLinkedList() returns handle = @java:Constructor {
+class: &quot;java.util.LinkedList&quot;
+} external;</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate annotations" id="FieldGet"><a
                                     class="annotations" href="annotations.html#FieldGet">FieldGet</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>The <code>FieldGet</code> annotation describes a Java Field access that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate annotations" id="FieldSet"><a
                                     class="annotations" href="annotations.html#FieldSet">FieldSet</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>The <code>FieldSet</code> annotation describes a Java Field mutate that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate annotations" id="Method"><a
                                     class="annotations" href="annotations.html#Method">Method</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>The <code>Method</code> annotation describes a Java method that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>. If the Ballerina function body is marked as <code>external</code>, it means that the
+implementation of the function is not provided in the Ballerina source module.</p>
+<p>The following code snippet shows an example usage of this annotation. Here, the <code>getUUID</code> Ballerina function's
+implementation is provided by the <code>java.util.UUID.randomUUID</code> static method.</p>
+<p>import ballerina/java;</p>
+<p>function getUUID() returns handle = @java:Method {
+name: &quot;randomUUID&quot;,
+class: &quot;java.util.UUID&quot;
+} external;</p>
+<p>The <code>name</code> field is optional. If it is not provided, the name of the Java method is inferred
+from the Ballerina function.</p>
+</td>
                         </tr>
                     
                 </table>

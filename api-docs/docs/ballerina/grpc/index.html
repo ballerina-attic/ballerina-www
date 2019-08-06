@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../grpc/index.html">
@@ -71,6 +78,10 @@
                 <a data="listeners" href="../grpc/index.html#listeners">Listeners</a>
             </li>
         
+        
+            <li>
+                <a data="functions" href="../grpc/index.html#functions">Functions</a>
+            </li>
         
         
             <li>
@@ -99,10 +110,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -161,15 +168,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -324,7 +331,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -353,6 +360,10 @@
             </li>
         
         
+            <li>
+                <a data="functions" href="../grpc/index.html#functions">Functions</a>
+            </li>
+        
         
             <li>
                 <a data="constants" href="../grpc/index.html#constants">Constants</a>
@@ -380,10 +391,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -442,15 +449,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -661,10 +668,10 @@ service SamplegRPCService on ep {
        // Print the received message.
        io:println(&quot;Received message from : &quot; + name);
        // Send the response to the client.
-       error? err = caller-&gt;send(&quot;Hi &quot; + name + &quot;! Greetings from gRPC service!&quot;);
+       grpc:Error? err = caller-&gt;send(&quot;Hi &quot; + name + &quot;! Greetings from gRPC service!&quot;);
 
        // After sending the response, call ‘complete()’ to indicate that the response was completely sent.
-       error? result = caller-&gt;complete();
+       grpc:Error? result = caller-&gt;complete();
    }
 }
 </code></pre>
@@ -677,15 +684,17 @@ grpc:Headers headers = new;
 headers.setEntry(&quot;id&quot;, &quot;newrequest1&quot;);
 
 // Call the method in the service using a client stub.
-var responseFromServer = SamplegRPCServiceBlockingEp-&gt;receiveMessage(&quot;Ballerina&quot;, headers = headers);
-if (responseFromServer is (string, grpc:Headers)) {
+var responseFromServer = SamplegRPCServiceBlockingEp-&gt;receiveMessage(&quot;Ballerina&quot;, headers);
+if (responseFromServer is [string, grpc:Headers]) {
     // If a response is received, print the payload.
-    (string, grpc:Headers) (result, resHeaders) = responseFromServer;
+    string result;
+    grpc:Headers resHeaders;
+    [result, resHeaders] = responseFromServer;
     io:println(&quot;Response received : &quot; + result);
 } else {
     // If an error is returned, print the error message.
     io:println(&quot;Error while connecting grpc end-point : &quot; + responseFromServer.reason() + &quot; - &quot;
-                                                          + &lt;string&gt;responseFromServer.detail().message);
+                                                          + &lt;string&gt;responseFromServer.detail()[&quot;message&quot;]);
 }
 </code></pre>
 <h3>Server Streaming</h3>
@@ -701,18 +710,18 @@ service ServerStreaming on ep {
        string[] greets = [&quot;Hi&quot;, &quot;Welcome&quot;];
        io:println(&quot;HelloWorld&quot;);
        // Send multiple responses to the client.
-       foreach var greet in greets {
-           error? err = caller-&gt;send(greet + &quot; &quot; + name + &quot;! Greetings from Ballerina service&quot;);
+       foreach string greet in greets {
+           grpc:Error? err = caller-&gt;send(greet + &quot; &quot; + name + &quot;! Greetings from Ballerina service&quot;);
            // If an error is returned, print the error message. print response message otherwise.
-           if (err is error) {
+           if (err is grpc:Error) {
                io:println(&quot;Error from Connector: &quot; + err.reason() + &quot; - &quot;
-                                                   + &lt;string&gt;err.detail().message);
+                                                   + &lt;string&gt;err.detail()[&quot;message&quot;]);
            } else {
                io:println(&quot;send reply: &quot; + msg);
            }
        }
        // Once the messages are sent to the server, call ‘complete()’ to indicate that the request was completely sent.
-       error? result = caller-&gt;complete();
+       grpc:Error? result = caller-&gt;complete();
    }
 }
 </code></pre>
@@ -724,11 +733,11 @@ public function main(string... args) {
     ServerStreamingClient serverStreamingEp = new(&quot;http://localhost:9090&quot;);
 
     // Execute the service streaming call by registering a message listener.
-    error? result = serverStreamingEp-&gt;receiveMessage(&quot;test&quot;, ServerStreamingMessageListener);
-    if (result is error) {
+    grpc:Error? result = serverStreamingEp-&gt;receiveMessage(&quot;test&quot;, ServerStreamingMessageListener);
+    if (result is grpc:Error) {
         // If the service returns an error, print the error.
         io:println(&quot;Error occurred while sending event &quot; + result.reason() + &quot; - &quot;
-                                                        + &lt;string&gt;result.detail().message);
+                                                        + &lt;string&gt;result.detail()[&quot;message&quot;]);
     } else {
         io:println(&quot;Connected successfully to service&quot;);
     }
@@ -747,7 +756,7 @@ service ServerStreamingMessageListener = service {
    // This resource method is invoked if an error is returned.
    resource function onError(error err) {
         io:println(&quot;Error from Connector: &quot; + err.reason() + &quot; - &quot;
-                                            + &lt;string&gt;err.detail().message);
+                                            + &lt;string&gt;err.detail()[&quot;message&quot;]);
    }
 
    // Invoke this resource when the server sends all the responses to the request.
@@ -799,9 +808,9 @@ grpc:StreamingClient ep;
 
 // Call the relevant service.
 var res = chatEp-&gt;chat(ChatMessageListener);
-if (res is error) {
+if (res is grpc:Error) {
     io:println(&quot;Error from Connector: &quot; + res.reason() + &quot; - &quot;
-                                        + &lt;string&gt;res.detail().message);
+                                        + &lt;string&gt;res.detail()[&quot;message&quot;]);
     return;
 } else {
     io:println(&quot;Initialized connection sucessfully.&quot;);
@@ -809,10 +818,10 @@ if (res is error) {
 }
 
 // Send multiple messages to the service.
-error? connErr = ep-&gt;send(“Hello”);
+grpc:Error? connErr = ep-&gt;send(“Hello”);
 
 // After sending the message, call ‘complete()’ to indicate that the request was completely sent. 
-error? result = ep-&gt;complete();
+grpc:Error? result = ep-&gt;complete();
 
 </code></pre>
 
@@ -971,6 +980,17 @@ error? result = ep-&gt;complete();
                 <table>
                     
                         <tr>
+                            <td class="module-title truncate objects" id="AbstractClientEndpoint">
+                                <a class="objects"
+                                   href="objects/AbstractClientEndpoint.html">
+                                    AbstractClientEndpoint
+                                </a>
+                            </td>
+                            <td class="module-desc"><p>Represents gRPC client endpoint generated by the protobuf tool.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
                             <td class="module-title truncate objects" id="Headers">
                                 <a class="objects"
                                    href="objects/Headers.html">
@@ -1048,6 +1068,25 @@ service through this listener.</p>
             
            
 
+            
+            <section class="method-content" id="functions">
+                <div class="main-method-title here">
+                    <a class="url-link" href="#functions">
+                        <img class="url-link-img" src="../html-template-resources/images/link.svg">
+                    </a>
+                    <h2> Functions </h2>
+                </div>
+                <table>
+                    
+                        <tr>
+                            <td class="module-title truncate functions" id="prepareError"><a
+                                    class="functions" href="functions.html#prepareError">prepareError</a></td>
+                            <td class="module-desc"><p>Prepare the <code>error</code> as a <code>Error</code>.</p>
+</td>
+                        </tr>
+                    
+                </table>
+            </section>
             
 
 
@@ -1224,16 +1263,116 @@ outbound request/response accept-encoding/content-encoding option.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CLIENT_ERROR"><a
-                                    class="constant" href="constants.html#CLIENT_ERROR">CLIENT_ERROR</a></td>
-                            <td class="module-desc"><p>Generic errors (mostly to wrap errors from other modules)</p>
+                            <td class="module-title truncate constant" id="CANCELLED_ERROR"><a
+                                    class="constant" href="constants.html#CANCELLED_ERROR">CANCELLED_ERROR</a></td>
+                            <td class="module-desc"><p>Reference: https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</p>
+<p>Indicates the operation was canceled (typically by the caller).</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="LISTENER_ERROR"><a
-                                    class="constant" href="constants.html#LISTENER_ERROR">LISTENER_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-title truncate constant" id="UNKNOWN_ERROR"><a
+                                    class="constant" href="constants.html#UNKNOWN_ERROR">UNKNOWN_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates unknown error.(e.g. Status value received is unknown)</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="INVALID_ARGUMENT_ERROR"><a
+                                    class="constant" href="constants.html#INVALID_ARGUMENT_ERROR">INVALID_ARGUMENT_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates client specified an invalid argument.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="DEADLINE_EXCEEDED_ERROR"><a
+                                    class="constant" href="constants.html#DEADLINE_EXCEEDED_ERROR">DEADLINE_EXCEEDED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates operation expired before completion.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="NOT_FOUND_ERROR"><a
+                                    class="constant" href="constants.html#NOT_FOUND_ERROR">NOT_FOUND_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates some requested entity (e.g., file or directory) was not found.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="ALREADY_EXISTS_ERROR"><a
+                                    class="constant" href="constants.html#ALREADY_EXISTS_ERROR">ALREADY_EXISTS_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates the attempt to create an entity failed because one already exists.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="PERMISSION_DENIED_ERROR"><a
+                                    class="constant" href="constants.html#PERMISSION_DENIED_ERROR">PERMISSION_DENIED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates the caller does not have permission to execute the specified operation.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="UNAUTHENTICATED_ERROR"><a
+                                    class="constant" href="constants.html#UNAUTHENTICATED_ERROR">UNAUTHENTICATED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates the request does not have valid authentication credentials for the operation.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="RESOURCE_EXHAUSTED_ERROR"><a
+                                    class="constant" href="constants.html#RESOURCE_EXHAUSTED_ERROR">RESOURCE_EXHAUSTED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates some resource has been exhausted.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="FAILED_PRECONDITION_ERROR"><a
+                                    class="constant" href="constants.html#FAILED_PRECONDITION_ERROR">FAILED_PRECONDITION_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates operation was rejected because the system is not in a state required for the operation's execution.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="ABORTED_ERROR"><a
+                                    class="constant" href="constants.html#ABORTED_ERROR">ABORTED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates the operation was aborted.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="OUT_OF_RANGE_ERROR"><a
+                                    class="constant" href="constants.html#OUT_OF_RANGE_ERROR">OUT_OF_RANGE_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates specified value is out of range.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="UNIMPLEMENTED_ERROR"><a
+                                    class="constant" href="constants.html#UNIMPLEMENTED_ERROR">UNIMPLEMENTED_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates operation is not implemented or not supported/enabled in this service.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="INTERNAL_ERROR"><a
+                                    class="constant" href="constants.html#INTERNAL_ERROR">INTERNAL_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates internal errors.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="UNAVAILABLE_ERROR"><a
+                                    class="constant" href="constants.html#UNAVAILABLE_ERROR">UNAVAILABLE_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates the service is currently unavailable.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="DATA_LOSS_ERROR"><a
+                                    class="constant" href="constants.html#DATA_LOSS_ERROR">DATA_LOSS_ERROR</a></td>
+                            <td class="module-desc"><p>Indicates unrecoverable data loss or corruption.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -1306,6 +1445,13 @@ outbound request/response accept-encoding/content-encoding option
                         </tr>
                     
                         <tr>
+                            <td class="module-title truncate types" id="ErrorType">
+                                <a class="types" href="types.html#ErrorType">ErrorType</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
                             <td class="module-title truncate types" id="KeepAlive">
                                 <a class="types" href="types.html#KeepAlive">KeepAlive</a>
                             </td>
@@ -1328,15 +1474,113 @@ outbound request/response accept-encoding/content-encoding option
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ClientError">
-                                <a class="errors" href="errors.html#ClientError">ClientError</a>
+                            <td class="module-title truncate errors" id="AbortedError">
+                                <a class="errors" href="errors.html#AbortedError">AbortedError</a>
                             </td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ListenerError">
-                                <a class="errors" href="errors.html#ListenerError">ListenerError</a>
+                            <td class="module-title truncate errors" id="AleadyExistsError">
+                                <a class="errors" href="errors.html#AleadyExistsError">AleadyExistsError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="CancelledError">
+                                <a class="errors" href="errors.html#CancelledError">CancelledError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="DataLossError">
+                                <a class="errors" href="errors.html#DataLossError">DataLossError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="DeadlineExceededError">
+                                <a class="errors" href="errors.html#DeadlineExceededError">DeadlineExceededError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="FailedPreconditionError">
+                                <a class="errors" href="errors.html#FailedPreconditionError">FailedPreconditionError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="InternalError">
+                                <a class="errors" href="errors.html#InternalError">InternalError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="InvalidArgumentError">
+                                <a class="errors" href="errors.html#InvalidArgumentError">InvalidArgumentError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="NotFoundError">
+                                <a class="errors" href="errors.html#NotFoundError">NotFoundError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="OutOfRangeError">
+                                <a class="errors" href="errors.html#OutOfRangeError">OutOfRangeError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="PermissionDeniedError">
+                                <a class="errors" href="errors.html#PermissionDeniedError">PermissionDeniedError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="ResourceExhaustedError">
+                                <a class="errors" href="errors.html#ResourceExhaustedError">ResourceExhaustedError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="UnKnownError">
+                                <a class="errors" href="errors.html#UnKnownError">UnKnownError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="UnauthenticatedError">
+                                <a class="errors" href="errors.html#UnauthenticatedError">UnauthenticatedError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="UnavailableError">
+                                <a class="errors" href="errors.html#UnavailableError">UnavailableError</a>
+                            </td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="UnimplementedError">
+                                <a class="errors" href="errors.html#UnimplementedError">UnimplementedError</a>
                             </td>
                             <td class="module-desc"></td>
                         </tr>

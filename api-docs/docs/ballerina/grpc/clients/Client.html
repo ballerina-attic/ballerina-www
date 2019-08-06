@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -91,6 +98,10 @@
             </li>
         
         
+            <li>
+                <a data="functions" href="../../grpc/index.html#functions">Functions</a>
+            </li>
+        
         
             <li>
                 <a data="constants" href="../../grpc/index.html#constants">Constants</a>
@@ -118,10 +129,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../../auth/index.html">auth</a>
@@ -180,15 +187,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -343,7 +350,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -390,6 +397,10 @@
             </li>
         
         
+            <li>
+                <a data="functions" href="../../grpc/index.html#functions">Functions</a>
+            </li>
+        
         
             <li>
                 <a data="constants" href="../../grpc/index.html#constants">Constants</a>
@@ -417,10 +428,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../../auth/index.html">auth</a>
@@ -479,15 +486,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -761,7 +768,7 @@ provides includes functions to send request/error messages.</p>
         
         <span class="method-types">
             <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> methodID, <a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a> payload, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
-            <b> returns </b><span>[</span><a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../lang.annotations/errors.html#error">error</a> 
+            <b> returns </b><span>[</span><a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -808,7 +815,7 @@ provides includes functions to send request/error messages.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a></span>)</li>
                 <li><p>Returns response message and headers if executes successfully, error otherwise.</p>
 </li>
             </ul>
@@ -826,7 +833,7 @@ provides includes functions to send request/error messages.</p>
         
         <span class="method-types">
             <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> methodID, <a href="../../lang.annotations/UNKOWN/anydata.html">anydata</a> payload, <a href="../../lang.annotations/UNKOWN/service.html">service</a> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
-            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+            <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
     </div>
@@ -883,7 +890,7 @@ provides includes functions to send request/error messages.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../grpc/types.html#Error">Error</a>?</span>)</li>
                 <li><p>Returns an error if encounters an error while sending the request, returns nil otherwise.</p>
 </li>
             </ul>
@@ -901,7 +908,7 @@ provides includes functions to send request/error messages.</p>
         
         <span class="method-types">
             <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> methodID, <a href="../../lang.annotations/UNKOWN/service.html">service</a> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
-            <b> returns </b><a href="../../grpc/clients/StreamingClient.html">StreamingClient</a> | <a href="../../lang.annotations/errors.html#error">error</a> 
+            <b> returns </b><a href="../../grpc/clients/StreamingClient.html">StreamingClient</a> | <a href="../../grpc/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -948,7 +955,7 @@ provides includes functions to send request/error messages.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../grpc/clients/StreamingClient.html">StreamingClient</a> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../grpc/clients/StreamingClient.html">StreamingClient</a> | <a href="../../grpc/types.html#Error">Error</a></span>)</li>
                 <li><p>Returns client connection if executes successfully, error otherwise.</p>
 </li>
             </ul>
@@ -969,8 +976,8 @@ provides includes functions to send request/error messages.</p>
             <h2> initStub </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> stubType, <a href="../../lang.annotations/UNKOWN/string.html">string</a> descriptorKey, <a href="../../lang.annotations/UNKOWN/map.html">map</a> descriptorMap)</p>
-            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+            <p>(<a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> clientEndpoint, <a href="../../lang.annotations/UNKOWN/string.html">string</a> stubType, <a href="../../lang.annotations/UNKOWN/string.html">string</a> descriptorKey, <a href="../../lang.annotations/UNKOWN/map.html">map</a> descriptorMap)</p>
+            <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
     </div>
@@ -979,6 +986,15 @@ provides includes functions to send request/error messages.</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> clientEndpoint<span class="type">  <a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> </span></li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
                 
             <div class="params-listing">
                 <ul>
@@ -1017,7 +1033,7 @@ provides includes functions to send request/error messages.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../grpc/types.html#Error">Error</a>?</span>)</li>
                 <li><p>Returns an error if encounters an error while initializing the stub, returns nill otherwise.</p>
 </li>
             </ul>

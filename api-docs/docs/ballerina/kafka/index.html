@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>API Docs - ballerina/kafka</title>
+    <script src="../html-template-resources/jquery.min.js"></script>
+    <link rel="stylesheet" href="../html-template-resources/semantic.min.css">
+    <link rel="stylesheet" href="../html-template-resources/styles/css/styles.css">
+    <link rel="stylesheet" href="../html-template-resources/styles/css/font.css">
+    <script src="../html-template-resources/semantic.min.js"></script>
+    <script src="../vs/monaco.js"></script>
+
+    <!-- BIO THEME START -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
+<!-- BIO THEME END -->
+
+</head>
+
+
+<body class="cBallerina-io">
+    <div class="row cBallerina-io-top-row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+        <div class="cTopLine"></div>
+    </div>
+</div>
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+</div>
+<div class="clearfix"></div>
+    <div class="navi-wrapper">
+        <div class="navi-wrapper-content">
+            <a href="../index.html">
+    <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v1.0.0-alpha</div>
+
+            <div class="primary-list module">
+    <a href="../kafka/index.html">
+        <h3>kafka</h3>
+    </a>
+    <ul>
+        
+        <li>
+            <a data="records" href="../kafka/index.html#records">Records</a>
+        </li>
+        
+        
+        
+            <li>
+                <a data="clients" href="../kafka/index.html#clients">Clients</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="constants" href="../kafka/index.html#constants">Constants</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="errors" href="../kafka/index.html#errors">Errors</a>
+            </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+            <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
+        </li>
+        
+        <li>
+            <a href="../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+        </div>
+    </div>
+
+    <div class="ui vertical sidebar menu">
+        <div class="navi-wrapper-sidebar">
+            <div class="navi-wrapper-content">
+                <a href="../index.html">
+    <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v1.0.0-alpha</div>
+
+                
+                <div class="primary-list module">
+    <a href="../kafka/index.html">
+        <h3>kafka</h3>
+    </a>
+    <ul>
+        
+        <li>
+            <a data="records" href="../kafka/index.html#records">Records</a>
+        </li>
+        
+        
+        
+            <li>
+                <a data="clients" href="../kafka/index.html#clients">Clients</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="constants" href="../kafka/index.html#constants">Constants</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="errors" href="../kafka/index.html#errors">Errors</a>
+            </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+                <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
+        </li>
+        
+        <li>
+            <a href="../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="content-wrapper pusher">
+        <div>
+    <a class="toc item"> 
+        <img src="../html-template-resources/images/menu.svg">
+    </a>
+</div>
+        <div class="main-wrapper module-wrapper">
+                <h1>
+                    <a class="breadcrumb-home" href="../index.html">
+    <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
+</a>
+                    Module : <span class="modules">kafka</span></h1>
+                    <h2>Package overview</h2>
+<p>Ballerina Kafka Connector is used to connect Ballerina with Kafka Brokers. With the Kafka Connector, Ballerina can act as Kafka Consumers and Kafka Producers.
+This connector supports kafka 1.x.x and 2.0.0 versions.</p>
+<h2>Samples</h2>
+<h3>Simple Kafka Consumer</h3>
+<p>Following is a simple service which is subscribed to a topic 'test-kafka-topic' on remote Kafka broker cluster.</p>
+<pre><code class="language-ballerina">import ballerina/kafka;
+import ballerina/encoding;
+import ballerina/io;
+
+kafka:ConsumerConfig consumerConfigs = {
+    bootstrapServers:&quot;localhost:9092&quot;,
+    groupId:&quot;group-id&quot;,
+    topics:[&quot;test-kafka-topic&quot;],
+    pollingInterval:1000
+};
+
+listener kafka:Consumer consumer = new(consumerConfigs);
+
+service kafkaService on consumer {
+
+    resource function onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
+        // Dispatched set of Kafka records to service, We process each one by one.
+        foreach var kafkaRecord in records {
+            processKafkaRecord(kafkaRecord);
+        }
+    }
+}
+
+function processKafkaRecord(kafka:ConsumerRecord kafkaRecord) {
+    byte[] serializedMsg = kafkaRecord.value;
+    string msg = encoding:byteArrayToString(serializedMsg);
+    // Print the retrieved Kafka record.
+    io:println(&quot;Topic: &quot; + kafkaRecord.topic + &quot; Received Message: &quot; + msg);
+}
+</code></pre>
+<p>Please find the consumer parameters below:</p>
+<p>| Parameter | Description  |
+| :---   | :- |
+| bootstrapServers | The list of host and port pairs, which are the addresses of the Kafka brokers in a &quot;bootstrap&quot; Kafka cluster. |
+| groupId | The Identifier of the consumer group. |
+| topics | The topics that must be listened by this consumer. |
+| pollingIntervalInMillis | The time interval that a consumer polls the topic. |
+| offsetReset | Offset reset strategy if no initial offset. |
+| partitionAssignmentStrategy | Strategy class for handling the partition assignment among consumers. |
+| metricsRecordingLevel | Metrics recording level. |
+| metricsReporterClasses | Metrics reporter classes. |
+| clientId | Identifier to be used for server side logging. |
+| interceptorClasses | Interceptor classes to be used before sending records. |
+| isolationLevel | Transactional message reading method. Use &quot;read_committed&quot; to read committed messages only in transactional mode when poll() is called. Use &quot;read_uncommitted&quot; to read all the messages, even the aborted ones. |
+| properties | Additional properties if required. |
+| sessionTimeoutInMillis | Timeout used to detect consumer failures when heartbeat threshold is reached. |
+| heartBeatIntervalInMillis | Expected time between heartbeats. |
+| metadataMaxAgeInMillis | Maximum time to force a refresh of metadata. |
+| autoCommitIntervalInMillis | Auto committing interval for commit offset, when auto-commit is enabled. |
+| maxPartitionFetchBytes | The maximum amount of data per-partition the server returns. |
+| sendBuffer | Size of the TCP send buffer (SO_SNDBUF). |
+| receiveBuffer | Size of the TCP receive buffer (SO_RCVBUF). |
+| fetchMinBytes | Minimum amount of data the server should return for a fetch request. |
+| fetchMaxBytes | Maximum amount of data the server should return for a fetch request. |
+| fetchMaxWaitTimeInMillis | Maximum amount of time the server will block before answering the fetch request. |
+| reconnectBackoffTimeMaxInMillis | Maximum amount of time in milliseconds to wait when reconnecting. |
+| retryBackoffInMillis | Time to wait before attempting to retry a failed request. |
+| metricsSampleWindowInMillis | Window of time a metrics sample is computed over. |
+| metricsNumSamples | Number of samples maintained to compute metrics. |
+| requestTimeoutInMillis | Wait time for response of a request. |
+| connectionMaxIdleTimeInMillis | Close idle connections after the number of milliseconds. |
+| maxPollRecords | Maximum number of records returned in a single call to poll. |
+| maxPollInterval | Maximum delay between invocations of poll. |
+| reconnectBackoffTimeInMillis | Time to wait before attempting to reconnect. |
+| pollingTimeoutInMillis | Timeout interval for polling. |
+| concurrentConsumers | Number of concurrent consumers. |
+| defaultApiTimeoutInMillis | Default API timeout value for APIs with duration. |
+| autoCommit | Enables auto committing offsets. |
+| checkCRCS | Check the CRC32 of the records consumed. |
+| excludeInternalTopics | Whether records from internal topics should be exposed to the consumer. |
+| decoupleProcessing | Decouples processing. |</p>
+<h3>Kafka Producer</h3>
+<p>Following is a simple program which publishes a message to 'test-kafka-topic' topic in a remote Kafka broker cluster.</p>
+<pre><code class="language-ballerina">import ballerina/kafka;
+
+kafka:ProducerConfig producerConfigs = {
+    // Here we create a producer configs with optional parameters client.id - used for broker side logging.
+    // acks - number of acknowledgments for request complete,
+    // noRetries - number of retries if record send fails.
+    bootstrapServers: &quot;localhost:9092&quot;,
+    clientId:&quot;basic-producer&quot;,
+    acks:&quot;all&quot;,
+    noRetries:3
+};
+
+kafka:Producer kafkaProducer = new(producerConfigs);
+
+function main () {
+    string msg = &quot;Hello World, Ballerina&quot;;
+    byte[] serializedMsg = msg.toByteArray(&quot;UTF-8&quot;);
+    var sendResult = kafkaProducer-&gt;send(serializedMsg, &quot;test-kafka-topic&quot;);
+    if (sendResult is error) {
+        log:printError(&quot;Kafka producer failed to send data&quot;, err = sendResult);
+    }
+}
+</code></pre>
+<p>Please find the producer configuration parameters below:</p>
+<p>| Parameter | Description  |
+| :---   | :- |
+| bootstrapServers | List of remote server endpoints of Kafka brokers. |
+| acks | Number of acknowledgments. |
+| compressionType | Compression type to be used for messages. |
+| clientId | Identifier to be used for server side logging. |
+| metricsRecordingLevel | Metrics recording level. |
+| metricReporterClasses | Metrics reporter classes. |
+| partitionerClass | Partitioner class to be used to select partition to which the message is sent. |
+| interceptorClasses | Interceptor classes to be used before sending records. |
+| transactionalId | Transactional ID to be used in transactional delivery. |
+| bufferMemory | Total bytes of memory the producer can use to buffer records. |
+| noRetries | Number of retries to resend a record. |
+| batchSize | Number of records to be batched for a single request. Use 0 for no batching. |
+| linger | Delay to allow other records to be batched. |
+| sendBuffer | Size of the TCP send buffer (SO_SNDBUF). |
+| receiveBuffer | Size of the TCP receive buffer (SO_RCVBUF). |
+| maxRequestSize | The maximum size of a request in bytes. |
+| reconnectBackoffTimeInMillis | Time to wait before attempting to reconnect. |
+| reconnectBackoffMaxTimeInMillis | Maximum amount of time in milliseconds to wait when reconnecting. |
+| retryBackoffTimeInMillis | Time to wait before attempting to retry a failed request. |
+| maxBlock | Maximum block time which the send is blocked, when the buffer is full. |
+| requestTimeoutInMillis | Wait time for response of a request. |
+| metadataMaxAgeInMillis | Maximum time to force a refresh of metadata. |
+| metricsSampleWindowInMillis | Time window for a metrics sample to computed over. |
+| metricsNumSamples | Number of samples maintained to compute metrics. |
+| maxInFlightRequestsPerConnection | Maximum number of unacknowledged requests on a single connection. |
+| connectionsMaxIdleTimeInMillis | Close idle connections after the number of milliseconds. |
+| transactionTimeoutInMillis | Timeout for transaction status update from the producer. |
+| enableIdempotence | Exactly one copy of each message is written in the stream when enabled. |</p>
+
+
+            
+
+            <section class="method-content" id="records">
+                <div class="main-method-title here">
+                    <a class="url-link" href="#records">
+                        <img class="url-link-img" src="../html-template-resources/images/link.svg">
+                    </a>
+                <h2> Records </h2>
+                </div>
+                <table>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="ConsumerConfig">
+                                <a class="records"
+                                   href="records/ConsumerConfig.html">ConsumerConfig</a></td>
+                            <td class="module-desc">Configuration related to consumer endpoint.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="ConsumerRecord">
+                                <a class="records"
+                                   href="records/ConsumerRecord.html">ConsumerRecord</a></td>
+                            <td class="module-desc">Type related to consumer record.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="Detail">
+                                <a class="records"
+                                   href="records/Detail.html">Detail</a></td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="KeyStore">
+                                <a class="records"
+                                   href="records/KeyStore.html">KeyStore</a></td>
+                            <td class="module-desc">Record for providing key-store related configurations.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="PartitionOffset">
+                                <a class="records"
+                                   href="records/PartitionOffset.html">PartitionOffset</a></td>
+                            <td class="module-desc">This type represents topic partition position in which consumed record is stored.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="ProducerConfig">
+                                <a class="records"
+                                   href="records/ProducerConfig.html">ProducerConfig</a></td>
+                            <td class="module-desc">Struct which represents Kafka Producer configuration.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="Protocols">
+                                <a class="records"
+                                   href="records/Protocols.html">Protocols</a></td>
+                            <td class="module-desc">A record for configuring SSL/TLS protocol and version to be used.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="SecureSocket">
+                                <a class="records"
+                                   href="records/SecureSocket.html">SecureSocket</a></td>
+                            <td class="module-desc">Provides configurations for facilitating secure communication with the Kafka server.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="TopicPartition">
+                                <a class="records"
+                                   href="records/TopicPartition.html">TopicPartition</a></td>
+                            <td class="module-desc">This type represents a topic partition.
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate records" id="TrustStore">
+                                <a class="records"
+                                   href="records/TrustStore.html">TrustStore</a></td>
+                            <td class="module-desc">Record for providing trust-store related configurations.
+</td>
+                        </tr>
+                    
+                </table>
+            </section>
+            
+
+            
+
+            
+             <section class="method-content" id="clients">
+                <div class="main-method-title here">
+                    <a class="url-link" href="#clients">
+                        <img class="url-link-img" src="../html-template-resources/images/link.svg">
+                    </a>
+                <h2> Clients </h2>
+                </div>
+                <table>
+                    
+                        <tr>
+                            <td class="module-title truncate clients" id="Consumer">
+                                <a class="clients"
+                                   href="clients/Consumer.html">Consumer</a></td>
+                            <td class="module-desc"><p>Represent a Kafka consumer endpoint.</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate clients" id="Producer">
+                                <a class="clients"
+                                   href="clients/Producer.html">Producer</a></td>
+                            <td class="module-desc"><p>Represent a Kafka producer endpoint.</p>
+</td>
+                        </tr>
+                    
+                </table>
+             </section>
+            
+
+            
+           
+
+            
+
+
+            
+            <section class="method-content" id="constants">
+                <div class="main-method-title here">
+                    <a class="url-link" href="#constants">
+                        <img class="url-link-img" src="../html-template-resources/images/link.svg">
+                    </a>
+                <h2> Constants </h2>
+                </div>
+                <table>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="CONSUMER_ERROR"><a
+                                    class="constant" href="constants.html#CONSUMER_ERROR">CONSUMER_ERROR</a></td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate constant" id="PRODUCER_ERROR"><a
+                                    class="constant" href="constants.html#PRODUCER_ERROR">PRODUCER_ERROR</a></td>
+                            <td class="module-desc"></td>
+                        </tr>
+                    
+                </table>
+            </section>
+            
+
+
+            
+
+            
+
+            
+             <section class="method-content" id="errors">
+                <div class="main-method-title here">
+                    <a class="url-link" href="#errors">
+                        <img class="url-link-img" src="../html-template-resources/images/link.svg">
+                    </a>
+                <h2> Errors </h2>
+                </div>
+                <table>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="ConsumerError">
+                                <a class="errors" href="errors.html#ConsumerError">ConsumerError</a>
+                            </td>
+                            <td class="module-desc"><p>Kafka Consumer related errors</p>
+</td>
+                        </tr>
+                    
+                        <tr>
+                            <td class="module-title truncate errors" id="ProducerError">
+                                <a class="errors" href="errors.html#ProducerError">ProducerError</a>
+                            </td>
+                            <td class="module-desc"><p>Kafka Producer related errors</p>
+</td>
+                        </tr>
+                    
+                </table>
+            </section>
+            
+        </div>
+    </div>
+
+<script>
+    window.onload = (event) => {
+        ballerinaHighlighter.highlightSnippets();
+    };
+</script>
+</body>
+
+<script>
+    $(document)
+    .ready(function() {
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+
+let mainNavLinks = document.querySelectorAll(".primary-list.module ul li a");
+let mainSections = document.querySelectorAll(".main-wrapper section.method-content");
+
+let lastId;
+let cur = [];
+
+let contentWrapper = document.querySelector(".content-wrapper");
+contentWrapper.addEventListener("scroll", event => {
+  let fromTop = contentWrapper.scrollTop;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector("#" + link.attributes.getNamedItem("data").textContent);
+
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      link.classList.add("current");
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+</script>
+

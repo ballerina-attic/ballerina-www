@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -112,10 +119,6 @@
     <ul>
         
         <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../../auth/index.html">auth</a>
         </li>
         
@@ -172,15 +175,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -335,7 +338,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -403,10 +406,6 @@
     <ul>
         
         <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../../auth/index.html">auth</a>
         </li>
         
@@ -463,15 +462,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -720,7 +719,7 @@ the socket is forced to close. Any encountered exceptions in the close operation
             <h2> close </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKOWN/int.html">int</a>? closeCode, <a href="../../lang.annotations/UNKOWN/string.html">string</a>? closeMessage, <a href="../../lang.annotations/UNKOWN/int.html">int</a>? timeout)</p>
+            <p>(<a href="../../lang.annotations/UNKOWN/int.html">int</a>? closeCode, <a href="../../lang.annotations/UNKOWN/string.html">string</a>? closeMessage, <a href="../../lang.annotations/UNKOWN/int.html">int</a>? timeoutInMillis)</p>
             <b> returns </b><a href="../../rabbitmq/errors.html#Error">Error</a>? 
         </span>
         
@@ -756,7 +755,7 @@ When timeout is reached the socket is forced to close.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> timeout<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a>? </span>- ()</li>
+                    <li> timeoutInMillis<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a>? </span>- ()</li>
                     <li>
                         <p><p>Timeout (in milliseconds) for completing all the close-related operations. Use -1 for infinity.</p>
 </p>
@@ -788,7 +787,7 @@ When timeout is reached the socket is forced to close.</p>
             <h2> abortConnection </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKOWN/int.html">int</a>? closeCode, <a href="../../lang.annotations/UNKOWN/string.html">string</a>? closeMessage, <a href="../../lang.annotations/UNKOWN/int.html">int</a>? timeout)</p>
+            <p>(<a href="../../lang.annotations/UNKOWN/int.html">int</a>? closeCode, <a href="../../lang.annotations/UNKOWN/string.html">string</a>? closeMessage, <a href="../../lang.annotations/UNKOWN/int.html">int</a>? timeoutInMillis)</p>
             <b> returns </b><a href="../../rabbitmq/errors.html#Error">Error</a>? 
         </span>
         
@@ -824,7 +823,7 @@ the socket is forced to close. Any encountered exceptions in the close operation
                 
             <div class="params-listing">
                 <ul>
-                    <li> timeout<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a>? </span>- ()</li>
+                    <li> timeoutInMillis<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a>? </span>- ()</li>
                     <li>
                         <p><p>Timeout (in milliseconds) for completing all the close-related operations. Use -1 for infinity.</p>
 </p>
