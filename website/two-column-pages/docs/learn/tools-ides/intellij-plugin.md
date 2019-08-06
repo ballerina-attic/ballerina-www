@@ -7,9 +7,15 @@ The IntelliJ Ballerina plugin provides the Ballerina development capabilities in
 - [Using the plugin](#using-the-plugin)
 - [Using the features of the plugin](#using-the-features-of-the-plugin)
 
-## Downloading IntelliJ IDEA 
+## Downloading IntelliJ IDEA
 
-Download the [IntelliJ IDEA editor](https://www.jetbrains.com/idea/download/).
+Download the [IntelliJ IDEA editor](https://www.jetbrains.com/idea/download/) (or update it) by selecting the version from the below table based on the compatibility with the Ballerina plugin version, which you will be using.
+
+**Plugin Version**|**Platform Version Compatibility**
+:-----:|:-----:
+0.8.0 - 0.8.2|IntelliJ IDEA 2016.3 - 2016.4
+0.8.3 - 0.981.0|IntelliJ IDEA 2016.3+
+0.982.0+|IntelliJ IDEA 2017.3+
 
 ## Installing the plugin
 
