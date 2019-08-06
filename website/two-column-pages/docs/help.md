@@ -8,3 +8,5 @@
 | Developer Mailing List | Core team and contributors discuss improvements on [Github](https://github.com/ballerina-platform/ballerina-lang) and the [Ballerina Google Group](https://groups.google.com/forum/#!forum/ballerina-dev). |
 | [@ballerinalang](https://twitter.com/ballerinalang) | The Ballerina project's official Twitter account. |
 | Code of Conduct | [Code of Conduct](https://github.com/ballerina-platform/ballerina-lang/blob/master/CODE_OF_CONDUCT.md) provides guidelines on participating in the Ballerina community and reporting issues. |
+
+<style>.cVersionContainer {display:none;}</style>
