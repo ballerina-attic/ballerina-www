@@ -21,14 +21,12 @@ Use either of the below approaches to install the IntelliJ Ballerina plugin.
 ### Installing via the IntelliJ IDEA editor
 
 1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
-
 > **Tip:** If you are using Ubuntu/Windows, click **File**, click **Settings**, and then click **Plugins**.
-
 2. In the search bar, type "Ballerina" and press the **Enter** key. 
 3. Click **Install**, and then click **Accept**.
 4. Click **Restart IDE**, and then click **Restart**.
 
-![Install the plugin via IntelliJ IDEA](../images/install-plugin-via-intellij.gif)
+![Install the plugin via IntelliJ IDEA](images/install-plugin-via-intellij.gif)
 
 This downloads the plugin and installs it.
 
@@ -57,9 +55,7 @@ Follow the steps below to obtain the ZIP file by building it from its source.
 
 1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GIT repo.
 2. In a new Command Line tab, navigate to the source directory of the plugin (i.e., the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory), and execute the below command.
-
     > **Info**: In the above step,`<CLONED_BALLERINA_DIRECTORY>` refers to the path of the *ballerina-lang* Git repository, which you cloned locally. 
-
     > **Tip:** You need to install the [Gradle Build Tool](£https://gradle.org/) to execute the below command.
 
     ```bash
@@ -70,7 +66,7 @@ Follow the steps below to obtain the ZIP file by building it from its source.
     gradlew buildPlugin
     ```
 
-    This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
+This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
 
 #### Installing the ZIP file via the editor
 
@@ -78,17 +74,13 @@ After obtaining the ZIP file using either of the above approaches, follow the st
 
 
 1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
-
 > **Tip:** If you are using Ubuntu/Windows, click **File**, click **Settings**, and then click **Plugins**.
-
 2. Click the cogwheel icon, and then click **Install plugin from disk...**.
 3. Browse and select the ZIP file of the plugin you downloaded.
-
 > **Important:** Make sure you install the ZIP file and not the extracted JAR files. This is because the ZIP file contains of an additional library that is required by the plugin to function as expected.
-
 4. Click the **Installed** tab, click **Restart IDE**, and then click **Restart**.
 
-![Install using the Preferences option of the editor.](../../images/install-via-editor-preferences.gif)
+![Install using the Preferences option of the editor.](images/install-via-editor-preferences.gif)
 
 ## Using the plugin
 
@@ -112,6 +104,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Using code snippet templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-code-snippet-templates)
 - [Checking spellings](tools-ides/intellij-plugin/using-intellij-plugin-features#checking-spellings)
 - [Analyzing semantics](tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
-- [Code Folding](tools-ides/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\]intellij-plugin/using-intellij-plugin-features#code-folding)
+- [Code Folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
 
