@@ -162,14 +162,142 @@ securing_configuration_values.balx
 
 ## Authentication and Authorization
 
-### Inbound Authentication
+### Inbound Authentication & Authorization
 
-Ballerina inbound authentication is abstracted out into 2 layers called `InboundAuthHandler` and `InboundAuthProvider`.
-The `InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header and extracting the credential out of it and passing into associated `InboundAuthProvider` and get the credential validated. The `InboundAuthProvider` is used to validate the credential passed by the `InboundAuthHandler`.
+Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
+The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
 
 Ballerina supports Basic authentication, JWT authentication, OAuth2 authentication and LDAP authentication. Ballerina HTTP services can be configured to enforce authentication and authorization.
 
+A user can implement a custom version of AuthHandler with the use of object equivalency pattern as follows:
+```ballerina
+public type InboundCustomAuthHandler object {
+
+    *http:InboundAuthHandler;
+
+    public function process(http:Request req) returns boolean|http:AuthenticationError {
+        // Custom logic
+    }
+
+    public function canProcess(http:Request req) returns @tainted boolean {
+        // Custom logic
+    }
+};
+```
+
+A user can implement a custom version of AuthProvider with the use of object equivalency pattern as follows:
+```ballerina
+public type InboundCustomAuthProvider object {
+
+    *auth:InboundAuthProvider;
+
+    public function authenticate(string credential) returns boolean|auth:Error {
+        // Custom logic
+    }
+};
+```
+
 _Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
+
+#### Sample Configurations
+
+In a particular authentication scheme, implemented instance of `auth:InboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:InboundAuthHandler`.
+
+Next, the implemented instance of  `http:InboundAuthHandler` is passed to the `http:Listener` configuration as follows and the listener is initialized with authentication.
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
+```
+
+Also, the `authHandlers` can be configured for advanced use cases as follows:
+
+Auth should be successful for `authHandler1` OR `authHandler1`.
+`authHandlers: [authHandler1, authHandler2]`
+
+Auth should be successful for `authHandler1` AND `authHandler12`.
+`authHandlers: [[authHandler1], [authHandler2]]`
+
+Auth should be successful for ((`authHandler1` OR `authHandler2`) AND (`authHandler3` OR `authHandler4`)).
+`authHandlers: [[authHandler1, authHandler2], [authHandler3, authHandler4]]`
+
+Optionally `scopes` attribute is configured for the authorization as follows. If it is not specified, that means service is authorized to any user who is authenticated.
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler],
+        scopes: ["read"]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
+```
+
+Also, the `scopes` can be configured for advanced use cases as follows:
+
+Auth should be successful for `scope-1` OR `scope-2`.
+`scopes: ["scopes-1", "scopes-2"]`
+
+Auth should be successful for `scope-1` AND `scope-2`.
+`scopes: [["scopes-1"], ["scopes-2"]]`
+
+Auth should be successful for ((`scope-1` OR `scope-2`) AND (`scope-3` OR `scope-4`)).
+`scopes: [["scopes-1", "scopes-2"], ["scopes-3", "scopes-4"]]`
+
+Further, the security enforcements can be customized by the `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation.
+
+For example, authentication and authorization can be modified for a particular service as follows by configuring `auth` attribute of `@http:ServiceConfig`.
+* authentication can be disabled only for a particular service by using the `enabled` attribute.
+* authentication mechanism can be changed for a particular service by using the `authHandlers` attribute.
+* authorization scopes can be changed for a particular service by using the `scopes` attribute.
+
+```ballerina
+@http:ServiceConfig {
+    basePath: "/hello",
+    auth: {
+        enabled: false,
+        authHandlers: [authHandlerA],
+        scopes: ["scope-A"]
+    }
+}
+service helloWorld on secureHelloWorldEp {
+// ...
+```
+
+Furthermore, authentication and authorization can be modified for a particular resource as follows by configuring `auth` attribute of `@http:ResourceConfig`:
+
+```ballerina
+@http:ResourceConfig {
+    basePath: "/",
+    auth: {
+        enabled: false,
+        authHandlers: [authHandlerA],
+        scopes: ["scope-A"]
+    }
+}
+resource function sayHello (http:Caller caller, http:Request req) {
+// ...
+```
+
+The same configuration patterns used for the listener level configuration are applied for `authHandlers` and `scopes` attributes in service level configurations and resource level configurations.
 
 ### JWT Authentication and Authorization
 
@@ -330,106 +458,6 @@ mAEcstgiHVw
 <
 Hello, World!
 ```
-
-
-
-<!--The `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation have attributes that can be used to further configure the security enforcements. For example, authentication can be disabled only for a particular service `authConfig` attribute of `@http:ServiceConfig`:-->
-
-<!--```ballerina-->
-<!--@http:ServiceConfig {-->
-<!--   basePath: "/hello",-->
-<!--   authConfig: {-->
-<!--      authentication: { -->
-<!--        enabled: false-->
-<!--      }-->
-<!--   }-->
-<!--}-->
-<!--service helloWorld on secureHelloWorldEp {-->
-<!--// ...-->
-<!--```-->
-
-<!--Furthermore, authentication can be disabled only for a particular resource by using `authConfig` attribute of `@http:ResourceConfig`:-->
-
-<!--```ballerina-->
-<!--@http:ResourceConfig {-->
-<!--   methods: ["GET"],-->
-<!--   path: "/",-->
-<!--   authConfig: {-->
-<!--      authentication: { -->
-<!--        enabled: false-->
-<!--      }-->
-<!--   }-->
-<!--}-->
-<!--resource function sayHello (http:Caller caller, http:Request req) {-->
-<!--// ...-->
-<!--```-->
-
-<!--### JWT Based Authorization-->
-
-<!--Ballerina uses scope-based authorization. The JWT can include scopes that are available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if the "hello" scope is available for the user.-->
-
-<!--Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has been modified to enforce the authorization check.-->
-
-<!--```ballerina-->
-<!--import ballerina/http;-->
-
-<!--http:AuthProvider jwtAuthProvider = {-->
-<!--    scheme: http:JWT_AUTH,-->
-<!--    config: {-->
-<!--        issuer: "ballerina",-->
-<!--        audience: ["ballerina.io"],-->
-<!--        clockSkew: 10,-->
-<!--        certificateAlias: "ballerina",-->
-<!--        trustStore: {-->
-<!--            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",-->
-<!--            password: "ballerina"-->
-<!--        }-->
-<!--    }-->
-<!--};-->
-
-<!--listener http:Listener secureHelloWorldEp = new(9091, config = {-->
-<!--        authProviders: [jwtAuthProvider],-->
-<!--        secureSocket: {-->
-<!--            keyStore: {-->
-<!--                path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",-->
-<!--                password: "ballerina"-->
-<!--            }-->
-<!--        }-->
-<!--    });-->
-
-<!--@http:ServiceConfig {-->
-<!--    basePath: "/hello",-->
-<!--    authConfig: {-->
-<!--        scopes: ["hello"]-->
-<!--    }-->
-<!--}-->
-<!--service helloWorld on secureHelloWorldEp {-->
-
-<!--    @http:ResourceConfig {-->
-<!--        methods: ["GET"],-->
-<!--        path: "/"-->
-<!--    }-->
-<!--    resource function sayHello(http:Caller caller, http:Request req) {-->
-<!--        http:Response resp = new;-->
-<!--        resp.setTextPayload("Hello, World!");-->
-<!--        checkpanic caller->respond(resp);-->
-<!--    }-->
-<!--}-->
-<!--```-->
-
-<!--Note that the scopes defined in `@http:ServiceConfig` can also be overridden in `@http:ResourceConfig`.-->
-
-<!--```ballerina-->
-<!--@http:ResourceConfig {-->
-<!--   methods: ["GET"],-->
-<!--   path: "/",-->
-<!--   authConfig: {-->
-<!--      scopes: ["say-hello"]-->
-<!--   }-->
-<!--}-->
-<!--resource function sayHello (http:Caller caller, http:Request req) {-->
-<!--// ...-->
-<!--```-->
 
 ### Basic Authentication and Authorization
 
