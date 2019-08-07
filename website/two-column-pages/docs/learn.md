@@ -47,7 +47,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Module and API Documentation
 
-The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
+The [API Documentation](/learn/api-docs/ballerina) describes the native functions in Ballerina that you can use in your programs.
 
 ### Language Specification
 
