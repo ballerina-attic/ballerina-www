@@ -6,7 +6,7 @@ $(document).ready(function() {
     Handlebars.registerHelper('formatdate', function(date) {
         return formatDate(date);
     });
-    $.getJSON(archived_versions_json, function(data) {
+    $.getJSON(releasenotes_versions_json, function(data) {
 	    data.sort(function(a, b) {
 	       return new Date(b["release-date"]) - new Date(a["release-date"]);
             });
