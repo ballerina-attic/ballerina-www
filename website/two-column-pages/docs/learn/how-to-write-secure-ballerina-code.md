@@ -162,9 +162,12 @@ securing_configuration_values.balx
 
 ## Authentication and Authorization
 
-Ballerina HTTP services can be configured to enforce authentication and authorization.
+### Inbound Authentication
 
-Ballerina supports JWT based authentication and and Basic Authentication. When Basic Authentication is used, user information can be provided through a configuration file.
+Ballerina inbound authentication is abstracted out into 2 layers called `InboundAuthHandler` and `InboundAuthProvider`.
+The `InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header and extracting the credential out of it and passing into associated `InboundAuthProvider` and get the credential validated. The `InboundAuthProvider` is used to validate the credential passed by the `InboundAuthHandler`.
+
+Ballerina supports Basic authentication, JWT authentication, OAuth2 authentication and LDAP authentication. Ballerina HTTP services can be configured to enforce authentication and authorization.
 
 _Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
@@ -452,29 +455,30 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to `http:BASIC_AUTH` in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `http:CONFIG_AUTH_STORE`.
+Ballerina supports Basic Authentication and Authorizations for services. The user information can be provided through a configuration file. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `auth:InboundBasicAuthProvider` is used to read the user information from the configuration file and authenticate the credential passed by the AuthHandler.
 
 ```ballerina
+import ballerina/auth;
 import ballerina/http;
 
-http:AuthProvider basicAuthProvider = {
-    scheme: http:BASIC_AUTH,
-    authStoreProvider: http:CONFIG_AUTH_STORE
-};
+auth:InboundBasicAuthProvider basicAuthProvider = new;
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
 
-listener http:Listener secureHelloWorldEp = new(9091, config = {
-        authProviders: [basicAuthProvider],
-        secureSocket: {
-            keyStore: {
-                path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-                password: "ballerina"
-            }
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [basicAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
         }
-    });
+    }
+});
 
 @http:ServiceConfig {
     basePath: "/hello",
-    authConfig: {
+    auth: {
         scopes: ["hello"]
     }
 }
@@ -492,16 +496,16 @@ service helloWorld on secureHelloWorldEp {
 }
 ```
 
-To enforce Basic Authentication, users and scopes should be configured through a configuration file. The following example file introduces two users. The 'generalUser' has no scopes and the 'admin' user has the 'hello' scope.
+To enforce Basic Authentication, users and scopes should be configured through a configuration file. The following example file introduces two users. The 'generalUser` has no scopes and the 'admin' user has the 'hello' scope.
 
 **sample-users.toml**
 ```
-["b7a.users"]
+[b7a.users]
 
-["b7a.users.generalUser"]
+[b7a.users.generalUser]
 password="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
 
-["b7a.users.admin"]
+[b7a.users.admin]
 password="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
 scopes="hello"
 ```
@@ -518,15 +522,15 @@ Also, the passwords can be hashed and provided with the configuration file. The 
 
 **sample-users.toml**
 ```
-["b7a.users"]
+[b7a.users]
 
-["b7a.users.userA"]
+[b7a.users.userA]
 password="@sha256:{cd2eb0837c9b4c962c22d2ff8b5441b7b45805887f051d39bf133b583baf6860}"
 
-["b7a.users.userB"]
+[b7a.users.userB]
 password="@sha384:{1249e15f035ed34786a328d9fdb2689ab24f7c7b253d1b7f66ed92a679d663dd502d7beda59973e8c91a728b929fc8cd}"
 
-["b7a.users.userC"]
+[b7a.users.userC]
 password="@sha512:{9057ff1aa9509b2a0af624d687461d2bbeb07e2f37d953b1ce4a9dc921a7f19c45dc35d7c5363b373792add57d0d7dc41596e1c585d6ef7844cdf8ae87af443f}"
 ```
 
@@ -540,7 +544,7 @@ curl -k -v -u generalUser:password https://localhost:9091/hello
 > User-Agent: curl/7.47.0
 > Accept: */*
 
-< HTTP/1.1 401 Unauthorized
+< HTTP/1.1 403 Forbidden
 < content-type: text/plain
 <
 Authorization failure
