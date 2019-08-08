@@ -165,7 +165,7 @@ securing_configuration_values.balx
 ### Inbound Authentication & Authorization
 
 Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
-The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
+The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header or body and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
 
 Ballerina supports Basic authentication, JWT authentication, OAuth2 authentication and LDAP authentication. Ballerina HTTP services can be configured to enforce authentication and authorization.
 
@@ -175,12 +175,12 @@ public type InboundCustomAuthHandler object {
 
     *http:InboundAuthHandler;
 
-    public function process(http:Request req) returns boolean|http:AuthenticationError {
-        // Custom logic
-    }
-
     public function canProcess(http:Request req) returns @tainted boolean {
-        // Custom logic
+        // Custom logic to check whether the request can be processed.
+    }
+    
+    public function process(http:Request req) returns boolean|http:AuthenticationError {
+        // Custom logic to process the request, extract the credential and get it validated from AuthProvider.
     }
 };
 ```
@@ -192,7 +192,7 @@ public type InboundCustomAuthProvider object {
     *auth:InboundAuthProvider;
 
     public function authenticate(string credential) returns boolean|auth:Error {
-        // Custom logic
+        // Custom logic to authenticate the given credential.
     }
 };
 ```
