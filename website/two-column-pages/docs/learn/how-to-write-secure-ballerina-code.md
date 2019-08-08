@@ -818,9 +818,66 @@ curl -k -v -u admin:password https://localhost:9091/hello
 Hello, World!
 ```
 
-### Authenticating with Downstream Services
+---
 
-Ballerina client connectors can be configured to include authentication and authorization information with requests sent to external or downstream services. Downstream services can be authenticated using JWT, OAuth2, or Basic Authentication.
+### Outbound Authentication & Authorization
+
+Ballerina outbound authentication is also abstracted out into 2 layers called `http:OutboundAuthHandler` and `auth:OutboundAuthProvider`.
+The `auth:OutboundAuthProvider` is used to create the credential according to the provided configurations. The `http:OutboundAuthHandler` is used to get the created credential from `auth:OutboundAuthProvider` and perform HTTP level actions which are adding the required HTTP headers or body using the received credential.
+
+Ballerina supports Basic authentication, JWT authentication and OAuth2 authentication. Ballerina HTTP client can be configured to enforce authentication and authorization.
+
+A user can implement a custom version of AuthHandler with the use of object equivalency pattern as follows:
+```ballerina
+public type OutboundCustomAuthHandler object {
+
+    *http:OutboundAuthHandler;
+
+    public function prepare(http:Request req) returns http:Request|http:AuthenticationError {
+        // Custom logic to prepare the request.
+    }
+
+    public function inspect(http:Request req, http:Response resp) returns http:Request|http:AuthenticationError? {
+        // Custom logic to inspect the request after the initial outbound call.
+    }
+};
+```
+
+A user can implement a custom version of AuthProvider with the use of object equivalency pattern as follows:
+```ballerina
+public type OutboundCustomAuthProvider object {
+
+    *auth:OutboundAuthProvider;
+
+    public function generateToken() returns string|auth:Error {
+        // Custom logic to generate the token. 
+    }
+
+    public function inspect(map<anydata> data) returns string|auth:Error? {
+        // Custom logic to inspect the data map received from the AuthHandler. 
+    }
+};
+```
+
+#### Sample Configurations
+
+In a particular authentication scheme, implemented instance of `auth:OutboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:OutboundAuthHandler`.
+
+Next, the implemented instance of  `http:OutboundAuthHandler` is passed to the `http:Client` configuration as follows and the client is initialized with authentication.
+
+```ballerina
+http:Client downstreamServiceEP = new("https://localhost:9092", {
+    auth: {
+        authHandler: authHandler
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+```
 
 #### JWT Based Client Authentication
 
