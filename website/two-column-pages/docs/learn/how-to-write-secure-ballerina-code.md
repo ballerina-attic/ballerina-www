@@ -1065,18 +1065,30 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 });
 ```
 
-#### Basic Authentication Based Client Authentication
+#### Basic Authentication
 
-`http:Client` client object can be configured to include Basic Authentication credentials:
+Ballerina supports Basic Authentication for clients. The `auth:OutboundBasicAuthProvider` is used to create a token against the `auth:Credential` provided by the user. The `http:BasicAuthHandler` is used to add the HTTP `Authorization` header with the value received from the AuthProvider as `Basic <token>`.
+
+Token issuing requires several additional configurations for `auth:Credential` including:
+
+* `username` - The username for Basic authentication.
+* `password` - The password for Basic authentication.
+
+`auth:Credential` record should be provided into `auth:OutboundBasicAuthProvider` when initializing and the initialized `auth:OutboundBasicAuthProvider` is passed to the `http:BasicAuthHandler` when initializing.
 
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+import ballerina/auth;
+import ballerina/http;
+
+auth:OutboundBasicProvider basicAuthProvider = new({
+    username: "user",
+    password: "ballerina"
+});
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+
+http:Client downstreamServiceEP = new("https://localhost:9091", {
     auth: {
-        scheme: http:BASIC_AUTH,
-        config: {
-            username: "downstreamServiceUser",
-            password: "password"
-        }
+        authHandler: basicAuthHandler
     },
     secureSocket: {
         trustStore: {
