@@ -901,7 +901,7 @@ JWT issuing requires several additional configurations for `jwt:JwtIssuerConfig`
 import ballerina/http;
 import ballerina/jwt;
 
-jwt:OutboundJwtAuthProvider outboundJwtAuthProvider = new({
+jwt:OutboundJwtAuthProvider jwtAuthProvider = new({
     issuer: "ballerina",
     audience: ["ballerina.io"],
     keyStoreConfig: {
@@ -913,11 +913,11 @@ jwt:OutboundJwtAuthProvider outboundJwtAuthProvider = new({
         }
     }
 });
-http:BearerAuthHandler outboundJwtAuthHandler = new(outboundJwtAuthProvider);
+http:BearerAuthHandler jwtAuthHandler = new(jwtAuthProvider);
 
 http:Client downstreamServiceEP = new("https://localhost:9091", {
     auth: {
-        authHandler: outboundJwtAuthHandler
+        authHandler: jwtAuthHandler
     },
     secureSocket: {
         trustStore: {
@@ -932,22 +932,40 @@ The `http:Client` defined in the program calls the the `http:Listener` which is 
 
 #### OAuth2 Authentication
 
-The `http:Client` object can be configured to include the OAuth2-based client authentication with the Password and Client Credentials grant types. Also, with the Direct Token mode, the credentials can be provided manually and after that refreshing is handled internally.
+Ballerina supports OAuth2 Authentication for clients. It supports Client Credentials grant type, Password grant type and Direct Token mode, which is, the credentials can be provided manually and after that refreshing is handled internally.
 
-##### Client Credentials Grant Type
+The `oauth2:OutboundOAuth2Provider` is used to create a token against the configuration provided by the user. It can be `oauth2:ClientCredentialsGrantConfig`, `oauth2:PasswordGrantConfig` or `oauth2:DirectTokenConfig` according the grant type user required. The `http:BearerAuthHandler` is used to add the HTTP `Authorization` header with the value received from the AuthProvider as `Bearer <token>`.
+
+###### Client Credentials Grant Type
+
+OAuth2 token issuing requires several additional configurations for `oauth2:ClientCredentialsGrantConfig` including:
+
+* `tokenUrl` - Token URL for the authorization endpoint.
+* `clientId` - Client ID for the client credentials grant authentication.
+* `clientSecret` - Client secret for the client credentials grant authentication.
+* `scopes` - Scope of the access request.
+* `clockSkewInSeconds` - Clock skew in seconds.
+* `retryRequest` - Retry the request if the initial request returns a 401 response.
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+* `clientConfig` - HTTP client configurations which calls the authorization endpoint.
+
+`oauth2:ClientCredentialsGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
+
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+import ballerina/http;
+import ballerina/oauth2;
+
+oauth2:OutboundOAuth2Provider oauth2Provider = new({
+    tokenUrl: "https://localhost:9196/oauth2/token/authorize",
+    clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
+    clientSecret: "9205371918321623741",
+    scopes: ["token-scope1", "token-scope2"]
+});
+http:BearerAuthHandler oauth2AuthHandler = new(oauth2Provider);
+
+http:Client downstreamServiceEP = new("https://localhost:9091", {
     auth: {
-        scheme: http:OAUTH2,
-        config: {
-            grantType: http:CLIENT_CREDENTIALS_GRANT,
-            config: {
-                tokenUrl: "https://localhost:9196/oauth2/token/authorize",
-                clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
-                clientSecret: "9205371918321623741",
-                scopes: ["token-scope1", "token-scope2"]
-            }
-        }
+        authHandler: oauth2AuthHandler
     },
     secureSocket: {
         trustStore: {
@@ -958,26 +976,45 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config = {
 });
 ```
 
-##### Password Grant Type
+###### Password Grant Type
+
+OAuth2 token issuing requires several additional configurations for `oauth2:PasswordGrantConfig` including:
+
+* `tokenUrl` - Token URL for the authorization endpoint.
+* `username` - Username for password grant authentication.
+* `password` - Password for password grant authentication.
+* `clientId` - Client ID for password grant authentication.
+* `clientSecret` - Client secret for password grant authentication.
+* `scopes` - Scope of the access request.
+* `refreshConfig` - Configurations for refreshing the access token.
+* `clockSkewInSeconds` - Clock skew in seconds.
+* `retryRequest` - Retry the request if the initial request returns a 401 response.
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+* `clientConfig` - HTTP client configurations which calls the authorization endpoint.
+
+`oauth2:PasswordGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
+
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+import ballerina/http;
+import ballerina/oauth2;
+
+oauth2:OutboundOAuth2Provider oauth2Provider = new({
+    tokenUrl: "https://localhost:9196/oauth2/token/authorize",
+    username: "johndoe",
+    password: "A3ddj3w",
+    clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
+    clientSecret: "9205371918321623741",
+    scopes: ["token-scope1", "token-scope2"],
+    refreshConfig: {
+        refreshUrl: "https://localhost:9196/oauth2/token/refresh",
+        scopes: ["token-scope1", "token-scope2"]
+    }
+});
+http:BearerAuthHandler oauth2AuthHandler = new(oauth2Provider);
+
+http:Client downstreamServiceEP = new("https://localhost:9091", {
     auth: {
-        scheme: http:OAUTH2,
-        config: {
-            grantType: http:PASSWORD_GRANT,
-            config: {
-                tokenUrl: "https://localhost:9196/oauth2/token/authorize",
-                username: "johndoe",
-                password: "A3ddj3w",
-                clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
-                clientSecret: "9205371918321623741",
-                scopes: ["token-scope1", "token-scope2"],
-                refreshConfig: {
-                    refreshUrl: "https://localhost:9196/oauth2/token/refresh",
-                    scopes: ["token-scope1", "token-scope2"]
-                }
-            }
-        }
+        authHandler: oauth2AuthHandler
     },
     secureSocket: {
         trustStore: {
@@ -988,23 +1025,36 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config = {
 });
 ```
 
-##### Direct Token Mode
+###### Direct Token Mode
+
+OAuth2 token issuing requires several additional configurations for `oauth2:DirectTokenConfig` including:
+
+* `accessToken` - Access token for the authorization endpoint.
+* `refreshConfig` - Configurations for refreshing the access token.
+* `clockSkewInSeconds` - Clock skew in seconds.
+* `retryRequest` - Retry the request if the initial request returns a 401 response.
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+
+`oauth2:DirectTokenConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
+
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+import ballerina/http;
+import ballerina/oauth2;
+
+oauth2:OutboundOAuth2Provider oauth2Provider = new({
+    accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
+    refreshConfig: {
+        refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
+        refreshUrl: "https://ballerina.io/sample/refresh",
+        clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
+        clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
+    }
+});
+http:BearerAuthHandler oauth2AuthHandler = new(oauth2Provider);
+
+http:Client downstreamServiceEP = new("https://localhost:9091", {
     auth: {
-        scheme: http:OAUTH2,
-        config: {
-            grantType: http:DIRECT_TOKEN,
-            config: {
-                accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
-                refreshConfig: {
-                    refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
-                    refreshUrl: "https://ballerina.io/sample/refresh",
-                    clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
-                    clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
-                }
-            }
-        }
+        authHandler: oauth2AuthHandler
     },
     secureSocket: {
         trustStore: {
