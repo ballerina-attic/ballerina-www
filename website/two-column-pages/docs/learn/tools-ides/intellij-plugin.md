@@ -24,12 +24,12 @@ You need [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) installed.
 
 Use either of the below approaches to install the IntelliJ Ballerina plugin.
 
-- [Installing via the IntelliJ IDEA editor](#installing-via-the-intellij-idea-editor)
+- [Installing via the IntelliJ IDE](#installing-via-the-intellij-ide)
 - [Installing using the ZIP file](#installing-using-the-zip-file)
 
-### Installing via the IntelliJ IDEA editor
+### Installing via the IntelliJ IDE
 
-1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
+1. Open IntelliJ, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
 > **Tip:** If you are using Ubuntu/Windows, click **File**, click **Settings**, and then click **Plugins**.
 2. In the search bar, type "Ballerina" and press the **Enter** key. 
 3. Click **Install**, and then click **Accept**.
@@ -44,7 +44,7 @@ This downloads the plugin and installs it.
 Follow the steps below to install the plugin using its ZIP file.
 
 1. [Obtaining the ZIP file](#obtaining-the-zip-file)
-2. [Installing the ZIP file via the editor](#installing-the-zip-file-via-the-editor)
+2. [Installing the ZIP file via the IDE](#installing-the-zip-file-via-the-IDE)
 
 #### Obtaining the ZIP file
 
@@ -77,23 +77,23 @@ Follow the steps below to obtain the ZIP file by building it from its source.
 
 This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
 
-#### Installing the ZIP file via the editor
+#### Installing the ZIP file via the IDE
 
-After obtaining the ZIP file using either of the above approaches, follow the steps below to install it using the IntelliJ IDEA Editor.
+After obtaining the ZIP file using either of the above approaches, follow the steps below to install it using the IntelliJ IDE.
 
 
-1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
+1. Open IntelliJ, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Plugins**. 
 > **Tip:** If you are using Ubuntu/Windows, click **File**, click **Settings**, and then click **Plugins**.
 2. Click the cogwheel icon, and then click **Install plugin from disk...**.
 3. Browse and select the ZIP file of the plugin you downloaded.
 > **Important:** Make sure you install the ZIP file and not the extracted JAR files. This is because the ZIP file contains of an additional library that is required by the plugin to function as expected.
 4. Click the **Installed** tab, click **Restart IDE**, and then click **Restart**.
 
-![Install using the Preferences option of the editor.](images/install-via-editor-preferences.gif)
+![Install using the Preferences option of the IDE.](images/install-via-editor-preferences.gif)
 
 ## Using the plugin
 
-For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](intellij-plugin/using-the-intellij-plugin.md).
+For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](tools-ides/intellij-plugin/using-the-intellij-plugin).
 
 ## Using the features of the plugin
 
@@ -104,7 +104,8 @@ Click on the below links to find information on the various capabilities that ar
 - [Viewing the sequence diagram](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-the-sequence-diagram)
 - [Importing modules on the fly](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
 - [Importing unambiguous modules](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
-- [Finding usage](tools-ides/intellij-plugin/using-intellij-plugin-features.md#finding-usage)
+- [Finding usages](tools-ides/intellij-plugin/using-intellij-plugin-features#finding-usages)
+- [Viewing definitions](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-definitions)
 - [Formatting Ballerina codes](tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
 - [Viewing details of parameters](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-details-of-parameters)
 - [Viewing documentation](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
@@ -113,6 +114,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Using code snippet templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-code-snippet-templates)
 - [Checking spellings](tools-ides/intellij-plugin/using-intellij-plugin-features#checking-spellings)
 - [Analyzing semantics](tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
-- [Code Folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
+- [Code folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
 
