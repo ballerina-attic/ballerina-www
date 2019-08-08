@@ -169,38 +169,6 @@ The `http:InboundAuthHandler` is used to perform HTTP level actions which are ex
 
 Ballerina supports Basic authentication, JWT authentication, OAuth2 authentication and LDAP authentication. Ballerina HTTP services can be configured to enforce authentication and authorization.
 
-A user can implement a custom version of AuthHandler with the use of object equivalency pattern as follows:
-```ballerina
-public type InboundCustomAuthHandler object {
-
-    *http:InboundAuthHandler;
-
-    public function canProcess(http:Request req) returns @tainted boolean {
-        // Custom logic to check whether the request can be processed.
-    }
-    
-    public function process(http:Request req) returns boolean|http:AuthenticationError {
-        // Custom logic to process the request, extract the credential and get it validated from AuthProvider.
-    }
-};
-```
-
-A user can implement a custom version of AuthProvider with the use of object equivalency pattern as follows:
-```ballerina
-public type InboundCustomAuthProvider object {
-
-    *auth:InboundAuthProvider;
-
-    public function authenticate(string credential) returns boolean|auth:Error {
-        // Custom logic to authenticate the given credential.
-    }
-};
-```
-
-_Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
-
-#### Sample Configurations
-
 In a particular authentication scheme, implemented instance of `auth:InboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:InboundAuthHandler`.
 
 Next, the implemented instance of  `http:InboundAuthHandler` is passed to the `http:Listener` configuration as follows and the listener is initialized with authentication.
@@ -220,6 +188,9 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 service helloWorld on secureHelloWorldEp {
 // ....
 ```
+
+_Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
+
 
 Also, the `authHandlers` can be configured for advanced use cases as follows:
 
@@ -298,6 +269,34 @@ resource function sayHello (http:Caller caller, http:Request req) {
 ```
 
 The same configuration patterns used for the listener level configuration are applied for `authHandlers` and `scopes` attributes in service level configurations and resource level configurations.
+
+Further, a user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Listener` can be enforced with custom authentication and authorization mechanisms.
+
+```ballerina
+public type InboundCustomAuthHandler object {
+
+    *http:InboundAuthHandler;
+
+    public function canProcess(http:Request req) returns @tainted boolean {
+        // Custom logic to check whether the request can be processed.
+    }
+    
+    public function process(http:Request req) returns boolean|http:AuthenticationError {
+        // Custom logic to process the request, extract the credential and get it validated from AuthProvider.
+    }
+};
+```
+
+```ballerina
+public type InboundCustomAuthProvider object {
+
+    *auth:InboundAuthProvider;
+
+    public function authenticate(string credential) returns boolean|auth:Error {
+        // Custom logic to authenticate the given credential.
+    }
+};
+```
 
 ### JWT Authentication and Authorization
 
@@ -827,7 +826,28 @@ The `auth:OutboundAuthProvider` is used to create the credential according to th
 
 Ballerina supports Basic authentication, JWT authentication and OAuth2 authentication. Ballerina HTTP client can be configured to enforce authentication and authorization.
 
-A user can implement a custom version of AuthHandler with the use of object equivalency pattern as follows:
+In a particular authentication scheme, implemented instance of `auth:OutboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:OutboundAuthHandler`.
+
+Next, the implemented instance of  `http:OutboundAuthHandler` is passed to the `http:Client` configuration as follows and the client is initialized with authentication.
+
+```ballerina
+http:Client secureHelloWorldClient = new("https://localhost:9092", {
+    auth: {
+        authHandler: authHandler
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+```
+
+_Note: It is better to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
+
+Further, a user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Client` can be enforced with custom authentication and authorization mechanisms.
+
 ```ballerina
 public type OutboundCustomAuthHandler object {
 
@@ -843,7 +863,6 @@ public type OutboundCustomAuthHandler object {
 };
 ```
 
-A user can implement a custom version of AuthProvider with the use of object equivalency pattern as follows:
 ```ballerina
 public type OutboundCustomAuthProvider object {
 
@@ -859,27 +878,7 @@ public type OutboundCustomAuthProvider object {
 };
 ```
 
-#### Sample Configurations
-
-In a particular authentication scheme, implemented instance of `auth:OutboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:OutboundAuthHandler`.
-
-Next, the implemented instance of  `http:OutboundAuthHandler` is passed to the `http:Client` configuration as follows and the client is initialized with authentication.
-
-```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", {
-    auth: {
-        authHandler: authHandler
-    },
-    secureSocket: {
-        trustStore: {
-            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-            password: "ballerina"
-        }
-    }
-});
-```
-
-#### JWT Based Client Authentication
+### JWT Authentication and Authorization
 
 `http:Client` client object can be configured to include JWT token as follows:
 
