@@ -562,6 +562,149 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Bearer <token>'
 Hello, World!
 ```
 
+### LDAP Authentication and Authorization
+
+Ballerina supports LDAP Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Basic <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `ldap:InboundLdapAuthProvider` is used to validate the credential passed by the AuthHandler against the LDAP server configured at `ldap:LdapConnectionConfig`, which is provided by the user.
+
+LDAP token validation requires several additional configurations for `ldap:LdapConnectionConfig` including:
+
+* `domainName` - Unique name to identify the user store.
+* `connectionURL` - Connection URL to the LDAP server.
+* `connectionName` - The username used to connect to the LDAP server.
+* `connectionPassword` - Password for the ConnectionName user.
+* `userSearchBase` - DN of the context or object under which the user entries are stored in the LDAP server.
+* `userEntryObjectClass` - Object class used to construct user entries.
+* `userNameAttribute` - The attribute used for uniquely identifying a user entry.
+* `userNameSearchFilter` - Filtering criteria used to search for a particular user entry.
+* `userNameListFilter` - Filtering criteria for searching user entries in the LDAP server.
+* `groupSearchBase` - DN of the context or object under which the group entries are stored in the LDAP server.
+* `groupEntryObjectClass` - Object class used to construct group entries.
+* `groupNameAttribute` - The attribute used for uniquely identifying a group entry.
+* `groupNameSearchFilter` - Filtering criteria used to search for a particular group entry.
+* `groupNameListFilter` - Filtering criteria for searching group entries in the LDAP server.
+* `membershipAttribute` - Define the attribute that contains the distinguished names (DN) of user objects that are in a group.
+* `userRolesCacheEnabled` -  To indicate whether to cache the role list of a user.
+* `connectionPoolingEnabled` - Define whether LDAP connection pooling is enabled.
+* `ldapConnectionTimeout` - Timeout in making the initial LDAP connection.
+* `readTimeoutInMillis` - The value of this property is the read timeout in milliseconds for LDAP operations.
+* `retryAttempts` - Retry the authentication request if a timeout happened.
+* `secureClientSocket` - The SSL configurations for the LDAP client socket. This needs to be configured in order to communicate through LDAPs.
+
+`ldap:LdapConnectionConfig` record should be provided into `ldap:InboundLdapAuthProvider` when initializing and the initialized `ldap:InboundLdapAuthProvider` is passed to the `http:BasicAuthHandler` when initializing.
+
+```ballerina
+import ballerina/http;
+import ballerina/ldap;
+
+ldap:LdapConnectionConfig ldapConfig = {
+    domainName: "ballerina.io",
+    connectionURL: "ldap://localhost:20100",
+    connectionName: "uid=admin,ou=system",
+    connectionPassword: "secret",
+    userSearchBase: "ou=Users,dc=ballerina,dc=io",
+    userEntryObjectClass: "identityPerson",
+    userNameAttribute: "uid",
+    userNameSearchFilter: "(&(objectClass=person)(uid=?))",
+    userNameListFilter: "(objectClass=person)",
+    groupSearchBase: ["ou=Groups,dc=ballerina,dc=io"],
+    groupEntryObjectClass: "groupOfNames",
+    groupNameAttribute: "cn",
+    groupNameSearchFilter: "(&(objectClass=groupOfNames)(cn=?))",
+    groupNameListFilter: "(objectClass=groupOfNames)",
+    membershipAttribute: "member",
+    userRolesCacheEnabled: true,
+    connectionPoolingEnabled: false,
+    ldapConnectionTimeout: 5000,
+    readTimeoutInMillis: 60000,
+    retryAttempts: 3
+};
+ldap:InboundLdapAuthProvider ldapAuthProvider = new(ldapConfig, "ldap01");
+http:BasicAuthHandler ldapAuthHandler = new(ldapAuthProvider);
+
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [ldapAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/hello",
+    auth: {
+        scopes: ["hello"]
+    }
+}
+service helloWorld on secureHelloWorldEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Hello, World!");
+        checkpanic caller->respond(resp);
+    }
+}
+```
+
+When the service is invoked without authentication information or invalid authentication information, an authentication failure will occur:
+
+```
+curl -k -v https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> 
+< HTTP/1.1 401 Unauthorized
+< content-type: text/plain
+< 
+Authentication failure
+```
+
+Once a request is made with a valid, authentication information, but if the LDAP server response with a empty group list or unexpected scopes, an authorization failure will occur.
+
+```
+curl -k -v https://localhost:9091/hello -H "Authorization: Basic <token>"
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization:Bearer <token>
+>
+
+< HTTP/1.1 403 Forbidden
+< content-type: text/plain
+<
+Authorization failure
+```
+
+A request which gets a successful response from LDAP server for the "scope" request, will result in a successful invocation.
+
+```
+curl -k -v https://localhost:9091/hello -H 'Authorization: Basic <token>'
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer <token>
+>
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+<
+Hello, World!
+```
+
 ### Basic Authentication and Authorization
 
 Ballerina supports Basic Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Basic <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `jwt:InboundBasicAuthProvider` is used to read the user information from the configuration file and authenticate the credential passed by the AuthHandler.
