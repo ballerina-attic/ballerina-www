@@ -546,6 +546,6 @@ $(function() {
 $(document).ready(function() {
  var urlmenu = document.getElementById( 'versions' );
  urlmenu.onchange = function() {
-       window.open( this.options[ this.selectedIndex ].value );
+       window.open( this.options[ this.selectedIndex ].value ,"_self");
   }
 });
