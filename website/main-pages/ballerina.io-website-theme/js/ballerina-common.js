@@ -240,13 +240,21 @@ $(document).ready(function() {
 
     var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
     '<select name="versions" id="versions" class="select-css">' +
-    '<option value="https://v1-0-0-alpha.ballerina.io" selected="selected">1.0.0-alpha</option>' +
+    '<option value="https://v1-0-alpha.ballerina.io">Alpha</option>' +
     '<option value="http://ballerina.io">Stable</option>' +
     '</select>'+
     '</div>';
 
+    var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
+
+    
+    $('.navi-wrapper-content a').replaceWith(homelink);
+
+
+
    
     $('.cBallerina-io-Logo-row .container').append(version);
+    $('.navi-wrapper').append(version);
 
 
     $('#iMainNavigation').append(menu);
