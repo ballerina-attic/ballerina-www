@@ -318,8 +318,8 @@ JWT validation requires several additional configurations for `jwt:JwtValidatorC
 _Note: For demonstration purposes we use `ballerinaTruststore.p12` included with Ballerina runtime. In a production deployment, the truststore should only contain the public key certificates of the trusted JWT issuers._
 
 ```ballerina
-import ballerina/auth;
 import ballerina/http;
+import ballerina/jwt;
 
 jwt:InboundJwtAuthProvider jwtAuthProvider = new({
     issuer: "ballerina",
@@ -377,7 +377,7 @@ curl -k -v https://localhost:9091/hello
 Authentication failure
 ```
 
-Once a request is made with a valid, signed JWT, but without the expected scope, an authorization failure will occur. An example of a JWT without "scope" attribute is as follows.
+Once a request is made with a valid, signed JWT, but without the expected "scope", an authorization failure will occur. An example of a JWT without "scope" attribute is as follows.
 
 ```
 {
@@ -451,6 +451,109 @@ CbQ0c5mCbgM9qhhCjC1tBA50rjtLAtRW-JTRpCKS0B9_EmlVKfvXPKDLIpM5hnfhOin1R3lJCPspJ2e
 y_Ho6fDhsKE3DZgssvgPgI9PBItnkipQ3CqqXWhV-RFBkVBEGPDYXTUVGbXhdNOBSwKw5ZoVJrCUiNG
 5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLiHvcabuid80lnrs2-
 mAEcstgiHVw
+>
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+<
+Hello, World!
+```
+
+### OAuth2 Authentication and Authorization
+
+Ballerina supports OAuth2 Authentication and Authorizations for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Bearer <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `oauth2:InboundOAuth2Provider` is used to validate the credential passed by the AuthHandler against the introspection endpoint configured at `oauth2:IntrospectionServerConfig`, which is provided by the user.
+
+OAuth2 token validation requires several additional configurations for `oauth2:IntrospectionServerConfig` including:
+
+* `url` - URL of the introspection server.
+* `tokenTypeHint` - A hint about the type of the token submitted for introspection.
+* `clientConfig` - HTTP client configurations which calls the introspection server.
+
+`oauth2:IntrospectionServerConfig` record should be provided into `oauth2:InboundOAuth2Provider` when initializing and the initialized `oauth2:InboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
+
+```ballerina
+import ballerina/http;
+import ballerina/oauth2;
+
+oauth2:InboundOAuth2Provider oauth2Provider = new({
+    url: "https://localhost:9196/oauth2/token/introspect",
+    tokenTypeHint: "access_token"
+});
+http:BearerAuthHandler oauth2Handler = new(oauth2Provider);
+
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [oAuth2Handler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/hello"
+}
+service helloWorld on secureHelloWorldEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Hello, World!");
+        checkpanic caller->respond(resp);
+    }
+}
+```
+
+When the service is invoked without authentication information or invalid authentication information, an authentication failure will occur:
+
+```
+curl -k -v https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> 
+< HTTP/1.1 401 Unauthorized
+< content-type: text/plain
+< 
+Authentication failure
+```
+
+Once a request is made with a valid, authentication information, but if the introspection endpoint does not response with the "scope" attribute of the response JSON payload or response with the "scope" attribute which are not the expected scopes, an authorization failure will occur.
+
+```
+curl -k -v https://localhost:9091/hello -H "Authorization:Bearer <token>"
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization:Bearer <token>
+>
+
+< HTTP/1.1 403 Forbidden
+< content-type: text/plain
+<
+Authorization failure
+```
+
+A request which gets a successful response from introspection endpoint with a correct "scope" attribute will result in a successful invocation.
+
+```
+curl -k -v https://localhost:9091/hello -H 'Authorization: Bearer <token>'
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer <token>
 >
 
 < HTTP/1.1 200 OK
