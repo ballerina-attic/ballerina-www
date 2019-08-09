@@ -1101,21 +1101,22 @@ Ballerina supports token propagation for outbound authentication. If the user do
 
 The `auth:OutboundAuthProvider` reads the token/username from the `runtime:InvocationContext` according to the outbound authentication scheme and use that for the outbound request.
 
-##### Example
+##### Example - 1
 
-The following program has an `http:Client` secured with Basic authentication and it is configured inside an `http:Listener` secured with Basic authentication. The `http:OutboundBasicAuthProvider` is initialized without providing any configurations. Therefore, the program gets the token from the `runtime:InvocationContext` and use if for outbound request.
+The following program has an `http:Client` secured with Basic authentication and it is configured inside an `http:Listener` secured with Basic authentication.
+The `auth:OutboundBasicAuthProvider` is initialized without providing any configurations. Therefore, the program gets the token from the `runtime:InvocationContext` and use if for outbound request.
 If the downstream service is also secured with the Basic authentication and as same as the upstream service, the user does not need to configure client as this.
 
 ```ballerina
 import ballerina/auth;
 import ballerina/http;
 
-auth:InboundBasicAuthProvider basicAuthProvider = new;
-http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+auth:InboundBasicAuthProvider inboundBasicAuthProvider = new;
+http:BasicAuthHandler inboundBasicAuthHandler = new(inboundBasicAuthProvider);
 
 listener http:Listener secureHelloWorldEp = new(9091, {
     auth: {
-        authHandlers: [basicAuthHandler]
+        authHandlers: [inboundBasicAuthHandler]
     },
     secureSocket: {
         keyStore: {
@@ -1125,7 +1126,13 @@ listener http:Listener secureHelloWorldEp = new(9091, {
     }
 });
 
+auth:OutboundBasicAuthProvider outboundBasicAuthProvider = new;
+http:BasicAuthHandler outboundBasicAuthHandler = new(outboundBasicAuthProvider);
+
 http:Client downstreamClientEP = new("https://localhost:9092", {
+    auth: {
+        authHandler: outboundBasicAuthHandler
+    },
     secureSocket: {
         trustStore: {
             path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
@@ -1147,7 +1154,8 @@ service helloWorld on secureHelloWorldEp {
         path: "/"
     }
     resource function sayHello(http:Caller caller, http:Request req) returns error? {
-        http:Response response = check downstreamClientEP->get("/downstream", req);
+        // http:Request req = new;
+        http:Response response = check downstreamClientEP->get("/downstream");
         checkpanic caller->respond(response);
     }
 }
@@ -1158,7 +1166,7 @@ service helloWorld on secureHelloWorldEp {
 
 listener http:Listener downstreamServiceEp = new(9092, {
     auth: {
-        authHandlers: [basicAuthHandler]
+        authHandlers: [inboundBasicAuthHandler]
     },
     secureSocket: {
         keyStore: {
@@ -1179,7 +1187,7 @@ service downStreamService on downstreamServiceEp {
     }
     resource function downStreamResource(http:Caller caller, http:Request req) {
         http:Response resp = new;
-        resp.setTextPayload("Downstream service received authenticated request.");
+        resp.setTextPayload("Downstream service received authenticated request with the token: " + req.getHeader("Authorization"));
         checkpanic caller->respond(resp);
     }
 }
@@ -1217,5 +1225,5 @@ curl -k -v -u tom:123 https://localhost:9091/hello
 < content-type: text/plain
 < content-length: 602
 <
-Downstream service received authenticated request with token: Basic dG9tOjEyMw==
+Downstream service received authenticated request with the token: Basic dG9tOjEyMw==
 ```
