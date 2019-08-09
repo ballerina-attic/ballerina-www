@@ -878,10 +878,6 @@ public type OutboundCustomAuthProvider object {
 };
 ```
 
-#### Token Propagation for Outbound Authentication
-
-If the user does not provides any configuration for `auth:OutboundAuthProvider` token propagation is happened.
-
 ### JWT Authentication
 
 Ballerina supports JWT Authentication for clients. The `jwt:OutboundJwtAuthProvider` is used to issue a JWT against the `jwt:JwtIssuerConfig` provided by the user. The `http:BearerAuthHandler` is used to add the HTTP `Authorization` header with the value received from the AuthProvider as `Bearer <token>`.
@@ -1097,4 +1093,129 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
         }
     }
 });
+```
+
+#### Token Propagation for Outbound Authentication
+
+Ballerina supports token propagation for outbound authentication. If the user does not provides any configuration when initializing the `auth:OutboundAuthProvider`, the token propagation is happened.
+
+The `auth:OutboundAuthProvider` reads the token/username from the `runtime:InvocationContext` according to the outbound authentication scheme and use that for the outbound request.
+
+##### Example
+
+The following program has an `http:Client` secured with Basic authentication and it is configured inside an `http:Listener` secured with Basic authentication. The `http:OutboundBasicAuthProvider` is initialized without providing any configurations. Therefore, the program gets the token from the `runtime:InvocationContext` and use if for outbound request.
+If the downstream service is also secured with the Basic authentication and as same as the upstream service, the user does not need to configure client as this.
+
+```ballerina
+import ballerina/auth;
+import ballerina/http;
+
+auth:InboundBasicAuthProvider basicAuthProvider = new;
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [basicAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+http:Client downstreamClientEP = new("https://localhost:9092", {
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/hello",
+    auth: {
+        scopes: ["hello"]
+    }
+}
+service helloWorld on secureHelloWorldEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) returns error? {
+        http:Response response = check downstreamClientEP->get("/downstream", req);
+        checkpanic caller->respond(response);
+    }
+}
+
+// ----------------------------------------------
+// Following code creates the downstream service
+// ----------------------------------------------
+
+listener http:Listener downstreamServiceEp = new(9092, {
+    auth: {
+        authHandlers: [basicAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/downstream"
+}
+service downStreamService on downstreamServiceEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function downStreamResource(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Downstream service received authenticated request.");
+        checkpanic caller->respond(resp);
+    }
+}
+```
+
+To enforce Basic Authentication, create a configuration file as follows:
+
+**sample-users.toml**
+```
+[b7a.users]
+
+[b7a.users.tom]
+password="123"
+scopes="hello"
+```
+
+Start the service using the following command after creating `sample-users.toml`.
+
+```
+ballerina run --config sample-users.toml example.bal
+```
+
+'Tom' user will be able to invoke the `/hello` resource and invoke the Basic auth protected downstream service.
+
+```
+curl -k -v -u tom:123 https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> Authorization: Basic dG9tOjEyMw==
+> User-Agent: curl/7.60.0
+> Accept: */*
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+< content-length: 602
+<
+Downstream service received authenticated request with token: Basic dG9tOjEyMw==
 ```
