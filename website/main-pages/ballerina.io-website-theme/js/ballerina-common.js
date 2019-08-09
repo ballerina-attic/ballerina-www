@@ -238,10 +238,11 @@ $(document).ready(function() {
 
 
 
+    var pathValue = window.location.pathname;
     var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
     '<select name="versions" id="versions" class="select-css">' +
-    '<option value="https://v1-0-alpha.ballerina.io">Alpha</option>' +
-    '<option value="http://ballerina.io">Stable</option>' +
+    '<option value="http://ballerina.io'+pathValue+'">Stable</option>' +
+    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'" selected="selected">1.0.0-alpha</option>' +
     '</select>'+
     '</div>';
 
@@ -553,6 +554,6 @@ $(function() {
 $(document).ready(function() {
  var urlmenu = document.getElementById( 'versions' );
  urlmenu.onchange = function() {
-       window.open( this.options[ this.selectedIndex ].value );
+       window.open( this.options[ this.selectedIndex ].value , "_self" );
   }
 });
