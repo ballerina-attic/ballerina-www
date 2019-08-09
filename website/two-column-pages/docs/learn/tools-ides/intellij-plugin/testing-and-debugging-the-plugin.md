@@ -7,6 +7,8 @@ Follow the steps below to test/debug the plugin using IntelliJ IDEA.
 
 ## Importing the project
 
+Follow the steps below to import and open the project of the plugin.
+
 1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) Git repository to a preferred location.
 
 2. Open IntelliJ, click **File**, click **New**, and then click **Project from Existing Sources...**.
@@ -19,11 +21,13 @@ Follow the steps below to test/debug the plugin using IntelliJ IDEA.
 
 ![select Gradle home](../images/select-gradle-home.png)
 
-## Testing and debugging the project
+## Testing and debugging the plugin
+
+Follow the steps below to test and debug the plugin using IntelliJ.
 
 1. In the IntelliJ top menu, click **View**, click **Tool Windows**, and then click **Gradle** to launch the **Gradle projects** window.
 
-2. In the **Gradle projects** window, navigate to **Tasks** **->** **intellij** **->** **RunIde**. 
+2. In the **Gradle projects** window, navigate to **Tasks** **->** **intellij** **->** **runIde**. 
 
 3. Right-click on the **runIde** Task and select **Run 'intellij [runIde]'**.
 
