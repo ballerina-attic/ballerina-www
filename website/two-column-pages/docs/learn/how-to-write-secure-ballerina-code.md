@@ -898,6 +898,7 @@ import ballerina/http;
 import ballerina/jwt;
 
 jwt:OutboundJwtAuthProvider jwtAuthProvider = new({
+    username: "ballerinaUser",
     issuer: "ballerina",
     audience: ["ballerina.io"],
     keyStoreConfig: {
@@ -1167,6 +1168,156 @@ service helloWorld on secureHelloWorldEp {
 listener http:Listener downstreamServiceEp = new(9092, {
     auth: {
         authHandlers: [inboundBasicAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/downstream"
+}
+service downStreamService on downstreamServiceEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function downStreamResource(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Downstream service received authenticated request with the token: " + req.getHeader("Authorization"));
+        checkpanic caller->respond(resp);
+    }
+}
+```
+
+To enforce Basic Authentication, create a configuration file as follows:
+
+**sample-users.toml**
+```
+[b7a.users]
+
+[b7a.users.tom]
+password="123"
+scopes="hello"
+```
+
+Start the service using the following command after creating `sample-users.toml`.
+
+```
+ballerina run --config sample-users.toml example.bal
+```
+
+'Tom' user will be able to invoke the `/hello` resource and invoke the Basic auth protected downstream service.
+
+```
+curl -k -v -u tom:123 https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> Authorization: Basic dG9tOjEyMw==
+> User-Agent: curl/7.60.0
+> Accept: */*
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+< content-length: 602
+<
+Downstream service received authenticated request with the token: Basic dG9tOjEyMw==
+```
+
+##### Example - 2
+
+The following program has an `http:Client` secured with JWT authentication and it is configured inside an `http:Listener` secured with Basic authentication.
+The `jwt:OutboundJwtAuthProvider` is initialized providing configurations but without the username. Therefore, the program gets the username from the `runtime:InvocationContext` and use it for outbound request.
+If the downstream service is secured with the JWT authentication and with the same username of upstream service, the user does not need to configure client with that username. It is propagated internally.
+
+```ballerina
+import ballerina/auth;
+import ballerina/http;
+import ballerina/jwt;
+
+auth:InboundBasicAuthProvider inboundBasicAuthProvider = new;
+http:BasicAuthHandler inboundBasicAuthHandler = new(inboundBasicAuthProvider);
+
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [inboundBasicAuthHandler]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+jwt:OutboundJwtAuthProvider outboundJwtAuthProvider = new({
+    issuer: "ballerina",
+    audience: ["ballerina.io"],
+    keyStoreConfig: {
+        keyAlias: "ballerina",
+        keyPassword: "ballerina",
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+http:BearerAuthHandler outboundJwtAuthHandler = new(outboundJwtAuthProvider);
+
+http:Client downstreamClientEP = new("https://localhost:9092", {
+    auth: {
+        authHandler: outboundJwtAuthHandler
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+
+@http:ServiceConfig {
+    basePath: "/hello",
+    auth: {
+        scopes: ["hello"]
+    }
+}
+service helloWorld on secureHelloWorldEp {
+
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) returns error? {
+        // http:Request req = new;
+        http:Response response = check downstreamClientEP->get("/downstream");
+        checkpanic caller->respond(response);
+    }
+}
+
+// ----------------------------------------------
+// Following code creates the downstream service
+// ----------------------------------------------
+
+jwt:InboundJwtAuthProvider inboundJwtAuthProvider = new({
+    issuer: "ballerina",
+    audience: ["ballerina.io"],
+    certificateAlias: "ballerina",
+    trustStore: {
+        path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+        password: "ballerina"
+    }
+});
+http:BearerAuthHandler inboundJwtAuthHandler = new(inboundJwtAuthProvider);
+
+listener http:Listener downstreamServiceEp = new(9092, {
+    auth: {
+        authHandlers: [inboundJwtAuthHandler]
     },
     secureSocket: {
         keyStore: {
