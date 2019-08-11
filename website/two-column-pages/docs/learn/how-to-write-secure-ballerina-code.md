@@ -1108,6 +1108,8 @@ The following program has an `http:Client` secured with Basic authentication and
 The `auth:OutboundBasicAuthProvider` is initialized without providing any configurations. Therefore, the program gets the token from the `runtime:InvocationContext` and use if for outbound request.
 If the downstream service is also secured with the Basic authentication and as same as the upstream service, the user does not need to configure client as this.
 
+_NOTE: This scenario is same for all the scenarios, where both upstream and downstream services are secured with same authentication scheme and clients is also configured for the same authentication scheme, but without any configurations. The token propagation happens internally._
+
 ```ballerina
 import ballerina/auth;
 import ballerina/http;
