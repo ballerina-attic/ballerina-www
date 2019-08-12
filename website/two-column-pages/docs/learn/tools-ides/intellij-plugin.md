@@ -6,6 +6,7 @@ The IntelliJ Ballerina plugin provides the Ballerina development capabilities in
 - [Installing the plugin](#installing-the-plugin)
 - [Using the plugin](#using-the-plugin)
 - [Using the features of the plugin](#using-the-features-of-the-plugin)
+- [Testing and debugging the plugin](#testing-and-debugging-the-plugin)
 
 ## Prerequisites
 
@@ -63,19 +64,22 @@ Download the [IntelliJ Ballerina plugin](https://plugins.jetbrains.com/plugin/95
 Follow the steps below to obtain the ZIP file by building it from its source.
 
 1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GIT repo.
+
 2. In a new Command Line tab, navigate to the source directory of the plugin (i.e., the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory), and execute the below command.
-    > **Info**: In the above step,`<CLONED_BALLERINA_DIRECTORY>` refers to the path of the *ballerina-lang* Git repository, which you cloned locally. 
-    > **Tip:** You need to install the [Gradle Build Tool](£https://gradle.org/) to execute the below command.
 
-    ```bash
-    ./gradlew buildPlugin
-    ```
-    > **Tip:** If you are using Ubuntu/Windows, execute the below command:
-    ```bash
-    gradlew buildPlugin
-    ```
+> **Info**: In the above step,`<CLONED_BALLERINA_DIRECTORY>` refers to the path of the *ballerina-lang* Git repository, which you cloned locally. 
+> **Tip:** You need to install the [Gradle Build Tool](£https://gradle.org/) to execute the below command.
 
-This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
+```bash
+./gradlew buildPlugin
+```
+> **Tip:** If you are using Ubuntu/Windows, execute the below command:
+
+```bash
+gradlew buildPlugin
+```
+
+This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `b<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory.
 
 #### Installing the ZIP file via the IDE
 
@@ -117,3 +121,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Code folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
 
+## Testing/Debugging the plugin
+
+For instructions on testing and debugging the plugin, see [Testing and debugging the plugin](/learn/tools-ides/intellij-plugin/testing-and-debugging-the-plugin).
