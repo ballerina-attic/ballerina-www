@@ -246,8 +246,16 @@ $(document).ready(function() {
     '</select>'+
     '</div>';
 
+    var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
+
+    
+    $('.navi-wrapper-content a').replaceWith(homelink);
+
+
+
    
     $('.cBallerina-io-Logo-row .container').append(version);
+    $('.navi-wrapper').append(version);
 
 
     $('#iMainNavigation').append(menu);
