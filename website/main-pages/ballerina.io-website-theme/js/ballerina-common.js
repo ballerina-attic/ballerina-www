@@ -249,7 +249,7 @@ $(document).ready(function() {
     var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
 
     
-    $('.navi-wrapper-content a').replaceWith(homelink);
+    // $('.navi-wrapper-content a').replaceWith(homelink);
 
 
 
