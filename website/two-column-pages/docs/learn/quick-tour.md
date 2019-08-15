@@ -122,7 +122,7 @@ There are two kinds of endpoints in Ballerina, inbound (or ingress) and outbound
 Having said that, let's see how you can make hello_service a bit more interesting by invoking an external endpoint. In this case, sunrise-sunset API is used as the backend service. First, you need to created the client with the relevant endpoint URL as follows.
 
 ```ballerina 
-http:Client weatherApi = new("https://samples.openweathermap.org");
+http:Client weatherApi = new("http://api.sunrise-sunset.org");
 ```
 
 As the next step, let's tweak the service a bit to get sunrise/sunset time details for London. 
