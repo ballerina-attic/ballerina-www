@@ -21,7 +21,7 @@ $ ballerina new quick-tour
 You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
 
 ```bash
-$ ballerina create sample_service -t service
+$ ballerina add sample_service -t service
 ```
 
 This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.

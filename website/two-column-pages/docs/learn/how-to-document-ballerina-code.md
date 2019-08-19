@@ -127,11 +127,11 @@ $ ballerina init
 Ballerina project initialised
 
 Next:
-    Use `ballerina create` to create a ballerina module.
-$ ballerina create math -t service
-Created new ballerina module at 'src/math'
-$ ballerina create time -t service
-Created new ballerina module at 'src/time'
+    Use `ballerina add` to add a Ballerina module.
+$ ballerina add math -t service
+Added new ballerina module at 'src/math'
+$ ballerina add time -t service
+Added new ballerina module at 'src/time'
 
 ```
 Now, let's generate documentation of the project:
