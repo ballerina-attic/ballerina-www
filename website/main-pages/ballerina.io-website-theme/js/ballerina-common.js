@@ -175,7 +175,6 @@ $(document).ready(function() {
         '<div id="navbar" class="collapse navbar-collapse">' +
         '<ul class="nav navbar-nav cTopNav">' +
         '<li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a></li>' +
-        '<li class="toctree-l1" id="philosophyli"><a class="cBioTopLink" href="/philosophy">Philosophy</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
@@ -236,6 +235,20 @@ $(document).ready(function() {
         //'<div class="cFooterBanner"><a href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_footer_banner" class="cFooterBanner-link" target="_blank"><img src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a></div>' +
         '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, Elm, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2.</p></div>' +
         '</div>';
+
+
+
+    var pathValue = window.location.pathname;
+    var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
+    '<select name="versions" id="versions" class="select-css">' +
+    '<option value="http://ballerina.io'+pathValue+'" selected="selected">Stable</option>' +
+    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'">1.0.0-alpha</option>' +
+    '</select>'+
+    '</div>';
+
+   
+    $('.cBallerina-io-Logo-row .container').append(version);
+
 
     $('#iMainNavigation').append(menu);
     $('#iBallerinaFooter').append(footer);
@@ -390,6 +403,12 @@ $(document).ready(function() {
         if ($menuDropWindow.hasClass('cShowcSearchTopMenu')) {
             $searchInput.focus();
         }
+
+
+
+
+
+        
     });
 
     $(document).mouseup(function(e) {
@@ -518,4 +537,15 @@ $(function() {
     } else if (pathname.indexOf("help") != -1) {
         $("#helpli").addClass("cActive");
     }
+});
+
+
+
+
+
+$(document).ready(function() {
+ var urlmenu = document.getElementById( 'versions' );
+ urlmenu.onchange = function() {
+       window.open( this.options[ this.selectedIndex ].value ,"_self");
+  }
 });
