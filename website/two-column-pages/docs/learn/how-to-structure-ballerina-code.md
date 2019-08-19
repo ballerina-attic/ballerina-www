@@ -189,13 +189,13 @@ it will give an error.
 
 It will create the `Ballerina.toml` file, `src` folder, and a `tests` folder.
 
-### Create a Module
-Once the project is initialized, a module can be created inside the project using the `ballerina create` command. 
+### Add a Module
+Once the project is initialized, a module can be created inside the project using the `ballerina add` command. 
 Each subdirectory of the project `src` folder defines a single module. The subdirectory's name will be used to name the 
 module. 
 
 ```bash
-ballerina create <module-name>
+ballerina add <module-name>
 ```
 
 The folders `tests/` and `resources/` are reserved folder names within the module. The `tests/` folder contains 
