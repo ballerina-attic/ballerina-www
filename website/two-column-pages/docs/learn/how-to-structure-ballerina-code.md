@@ -2,7 +2,7 @@
 This document demonstrates the development of a Ballerina project and shows how to use the `Ballerina Tool` to fetch, 
 build, and install Ballerina modules. These commands work with repositories that are both local and remote.
 
-Ballerina Central is a globally hosted module management system that is used to discover, download, and publish modules.
+Ballerina Central is a globally-hosted module management system that is used to discover, download, and publish modules.
 
 The `Ballerina Tool` requires you to organize your code in a specific way. This document explains the simplest way to 
 get it up and running with a Ballerina installation.
@@ -12,15 +12,15 @@ get it up and running with a Ballerina installation.
 * A Ballerina program residing in a single source code file should have a `.bal` extension and an entry point (i.e., either a main 
   method or a service).
 * A Ballerina *program* is a compiled and linked binary.
-* A *module* is a directory that contains Ballerina source code files.
+* A *module* is a directory, which contains Ballerina source code files.
 * A *repository* is a versioned collection of compiled or source code *modules*.
 * A *project* atomically manages a collection of *modules*.
 
 ## Programs
 A *program* is a runtime executable ending with a `.jar` extension. A *program* is the transitive closure of one 
-Ballerina module without including `ballerina/*` modules, since those are dynamically linked within Ballerina's runtime 
+Ballerina module without including `ballerina/*` modules since those are dynamically linked within Ballerina's runtime 
 engine during execution. A *module*, which is a *program* compiles into a file with a `.jar` extension. Otherwise, it is 
-treated as a to-be-linked library that ends with a `.balo` extension.
+treated as a to-be-linked library, which ends with a `.balo` extension.
 
 To generate an executable `.jar` file, the program's module must contain either a `main()` function (a process entry point) or 
 a `service` (a network-accessible API).
@@ -58,7 +58,7 @@ service hello on new http:Listener(9090) {
 ```
 
 ### Build and Run Programs
-To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or services:
+To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or a service(s):
 ```bash
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
@@ -79,8 +79,8 @@ objects. To share a module among programs, projects, and users, you need to push
 Modules:
 
 <ol>
-<li>May or may not have a version</li>
-<li>However, modules cannot be pushed into a registry for sharing without a version</li>
+<li>May or may not have a version.</li>
+<li>However, modules cannot be pushed into a registry for sharing without a version.</li>
 <li>Are referenced by  <code>&lt;org-name&gt;/&lt;module-name&gt;</code> where <code>&lt;org-name&gt;</code> is a namespace from within a repository.</li>
 </ol>
 
@@ -117,7 +117,7 @@ service hello on new http:Listener(9090) {
 }
 ```
 
-Or you can override the default identifier:
+Else, you can override the default identifier:
 ```ballerina
 import ballerina/http as network;
 
@@ -142,8 +142,8 @@ modules within the project by defining it in the `Ballerina.toml` file:
 Often, you would want to depend on a module of another project, which you have not pushed to the central. This can be 
 achieved using a path dependency as shown above with the `wso2/github` dependency.
 
-If an import version is not specified in `Ballerina.toml`, the compiler will use the `latest` module version from a 
-repository, if one exists.
+If an import version is not specified in the `Ballerina.toml` file, the compiler will use the `latest` module version from a 
+repository if one exists.
 
 ```ballerina
 import tyler/http;
@@ -160,7 +160,7 @@ dependencies into the compiled unit.
 Modules can only be created, versioned, and pushed into a repository as part of a *project*.
 
 ### Running Compiled Modules
-An entrypoint such as a `main()` or a `service` that is compiled as part of a named module is automatically linked 
+An entry point such as a `main()` or a `service` that is compiled as part of a named module is automatically linked 
 into a `.jar`. You can run the compiled module `.jar`:
 
 ```bash
@@ -169,9 +169,9 @@ ballerina run module.jar
 
 ## Projects
 * A *project* is a directory, which atomically manages a collection of *modules*. It has:
-  * A user-managed manifest file, `Ballerina.toml`
-  * An `src` folder with module source code
-  * A `tests` folder for integration tests
+  * a user-managed manifest file (i.e.,`Ballerina.toml`)
+  * an `src` folder with module source code
+  * a `tests` folder for integration tests
 
 Projects are managed atomically. Therefore, dependency management, compilation, unit tests, and artifact generation are done 
 collectively across the source code files and modules defined within a project.
@@ -184,8 +184,7 @@ ballerina new <project-name>
 ```
 
 The `new` command will create a project directory with the given name. A Ballerina project cannot reside in another 
-ballerina project. If you run `ballerina new` from inside a Ballerina project directory or from inside a sub directory of a Ballerina project,
-it will give an error.
+Ballerina project. If you run `ballerina new` from inside a Ballerina project directory or from inside a sub directory of a Ballerina project, it will give an error.
 
 It will create the `Ballerina.toml` file, `src` folder, and a `tests` folder.
 
@@ -200,8 +199,8 @@ ballerina add <module-name>
 
 The folders `tests/` and `resources/` are reserved folder names within the module. The `tests/` folder contains 
 unit test files of the module and the `resources/` folder contains the resources of the module that will be available at runtime. Any 
-additional subdirectories within the module have no semantic meaning and can be used by the developer for organizing 
-files. The module subdirectories can have as many Ballerina source files and all will be included within the 
+additional subdirectories within the module will have no semantic meaning and can be used for organizing 
+files. The module subdirectories can have as many Ballerina source files as required and all of them will be included within the 
 module when it is built. 
 
 ### Project Structure
@@ -209,13 +208,13 @@ module when it is built.
 /
     project-name/
         .gitignore
-        Balleirna.lock             # Generated during the build and used to rebuild identical binary
+        Balleirna.lock             # Generated during the build and used to rebuild the identical binary
         Ballerina.toml             # Configuration, which  defines project intent
         
         src/
             module1/               # The source in this directory will be named “<org-name>/module1”
-                Module.md          # Contains descriptive metadata for display at Ballerina Central
-                main.bal           # Contains the default main method
+                Module.md          # Contains descriptive metadata for displaying at Ballerina Central
+                main.bal           # Contains the default `main` method
                 *.bal              # In this dir and recursively in subdirs except tests/ and resources/
                 [tests/]           # Module-specific unit and integration tests
                     main_test.bal  # The test file for main
@@ -232,7 +231,7 @@ module when it is built.
             [resources/]           # Integration test resources
             
         target/                    # Compiled executables and other artifacts end up here
-            balo/                  # BALO files, one per each module, will be created here
+            balo/                  # BALO files (one per each module) will be created here
             bin/                   # Executables will be created here
             caches/
                 bir_cache/
@@ -242,7 +241,7 @@ module when it is built.
 ### Build a Project
 A project should be built if it is required to generate the executable JAR files from the modules in the project. The
 executable JAR files will be generated only if there are entry points (main method or a service) in the module. Building
-a project will build all modules found in the project's root folder. Building a project runs through phases including
+a project will build all the modules found in the project's root folder. Building a project runs through phases including
 dependency resolution, compilation, artifact generation, and unit test execution.
 
 ```bash
@@ -292,13 +291,13 @@ version = “string”
 ```
 
 All modules built in a project are assigned the same version. If you need two modules to have different versions, then 
-those modules should be placed into different projects.
+those modules should be placed in different projects.
 
 Version labels must follow [Semantic Versioning 2.0 rules](https://semver.org/).
 
 ### Assign an Organization Name to a Module
 A module is assigned an `<org-name>` when it is pushed into a repository. The `<org-name>` is defined in the 
-`Ballerina.toml` and all modules in the same project are assigned the same organization name:
+`Ballerina.toml` file and all modules in the same project are assigned the same organization name:
 
 ```toml
 # Org name assigned to modules when installed into a repository
@@ -338,7 +337,7 @@ JAR file will be generated only if there is an entry point (main funtion or serv
 ## Module Repository - Ballerina Central
 A repository is a collection of compiled Ballerina modules. A repository helps to organize modules used by multiple 
 programs by managing their versions and assets in a central location. [Ballerina Central]
-(http://central.ballerina.io) is the only module repository for Ballerina developers.
+(http://central.ballerina.io) is the only module repository for Ballerina.
 
 ### Organizations
 An organization is a logical name used for grouping modules together under a common namespace within a repository.
@@ -347,12 +346,12 @@ All modules installed into a repository must have an organization name. Any inst
 repository will fail without an organization name.
 
 Organization names can contain lowercase alphanumeric characters and underscores. None of the characters in an 
-organization name have any semantic meaning.
+organization name will have any semantic meaning.
 
 The organization names `ballerina` and `ballerinax` are reserved for system use. Modules in `ballerina` and 
 `ballerinax` are included within the system distribution.
 
-At Ballerina Central, every account is assigned a personal organization name, which is chosen by a 
+At Ballerina Central, every account is assigned a personal organization name, which is chosen by the 
 user when creating their account initially or is derived from the email address of the user.
 
 When pushing a module from a local computer into Ballerina Central, the user's organization name in the Ballerina 
@@ -385,11 +384,11 @@ ballerina push <module-name>
 ```
 ### Configure Ballerina Central Access
 
-Ballerina Central requires an account in order to push modules. Your account is represented by a CLI token that is 
-installed into your local Ballerina configuration file, i.e., `~/.ballerina/Settings.toml`. The CLI token is 
+Ballerina Central requires an account in order to push modules. Your account is represented by a CLI token, which is 
+installed into your local Ballerina configuration file (i.e., `~/.ballerina/Settings.toml`). The CLI token is 
 automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an 
 OAuth authorization screen, configures your account, and then copies your CLI token from Ballerina Central into your 
-local CLI configuration. To get your token, register on Ballerina Central and visit the 
+local CLI configuration. To get your token, register at Ballerina Central and visit the 
 [Ballerina Central Dashboard](https://central.ballerina.io/dashboard).
 
 Every push of the same module into Ballerina Central REQUIRES a new version even for minor text updates. 
