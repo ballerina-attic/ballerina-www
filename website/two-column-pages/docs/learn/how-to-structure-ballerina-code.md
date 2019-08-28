@@ -58,11 +58,7 @@ service hello on new http:Listener(9090) {
 ```
 
 ### Build and Run Programs
-<<<<<<< HEAD
-To generate an executable `.jar`, you can build a Ballerina program, which contains a `main()` function or a service(s):
-=======
 To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or services:
->>>>>>> 258d039ede88f2a1922c3c2684d1e942e1031c39
 ```bash
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
@@ -164,13 +160,8 @@ dependencies into the compiled unit.
 Modules can only be created, versioned, and pushed into a repository as part of a *project*.
 
 ### Running Compiled Modules
-<<<<<<< HEAD
-An entry point such as a `main()` or a `service` that is compiled as part of a named module is automatically linked 
-into a `.jar` file. You can run the compiled module `.jar`:
-=======
 An entrypoint such as a `main()` or a `service` that is compiled as part of a named module is automatically linked 
 into a `.jar`. You can run the compiled module `.jar`:
->>>>>>> 258d039ede88f2a1922c3c2684d1e942e1031c39
 
 ```bash
 ballerina run module.jar
