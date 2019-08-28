@@ -139,14 +139,14 @@ modules within the project by defining it in the `Ballerina.toml` file:
 "wso2/twitter" = "2.3.4"
 "wso2/github" = { path = "path/to/github.balo", version = "1.2.3"}
 ```
-Often, you would want to depend on a module of another project, which you have not pushed to the Central. This can be 
+Often, you would want to depend on a module of another project, which you have not pushed to the Ballerina Central. This can be 
 achieved using a path dependency as shown above with the `wso2/github` dependency.
 
 If an import version is not specified in the `Ballerina.toml` file, the compiler will use the `latest` module version from a 
 repository if one exists.
 
 ```ballerina
-import user/http;
+import foo/http;
 
 public function main() {
   http:Person x = http:getPerson();
@@ -301,7 +301,7 @@ A module is assigned an `<org-name>` when it is pushed into a repository. The `<
 
 ```toml
 # Org name assigned to modules when installed into a repository
-org-name = “user”
+org-name = “foo”
 ```
 
 ## Module Caches
