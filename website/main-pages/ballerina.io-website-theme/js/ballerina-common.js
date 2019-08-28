@@ -173,6 +173,7 @@ $(document).ready(function() {
         '<div id="navbar" class="collapse navbar-collapse">' +
         '<ul class="nav navbar-nav cTopNav">' +
         '<li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a></li>' +
+        '<li class="active toctree-l1" id="Eventsli"><a class="cBioTopLink" href="/learn/events">Events</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
@@ -542,7 +543,9 @@ $(function() {
         $("#openli").addClass("cActive");
     } else if (pathname.indexOf("help") != -1) {
         $("#helpli").addClass("cActive");
-    }
+    } else if (pathname.indexOf("lean/events") != -1) {
+    $("#eventsli").addClass("cActive");
+}
 });
 
 
