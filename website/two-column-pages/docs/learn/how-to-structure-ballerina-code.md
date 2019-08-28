@@ -58,7 +58,8 @@ service hello on new http:Listener(9090) {
 ```
 
 ### Build and Run Programs
-To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or services:
+To generate an executable `.jar`, you can build a Ballerina program, which contains a `main()` function or a service(s):
+
 ```bash
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
