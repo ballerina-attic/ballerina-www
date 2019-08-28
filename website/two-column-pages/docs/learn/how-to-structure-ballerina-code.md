@@ -58,12 +58,12 @@ service hello on new http:Listener(9090) {
 ```
 
 ### Build and Run Programs
-To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or a service(s):
+To generate an executable `.jar`, you can build a Ballerina program, which contains a `main()` function or a service(s):
 ```bash
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
 
-# This generates 'sample.jar'
+# This generates 'sample.jar'.
 ```
 
 You can use the following command to run the `main()` function or services in a generated `.jar` file:
@@ -72,7 +72,7 @@ $ ballerina run sample.jar
 ```
 
 ## Modules
-A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate 
+A *module* is a directory, which contains Ballerina source code files and is part of a namespace. Modules facilitate 
 collaboration, sharing, and reuse. Modules can include functions, clients, constants, annotations, services, and 
 objects. To share a module among programs, projects, and users, you need to push the module into a repository.
 
@@ -139,14 +139,14 @@ modules within the project by defining it in the `Ballerina.toml` file:
 "wso2/twitter" = "2.3.4"
 "wso2/github" = { path = "path/to/github.balo", version = "1.2.3"}
 ```
-Often, you would want to depend on a module of another project, which you have not pushed to the central. This can be 
+Often, you would want to depend on a module of another project, which you have not pushed to the Central. This can be 
 achieved using a path dependency as shown above with the `wso2/github` dependency.
 
 If an import version is not specified in the `Ballerina.toml` file, the compiler will use the `latest` module version from a 
 repository if one exists.
 
 ```ballerina
-import tyler/http;
+import user/http;
 
 public function main() {
   http:Person x = http:getPerson();
@@ -161,7 +161,7 @@ Modules can only be created, versioned, and pushed into a repository as part of 
 
 ### Running Compiled Modules
 An entry point such as a `main()` or a `service` that is compiled as part of a named module is automatically linked 
-into a `.jar`. You can run the compiled module `.jar`:
+into a `.jar` file. You can run the compiled module `.jar`:
 
 ```bash
 ballerina run module.jar
@@ -301,7 +301,7 @@ A module is assigned an `<org-name>` when it is pushed into a repository. The `<
 
 ```toml
 # Org name assigned to modules when installed into a repository
-org-name = “tyler”
+org-name = “user”
 ```
 
 ## Module Caches
