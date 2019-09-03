@@ -289,7 +289,7 @@ Modules in a project are assigned their version from within the `Ballerina.toml`
 
 ```toml
 # The current version, obeying [semver](https://semver.org/)
-version = “string”
+version = "string"
 ```
 
 All modules built in a project are assigned the same version. If you need two modules to have different versions, then 
