@@ -303,7 +303,7 @@ A module is assigned an `<org-name>` when it is pushed into a repository. The `<
 
 ```toml
 # Org name assigned to modules when installed into a repository
-org-name = “foo”
+org-name = "foo"
 ```
 
 ## Module Caches
