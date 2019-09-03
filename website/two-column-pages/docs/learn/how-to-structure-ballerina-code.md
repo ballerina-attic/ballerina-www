@@ -143,7 +143,7 @@ modules within the project by defining it in the `Ballerina.toml` file:
 Often, you would want to depend on a module of another project, which you have not pushed to the Ballerina Central. This can be 
 achieved using a path dependency as shown above with the `wso2/github` dependency.
 
-If an import version is not specified in `Ballerina.toml`, the compiler will use the `latest` module version from a 
+If an import version is not specified in `Ballerina.toml`, the compiler will use the latest module version from a 
 repository, if one exists.
 
 ```ballerina
