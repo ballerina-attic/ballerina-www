@@ -52,7 +52,7 @@ $ code --install-extension <BALLERINA-PLUGIN-DIRECTORY>
 
 ## Using the plugin
 
-> **Troubleshooting**: If you installed a new Ballerina version recently (after installing the VS Code plugin), you need to restart the VS Code Editor to apply the new Ballerina version. Herein, If you are using Mac OS, press 'Command+Q' keys to quit the app and reopen it.
+> **Troubleshooting**: If you installed a new Ballerina version recently, you might need to restart the VS Code Editor to pick the new Ballerina version. Herein, If you are using Mac OS, press 'Command+Q' keys to quit the app and reopen it.
 
 Click on the below links to find information on the various capabilities that are facilitated by the VS Code Ballerina plugin for the development process.
 
