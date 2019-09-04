@@ -18,6 +18,8 @@ You view the output in the **DEBUG CONSOLE**.
 
 For more information on debugging your code using VS Code, go to [VS Code Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
+>**Troubleshooting:** When debugging a code, which includes an action invocation, you need to add a breakpoint to the next line to step over and continue debugging. If not, stepping over will move to the line above.
+
 ## What's next?
 
  - For information on the next capability of the VS Code Ballerina extension, see [Run All Tests](vscode-plugin/run-all-tests).

@@ -66,6 +66,8 @@ You can debug Ballerina main/service programs with a few clicks.
 
 ![Debug Ballerina programs](../images/debug-ballerina-intellij.gif)
 
+>**Troubleshooting:** When debugging a code, which includes an action invocation, you need to add a breakpoint to the next line to step over and continue debugging. If not, stepping over will move to the line above.
+
 ## Viewing the sequence diagram
 
 The underlying language semantics of Ballerina were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow including endpoints as well as synchronous and asynchronous calls.
