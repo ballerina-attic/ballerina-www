@@ -1,24 +1,30 @@
 <h1>Learn Ballerina</h1>
 <div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
-   <p>All the resources you need to get hands-on experience with Ballerina.</p>
+   <p>Ballerina is a statically typed, concurrent programming language, focusing on network interaction and structured data. It is intended to be the core of a language-centric middleware platform. Here you’ll find all the resources you need to get hands-on experience with Ballerina.
+</p>
    <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
+   <!-- <h2>&nbsp;</h2> -->
+</div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<h2>Getting Started with Ballerina</h2>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
+<div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-       <p>Check out how to download Ballerina and install its tools.</p>
+      <h3>Getting Started</h3>
+       <p>How to download Ballerina and install its tools; also includes system requirements and uninstall instructions.</p>
          <a class="cBallerinaLearnButtons" href="/learn/getting-started/">Getting Started</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-         <p>Take Ballerina for a spin — this is the fastest way to try Ballerina!</p>
+      <h3>Quick Tour</h3>
+         <p>Take Ballerina for a spin — this is the fastest way to try it out! Create and run an end-to-end project.</p>
          <a class="cBallerinaLearnButtons" href="/learn/getting-started/">Quick Tour</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
+      <h3>Ballerina by Example</h3>
          <p>Learn Ballerina incrementally with commented examples that cover every nuance of the syntax.</p>
          <a class="cBallerinaLearnButtons" href="/learn/by-example/">Ballerina by Example</a>
       </div>
@@ -26,29 +32,6 @@
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>Core Documentation</h2>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-         <p>The Language Specification defines the Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification </a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-         <p>The API Documentation describes the native functions in Ballerina that you can use in your programs.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/ballerina/">Module and API Documentation</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-         <p>The Ballerina Style Guide shows how to maintain a standard coding style among the Ballerina community.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/style-guide/">Ballerina Style Guide</a>
-      </div>
-   </div>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <h2>Tutorials</h2>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper">
    <div class="col-sm-12 col-md-6 cTwoCol">
@@ -78,8 +61,34 @@
       <p>How to use logging, metrics, and tracing to observe Ballerina services.</p>
    </div>
 </div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
+   <h2>Reference Documentation</h2>
+</div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
+<div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>The standard library provides comprehensive documentation for the Ballerina standard library APIs.</p>
+         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>This spec defines the language and will be useful to understand, evaluate, or start using the language.</p>
+         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+      <p>The Ballerina Style Guide shows how to maintain a standard coding style among the Ballerina community.</p>
+         <a class="cBallerinaLearnButtons" href="/learn/style-guide/">Ballerina Style Guide</a>
+      </div>
+   </div>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
 <h2>Get Help from the Community!</h2>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
+
    <div class="col-sm-12 col-md-4 cBoxContainer cCommunityIconsContainer">
       <div class="cBallerina-Box">
       <a class="cCommunityIcons" href="/open-source/slack/"><img src="/img/slack.svg"></a>
