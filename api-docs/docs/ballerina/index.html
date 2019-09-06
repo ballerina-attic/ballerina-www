@@ -8,11 +8,6 @@
 
     <title>API Documentation</title>
     <script src="html-template-resources/jquery.min.js"></script>
-    <link rel="stylesheet" href="html-template-resources/semantic.min.css">
-    <link rel="stylesheet" href="html-template-resources/styles/css/styles.css">
-    <link rel="stylesheet" href="html-template-resources/styles/css/font.css">
-    <script src="html-template-resources/semantic.min.js"></script>
-    <script src="vs/monaco.js"></script>
 
     <!-- BIO THEME START -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -33,6 +28,12 @@
 </style>
 <!-- BIO THEME END -->
 
+    <link rel="stylesheet" href="html-template-resources/semantic.min.css">
+    <link rel="stylesheet" href="html-template-resources/styles/css/styles.css">
+    <link rel="stylesheet" href="html-template-resources/styles/css/font.css">
+    <script src="html-template-resources/semantic.min.js"></script>
+    <script src="vs/monaco.js"></script>
+
 </head>
 
 
@@ -51,7 +52,7 @@
           <a href="index.html">
     <img class="logo" src="html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0-alpha</div>
+<div class="version">v1.0.0-beta</div>
 
       </div>
     </div>
@@ -61,7 +62,7 @@
                 <a href="index.html">
     <img class="logo" src="html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0-alpha</div>
+<div class="version">v1.0.0-beta</div>
 
             </div>
         </div>
@@ -85,11 +86,6 @@
                 <td class="module-title modules"><a href="auth/index.html">auth</a></td>
                 <td class="module-desc"><p>This module provides default authentication provider configurations that can be extended to create new authentication providers.</p>
 </td>
-              </tr>
-              
-              <tr>
-                <td class="module-title modules"><a href="bir/index.html">bir</a></td>
-                <td class="module-desc"></td>
               </tr>
               
               <tr>
@@ -121,7 +117,7 @@ retrieve, and it is therefore useful to cache it for future use.</p>
               
               <tr>
                 <td class="module-title modules"><a href="file/index.html">file</a></td>
-                <td class="module-desc"><p>This module contains services that register listeners against a local folder and identify events that create, modify, and delete files.</p>
+                <td class="module-desc"><p>This module contains functions to perform file system based operations.</p>
 </td>
               </tr>
               
@@ -169,11 +165,6 @@ or non-blocking manner.</p>
                 <td class="module-desc"><p>This module provides the functionality required to access and manipulate data stored in any type of relational database
 that is accessible via Java Database Connectivity (JDBC).</p>
 </td>
-              </tr>
-              
-              <tr>
-                <td class="module-title modules"><a href="jvm/index.html">jvm</a></td>
-                <td class="module-desc"></td>
               </tr>
               
               <tr>
@@ -323,12 +314,6 @@ Ballerina supports Observability out of the box. This module provides user api's
               </tr>
               
               <tr>
-                <td class="module-title modules"><a href="rabbitmq/index.html">rabbitmq</a></td>
-                <td class="module-desc"><p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the most popular open-source enterprise messaging systems, modeled on the Advanced Message Queuing Protocol (AMQP) standard. This guide covers Ballerina RabbitMQ module and its public API. This module contains functionality to support messaging with RabbitMQ broker (AMQP 0-9-1).</p>
-</td>
-              </tr>
-              
-              <tr>
                 <td class="module-title modules"><a href="reflect/index.html">reflect</a></td>
                 <td class="module-desc"><p>This module provides utility methods for obtaining reflective information about the Ballerina runtime.</p>
 </td>
@@ -353,8 +338,7 @@ Ballerina supports Observability out of the box. This module provides user api's
               
               <tr>
                 <td class="module-title modules"><a href="system/index.html">system</a></td>
-                <td class="module-desc"><p>This module contains functions to retrieve information about the system, the current users of the system and
-to perform file system based operations.</p>
+                <td class="module-desc"><p>This module contains functions to retrieve information about the system and the current users of the system.</p>
 </td>
               </tr>
               
@@ -383,12 +367,6 @@ to perform file system based operations.</p>
               <tr>
                 <td class="module-title modules"><a href="utils/index.html">utils</a></td>
                 <td class="module-desc"></td>
-              </tr>
-              
-              <tr>
-                <td class="module-title modules"><a href="websub/index.html">websub</a></td>
-                <td class="module-desc"><p>This module contains an implementation of the W3C <a href="https://www.w3.org/TR/websub/"><strong>WebSub</strong></a> recommendation, which facilitates a push-based content delivery/notification mechanism between publishers and subscribers.</p>
-</td>
               </tr>
               
               <tr>
@@ -442,5 +420,11 @@ contentWrapper.addEventListener("scroll", event => {
   });
 });
 
+</script>
+
+<script>
+    window.onload = (event) => {
+        ballerinaHighlighter.highlightSnippets();
+    };
 </script>
 
