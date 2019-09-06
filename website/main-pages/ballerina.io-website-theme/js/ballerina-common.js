@@ -242,7 +242,7 @@ $(document).ready(function() {
     var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
     '<select name="versions" id="versions" class="select-css">' +
     '<option value="http://ballerina.io'+pathValue+'">Stable</option>' +
-    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'" selected="selected">1.0.0-alpha</option>' +
+    '<option value="https://v1-0-0-beta.ballerina.io'+pathValue+'" selected="selected">1.0.0-beta</option>' +
     '</select>'+
     '</div>';
 
