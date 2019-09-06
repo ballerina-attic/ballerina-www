@@ -167,7 +167,13 @@ securing_configuration_values.balx
 Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
 The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header or body and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
 
-Ballerina supports Basic authentication, JWT authentication, OAuth2 authentication and LDAP authentication. Ballerina HTTP services can be configured to enforce authentication and authorization.
+Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in supports for the following inbound authentication mechanisms, whereas it is possible to add custom mechanisms: 
+
+- Basic authentication
+- JWT authentication
+- OAuth2 authentication
+- LDAP authentication. 
+
 
 In a particular authentication scheme, implemented instance of `auth:InboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:InboundAuthHandler`.
 
@@ -824,7 +830,12 @@ Hello, World!
 Ballerina outbound authentication is also abstracted out into 2 layers called `http:OutboundAuthHandler` and `auth:OutboundAuthProvider`.
 The `auth:OutboundAuthProvider` is used to create the credential according to the provided configurations. The `http:OutboundAuthHandler` is used to get the created credential from `auth:OutboundAuthProvider` and perform HTTP level actions which are adding the required HTTP headers or body using the received credential.
 
-Ballerina supports Basic authentication, JWT authentication and OAuth2 authentication. Ballerina HTTP client can be configured to enforce authentication and authorization.
+Ballerina HTTP client can be configured to send authentication and authorization information to the endpoint being invoked. Ballerina has built-in support for the following outbound authentication mechanisms, whereas it is possible to add custom mechanisms:
+
+- Basic authentication
+- JWT authentication
+- OAuth2 authentication. 
+
 
 In a particular authentication scheme, implemented instance of `auth:OutboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:OutboundAuthHandler`.
 
@@ -878,7 +889,7 @@ public type OutboundCustomAuthProvider object {
 };
 ```
 
-### JWT Authentication
+#### JWT Outbound Authentication
 
 Ballerina supports JWT Authentication for clients. The `jwt:OutboundJwtAuthProvider` is used to issue a JWT against the `jwt:JwtIssuerConfig` provided by the user. The `http:BearerAuthHandler` is used to add the HTTP `Authorization` header with the value received from the AuthProvider as `Bearer <token>`.
 
@@ -927,13 +938,13 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 
 The `http:Client` defined in the program calls the the `http:Listener` which is secured with JWT authentication (Same example used in JWT inbound authentication).
 
-#### OAuth2 Authentication
+#### OAuth2 Outbound Authentication
 
 Ballerina supports OAuth2 Authentication for clients. It supports Client Credentials grant type, Password grant type and Direct Token mode, which is, the credentials can be provided manually and after that refreshing is handled internally.
 
 The `oauth2:OutboundOAuth2Provider` is used to create a token against the configuration provided by the user. It can be `oauth2:ClientCredentialsGrantConfig`, `oauth2:PasswordGrantConfig` or `oauth2:DirectTokenConfig` according the grant type user required. The `http:BearerAuthHandler` is used to add the HTTP `Authorization` header with the value received from the AuthProvider as `Bearer <token>`.
 
-###### Client Credentials Grant Type
+##### Client Credentials Grant Type
 
 OAuth2 token issuing requires several additional configurations for `oauth2:ClientCredentialsGrantConfig` including:
 
@@ -973,7 +984,7 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 });
 ```
 
-###### Password Grant Type
+##### Password Grant Type
 
 OAuth2 token issuing requires several additional configurations for `oauth2:PasswordGrantConfig` including:
 
@@ -1022,7 +1033,7 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 });
 ```
 
-###### Direct Token Mode
+##### Direct Token Mode
 
 OAuth2 token issuing requires several additional configurations for `oauth2:DirectTokenConfig` including:
 
@@ -1098,7 +1109,7 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 
 #### Token Propagation for Outbound Authentication
 
-Ballerina supports token propagation for outbound authentication. If the user does not provides any configuration when initializing the `auth:OutboundAuthProvider`, the token propagation is happened.
+Ballerina supports token propagation for outbound authentication. The token propagation happens if the user does not provides any configuration when initializing the `auth:OutboundAuthProvider`.
 
 The `auth:OutboundAuthProvider` reads the token/username from the `runtime:InvocationContext` according to the outbound authentication scheme and use that for the outbound request.
 
@@ -1235,7 +1246,7 @@ Downstream service received authenticated request with the token: Basic dG9tOjEy
 
 The following program has an `http:Client` secured with JWT authentication and it is configured inside an `http:Listener` secured with Basic authentication.
 The `jwt:OutboundJwtAuthProvider` is initialized providing configurations but without the username. Therefore, the program gets the username from the `runtime:InvocationContext` and use it for outbound request.
-If the downstream service is secured with the JWT authentication and with the same username of upstream service, the user does not need to configure client with that username. It is propagated internally.
+In this example, the downstream service is secured with the JWT authentication and expects a JWT issued against the user authenticating with the upstream service (protected by Basic authentication). Ballerina can dynamically issue such JWT while propagating the user information internally.
 
 ```ballerina
 import ballerina/auth;
