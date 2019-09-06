@@ -10,7 +10,7 @@ rm target/dependencies/ballerina-examples -rf
 #get BBE from the language master branch
 rm ballerina-lang -rf
 git clone https://github.com/ballerina-platform/ballerina-lang
-git --git-dir=ballerina-lang/.git --work-tree=ballerina-lang/ checkout v1.0.0-alpha
+git --git-dir=ballerina-lang/.git --work-tree=ballerina-lang/ checkout v1.0.0-beta
 mkdir -p target/dependencies/ballerina-examples/
 mv ballerina-lang/examples target/dependencies/ballerina-examples/examples/
 rm ballerina-lang -r
