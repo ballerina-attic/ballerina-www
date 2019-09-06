@@ -13,43 +13,43 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cDownloadsHeader">       
                 <div class="cFeaturedVersion">
-                     <h2><span id="versionInfo">1.0.0-alpha3 (Aug 23, 2019)</span></h2>
+                     <h2><span id="versionInfo">1.0.0-beta (Sep 05, 2019)</span></h2>
                 </div>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row cDownloads">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
-                <a id="packWindows" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-windows-installer-x64-1.0.0-alpha3.msi" class="cDownload" data-download="downloads" data-pack="ballerina-windows-installer-x64-0.991.0.msi">
+                <a id="packWindows" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-windows-installer-x64-1.0.0-beta.msi" class="cDownload" data-download="downloads" data-pack="ballerina-windows-installer-x64-0.991.0.msi">
                     <div>Windows</div>
-                    <div class="cSize">Installer msi <span id="packWindowsName">(124mb)</span></div>
+                    <div class="cSize">Installer msi <span id="packWindowsName">(125mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packWindowsMd5" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-windows-installer-x64-1.0.0-alpha3.msi.md5">md5</a></li>
-                    <li><a id="packWindowsSha1" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-windows-installer-x64-1.0.0-alpha3.msi.sha1">SHA-1</a></li>
-                    <li><a id="packWindowsAsc" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-windows-installer-x64-1.0.0-alpha3.msi.asc">asc</a></li>
+                    <li><a id="packWindowsMd5" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-windows-installer-x64-1.0.0-beta.msi.md5">md5</a></li>
+                    <li><a id="packWindowsSha1" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-windows-installer-x64-1.0.0-beta.msi.sha1">SHA-1</a></li>
+                    <li><a id="packWindowsAsc" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-windows-installer-x64-1.0.0-beta.msi.asc">asc</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packLinux" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-linux-installer-x64-1.0.0-alpha3.deb" class="cDownload" data-download="downloads" data-pack="ballerina-linux-installer-x64-0.991.0.deb">
+                <a id="packLinux" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-linux-installer-x64-1.0.0-beta.deb" class="cDownload" data-download="downloads" data-pack="ballerina-linux-installer-x64-0.991.0.deb">
                     <div>Linux</div>
-                    <div class="cSize">deb Package <span id="packLinuxName">(121mb)</span></div>
+                    <div class="cSize">deb Package <span id="packLinuxName">(120mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packLinuxMd5" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-linux-installer-x64-1.0.0-alpha3.deb.md5">md5</a></li>
-                    <li><a id="packLinuxSha1" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-linux-installer-x64-1.0.0-alpha3.deb.sha1">SHA-1</a></li>
-                    <li><a id="packLinuxAsc" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-linux-installer-x64-1.0.0-alpha3.deb.asc">asc</a></li>
+                    <li><a id="packLinuxMd5" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-linux-installer-x64-1.0.0-beta.deb.md5">md5</a></li>
+                    <li><a id="packLinuxSha1" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-linux-installer-x64-1.0.0-beta.deb.sha1">SHA-1</a></li>
+                    <li><a id="packLinuxAsc" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-linux-installer-x64-1.0.0-beta.deb.asc">asc</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packMac" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-macos-installer-x64-1.0.0-alpha3.pkg" class="cDownload" data-download="downloads" data-pack="ballerina-macos-installer-x64-0.991.0.pkg">
+                <a id="packMac" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-macos-installer-x64-1.0.0-beta.pkg" class="cDownload" data-download="downloads" data-pack="ballerina-macos-installer-x64-0.991.0.pkg">
                     <div>MacOS</div>
-                    <div class="cSize">Installer pkg <span id="packMacName">(138mb)</span></div>
+                    <div class="cSize">Installer pkg <span id="packMacName">(136mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packMacMd5" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-macos-installer-x64-1.0.0-alpha3.pkg.md5">md5</a></li>
-                    <li><a id="packMacSha1" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-macos-installer-x64-1.0.0-alpha3.pkg.sha1">SHA-1</a></li>
-                    <li><a id="packMacAsc" href="https://product-dist.ballerina.io/dev/1.0.0-alpha3/ballerina-macos-installer-x64-1.0.0-alpha3.pkg.asc">asc</a></li>
+                    <li><a id="packMacMd5" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-macos-installer-x64-1.0.0-beta.pkg.md5">md5</a></li>
+                    <li><a id="packMacSha1" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-macos-installer-x64-1.0.0-beta.pkg.sha1">SHA-1</a></li>
+                    <li><a id="packMacAsc" href="https://product-dist.ballerina.io/dev/1.0.0-beta/ballerina-macos-installer-x64-1.0.0-beta.pkg.asc">asc</a></li>
                 </ul>
             </div>
         </div>
