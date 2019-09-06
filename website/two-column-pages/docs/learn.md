@@ -8,30 +8,57 @@
    <!-- <h2>&nbsp;</h2> -->
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-      <h3>Getting Started</h3>
-       <p>How to download Ballerina and install its tools; also includes system requirements and uninstall instructions.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/getting-started/">Getting Started</a>
+<div class="col-sm-12 col-md-6 cBoxContainer">
+      <div class="TopLinks cBallerina-Box">
+        <a class="cBallerinaLearnButtons cButtonswithtext" href="/learn/getting-started/">Getting Started
+         <p>How to download Ballerina and install its tools</p>
+         </a>
       </div>
    </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-      <h3>Quick Tour</h3>
-         <p>Take Ballerina for a spin — this is the fastest way to try it out! Create and run an end-to-end project.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/getting-started/">Quick Tour</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-      <h3>Ballerina by Example</h3>
-         <p>Learn Ballerina incrementally with commented examples that cover every nuance of the syntax.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/by-example/">Ballerina by Example</a>
+   <div class="col-sm-12 col-md-6 cBoxContainer">
+      <div class="TopLinks cBallerina-Box">
+         <a class="cBallerinaLearnButtons cButtonswithtext" href="/learn/getting-started/">Quick Tour
+         <p>This is the fastest way to try out Ballerina</p>
+         </a>
       </div>
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <h2>Core Documentation</h2>
+   <h2>Reference Documentation</h2>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
+<div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Learn Ballerina incrementally with commented examples that cover every nuance of the syntax.</p>
+         <a class="cBallerinaLearnButtons" href="/learn/by-example/">Ballerina by Example</a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>The standard library provides comprehensive documentation for the Ballerina standard library APIs.</p>
+         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>This spec defines the language and will be useful to understand, evaluate, or start using the language.</p>
+         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
+      </div>
+   </div>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
+   <h2>Tools and IDEs</h2>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
+<div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.</p>
+         <a class="cBallerinaLearnButtons" href="/learn/tools-ides/">Check out Ballerina tools and IDEs</a>
+      </div>
+   </div>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
+   <h2>How To’s</h2>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper">
    <div class="col-sm-12 col-md-6 cTwoCol">
@@ -45,11 +72,11 @@
    <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-document-ballerina-code/">Documenting Ballerina Code</a></h3>
-      <p>Guidelines on documenting your Ballerina programs and modules in order to generate API documentation.</p>
+      <p>How to document your Ballerina programs and modules in order to generate API documentation.</p>
    </div>
    <div class="col-sm-12 col-md-6 cTwoCol">
-      <h3><a href="/learn/how-to-publish-modules/">Publishing Ballerina Modules</a></h3>
-      <p>Settings and commands you need in order to share your local modules with the Ballerina community</p>
+      <h3><a href="/learn/how-to-publish-modules/">Publishing Modules and Ballerina Central</a></h3>
+      <p>How to share your local modules with the Ballerina community using Ballerina Central.</p>
    </div>
    <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
@@ -60,28 +87,10 @@
       <h3><a href="/learn/how-to-observe-ballerina-code/">Observing Ballerina Services</a></h3>
       <p>How to use logging, metrics, and tracing to observe Ballerina services.</p>
    </div>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <h2>Reference Documentation</h2>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>The standard library provides comprehensive documentation for the Ballerina standard library APIs.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>This spec defines the language and will be useful to understand, evaluate, or start using the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
+      <div class="clearfix"></div>
+   <div class="col-sm-12 col-md-6 cTwoCol">
+      <h3><a href="/learn/style-guide/">Ballerina Style Guide</a></h3>
       <p>The Ballerina Style Guide shows how to maintain a standard coding style among the Ballerina community.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/style-guide/">Ballerina Style Guide</a>
-      </div>
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
@@ -105,6 +114,4 @@
       </div>
    </div>
 </div>
-
-
 <link rel="stylesheet" href="/css/ballerina-io-learn.css">
