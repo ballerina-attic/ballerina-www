@@ -403,7 +403,7 @@ service helloWorld on secureHelloWorldEp {
 // ....
 ```
 
-### JWT Authentication and Authorization
+### JWT Inbound Authentication and Authorization
 
 Ballerina supports JWT Authentication and Authorizations for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Bearer <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `jwt:InboundJwtAuthProvider` is used to validate the credential (JWT) passed by the AuthHandler against the `jwt:JwtValidatorConfig` provided by the user.
 
@@ -565,7 +565,7 @@ mAEcstgiHVw
 Hello, World!
 ```
 
-### OAuth2 Authentication and Authorization
+### OAuth2 Inbound Authentication and Authorization
 
 Ballerina supports OAuth2 Authentication and Authorizations for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Bearer <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `oauth2:InboundOAuth2Provider` is used to validate the credential passed by the AuthHandler against the introspection endpoint configured at `oauth2:IntrospectionServerConfig`, which is provided by the user.
 
@@ -668,7 +668,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Bearer <token>'
 Hello, World!
 ```
 
-### LDAP Authentication and Authorization
+### LDAP Inbound Authentication and Authorization
 
 Ballerina supports LDAP Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Basic <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `ldap:InboundLdapAuthProvider` is used to validate the credential passed by the AuthHandler against the LDAP server configured at `ldap:LdapConnectionConfig`, which is provided by the user.
 
@@ -811,7 +811,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Basic <token>'
 Hello, World!
 ```
 
-### Basic Authentication and Authorization
+### Basic Auth Inbound Authentication and Authorization
 
 Ballerina supports Basic Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Basic <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `jwt:InboundBasicAuthProvider` is used to read the user information from the configuration file and authenticate the credential passed by the AuthHandler.
 
