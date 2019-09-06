@@ -207,21 +207,6 @@ service helloWorld on secureHelloWorldEp {
 
 _Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
-#### Advanced Use Cases
-
-##### Using Multiple Auth Handlers
-
-The `authHandlers` can be configured for advanced use case, which is to use multiple auth handlers as follows:
-
-Auth should be successful for `authHandler1` OR `authHandler1`.
-`authHandlers: [authHandler1, authHandler2]`
-
-Auth should be successful for `authHandler1` AND `authHandler12`.
-`authHandlers: [[authHandler1], [authHandler2]]`
-
-Auth should be successful for ((`authHandler1` OR `authHandler2`) AND (`authHandler3` OR `authHandler4`)).
-`authHandlers: [[authHandler1, authHandler2], [authHandler3, authHandler4]]`
-
 Optionally `scopes` attribute is configured for the authorization as follows. If it is not specified, that means service is authorized to any user who is authenticated.
 
 ```ballerina
@@ -241,9 +226,24 @@ service helloWorld on secureHelloWorldEp {
 // ....
 ```
 
+#### Advanced Use Cases
+
+##### Using Multiple Auth Handlers
+
+The `authHandlers` can be configured for advanced use case, which is to use multiple auth handlers as follows:
+
+Auth should be successful for `authHandler1` OR `authHandler1`.
+`authHandlers: [authHandler1, authHandler2]`
+
+Auth should be successful for `authHandler1` AND `authHandler12`.
+`authHandlers: [[authHandler1], [authHandler2]]`
+
+Auth should be successful for ((`authHandler1` OR `authHandler2`) AND (`authHandler3` OR `authHandler4`)).
+`authHandlers: [[authHandler1, authHandler2], [authHandler3, authHandler4]]`
+
 ##### Using Multiple Scopes
 
-Also, the `scopes` can be configured for advanced use cases as follows:
+The `scopes` can be configured for advanced use cases as follows:
 
 Auth should be successful for `scope-1` OR `scope-2`.
 `scopes: ["scopes-1", "scopes-2"]`
@@ -276,7 +276,7 @@ service helloWorld on secureHelloWorldEp {
 // ...
 ```
 
-Furthermore, authentication and authorization can be modified for a particular resource as follows by configuring `auth` attribute of `@http:ResourceConfig`:
+Further, authentication and authorization can be modified for a particular resource as follows by configuring `auth` attribute of `@http:ResourceConfig`:
 
 ```ballerina
 @http:ResourceConfig {
@@ -295,7 +295,7 @@ The same configuration patterns used for the listener level configuration are ap
 
 ##### Implementing Custom Authentication Mechanism
 
-Further, a user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Listener` can be enforced with custom authentication and authorization mechanisms.
+The user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Listener` can be enforced with custom authentication and authorization mechanisms.
 
 ```ballerina
 public type InboundCustomAuthHandler object {
@@ -332,9 +332,9 @@ JWT validation requires several additional configurations for `jwt:JwtValidatorC
 * `issuer` - The issuer of the JWT.
 * `audience` - The audience value for the current service.
 * `clockSkewInSeconds` - Clock skew in seconds that can be used to avoid token validation failures due to clock synchronization problems.
-* `trustStore` - A trust store containing trusted public key certificates of issuers (used for signature validation).
-* `certificateAlias` - Alias of the public key certificate.
-* `validateCertificate` - Validate public key certificate notBefore and notAfter periods.
+* `trustStoreConfig` - JWT trust store configurations.
+  * `trustStore` - Trust store used for signature verification.
+  * `certificateAlias` - Token signed public key certificate alias.
 * `jwtCache` - Cache used to store parsed JWT information as CachedJwt.
 
 `jwt:JwtValidatorConfig` record should be provided into `jwt:InboundJwtAuthProvider` when initializing and the initialized `jwt:InboundJwtAuthProvider` is passed to the `http:BearerAuthHandler` when initializing.
@@ -348,10 +348,12 @@ import ballerina/jwt;
 jwt:InboundJwtAuthProvider jwtAuthProvider = new({
     issuer: "ballerina",
     audience: ["ballerina.io"],
-    certificateAlias: "ballerina",
-    trustStore: {
-        path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-        password: "ballerina"
+    trustStoreConfig: {
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
     }
 });
 http:BearerAuthHandler jwtAuthHandler = new(jwtAuthProvider);
@@ -609,7 +611,7 @@ LDAP token validation requires several additional configurations for `ldap:LdapC
 * `membershipAttribute` - Define the attribute that contains the distinguished names (DN) of user objects that are in a group.
 * `userRolesCacheEnabled` -  To indicate whether to cache the role list of a user.
 * `connectionPoolingEnabled` - Define whether LDAP connection pooling is enabled.
-* `ldapConnectionTimeout` - Timeout in making the initial LDAP connection.
+* `connectionTimeoutInMillis` - Timeout in making the initial LDAP connection.
 * `readTimeoutInMillis` - The value of this property is the read timeout in milliseconds for LDAP operations.
 * `retryAttempts` - Retry the authentication request if a timeout happened.
 * `secureClientSocket` - The SSL configurations for the LDAP client socket. This needs to be configured in order to communicate through LDAPs.
@@ -638,7 +640,7 @@ ldap:LdapConnectionConfig ldapConfig = {
     membershipAttribute: "member",
     userRolesCacheEnabled: true,
     connectionPoolingEnabled: false,
-    ldapConnectionTimeout: 5000,
+    connectionTimeoutInMillis: 5000,
     readTimeoutInMillis: 60000,
     retryAttempts: 3
 };
@@ -934,9 +936,17 @@ JWT issuing requires several additional configurations for `jwt:JwtIssuerConfig`
 * `username` - JWT token username.
 * `issuer` - JWT token issuer.
 * `audience` - JWT token audience.
+* `customClaims` - Map of custom claims.
 * `expTime` - JWT token expiry time.
 * `keyStoreConfig` - JWT key store configurations.
+  * `keyStore` - Keystore to be used in JWT signing.
+  * `keyAlias` - Signing key alias.
+  * `keyPassword` - Signing key password.
 * `signingAlg` - JWT signing algorithm.
+  * `jwt:RS256` - The RSA-SHA256 algorithm.
+  * `jwt:RS384` - The RSA-SHA384 algorithm.
+  * `jwt:RS512` - The RSA-SHA512 algorithm.
+  * `jwt:NONE` - Unsecured JWTs (no signing).
 
 `jwt:JwtIssuerConfig` record should be provided into `jwt:OutboundJwtAuthProvider` when initializing and the initialized `jwt:OutboundJwtAuthProvider` is passed to the `http:BearerAuthHandler` when initializing.
 
@@ -991,8 +1001,8 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Clie
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
+  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
+  -*`http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 
 `oauth2:ClientCredentialsGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
@@ -1033,11 +1043,15 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Pass
 * `clientSecret` - Client secret for password grant authentication.
 * `scopes` - Scope of the access request.
 * `refreshConfig` - Configurations for refreshing the access token.
+  * `refreshUrl` - Refresh token URL for the refresh token server.
+  * `scopes` - Scope of the access request.
+  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+  * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
+  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
+  * `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 
 `oauth2:PasswordGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
@@ -1079,6 +1093,13 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Dire
 
 * `accessToken` - Access token for the authorization endpoint.
 * `refreshConfig` - Configurations for refreshing the access token.
+  * `refreshUrl` - Refresh token URL for the refresh token server.
+  * `refreshToken` - Refresh token for the refresh token server.
+  * `clientId` - Client ID for authentication with the authorization endpoint.
+  * `clientSecret` - Client secret for authentication with the authorization endpoint.
+  * `scopes` - Scope of the access request.
+  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+  * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
