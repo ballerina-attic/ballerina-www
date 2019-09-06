@@ -164,9 +164,6 @@ securing_configuration_values.balx
 
 ### Inbound Authentication & Authorization
 
-Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
-The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header or body and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
-
 Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in supports for the following inbound authentication mechanisms, whereas it is possible to add custom mechanisms: 
 
 - Basic authentication
@@ -174,15 +171,28 @@ Ballerina HTTP services can be configured to enforce authentication and authoriz
 - OAuth2 authentication
 - LDAP authentication. 
 
+Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
+
+`auth:InboundAuthProvider` is protocol independent entity that only knows how to authenticate a user given necessary information. `http:InboundAuthHandler` can be protocol dependent. Even-though current focus is HTTP, `ballerina/auth` module can act across other protocols as well.
+
+The `http:InboundAuthHandler` is used to perform HTTP level actions which are extracting the required HTTP header or body and extracting the credential out of it and passing into associated `auth:InboundAuthProvider` and get the credential validated. The `auth:InboundAuthProvider` is used to validate the credential passed by the `http:InboundAuthHandler`.
 
 In a particular authentication scheme, implemented instance of `auth:InboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:InboundAuthHandler`.
 
 Next, the implemented instance of  `http:InboundAuthHandler` is passed to the `http:Listener` configuration as follows and the listener is initialized with authentication.
 
+The following example represents how a listener is secured with Basic auth with above mentioned configurations.
+
 ```ballerina
+import ballerina/auth;
+import ballerina/http;
+
+auth:InboundBasicAuthProvider basicAuthProvider = new;
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+
 listener http:Listener secureHelloWorldEp = new(9091, {
     auth: {
-        authHandlers: [authHandler]
+        authHandlers: [basicAuthHandler]
     },
     secureSocket: {
         keyStore: {
@@ -197,8 +207,11 @@ service helloWorld on secureHelloWorldEp {
 
 _Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
+#### Advanced Use Cases
 
-Also, the `authHandlers` can be configured for advanced use cases as follows:
+##### Using Multiple Auth Handlers
+
+The `authHandlers` can be configured for advanced use case, which is to use multiple auth handlers as follows:
 
 Auth should be successful for `authHandler1` OR `authHandler1`.
 `authHandlers: [authHandler1, authHandler2]`
@@ -228,6 +241,8 @@ service helloWorld on secureHelloWorldEp {
 // ....
 ```
 
+##### Using Multiple Scopes
+
 Also, the `scopes` can be configured for advanced use cases as follows:
 
 Auth should be successful for `scope-1` OR `scope-2`.
@@ -239,7 +254,9 @@ Auth should be successful for `scope-1` AND `scope-2`.
 Auth should be successful for ((`scope-1` OR `scope-2`) AND (`scope-3` OR `scope-4`)).
 `scopes: [["scopes-1", "scopes-2"], ["scopes-3", "scopes-4"]]`
 
-Further, the security enforcements can be customized by the `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation.
+##### Per-Resource and Per-Service Customization
+
+The security enforcements can be customized by the `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation.
 
 For example, authentication and authorization can be modified for a particular service as follows by configuring `auth` attribute of `@http:ServiceConfig`.
 * authentication can be disabled only for a particular service by using the `enabled` attribute.
@@ -275,6 +292,8 @@ resource function sayHello (http:Caller caller, http:Request req) {
 ```
 
 The same configuration patterns used for the listener level configuration are applied for `authHandlers` and `scopes` attributes in service level configurations and resource level configurations.
+
+##### Implementing Custom Authentication Mechanism
 
 Further, a user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Listener` can be enforced with custom authentication and authorization mechanisms.
 
@@ -827,24 +846,37 @@ Hello, World!
 
 ### Outbound Authentication & Authorization
 
-Ballerina outbound authentication is also abstracted out into 2 layers called `http:OutboundAuthHandler` and `auth:OutboundAuthProvider`.
-The `auth:OutboundAuthProvider` is used to create the credential according to the provided configurations. The `http:OutboundAuthHandler` is used to get the created credential from `auth:OutboundAuthProvider` and perform HTTP level actions which are adding the required HTTP headers or body using the received credential.
-
 Ballerina HTTP client can be configured to send authentication and authorization information to the endpoint being invoked. Ballerina has built-in support for the following outbound authentication mechanisms, whereas it is possible to add custom mechanisms:
 
 - Basic authentication
 - JWT authentication
 - OAuth2 authentication. 
 
+Ballerina outbound authentication is also abstracted out into 2 layers called `http:OutboundAuthHandler` and `auth:OutboundAuthProvider`.
+
+`auth:OutboundAuthProvider` is protocol independent entity that only knows how to generate credential with the user given necessary information. `http:OutboundAuthHandler` can be protocol dependent. Even-though current focus is HTTP, `ballerina/auth` module can act across other protocols as well.
+
+The `auth:OutboundAuthProvider` is used to create the credential according to the provided configurations. The `http:OutboundAuthHandler` is used to get the created credential from `auth:OutboundAuthProvider` and perform HTTP level actions which are adding the required HTTP headers or body using the received credential.
 
 In a particular authentication scheme, implemented instance of `auth:OutboundAuthProvider` is initialized with required configurations and it is passed to the implemented instance of `http:OutboundAuthHandler`.
 
 Next, the implemented instance of  `http:OutboundAuthHandler` is passed to the `http:Client` configuration as follows and the client is initialized with authentication.
 
+The following example represents how a client is secured with Basic auth with above mentioned configurations.
+
 ```ballerina
+import ballerina/auth;
+import ballerina/http;
+
+auth:OutboundBasicProvider basicAuthProvider = new({
+    username: "user",
+    password: "ballerina"
+});
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+
 http:Client secureHelloWorldClient = new("https://localhost:9092", {
     auth: {
-        authHandler: authHandler
+        authHandler: basicAuthHandler
     },
     secureSocket: {
         trustStore: {
@@ -857,7 +889,11 @@ http:Client secureHelloWorldClient = new("https://localhost:9092", {
 
 _Note: It is better to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
-Further, a user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Client` can be enforced with custom authentication and authorization mechanisms.
+#### Advanced Use Cases
+
+##### Implementing Custom Authentication Mechanism
+
+The user can implement a custom version of AuthHandler and AuthProvider with the use of object equivalency pattern as follows. With that, `http:Client` can be enforced with custom authentication and authorization mechanisms.
 
 ```ballerina
 public type OutboundCustomAuthHandler object {
@@ -955,6 +991,8 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Clie
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
+  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 
 `oauth2:ClientCredentialsGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
@@ -998,6 +1036,8 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Pass
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
+  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations which calls the authorization endpoint.
 
 `oauth2:PasswordGrantConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
@@ -1042,6 +1082,8 @@ OAuth2 token issuing requires several additional configurations for `oauth2:Dire
 * `clockSkewInSeconds` - Clock skew in seconds.
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
+  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
+  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 
 `oauth2:DirectTokenConfig` record should be provided into `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler` when initializing.
 
@@ -1111,7 +1153,7 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 
 Ballerina supports token propagation for outbound authentication. The token propagation happens if the user does not provides any configuration when initializing the `auth:OutboundAuthProvider`.
 
-The `auth:OutboundAuthProvider` reads the token/username from the `runtime:InvocationContext` according to the outbound authentication scheme and use that for the outbound request.
+The `auth:OutboundAuthProvider` reads the token/username from the `runtime:InvocationContext` according to the outbound authentication scheme and use that for the outbound request. The `runtime:InvocationContext` is initialized based on the authentication information from the inbound request.
 
 ##### Example - 1
 
@@ -1245,7 +1287,7 @@ Downstream service received authenticated request with the token: Basic dG9tOjEy
 ##### Example - 2
 
 The following program has an `http:Client` secured with JWT authentication and it is configured inside an `http:Listener` secured with Basic authentication.
-The `jwt:OutboundJwtAuthProvider` is initialized providing configurations but without the username. Therefore, the program gets the username from the `runtime:InvocationContext` and use it for outbound request.
+The `jwt:OutboundJwtAuthProvider` is initialized providing configurations but without the username. Therefore, the program gets the username from the `runtime:InvocationContext`, which is set based on the inbound authentication information and use it for outbound request.
 In this example, the downstream service is secured with the JWT authentication and expects a JWT issued against the user authenticating with the upstream service (protected by Basic authentication). Ballerina can dynamically issue such JWT while propagating the user information internally.
 
 ```ballerina
