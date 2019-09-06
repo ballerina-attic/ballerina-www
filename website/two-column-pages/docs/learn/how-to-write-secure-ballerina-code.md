@@ -213,7 +213,7 @@ Optionally `scopes` attribute is configured for the authorization as follows. If
 listener http:Listener secureHelloWorldEp = new(9091, {
     auth: {
         authHandlers: [authHandler],
-        scopes: ["read"]
+        scopes: ["test-scope"]
     },
     secureSocket: {
         keyStore: {
@@ -232,27 +232,60 @@ service helloWorld on secureHelloWorldEp {
 
 The `authHandlers` can be configured for advanced use case, which is to use multiple auth handlers as follows:
 
-Auth should be successful for `authHandler1` OR `authHandler1`.
+Case 1: Auth should be successful for `authHandler1` OR `authHandler1`.
 `authHandlers: [authHandler1, authHandler2]`
 
-Auth should be successful for `authHandler1` AND `authHandler12`.
+Case 2: Auth should be successful for `authHandler1` AND `authHandler12`.
 `authHandlers: [[authHandler1], [authHandler2]]`
 
-Auth should be successful for ((`authHandler1` OR `authHandler2`) AND (`authHandler3` OR `authHandler4`)).
+Case 3: Auth should be successful for ((`authHandler1` OR `authHandler2`) AND (`authHandler3` OR `authHandler4`)).
 `authHandlers: [[authHandler1, authHandler2], [authHandler3, authHandler4]]`
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler1, authHandler2]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
+```
 
 ##### Using Multiple Scopes
 
 The `scopes` can be configured for advanced use cases as follows:
 
-Auth should be successful for `scope-1` OR `scope-2`.
+Case 1: Auth should be successful for `scope-1` OR `scope-2`.
 `scopes: ["scopes-1", "scopes-2"]`
 
-Auth should be successful for `scope-1` AND `scope-2`.
+Case 2: Auth should be successful for `scope-1` AND `scope-2`.
 `scopes: [["scopes-1"], ["scopes-2"]]`
 
-Auth should be successful for ((`scope-1` OR `scope-2`) AND (`scope-3` OR `scope-4`)).
+Case 3: Auth should be successful for ((`scope-1` OR `scope-2`) AND (`scope-3` OR `scope-4`)).
 `scopes: [["scopes-1", "scopes-2"], ["scopes-3", "scopes-4"]]`
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler],
+        scopes: ["scopes-1", "scopes-2"]
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
+```
 
 ##### Per-Resource and Per-Service Customization
 
@@ -321,6 +354,53 @@ public type InboundCustomAuthProvider object {
         // Custom logic to authenticate the given credential.
     }
 };
+```
+
+##### Disable HTTPS Enforcement
+
+The enforcement of HTTPS can be disabled with configuring the value `mandateSecureSocket` into `false` as follows:
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler],
+        mandateSecureSocket: false
+    },
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
+```
+
+##### Modify Authn/Authz Filter Index
+
+The authn/authz filters are engaged as the top most filters of the filter array which is configured at HTTP listener configuration. The uer can configure the index of the authn/authz filters, if it is needed to engage a custom filter before the authn/authz filters.
+
+The `position` attribute represents the authn/authz filter position of the filter array. The position values starts from 0 and it is set to 0 implicitly.
+
+The following example engage the authn/authz filters in between the `customFilter1` and `customFilter2`. Then the internally updated filter chain would be `[customFilter1, authnFilter, authzFilter, customFilter2]`.
+
+```ballerina
+listener http:Listener secureHelloWorldEp = new(9091, {
+    auth: {
+        authHandlers: [authHandler],
+        position: 1
+    },
+    filters: [customFilter1, customFilter2],
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
+});
+service helloWorld on secureHelloWorldEp {
+// ....
 ```
 
 ### JWT Authentication and Authorization
