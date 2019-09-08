@@ -171,7 +171,6 @@ ballerina run module.jar
 * A *project* is a directory, which atomically manages a collection of *modules*. It has:
   * A user-managed manifest file, `Ballerina.toml`
   * An `src` folder with module source code
-  * A `tests` folder for integration tests
 
 Projects are managed atomically. Therefore, dependency management, compilation, unit tests, and artifact generation are done 
 collectively across the source code files and modules defined within a project.
@@ -187,7 +186,7 @@ The `new` command will create a project directory with the given name. A Balleri
 ballerina project. If you run `ballerina new` from inside a Ballerina project directory or from inside a sub directory of a Ballerina project,
 it will give an error.
 
-It will create the `Ballerina.toml` file, `src` folder, and a `tests` folder.
+It will create the `Ballerina.toml` file, and `src` folder.
 
 ### Add a Module
 Once the project is initialized, a module can be created inside the project using the `ballerina add` command. 
@@ -227,9 +226,6 @@ module when it is built.
                 *.bal
                 [tests/]
                 [resources/]   
-        tests/
-            *.bal                  # Integration test files
-            [resources/]           # Integration test resources
             
         target/                    # Compiled executables and other artifacts end up here
             balo/                  # BALO files, one per each module, will be created here
