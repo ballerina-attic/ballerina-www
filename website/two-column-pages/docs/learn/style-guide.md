@@ -1,6 +1,6 @@
 # Ballerina Style Guide
 
-The Ballerina Style Guide aims at maintaining a standard coding style among the Ballerina community. Therefore, the code formatting tools are based on this guide.
+The Ballerina Style Guide aims at maintaining a standard coding style among the Ballerina community. Therefore, the Ballerina code formatting tools are based on this guide.
 
 You can follow your own coding style when writing Ballerina source code. Also, plugins and tools can be configured to match your coding style.
 
@@ -54,7 +54,7 @@ map<string> names = {};
 **Example,**
 
 ```ballerina
-(string, int, boolean) tupleVar = ("", 0, false);
+[string, int, boolean] tupleVar = ["", 0, false];
     
 int[] arrayOfString = [1, 2, 3, 4]
     
@@ -156,13 +156,13 @@ match a {
 }
 ```
 
-## Parentheses
-* Do not have spaces after opening parentheses and before closing parentheses.
+## Parentheses and Brackets
+* Do not have spaces after opening parentheses/bracket and before closing parentheses/bracket.
   
 **Example,**
 
 ```ballerina
-(string, int) tupleVar = ("", 0);
+[string, int] tupleVar = ["", 0];
   
 function setValue(string value) {...}
   
@@ -200,7 +200,7 @@ if (isNameAvailable
 }
 ```
 
-* When splitting lines, which contains separator(s), split them right before a separator.
+* When splitting lines, which contains separator(s), split them right after a separator.
   
 **Example,**
     
