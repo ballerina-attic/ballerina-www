@@ -188,9 +188,6 @@ public function initQuery() {
 * [Having](#having)
 * [Order By](#order-by)
 * [Join](#join)
-* [Pattern](#pattern)
-* [Sequence](#sequence)
-* [Output Rate Limiting](#output-rate-limiting)
 
 
 #### Query Projection
