@@ -42,7 +42,7 @@ project-name/
 - .gitignore       <- git ignore file
 
 ```
-The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config{} annotation and there are no restrictions on the test function name.
+The test source files could have any name. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the `@test:Config { }` annotation and there is no restriction on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
 
@@ -91,14 +91,14 @@ function beforeFunc() {
 }
 
 // Test function.
-@test:Config{}
+@test:Config {}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed");
 }
 
 // Test function.
-@test:Config{}
+@test:Config {}
 function testFunction2() {
     io:println("I'm in test function 2!");
     test:assertTrue(true, msg = "Failed");
@@ -128,21 +128,21 @@ function beforeFunc() {
 }
 
 // Test function
-@test:Config{}
+@test:Config {}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed!");
 }
 
 // Test function
-@test:Config{}
+@test:Config {}
 function testFunction2() {
     io:println("I'm in test function 2!");
     test:assertTrue(true, msg = "Failed!");
 }
 
 // Test function
-@test:Config{}
+@test:Config {}
 function testFunction3() {
     io:println("I'm in test function 3!");
     test:assertTrue(true, msg = "Failed!");
@@ -209,7 +209,7 @@ function testFunction1() {
 
 // This is a random test function, this will randomly execute without depending on other functions.
 // But note that other function do depend on this.
-@test:Config{}
+@test:Config {}
 function testFunction3() {
     io:println("I'm in test function 3!");
     test:assertTrue(true, msg = "Failed!");
@@ -234,7 +234,7 @@ import ballerina/io;
 import ballerina/test;
 
 // Test function.
-@test:Config{}
+@test:Config {}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed");
@@ -256,7 +256,7 @@ Asserts that the expression is true with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config{}
+@test:Config {}
 function testAssertTrue() {
     boolean value = false;
     test:assertTrue(value, msg = "AssertTrue failed");
@@ -270,7 +270,7 @@ Asserts that the expression is false with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config{}
+@test:Config {}
 function testAssertFalse() {
     boolean value = false;
     test:assertFalse(value, msg = "AssertFalse failed");
@@ -284,7 +284,7 @@ Asserts that the actual is equal to the expected, with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config{}
+@test:Config {}
 function testAssertIntEquals() {
 
     int answer = 0;
@@ -306,7 +306,7 @@ Asserts that the actual is not equal to the expected, with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config{}
+@test:Config {}
 function testAssertIntEquals() {
 
     int answer = 0;
@@ -328,7 +328,7 @@ Fails the test. Useful when we want to fail a test while in execution based on a
 ``` ballerina
 import ballerina/test;
 
-@test:Config{}
+@test:Config {}
 function foo() {
     error? e = trap bar(); // Expecting `bar()` to panic
     if (e is error) {
