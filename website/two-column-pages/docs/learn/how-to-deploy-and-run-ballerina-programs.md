@@ -30,7 +30,7 @@ $ ballerina build foo.bal [-o outputfilename.jar]
 
 And you can run `.jar` files directly:
 ```bash
-$ ballerina run filename.jar
+$ ballerina run filename-executable.jar
 ```
 
 ### Running a Project
@@ -49,7 +49,7 @@ $ ballerina build <module-name>
 Options for running programs with entrypoints in a project:  
 ```bash
 $ ballerina run main.bal
-$ ballerina run main.jar
+$ ballerina run main-executable.jar
 ```
 
 ## Configuring Your Ballerina Runtimes
