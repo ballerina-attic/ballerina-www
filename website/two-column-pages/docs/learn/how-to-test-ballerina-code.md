@@ -39,21 +39,12 @@ project-name/
 --- tests/         <- tests for this module (e.g. unit tests)
 ---- testmain.bal  <- test file for main
 ---- resources/    <- resources for these tests
-- tests/
--- *.bal           <- integration test code
--- resources/      <- integration test resources
 - .gitignore       <- git ignore file
 
 ```
-The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config annotation and there are no restrictions on the test function name.
+The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config{} annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
-
-Execute tests in a given Ballerina source file with the following command.
-
-```
-ballerina test <balfile_name> 
-```
 
 Execute tests within the specified module with the following command.
 
@@ -61,21 +52,16 @@ Execute tests within the specified module with the following command.
 ballerina test <module_name> 
 ```
 
-Execute tests in the entire project, using the `test` command without any parameters. 
+Execute tests in the entire project, using the `test --all` command.
 
 ```
-ballerina test 
+ballerina test --all
 ```
 
 For more information on the `test` command, run the following.
 
 ```
 ballerina help test 
-```
-Use the `--exclude-modules` flag with the `ballerina test` command to exclude a certain module(s) when running tests.
-
-```
-ballerina test --exclude-modules module1,module2 
 ```
 
 ## Annotations 
@@ -105,14 +91,14 @@ function beforeFunc() {
 }
 
 // Test function.
-@test:Config
+@test:Config{}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed");
 }
 
 // Test function.
-@test:Config
+@test:Config{}
 function testFunction2() {
     io:println("I'm in test function 2!");
     test:assertTrue(true, msg = "Failed");
@@ -142,21 +128,21 @@ function beforeFunc() {
 }
 
 // Test function
-@test:Config
+@test:Config{}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed!");
 }
 
 // Test function
-@test:Config
+@test:Config{}
 function testFunction2() {
     io:println("I'm in test function 2!");
     test:assertTrue(true, msg = "Failed!");
 }
 
 // Test function
-@test:Config
+@test:Config{}
 function testFunction3() {
     io:println("I'm in test function 3!");
     test:assertTrue(true, msg = "Failed!");
@@ -180,13 +166,7 @@ Default: none
 `dataProvider: “<function name>”`: Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (e.g., string[][] for a test function that accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (e.g., function testSuffixC(string input, string expected) could have a dataProvider function that returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (e.g., in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively).
 
 `groups: [“<test group name”, …]`:
-List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
-
-```
-ballerina test --groups <comma separated list of test group names> <module_name>
-```
-
-You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
+List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. 
 
 ``` ballerina
 @test:Config {
@@ -229,7 +209,7 @@ function testFunction1() {
 
 // This is a random test function, this will randomly execute without depending on other functions.
 // But note that other function do depend on this.
-@test:Config
+@test:Config{}
 function testFunction3() {
     io:println("I'm in test function 3!");
     test:assertTrue(true, msg = "Failed!");
@@ -254,7 +234,7 @@ import ballerina/io;
 import ballerina/test;
 
 // Test function.
-@test:Config
+@test:Config{}
 function testFunction1() {
     io:println("I'm in test function 1!");
     test:assertTrue(true, msg = "Failed");
@@ -276,7 +256,7 @@ Asserts that the expression is true with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config
+@test:Config{}
 function testAssertTrue() {
     boolean value = false;
     test:assertTrue(value, msg = "AssertTrue failed");
@@ -290,7 +270,7 @@ Asserts that the expression is false with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config
+@test:Config{}
 function testAssertFalse() {
     boolean value = false;
     test:assertFalse(value, msg = "AssertFalse failed");
@@ -304,7 +284,7 @@ Asserts that the actual is equal to the expected, with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config
+@test:Config{}
 function testAssertIntEquals() {
 
     int answer = 0;
@@ -326,7 +306,7 @@ Asserts that the actual is not equal to the expected, with an optional message.
 ```ballerina
 import ballerina/test;
 
-@test:Config
+@test:Config{}
 function testAssertIntEquals() {
 
     int answer = 0;
@@ -348,7 +328,7 @@ Fails the test. Useful when we want to fail a test while in execution based on a
 ``` ballerina
 import ballerina/test;
 
-@test:Config
+@test:Config{}
 function foo() {
     error? e = trap bar(); // Expecting `bar()` to panic
     if (e is error) {
