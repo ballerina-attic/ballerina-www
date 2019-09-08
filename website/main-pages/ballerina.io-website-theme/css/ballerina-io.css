@@ -1,8 +1,8 @@
-@font-face {
+/* @font-face {
     font-family: "CalibreWeb-Semibold";
     src: local("CalibreWeb-Semibold"), url("/ballerina-fonts/CalibreWeb-Semibold.eot");
     src: local("CalibreWeb-Semibold"), url("/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/ballerina-fonts/CalibreWeb-Semibold.woff2") format("woff2"), url("/ballerina-fonts/CalibreWeb-Semibold.woff") format("woff");
-}
+} */
 
 body {
     font-size: 16px;
@@ -10,8 +10,7 @@ body {
 
 body.cBallerina-io {
     background-color: #ffffff;
-    font-family: "pragmatica", sans-serif;
-    background-image: url("/img/body-bg.png");
+    font-family: 'Roboto', sans-serif;
     background-repeat: repeat-x;
 }
 
@@ -29,7 +28,7 @@ input[type="number"],
 input[type="tel"],
 input[type="color"],
 input[type="search"] {
-    font-family: "pragmatica", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body.cBallerina-io .row {
@@ -74,7 +73,7 @@ a:hover {
 }
 
 .cBallerina-io-Nav {
-    background: #e7eaeb;
+    background: #fff;
 }
 
 p.cTagLine {
@@ -84,11 +83,21 @@ p.cTagLine {
 }
 
 .cBallerina-io p {
-    font-size: 16px;
+    font-size: 18px;
+
     color: #57595d;
+    
     line-height: 24px;
+    
     font-weight: 300;
+    
     margin-bottom: 0;
+    
+    line-height: 27px;
+    
+    letter-spacing: 0.4px;
+    
+    /* margin-bottom: 30px; */
 }
 
 .row.cBallerina-io-Nav {
@@ -170,12 +179,12 @@ ul.navbar-nav {
 }
 
 .cBallerina-io-Gray-row {
-    background-image: url("/img/gray-bg.svg");
+    /* background-image: url("/img/gray-bg.svg"); */
     background-repeat: no-repeat;
     background-position: bottom center;
     margin-top: 30px;
     padding-bottom: 30px;
-    background-color: #e7eaeb;
+    background-color: #fff;
     background-size: 250%;
     padding-top: 0;
 }
@@ -287,16 +296,16 @@ ul.navbar-nav {
 
 a.cBallerina-io-Home-main-download-button {
     font-size: 25px;
-    background-color: #57595d;
-    color: #ffffff;
-    padding: 20px 50px 20px 74px;
+    background-color: #20b6b0;
+    color: #3b3b3b;
+    padding: 20px 80px 20px 30px;
     display: inline-block;
-    float: left;
-    background-image: url("/img/download-bg.svg");
+    float: right;
+    background-image: url("/img/main-download-icon.svg");
     background-repeat: no-repeat;
-    background-position: 26px 22px;
-    margin-top: 30px;
-    font-weight: 200;
+    background-position: right center;
+    /* margin-top: 30px; */
+    font-weight: 500;
     text-decoration: none;
 }
 
@@ -305,14 +314,14 @@ a.cBallerina-io-Home-main-download-button {
     margin: 0;
     font-family: monaco, Consolas, "Lucida Console", monospace;
     font-size: 11px;
-    color: #d9dadb;
+    color: #57595d;
     margin-left: 1px;
     line-height: 15px;
 }
 
 a.cBallerina-io-Home-main-download-button:hover {
-    background-color: #20b6b0;
-    background-image: url("/img/download-bg-white.svg");
+    background-color: #fff;
+    background-image: url("/img/download-bg-green.svg");
 }
 
 p.cBallerina-io-Home-OS {
@@ -389,7 +398,7 @@ h2.cMainH2Title {
 /*FOOTER*/
 
 #iBallerinaFooter {
-    background: #ffffff;
+    background: #eeeeee;
     padding: 40px 0;
 }
 
@@ -714,8 +723,14 @@ button.navbar-toggle {
     width: 100%;
 }
 
-.cMobileLogo {
-    display: none;
+.cMobileLogo img {
+    max-width: 150px;
+}
+
+a.cMobileLogo {
+    margin-top: 10px;
+
+    display: inline-block;
 }
 
 .cBallerinaButtonWhite {
@@ -977,25 +992,25 @@ pre code {
 }
 
 .wy-nav-content h1 {
-    font-size: 30px;
+    font-size: 45px;
     color: #585A5E;
     font-weight: 200;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .wy-nav-content h2,
 .release_notes h1,
 .wy-nav-content .releaseNoteDiv h1 {
-    font-size: 24px;
+    /* font-size: 24px;
     text-transform: uppercase;
-    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+  
     color: #20b6b0;
     letter-spacing: 0.5px;
     line-height: 30px;
     padding: 0;
     margin: 20px 0 15px 0;
     font-weight: 400;
-    border-bottom: 1px solid #20b6b0;
+    border-bottom: 1px solid #20b6b0; */
 }
 
 .wy-nav-content .releaseNoteDiv>h2:first-child {
@@ -1009,7 +1024,7 @@ pre code {
     color: #555;
     letter-spacing: 0.5px;
     text-transform: none;
-    font-family: "pragmatica", sans-serif;
+    /* font-family: "pragmatica", sans-serif; */
     line-height: 28px;
     font-weight: 400;
     padding: 0;
@@ -1045,8 +1060,20 @@ pre code {
     display: none !important;
 }
 
+.cBallerina-io h2 {
+    font-size: 30px;
 
-CON BANNER
+    margin-top: 40px;
+    
+    margin-bottom: 40px;
+    
+    font-weight: 600;
+    
+    text-transform: uppercase;
+}
+
+
+/* CON BANNER */
 
 #iBanner {
         display: inline-block;
@@ -1300,7 +1327,7 @@ padding-right: 0;
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: #e7eaeb;
+        background-color: #fff;
         z-index: 999;
     }
     .navbar-toggle {

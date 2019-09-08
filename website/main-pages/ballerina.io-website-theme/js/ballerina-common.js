@@ -168,13 +168,12 @@ $(document).ready(function() {
         '<span class="icon-bar"></span>' +
         '<span class="icon-bar"></span>' +
         '</button>' +
-        '<p class="navbar-brand cTagLine" href="#">A Programming Language for <br> Network Distributed Applications' +
-        '<a class="cMobileLogo" href="." ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>' +
-        '</p>' +
+        '<a class="cMobileLogo" href="/" ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>' +
         '</div>' +
         '<div id="navbar" class="collapse navbar-collapse">' +
         '<ul class="nav navbar-nav cTopNav">' +
         '<li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a></li>' +
+        '<li class="active toctree-l1" id="Eventsli"><a class="cBioTopLink" href="/learn/events">Events</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
@@ -241,13 +240,21 @@ $(document).ready(function() {
     var pathValue = window.location.pathname;
     var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
     '<select name="versions" id="versions" class="select-css">' +
-    '<option value="http://ballerina.io'+pathValue+'" selected="selected">Stable</option>' +
-    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'">1.0.0-alpha</option>' +
+    '<option value="http://ballerina.io'+pathValue+'">Stable</option>' +
+    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'" selected="selected">1.0.0-alpha</option>' +
     '</select>'+
     '</div>';
 
+    var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
+
+    
+    // $('.navi-wrapper-content a').replaceWith(homelink);
+
+
+
    
     $('.cBallerina-io-Logo-row .container').append(version);
+    $('.navi-wrapper').append(version);
 
 
     $('#iMainNavigation').append(menu);
@@ -536,7 +543,9 @@ $(function() {
         $("#openli").addClass("cActive");
     } else if (pathname.indexOf("help") != -1) {
         $("#helpli").addClass("cActive");
-    }
+    } else if (pathname.indexOf("lean/events") != -1) {
+    $("#eventsli").addClass("cActive");
+}
 });
 
 
@@ -546,6 +555,38 @@ $(function() {
 $(document).ready(function() {
  var urlmenu = document.getElementById( 'versions' );
  urlmenu.onchange = function() {
-       window.open( this.options[ this.selectedIndex ].value ,"_self");
+       window.open( this.options[ this.selectedIndex ].value , "_self" );
   }
 });
+
+
+
+// $(document).ready(function() {
+//     var a = function() {
+//       var b = $(window).scrollTop();
+//       var d = $("#scroller-anchor").offset({scroll:false}).top;
+//       var c = $("#scroller");
+//       if (b>d) {
+//         c.css({position:"fixed",top:"0px"})
+//       } else {
+//         c.css({position:"relative",top:""})
+//       }
+//     };
+//     $(window).scroll(a);a()
+//   });
+
+
+function sticky_relocate() {
+    var window_top = $(window).scrollTop();
+    var div_top = $('#scroller-anchor').offset().top;
+    if (window_top > div_top) {
+      $('#scroller').addClass('stick');
+    } else {
+      $('#scroller').removeClass('stick');
+    }
+  }
+  
+  $(function() {
+    $(window).scroll(sticky_relocate);
+    sticky_relocate();
+  });

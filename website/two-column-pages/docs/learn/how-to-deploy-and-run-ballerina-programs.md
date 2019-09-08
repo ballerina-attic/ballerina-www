@@ -9,7 +9,7 @@ A Ballerina application can either be:
 
 Both of these are considered "entrypoints" for program execution. 
 
-These applications can be structured into a single program file or a Ballerina module. A collection of modules or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
+These applications can be structured into a single program file or a Ballerina module. A collection of modules can be managed together with versioning and dependency management as part of a Ballerina project. 
 
 Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
 
@@ -22,38 +22,35 @@ If the source file contains at least one entrypoint, it can be executed using th
 $ ballerina run foo.bal
 ```
 
-You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
+You can compile a source file with an entrypoint into a linked binary that has a `.jar` extension.
     
 ```bash
-$ ballerina build a/b/c/foo.bal [-o outputfilename.balx]
+$ ballerina build a/b/c/foo.bal [-o outputfilename.jar]
 ```  
 
-And you can run `.balx` files directly:
+And you can run `.jar` files directly:
 ```bash
-$ ballerina run filename.balx
+$ ballerina run filename.jar
 ```
 
 ### Running a Project
-A project is a folder that manages source files and modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
-Build all source files and modules of a project:
+Build all modules of a project:
 ```bash    
 $ ballerina build
 ```
 
-Build a single modules in a project:
+Build a single module in a project:
 ```bash
 $ ballerina build <module-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
-$ ballerina run main.balx  
-$ ballerina run target/main.balx
-$ ballerina run [--sourceroot <path>] <module>
+$ ballerina run main.jar  
+$ ballerina run target/main.jar
 ```
-
-The `<module>` is the module name, which is the same as the name of the directory that holds the source files.
 
 ## Configuring Your Ballerina Runtimes
 
@@ -338,14 +335,12 @@ Full example can be found at [Database Interaction Guide](https://ballerina.io/l
 ```ballerina
 import ballerina/config;
 import ballerina/http; 
-import ballerina/mysql; 
+import ballerina/jdbc; 
 import ballerinax/kubernetes;
 
 // Create SQL endpoint to MySQL database
-mysql:Client employeeDB = new ({
-    host:config:getAsString("db-host"),
-    port:3306,
-    name:config:getAsString("db"),
+jdbc:Client employeeDB = new ({
+    url:config:getAsString("db-url"),
     username:config:getAsString("db-username"),
     password:config:getAsString("db-password")
 });
@@ -391,8 +386,7 @@ Sample content of `data-service.toml`:
 
 ```toml
 # Ballerina database config file
-db-host = "mysql-server"
-db = "EMPLOYEE_RECORDS"
+db-url = "jdbc:mysql://mysql-server:3306/EMPLOYEE_RECORDS"
 db-username = "root"
 db-password = "root"
 key-store-password = "abc123"
