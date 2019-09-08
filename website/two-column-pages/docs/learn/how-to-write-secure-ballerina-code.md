@@ -309,7 +309,7 @@ service helloWorld on secureHelloWorldEp {
 // ...
 ```
 
-Further, authentication and authorization can be modified for a particular resource as follows by configuring the `auth` attribute of the`@http:ResourceConfig`:
+Further, authentication and authorization can be modified for a particular resource as follows by configuring the `auth` attribute of the `@http:ResourceConfig`:
 
 ```ballerina
 @http:ResourceConfig {
@@ -324,7 +324,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 // ...
 ```
 
-The same configuration patterns used for the listener-level configurations are applied for `authHandlers` and the`scopes` attributes in service-level configurations and resource-level configurations.
+The same configuration patterns used for the listener-level configurations are applied for `authHandlers` and the `scopes` attributes in service-level configurations and resource-level configurations.
 
 ##### Implementing Custom Authentication Mechanism
 
@@ -1082,7 +1082,7 @@ OAuth2 token issuing requires several additional configurations for the `oauth2:
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
   * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  -*`http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
+  * `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations,which calls the authorization endpoint.
 
 The `oauth2:ClientCredentialsGrantConfig` record should be provided into the `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
