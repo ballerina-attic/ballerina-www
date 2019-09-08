@@ -42,4 +42,4 @@ You can test a Ballerina file or module using the following command:
 
 ## Compatibility
 
-Ballerina Language Specification supports a set of experimental features such as *_transactions_* syntax. In order to be compatible with the experimental features and for supporting language intelligence in VSCode Plugin, enable the `Allow Experimental` option in user settings.
+Ballerina Language Specification supports a set of experimental features such as *_transactions_* syntax. In order to be compatible with the experimental features and for supporting language intelligence in VSCode Plugin, enable the `Allow Experimental` option in user settings. And for Intellij Idea, goto `Preferences | Languages & Frameworks | Ballerina | Experimental Features` and tick the `Allow ballerina experimental features` check box.
