@@ -29,7 +29,7 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 
 Security-sensitive functions and remote methods of Ballerina standard libraries are annotated with the `@untainted` parameter annotation. This denotes that untrusted (tainted) data should not be passed to the parameter. 
 
-For example, the `sqlQuery` parameter of the `ballerinax/java.jdbc` `select` remote method is annotated as `@untainted`.
+For example, the `sqlQuery` parameter of the `ballerinax/java.jdbc` `select` remote function is annotated as `@untainted`.
 
 ```ballerina
 public remote function select(@untainted string sqlQuery, 
@@ -83,7 +83,7 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
 
 Command-line arguments passed to Ballerina programs and inputs received through service resources are considered as tainted. Additionally, return values of certain functions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
-For example, the `select` remote method of the java:jdbc client connector highlighted above returns a `@tainted table<record {}>|Error`. This means that any value read from a database is considered as untrusted.
+For example, the `select` remote function of the java:jdbc client highlighted above returns a `@tainted table<record {}>|Error`. This means that any value read from a database is considered as untrusted.
 
 When the Ballerina compiler can determine that a function is returning tainted data without tainted data being passed in as parameters to that function, it is required to annotate the function's return type as `@tainted`. If not, the function author has to clean up the data before returning. For instance, if you are to read from the database and return that result, you either need to annotate that function's return type as @tainted or you have to clean up and make sure the returned data is not tainted. 
 
