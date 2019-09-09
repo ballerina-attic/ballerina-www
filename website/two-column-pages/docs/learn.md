@@ -159,30 +159,6 @@
 <td class="cDescription">This is the gRPC stub / skeleton generation tool. Read <a href=”XXX”>this How-To</a> for more information.</td>
 </tr>
 </table>
-
-
-
-
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>Learn Ballerina incrementally with commented examples that cover every nuance of the syntax.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/by-example/">Ballerina by Example</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>The standard library provides comprehensive documentation for the Ballerina standard library APIs.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>This spec defines the language and will be useful to understand, evaluate, or start using the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
-      </div>
-   </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>How To’s</h2>
