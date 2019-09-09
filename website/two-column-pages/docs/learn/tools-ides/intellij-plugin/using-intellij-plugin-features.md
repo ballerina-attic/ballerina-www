@@ -7,15 +7,16 @@ Click on the below links to find information on the various capabilities that ar
 - [Viewing the sequence diagram](#viewing-the-sequence-diagram)
 - [Importing modules on the fly](#importing-modules-on-the-fly)
 - [Importing unambiguous modules](#importing-unambiguous-modules)
-- [Finding usage](#finding-usage)
+- [Finding usages](#finding-usages)
 - [Formatting Ballerina codes](#formatting-ballerina-codes)
-- [Viewing details of parameters](viewing-details-of-parameters)
+- [Viewing details of parameters](#viewing-details-of-parameters)
 - [Viewing documentation](#viewing-documentation)
 - [Adding annotation fields via suggestions](#adding-annotation-fields-via-suggestions)
 - [Using file templates](#using-file-templates)
 - [Using code snippet templates](#using-code-snippet-templates)
 - [Checking spellings](#checking-spellings)
 - [Analyzing semantics](#analyzing-semantics)
+- [Code folding](#code-folding)
 
 ## Running Ballerina programs
 
@@ -65,6 +66,12 @@ You can debug Ballerina main/service programs with a few clicks.
 
 ![Debug Ballerina programs](../images/debug-ballerina-intellij.gif)
 
+### Troubleshooting
+- You need to manually add a breakpoint to the next line when stepping over code lines in non-blocking paths (e.g., action invocations). Otherwise, it will not pause the VM on the next line by default.
+    - workaround: manually put a breakpoint to next line
+- However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
+    - Eg: When there are multiple workers and a wait expression waiting for them, even though step over hit and pass wait line in source, workers are not yet finished execution. 
+
 ## Viewing the sequence diagram
 
 The underlying language semantics of Ballerina were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow including endpoints as well as synchronous and asynchronous calls.
@@ -81,25 +88,25 @@ You can add import declarations to your Ballerina programs on the fly. When you 
 
 ## Importing unambiguous modules 
 
-When you copy and paste Ballerina code to the Editor, this feature allows you to import unambiguous imports. You can apply these imports by clicking on the module name and pressing **Alt + Enter** keys.
+When you copy and paste Ballerina code to IntelliJ, this feature allows you to import unambiguous imports. You can apply these imports by clicking on the module name and pressing **Alt + Enter** keys.
 
 >**Note:** This is disabled by default since this might cause issues if the file contains grammar mistakes. Follow the steps below to enable it.
->1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
+>1. Open IntelliJ, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
 >- **Tip:** If you are using Windows, click **File**, click **Settings**, and then click **Languages and Frameworks**.
 >2. Click **Ballerina** and then click **Auto Import**.
 >3. Select the **Add unambiguous imports on the fly** checkbox and click **OK**.
 
 ![Import unambiguous modules](../images/import-unambiguous-modules.gif)
 
-## Finding usage
+## Finding usages
 
-You can use the plugin to find the usage of variables, functions, etc.
+You can use the plugin to find the usages of variables, functions, etc.
 
 ![Find usage](../images/find-usage.gif)
 
 ## Viewing definitions
 
-You can view the definition of variables, function invocations, etc. by pressing the **Ctrl** key whicle clicking on them.
+You can view the definition of variables, function invocations, etc. by pressing the **Ctrl** key while clicking on them.
 
 ![Got to definition](../images/go-to-definition-intellij.gif)
 
@@ -157,7 +164,7 @@ The Ballerina IDEA plugin provides capabilities to diagnose and analyze semantic
 
 Follow the steps below to enable it.
 
-1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
+1. Open IntelliJ, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
 >**Tip:** If you are using Windows, click **File**, click **Settings**, and then click **anguages and Frameworks**.
 2. Click **Live Templates**, select **Ballerina**, and then click **Semantic Analyzer**.
 
@@ -165,7 +172,7 @@ Follow the steps below to enable it.
 
 ## Code folding
 
-You expand/collapse the following Ballerina code segments using the icons in the editor.
+You expand/collapse the following Ballerina code segments using the icons in the IntelliJ IDE.
 
 - imports
 - services 
@@ -180,5 +187,5 @@ You expand/collapse the following Ballerina code segments using the icons in the
 
 ## What's next?
 
- - For information on the IntelliJ Ballerina plugin, see [The In telliJ Plugin](../intellij-plugin.md).
- - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).
+ - For more information on the IntelliJ Ballerina plugin, see [The IntelliJ Plugin](/learn/tools-ides/intellij-plugin).
+ - For information on the other tools and IDEs that are supported by Ballerina, see [Tools and IDEs](../tools-ides).

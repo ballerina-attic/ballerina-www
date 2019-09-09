@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 <h1>Let’s learn Ballerina!</h1>
 <div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
    <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!</p>
-=======
-<h1>Lets learn Ballerina!</h1>
-<div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!
-</p>
->>>>>>> 0848ffb60b825e877b8780e584f1ab0b759f1462
-   <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
+<!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>Getting set up to dance</h2>
@@ -236,6 +229,14 @@
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/style-guide/">Ballerina Style Guide</a></h3>
       <p>The Ballerina Style Guide shows how to maintain a standard coding style among the Ballerina community.</p>
+   </div>
+   <div class="col-sm-12 col-md-6 cTwoCol">
+      <h3><a href="/learn/how-to-use-openapi-tools/">Developing Ballerina Service Using an OpenAPI Documentation</a></h3>
+      <p>This guide shows how to develop a restful API in Ballerina which is documented in an OpenAPI contract.</p>
+   </div>
+   <div class="col-sm-12 col-md-6 cTwoCol">
+      <h3><a href="/learn/how-to-write-secure-ballerina-code/">Writing Secure Ballerina Code</a></h3>
+      <p>Provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.</p>
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">

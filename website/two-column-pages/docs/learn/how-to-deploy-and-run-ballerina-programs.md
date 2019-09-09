@@ -1,13 +1,13 @@
 # How to Run and Deploy Ballerina Programs
 
 ## Running Ballerina Programs and Services
-A Ballerina application can either be:
+A Ballerina application can have:
 
-1. A [`public function`](/learn/by-example/functions-as-entry-points.html) including [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
+1. A [`main()`](/learn/by-example/the-main-function.html) function that runs as a terminating process.
 
-2. A [`service<>`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
+2. A [`service`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
 
-Both of these are considered "entrypoints" for program execution. 
+Both of these are considered as entry points for program execution. 
 
 These applications can be structured into a single program file or a Ballerina module. A collection of modules can be managed together with versioning and dependency management as part of a Ballerina project. 
 
@@ -16,16 +16,16 @@ Source files and modules can contain zero or more entrypoints, and the runtime e
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
 
-If the source file contains at least one entrypoint, it can be executed using the `run` command.
+If the source file contains at least one entry point, it can be executed using the `run` command.
     
 ```bash
 $ ballerina run foo.bal
 ```
 
-You can compile a source file with an entrypoint into a linked binary that has a `.jar` extension.
+You can compile a source file with an entry point into an executable jar.
     
 ```bash
-$ ballerina build a/b/c/foo.bal [-o outputfilename.jar]
+$ ballerina build [-o outputfilename.jar] foo.bal
 ```  
 
 And you can run `.jar` files directly:
@@ -48,8 +48,8 @@ $ ballerina build <module-name>
 
 Options for running programs with entrypoints in a project:  
 ```bash
-$ ballerina run main.jar  
-$ ballerina run target/main.jar
+$ ballerina run main.bal
+$ ballerina run main.jar
 ```
 
 ## Configuring Your Ballerina Runtimes
@@ -76,18 +76,9 @@ public function main() {
 }
 ```
 
-The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
+The config key is `hello.user.name`. To pass a value to this config from the CLI, we can use `--key=value` format as the following command.
 ```bash
-$ ballerina run -e hello.user.name=Ballerina main.bal
-Hello, Ballerina !
-```
-
-#### Sourcing Environment Parameters
-The value can be passed as an environment variable as well. Here as the value we are passing the name of the environment variable with the `@env:{}` syntax.
-
-```bash
-$ export NAME=Ballerina
-$ ballerina run -e hello.user.name=@env:{NAME} main.bal
+$ ballerina run  main.bal --hello.user.name=Ballerina
 Hello, Ballerina !
 ```
 
@@ -107,18 +98,9 @@ If `ballerina.conf` resides in the same directory as `main.bal`, `balllerina run
 $ ballerina run main.bal
 Hello, Ballerina !
 ```
-To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
+To explicitly specify a configuration file, use the `--b7a.config.file` property. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
-$ ballerina run -c ../../ballerina.conf main.bal
-Hello, Ballerina !
-
-$ ballerina run --config ../../ballerina.conf main.bal
-Hello, Ballerina !
-
-$ ballerina run -c /Users/Test/Desktop/ballerina.conf main.bal
-Hello, Ballerina !
-
-$ ballerina run --config /Users/Test/Desktop/ballerina.conf main.bal
+$ ballerina run main.bal --b7a.config.file=path/to/conf/file/custom-config-file-name.conf
 Hello, Ballerina !
 ```
 
@@ -135,10 +117,10 @@ Enter value:
 Enter secret:
 Re-enter secret to verify:
 Add the following to the runtime config:
-@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}
+<key>="@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}"
 
 Or add to the runtime command line:
--e<param>=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}
+--<key>=@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}
 ```
 
 ##### Using the Secured Value at Runtime
@@ -146,13 +128,13 @@ The secured value can be placed in a config file as a value or passed on the com
 
 ```
 [hello.user]
-name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
+name="@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}"
 ```
 
 or (Enter secret `12345` when prompted.):
 
 ```bash
-$ ballerina run -e hello.user.name=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=} main.bal
+$ ballerina run main.bal --hello.user.name=@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}
 ballerina: enter secret for config value decryption:
 
 Hello, Ballerina !
@@ -162,14 +144,14 @@ Hello, Ballerina !
 If a configuration contains an encrypted value, Ballerina looks for a `secret.txt` file in the directory where the source files are located. The `secret.txt` should contain the secret used to encrypt the value. The `secret.txt` file will be deleted after it is read.
 ```bash
 $ echo 12345 > secret.txt
-$ ballerina run --config ../ballerina.conf main.bal
+$ ballerina run main.bal --b7a.config.file=ballerina.conf
 Hello, Ballerina !
 ```
 
 
 If the `secret.txt` file is not present, then CLI prompts the user for the secret. Enter secret `12345` when prompted.
 ```bash
-$ ballerina run --config ../ballerina.conf main.bal
+$ ballerina run main.bal --b7a.config.file=ballerina.conf
 ballerina: enter secret for config value decryption:
 
 Hello, Ballerina !
@@ -220,7 +202,10 @@ service helloWorld on new http:Listener(9090) {
     resource function sayHello (http:Caller caller, http:Request request) {
         http:Response response = new;
         response.setTextPayload("Hello, World! \n");
-        _ = caller -> respond(response);
+        var result = caller -> respond(response);
+        if (result is error) {
+            log:printError("Error sending response", result);
+        }
     }
 }
 ```
@@ -230,40 +215,43 @@ Now your code is ready to generate deployment artifacts. In this case it is a Do
 ```bash
 $ ballerina build hello_world_docker.bal  
 Compiling source
-    hello_world_docker.bal
+        hello_world_docker.bal
+Generating executables
+        hello_world_docker.jar
 
-Generating executable
-    ./target/hello_world_docker.balx
-	@docker 		 - complete 3/3
+Generating docker artifacts...
+        @docker                  - complete 2/2 
 
-	Run the following command to start a Docker container:
-	docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+        Run the following command to start a Docker container:
+        docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
 ```bash
 $ tree  
 .
+├── docker
+│   └── Dockerfile
 ├── hello_world_docker.bal
-├── hello_world_docker.balx
-└── docker
-    └── Dockerfile
+└── hello_world_docker.jar
+
+1 directory, 3 files
 ```
 ```bash
 $ docker images  
-REPOSITORY                TAG IMAGE ID       CREATED             SIZE  
-docker.abc.com/helloworld  v1 df83ae43f69b   2 minutes ago       102MB
+REPOSITORY                  TAG                 IMAGE ID            CREATED              SIZE
+docker.abc.com/helloworld   v1.0                154053b4e4cd        About a minute ago   108MB
 ```
   
 You can run a Docker container by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
 ```bash
-$ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
-130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
+$ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+938761fa222fde551c5092b7f5fda2a72c3cd43178c7fd86f43f678ec5227d35
 ```
 
 ```bash
 $ docker ps  
-CONTAINER ID  IMAGE                          COMMAND                CREATED                STATUS       PORTS                  NAMES  
-130ded2ae413  docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
+CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORTS                    NAMES
+938761fa222f        docker.abc.com/helloworld:v1.0   "/bin/sh -c 'java -j…"   18 seconds ago      Up 17 seconds       0.0.0.0:9090->9090/tcp   brave_hamilton
 ```
 Invoke the hello world service with a cURL command:
 ```bash 
@@ -286,7 +274,7 @@ The following features are supported by the Docker builder extension.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|name|Name of the Docker image|output `.balx` file name|
+|name|Name of the Docker image|output `.jar` file name|
 |registry|Docker registry|None|
 |tag|Docker image tag|latest|
 |buildImage|Whether to build Docker image|true|
@@ -304,7 +292,7 @@ The following features are supported by the Docker builder extension.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|source|Source path of the file (on your machine)|None|
+|sourceFile|Source path of the file (on your machine)|None|
 |target|Target path (inside container)|None|
 |isBallerinaConf|Whether the file is a Ballerina config file|false|
 
@@ -368,13 +356,13 @@ listener http:Listener ep = new (9090, config = {
 });
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"conf/data-service.toml"
+    ballerinaConf:"conf/data-service.conf"
 }
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"conf/mysql-connector-java-8.0.11.jar"}]
+                sourceFile:"conf/mysql-connector-java-8.0.11.jar"}]
 }
 @http:ServiceConfig {
     basePath:"/records"
@@ -382,7 +370,7 @@ listener http:Listener ep = new (9090, config = {
 service employee_data_service on ep {
 ```
 
-Sample content of `data-service.toml`:
+Sample content of `data-service.conf`:
 
 ```toml
 # Ballerina database config file
@@ -405,6 +393,14 @@ Now you can use the following command to build the Ballerina service that we dev
 
 ```bash
 $ ballerina build data_backed_service.bal
+Compiling source
+ 	data_backed_service.bal
+
+Generating executables
+ 	data_backed_service.jar
+
+Generating artifacts...
+
 @kubernetes:Service                     - complete 1/1
 @kubernetes:Ingress                     - complete 1/1
 @kubernetes:Secret                      - complete 1/1
@@ -412,7 +408,7 @@ $ ballerina build data_backed_service.bal
 @kubernetes:Docker                      - complete 3/3 
 @kubernetes:Deployment                  - complete 1/1
 
-Run the following command to deploy Kubernetes artifacts: 
+Run the following command to deploy the Kubernetes artifacts: 
 kubectl apply -f ./kubernetes/
 
 ```
@@ -424,7 +420,7 @@ $ tree
 │   ├── ballerina.conf
 │   └── mysql-connector-java-8.0.11.jar
 ├── data_backed_service.bal
-├── data_backed_service.balx
+├── data_backed_service.jar
 └── kubernetes
     ├── data_backed_service_config_map.yaml
     ├── data_backed_service_deployment.yaml
@@ -455,7 +451,7 @@ $ kubectl get pods
 NAME                                                          READY     STATUS    RESTARTS   AGE
 ballerina-guides-employee-database-service-57479b7c67-l5v9k   1/1       Running     0          26s
 ```
-This is the container based on the deployment annotation. This container has the `.balx` file, secrets, config-maps, and dependencies wrapped within. 
+This is the container based on the deployment annotation. This container has the `.jar` file, secrets, config-maps, and dependencies wrapped within. 
 
 ```bash
 $ kubectl get svc
@@ -483,9 +479,9 @@ $ kubectl get configmap
 NAME                                              DATA      AGE
 employee-data-service-ballerina-conf-config-map   1         2m
 ```
-This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
+This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.conf"` attribute is used. At run time, it is equivalent to:
 ```bash
-$ ballerina run --config ./conf/data-service.toml <source>.balx 
+$ ballerina run <source>.jar --b7a.config.file=./conf/data-service.conf 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
