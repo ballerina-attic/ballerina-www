@@ -203,6 +203,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 _Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
@@ -224,6 +225,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 #### Advanced Use Cases
@@ -255,6 +257,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 ##### Using Multiple Scopes
@@ -285,6 +288,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 ##### Per-Resource and Per-Service Customization
@@ -307,6 +311,7 @@ For example, authentication and authorization can be modified for a particular s
 }
 service helloWorld on secureHelloWorldEp {
 // ...
+}
 ```
 
 Further, authentication and authorization can be modified for a particular resource as follows by configuring the `auth` attribute of the `@http:ResourceConfig`:
@@ -322,6 +327,7 @@ Further, authentication and authorization can be modified for a particular resou
 }
 resource function sayHello (http:Caller caller, http:Request req) {
 // ...
+}
 ```
 
 The same configuration patterns used for the listener-level configurations are applied for `authHandlers` and the `scopes` attributes in service-level configurations and resource-level configurations.
@@ -375,6 +381,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 ##### Modify Authn/Authz Filter Index
@@ -401,6 +408,7 @@ listener http:Listener secureHelloWorldEp = new(9091, {
 });
 service helloWorld on secureHelloWorldEp {
 // ....
+}
 ```
 
 ### JWT Inbound Authentication and Authorization
