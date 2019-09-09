@@ -66,6 +66,12 @@ You can debug Ballerina main/service programs with a few clicks.
 
 ![Debug Ballerina programs](../images/debug-ballerina-intellij.gif)
 
+## Troubleshooting
+- Stepping over code lines in non-blocking paths (eg: action invocations) will not pause VM on next line
+    - workaround: manually put a breakpoint to next line
+- There are some cases where stepping over gives unexpected behavior
+    - Eg: When there are multiple workers and a wait expression waiting for them, even though step over hit and pass wait line in source, workers are not yet finished execution. 
+
 ## Viewing the sequence diagram
 
 The underlying language semantics of Ballerina were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow including endpoints as well as synchronous and asynchronous calls.
