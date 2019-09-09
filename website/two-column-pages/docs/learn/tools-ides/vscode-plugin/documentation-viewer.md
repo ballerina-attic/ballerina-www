@@ -9,7 +9,3 @@ The Documentation Viewer represents the documented entities in a file in an orga
 
 ![Documentation Viewer](../../images/documentation-viewer.gif)
 
-## What's next?
-
- - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](../vscode-plugin.md).
- - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).

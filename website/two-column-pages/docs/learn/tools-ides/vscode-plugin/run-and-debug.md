@@ -16,13 +16,15 @@ debug session.
 
 You view the output in the **DEBUG CONSOLE**.
 
-![Run and debug](../../images/run-and-debug.gif)
+![Run and debug](/learn/images/run-and-debug.gif)
 
 For more information on debugging your code using VS Code, go to [VS Code Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
+>**Troubleshooting:** When debugging a code, which includes an action invocation, you need to add a breakpoint to the next line to step over and continue debugging. If not, stepping over will move to the line above.
+
 ## What's next?
 
- - For information on the next capability of the VS Code Ballerina plugin, see [Run All Tests](run-all-tests.md).
- - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](../vscode-plugin.md).
- - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).
+ - For information on the next capability of the VS Code Ballerina plugin, see [Graphical Editor](/learn/tools-ides//vscode-plugin/graphical-editor).
+ - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](/learn/tools-ides/vscode-plugin).
+ - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](/learn/tools-ides).
 
