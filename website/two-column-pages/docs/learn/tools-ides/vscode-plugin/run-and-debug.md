@@ -23,8 +23,8 @@ For more information on debugging your code using VS Code, go to [VS Code Docume
 ## Troubleshooting
 - You need to manually add a breakpoint to the next line when stepping over code lines in non-blocking paths (e.g., action invocations). Otherwise, it will not pause the VM on the next line by default.
     - workaround: manually put a breakpoint to next line
-- There are some cases where stepping over gives unexpected behavior
-    However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
+- However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
+    - Eg: When there are multiple workers and a wait expression waiting for them, even though step over hit and pass wait line in source, workers are not yet finished execution.
 
 ## What's next?
 
