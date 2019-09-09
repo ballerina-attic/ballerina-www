@@ -43,9 +43,7 @@
                                   <b>Anjana Fernando,</b> Director, WSO2</p>
                          </td>
                        <td class="cEventURL"><a class="cEventRegistration" href="https://apiworld.co/" target="_blank">More Info</a></td> 
-                          </tr> 
-    
-
+                          </tr>     
 </table>
 
 <!--## Meetups
@@ -59,7 +57,5 @@
       </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Burlington-Ballerina-Meetup-Group/events/261672776/" target="_blank">Register Now</a></td>
 </tr>
-
--->
-
 </table> 
+-->
