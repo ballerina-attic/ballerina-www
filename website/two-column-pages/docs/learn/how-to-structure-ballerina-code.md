@@ -64,7 +64,7 @@ To generate an executable `.jar`, you can build a Ballerina program, which conta
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
 
-# This generates 'sample-executable.jar'.
+# This generates 'sample.jar'.
 ```
 
 You can use the following command to run the `main()` function or services in a generated `.jar` file:
