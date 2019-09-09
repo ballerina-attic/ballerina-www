@@ -1,5 +1,5 @@
 <h1>Let’s learn Ballerina!</h1>
-<div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
+<div class="col-sm-12 col-md-12 cTwoCol cBallerinaLearnWrapper">
    <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!</p>
 <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
@@ -43,13 +43,13 @@
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
 <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Need to understand a particular feature? Check out an example about it!</p>
+     <p>Need to understand a particular feature? Check out an example about it!</p><br>
          <a class="cBallerinaLearnButtons cBBEButton" href="/learn/by-example/"><img src="/img/ballerina-bbe-logo.svg"/></a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Learn the “batteries-included” standard library</p>
+     <p>Learn the “batteries-included” standard library</p><br>
          <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
       </div>
    </div>
