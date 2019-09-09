@@ -156,6 +156,7 @@ if (typeof hljs === 'object') {
 }
 
 $(document).ready(function() {
+    var pathValue = window.location.pathname;
 
     var menu = '<div class="container">' +
         '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
@@ -176,8 +177,8 @@ $(document).ready(function() {
         '<li class="active toctree-l1" id="Eventsli"><a class="cBioTopLink" href="/learn/events">Events</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
-        '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="https://blog.ballerina.io">Blog</a></li>' +
+        '<li class="cVersionItem"><div class="cVersionContainer"><lable class="cVlable">Version</lable><select name="versions" id="versions" class="select-css"><option value="http://ballerina.io'+pathValue+'">Stable</option><option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'" selected="selected">1.0.0-alpha</option> </select></div></li>' +
         '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
         '<div class="cSearchBoxTopMenu">' +
         '<div role="search">' +
