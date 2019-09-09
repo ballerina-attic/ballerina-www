@@ -362,7 +362,7 @@ listener http:Listener ep = new (9090, config = {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"conf/mysql-connector-java-8.0.11.jar"}]
+                sourceFile:"conf/mysql-connector-java-8.0.11.jar"}]
 }
 @http:ServiceConfig {
     basePath:"/records"
