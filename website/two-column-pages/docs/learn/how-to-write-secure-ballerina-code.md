@@ -296,9 +296,9 @@ service helloWorld on secureHelloWorldEp {
 The security enforcements can be customized by the `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation.
 
 For example, authentication and authorization can be modified for a particular service as follows by configuring the `auth` attribute of the `@http:ServiceConfig`.
-* Authentication can be disabled only for a particular service by using the `enabled` attribute.
-* The authentication mechanism can be changed for a particular service by using the `authHandlers` attribute.
-* Authorization scopes can be changed for a particular service by using the `scopes` attribute.
+* Authentication can be disabled only for a particular service by using the `enabled` attribute
+* The authentication mechanism can be changed for a particular service by using the `authHandlers` attribute
+* Authorization scopes can be changed for a particular service by using the `scopes` attribute
 
 ```ballerina
 @http:ServiceConfig {
@@ -417,13 +417,13 @@ Ballerina supports JWT Authentication and Authorizations for services. The `http
 
 JWT validation requires several additional configurations for the `jwt:JwtValidatorConfig` including:
 
-* `issuer` - The issuer of the JWT.
-* `audience` - The audience value for the current service.
-* `clockSkewInSeconds` - Clock skew in seconds that can be used to avoid token validation failures due to clock synchronization problems.
-* `trustStoreConfig` - JWT trust store configurations.
-  * `trustStore` - Trust store used for signature verification.
-  * `certificateAlias` - Token-signed public key certificate alias.
-* `jwtCache` - Cache used to store parsed JWT information as `CachedJwt`.
+* `issuer` - The issuer of the JWT
+* `audience` - The audience value for the current service
+* `clockSkewInSeconds` - Clock skew in seconds that can be used to avoid token validation failures due to clock synchronization problems
+* `trustStoreConfig` - JWT trust store configurations
+  * `trustStore` - Trust store used for signature verification
+  * `certificateAlias` - Token-signed public key certificate alias
+* `jwtCache` - Cache used to store parsed JWT information as `CachedJwt`
 
 The `jwt:JwtValidatorConfig` record should be provided into the `jwt:InboundJwtAuthProvider` when initializing. The initialized `jwt:InboundJwtAuthProvider` is passed to the `http:BearerAuthHandler.
 
@@ -579,9 +579,9 @@ Ballerina supports OAuth2 Authentication and Authorization for services. The `ht
 
 OAuth2 token validation requires several additional configurations for the `oauth2:IntrospectionServerConfig` including:
 
-* `url` - URL of the introspection server.
-* `tokenTypeHint` - A hint about the type of the token submitted for introspection.
-* `clientConfig` - HTTP client configurations, which calls the introspection server.
+* `url` - URL of the introspection server
+* `tokenTypeHint` - A hint about the type of the token submitted for introspection
+* `clientConfig` - HTTP client configurations, which calls the introspection server
 
 The `oauth2:IntrospectionServerConfig` record should be provided into the `oauth2:InboundOAuth2Provider` when initializing and the initialized `oauth2:InboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
 
@@ -682,27 +682,27 @@ Ballerina supports LDAP Authentication and Authorizations for services. The `htt
 
 LDAP token validation requires several additional configurations for the `ldap:LdapConnectionConfig` including:
 
-* `domainName` - Unique name to identify the user store.
-* `connectionURL` - Connection URL to the LDAP server.
-* `connectionName` - The username to connect to the LDAP server.
-* `connectionPassword` - Password for the ConnectionName user.
-* `userSearchBase` - DN of the context or object under which the user entries are stored in the LDAP server.
-* `userEntryObjectClass` - Object class used to construct user entries.
-* `userNameAttribute` - The attribute used for uniquely identifying a user entry.
-* `userNameSearchFilter` - Filtering criteria used to search for a particular user entry.
-* `userNameListFilter` - Filtering criteria for searching user entries in the LDAP server.
-* `groupSearchBase` - DN of the context or object under which the group entries are stored in the LDAP server.
-* `groupEntryObjectClass` - Object class used to construct group entries.
-* `groupNameAttribute` - The attribute used for uniquely identifying a group entry.
-* `groupNameSearchFilter` - Filtering criteria used to search for a particular group entry.
-* `groupNameListFilter` - Filtering criteria for searching group entries in the LDAP server.
-* `membershipAttribute` - Define the attribute that contains the distinguished names (DN) of user objects that are in a group.
-* `userRolesCacheEnabled` -  To indicate whether to cache the role list of a user.
-* `connectionPoolingEnabled` - Define whether LDAP connection pooling is enabled.
-* `connectionTimeoutInMillis` - Timeout in making the initial LDAP connection.
-* `readTimeoutInMillis` -  Read timeout in milliseconds for LDAP operations.
-* `retryAttempts` - Retry the authentication request if a timeout happened.
-* `secureClientSocket` - The SSL configurations for the LDAP client socket. This needs to be configured in order to communicate through LDAPs.
+* `domainName` - Unique name to identify the user store
+* `connectionURL` - Connection URL to the LDAP server
+* `connectionName` - The username to connect to the LDAP server
+* `connectionPassword` - Password for the ConnectionName user
+* `userSearchBase` - DN of the context or object under which the user entries are stored in the LDAP server
+* `userEntryObjectClass` - Object class used to construct user entries
+* `userNameAttribute` - The attribute used for uniquely identifying a user entry
+* `userNameSearchFilter` - Filtering criteria used to search for a particular user entry
+* `userNameListFilter` - Filtering criteria for searching user entries in the LDAP server
+* `groupSearchBase` - DN of the context or object under which the group entries are stored in the LDAP server
+* `groupEntryObjectClass` - Object class used to construct group entries
+* `groupNameAttribute` - The attribute used for uniquely identifying a group entry
+* `groupNameSearchFilter` - Filtering criteria used to search for a particular group entry
+* `groupNameListFilter` - Filtering criteria for searching group entries in the LDAP server
+* `membershipAttribute` - Define the attribute that contains the distinguished names (DN) of user objects that are in a group
+* `userRolesCacheEnabled` -  To indicate whether to cache the role list of a user
+* `connectionPoolingEnabled` - Define whether LDAP connection pooling is enabled
+* `connectionTimeoutInMillis` - Timeout in making the initial LDAP connection
+* `readTimeoutInMillis` -  Read timeout in milliseconds for LDAP operations
+* `retryAttempts` - Retry the authentication request if a timeout happened
+* `secureClientSocket` - The SSL configurations for the LDAP client socket. This needs to be configured in order to communicate through LDAPs
 
 The `ldap:LdapConnectionConfig` record should be provided into the `ldap:InboundLdapAuthProvider` when initializing and the initialized `ldap:InboundLdapAuthProvider` is passed to the `http:BasicAuthHandler`.
 
@@ -1022,19 +1022,19 @@ Ballerina supports JWT Authentication for clients. The `jwt:OutboundJwtAuthProvi
 JWT issuing requires several additional configurations for the `jwt:JwtIssuerConfig` including:
 
 * `username` - JWT token username
-* `issuer` - JWT token issuer.
-* `audience` - JWT token audience.
-* `customClaims` - Map of custom claims.
-* `expTime` - JWT token expiry time.
-* `keyStoreConfig` - JWT key store configurations.
-  * `keyStore` - Keystore to be used in JWT signing.
-  * `keyAlias` - Signing key alias.
-  * `keyPassword` - Signing key password.
-* `signingAlg` - JWT signing algorithm.
-  * `jwt:RS256` - The RSA-SHA256 algorithm.
-  * `jwt:RS384` - The RSA-SHA384 algorithm.
-  * `jwt:RS512` - The RSA-SHA512 algorithm.
-  * `jwt:NONE` - Unsecured JWTs (no signing).
+* `issuer` - JWT token issuer
+* `audience` - JWT token audience
+* `customClaims` - Map of custom claims
+* `expTime` - JWT token expiry time
+* `keyStoreConfig` - JWT key store configurations
+  * `keyStore` - Keystore to be used in JWT signing
+  * `keyAlias` - Signing key alias
+  * `keyPassword` - Signing key password
+* `signingAlg` - JWT signing algorithm
+  * `jwt:RS256` - The RSA-SHA256 algorithm
+  * `jwt:RS384` - The RSA-SHA384 algorithm
+  * `jwt:RS512` - The RSA-SHA512 algorithm
+  * `jwt:NONE` - Unsecured JWTs (no signing)
 
 The`jwt:JwtIssuerConfig` record should be provided into the `jwt:OutboundJwtAuthProvider` when initializing and the initialized `jwt:OutboundJwtAuthProvider` is passed to the `http:BearerAuthHandler`.
 
@@ -1082,16 +1082,16 @@ The `oauth2:OutboundOAuth2Provider` is used to create a token against the config
 
 OAuth2 token issuing requires several additional configurations for the `oauth2:ClientCredentialsGrantConfig` including:
 
-* `tokenUrl` - Token URL for the authorization endpoint.
-* `clientId` - Client ID for the client credentials grant authentication.
-* `clientSecret` - Client secret for the client credentials grant authentication.
-* `scopes` - Scope of the access request.
-* `clockSkewInSeconds` - Clock skew in seconds.
-* `retryRequest` - Retry the request if the initial request returns a 401 response.
-* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  * `http:POST_BODY_BEARER | NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
-* `clientConfig` - HTTP client configurations,which calls the authorization endpoint.
+* `tokenUrl` - Token URL for the authorization endpoint
+* `clientId` - Client ID for the client credentials grant authentication
+* `clientSecret` - Client secret for the client credentials grant authentication
+* `scopes` - Scope of the access request
+* `clockSkewInSeconds` - Clock skew in seconds
+* `retryRequest` - Retry the request if the initial request returns a 401 response
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint
+  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header
+  * `http:POST_BODY_BEARER | NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request
+* `clientConfig` - HTTP client configurations,which calls the authorization endpoint
 
 The `oauth2:ClientCredentialsGrantConfig` record should be provided into the `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
 
@@ -1124,23 +1124,23 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 
 OAuth2 token issuing requires several additional configurations for the `oauth2:PasswordGrantConfig` including:
 
-* `tokenUrl` - Token URL for the authorization endpoint.
-* `username` - Username for password grant authentication.
-* `password` - Password for password grant authentication.
-* `clientId` - Client ID for password grant authentication.
-* `clientSecret` - Client secret for password grant authentication.
-* `scopes` - Scope of the access request.
-* `refreshConfig` - Configurations for refreshing the access token.
-  * `refreshUrl` - Refresh token URL for the refresh token server.
-  * `scopes` - Scope of the access request.
-  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  * `clientConfig` - HTTP client configurations, which calls the authorization endpoint.
-* `clockSkewInSeconds` - Clock skew in seconds.
-* `retryRequest` - Retry the request if the initial request returns a 401 response.
-* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  * `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
-* `clientConfig` - HTTP client configurations, which calls the authorization endpoint.
+* `tokenUrl` - Token URL for the authorization endpoint
+* `username` - Username for password grant authentication
+* `password` - Password for password grant authentication
+* `clientId` - Client ID for password grant authentication
+* `clientSecret` - Client secret for password grant authentication
+* `scopes` - Scope of the access request
+* `refreshConfig` - Configurations for refreshing the access token
+  * `refreshUrl` - Refresh token URL for the refresh token server
+  * `scopes` - Scope of the access request
+  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint
+  * `clientConfig` - HTTP client configurations, which calls the authorization endpoint
+* `clockSkewInSeconds` - Clock skew in seconds
+* `retryRequest` - Retry the request if the initial request returns a 401 response
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint
+  * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header
+  * `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request
+* `clientConfig` - HTTP client configurations, which calls the authorization endpoint
 
 The `oauth2:PasswordGrantConfig` record should be provided into the `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
 
@@ -1179,20 +1179,20 @@ http:Client downstreamServiceEP = new("https://localhost:9091", {
 
 OAuth2 token issuing requires several additional configurations for the `oauth2:DirectTokenConfig` including:
 
-* `accessToken` - Access token for the authorization endpoint.
-* `refreshConfig` - Configurations for refreshing the access token.
-  * `refreshUrl` - Refresh token URL for the refresh token server.
-  * `refreshToken` - Refresh token for the refresh token server.
-  * `clientId` - Client ID for authentication with the authorization endpoint.
-  * `clientSecret` - Client secret for authentication with the authorization endpoint.
-  * `scopes` - Scope of the access request.
-  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  * `clientConfig` - HTTP client configurations, which calls the authorization endpoint.
-* `clockSkewInSeconds` - Clock skew in seconds.
-* `retryRequest` - Retry the request if the initial request returns a 401 response.
-* `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
-  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
+* `accessToken` - Access token for the authorization endpoint
+* `refreshConfig` - Configurations for refreshing the access token
+  * `refreshUrl` - Refresh token URL for the refresh token server
+  * `refreshToken` - Refresh token for the refresh token server
+  * `clientId` - Client ID for authentication with the authorization endpoint
+  * `clientSecret` - Client secret for authentication with the authorization endpoint
+  * `scopes` - Scope of the access request
+  * `credentialBearer` - How authentication credentials are sent to the authorization endpoint
+  * `clientConfig` - HTTP client configurations, which calls the authorization endpoint
+* `clockSkewInSeconds` - Clock skew in seconds
+* `retryRequest` - Retry the request if the initial request returns a 401 response
+* `credentialBearer` - How authentication credentials are sent to the authorization endpoint
+  - `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header
+  - `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request
 
 The `oauth2:DirectTokenConfig` record should be provided into the `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
 
@@ -1230,8 +1230,8 @@ Ballerina supports Basic Authentication for clients. The `auth:OutboundBasicAuth
 
 Token issuing requires several additional configurations for the `auth:Credential` config including:
 
-* `username` - The username for Basic authentication.
-* `password` - The password for Basic authentication.
+* `username` - The username for Basic authentication
+* `password` - The password for Basic authentication
 
 The `auth:Credential` record should be provided into the `auth:OutboundBasicAuthProvider` when initializing and the initialized `auth:OutboundBasicAuthProvider` is passed to the `http:BasicAuthHandler`.
 
