@@ -356,7 +356,7 @@ listener http:Listener ep = new (9090, config = {
 });
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"conf/data-service.toml"
+    ballerinaConf:"conf/data-service.conf"
 }
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
@@ -370,7 +370,7 @@ listener http:Listener ep = new (9090, config = {
 service employee_data_service on ep {
 ```
 
-Sample content of `data-service.toml`:
+Sample content of `data-service.conf`:
 
 ```toml
 # Ballerina database config file
@@ -451,7 +451,7 @@ $ kubectl get pods
 NAME                                                          READY     STATUS    RESTARTS   AGE
 ballerina-guides-employee-database-service-57479b7c67-l5v9k   1/1       Running     0          26s
 ```
-This is the container based on the deployment annotation. This container has the `.balx` file, secrets, config-maps, and dependencies wrapped within. 
+This is the container based on the deployment annotation. This container has the `.jar` file, secrets, config-maps, and dependencies wrapped within. 
 
 ```bash
 $ kubectl get svc
@@ -479,9 +479,9 @@ $ kubectl get configmap
 NAME                                              DATA      AGE
 employee-data-service-ballerina-conf-config-map   1         2m
 ```
-This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
+This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.conf"` attribute is used. At run time, it is an equivalent of:
 ```bash
-$ ballerina run --b7a.config.file=./conf/data-service.toml <source>.jar 
+$ ballerina run --b7a.config.file=./conf/data-service.conf <source>.jar 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
