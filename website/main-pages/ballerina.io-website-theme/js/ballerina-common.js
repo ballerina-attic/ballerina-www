@@ -179,17 +179,6 @@ $(document).ready(function() {
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="https://blog.ballerina.io">Blog</a></li>' +
         '<li class="cVersionItem"><div class="cVersionContainer"><lable class="cVlable">Version</lable><select name="versions" id="versions" class="select-css"><option value="http://v1-0.ballerina.io'+pathValue+'">1.0</option><option value="https://v0-991.ballerina.io'+pathValue+'" selected="selected">0.991</option> </select></div></li>' +
-        '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
-        '<div class="cSearchBoxTopMenu">' +
-        '<div role="search">' +
-        '<form role="form">' +
-        '<div class="form-group">' +
-        '<input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" autocomplete="off">' +
-        '</div>' +
-        '</form>' +
-        '<div id="mkdocs-search-results"></div>' +
-        '</div></div>' +
-        '</li>' +
         '</ul>' +
         '</div>' +
         '</div>' +
@@ -238,13 +227,13 @@ $(document).ready(function() {
 
 
 
-    var pathValue = window.location.pathname;
-    var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
-    '<select name="versions" id="versions" class="select-css">' +
-    '<option value="http://v1-0.ballerina.io'+pathValue+'">1.0</option>' +
-    '<option value="https://v0-991.ballerina.io'+pathValue+'" selected="selected">0.991</option>' +
-    '</select>'+
-    '</div>';
+    // var pathValue = window.location.pathname;
+    // var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
+    // '<select name="versions" id="versions" class="select-css">' +
+    // '<option value="http://v1-0.ballerina.io'+pathValue+'">1.0</option>' +
+    // '<option value="https://v0-991.ballerina.io'+pathValue+'" selected="selected">0.991</option>' +
+    // '</select>'+
+    // '</div>';
 
     var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
 
