@@ -29,3 +29,12 @@ Several features that are currently under development have been implemented alre
 ### Proposals for improvements/enhancements
 
 Work in progress proposals for improving Ballerina can be found at the following URL: <a href="https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals">https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals</a>.
+
+<style> 
+table {
+    width:100%;
+}
+td {
+    padding: 20px; 
+}
+</style>
