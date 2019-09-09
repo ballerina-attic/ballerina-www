@@ -397,7 +397,7 @@ Compiling source
  	data_backed_service.bal
 
 Generating executables
- 	data_backed_service.jar
+ 	data_backed_service-executable.jar
 
 Generating artifacts...
 
@@ -408,7 +408,7 @@ Generating artifacts...
 @kubernetes:Docker                      - complete 3/3 
 @kubernetes:Deployment                  - complete 1/1
 
-Run the following command to deploy Kubernetes artifacts: 
+Run the following command to deploy the Kubernetes artifacts: 
 kubectl apply -f ./kubernetes/
 
 ```
@@ -420,7 +420,7 @@ $ tree
 │   ├── ballerina.conf
 │   └── mysql-connector-java-8.0.11.jar
 ├── data_backed_service.bal
-├── data_backed_service.jar
+├── data_backed_service-executable.jar
 └── kubernetes
     ├── data_backed_service_config_map.yaml
     ├── data_backed_service_deployment.yaml
