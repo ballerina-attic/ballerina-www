@@ -85,7 +85,7 @@ Modules:
 <li>Are referenced by  <code>&lt;org-name&gt;/&lt;module-name&gt;</code> where <code>&lt;org-name&gt;</code> is a namespace from within a repository.</li>
 </ol>
 
-Module names can contain alphanumeric characters including dots `.`. Dots in a module name has no meaning other 
+Module names can contain alphanumeric characters including dots (`.`). Dots in a module name has no meaning other
 than the last segment after the final dot being used as a default alias within your source code.
 
 ### Importing Modules
@@ -96,10 +96,10 @@ import [<org-name>]/<module-name> [as <identifier>];
 ```
 
 When you import a module, you can use its functions, annotations, and other objects in your code. You can also 
-reference the objects with a qualified identifier followed by a colon `:`. For example, `<identifier>:<module-object>`.
+reference the objects with a qualified identifier followed by a colon (`:`). For example, `<identifier>:<module-object>`.
 
 Identifiers are either derived or explicit. The default identifier is either the module name or if the module 
-name has dots `.` included, then the last word after the last dot. For example, `import ballerina/http;` will 
+name has dots (`.`) included, then the last word after the last dot. For example, `import ballerina/http;` will
 have `http:`as the derived identifer and the module `import ballerinax/java.jdbc` would have `jdbc:` as the 
 default identifier.
 
@@ -108,7 +108,7 @@ You can have an explicit identifier by using the `as <identifier>` syntax.
 ```ballerina
 import ballerina/http;
 
-// The 'Service' object comes from the imported module.
+// The listener comes from the imported module.
 service hello on new http:Listener(9090) {
 
     // The 'Request' object comes from the imported module.
