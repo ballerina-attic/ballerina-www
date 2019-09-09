@@ -32,7 +32,8 @@
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Take a quick tour to run a simple hello world services and call a web API. </p>
-   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started guide</a>.</p>
+     <p>Read the <a href="/learn/getting-started/">quickstart guide</a> and follow along in your IDE</p>
+   <p>Need some help? Read the <a href="/learn/quick-tour/">Getting Started guide</a>.</p>
       </div>
    </div>
 </div>
