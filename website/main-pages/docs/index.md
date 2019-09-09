@@ -1,4 +1,3 @@
-
 <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/css/home-page.css"></link><div class="row cBallerinaIntroSection">
    <div class="container">
      <div class="col-sm-12 col-md-12">
@@ -15,8 +14,8 @@
                Download Ballerina
                <p>Distributions available for <br>Linux, OS X, and Windows</p>
             </a>
-            <a class="cBallerina-io-Home-main-download-button cBBEButton" href="/downloads">
-               Ballerina by Example
+            <a class="cBallerina-io-Home-main-download-button cBBEButton" href="/learn/by-example/">
+              <img src="/img/ballerina-bbe-logo.svg"/>
                <p>Commented examples to learn <br>and cut-n-paste from</p>
             </a>
         </div>
@@ -58,7 +57,7 @@
 <a class="cBookmarkTop" id="The-Network-in-the-Language"></a>
 <div class="container cFeatureSection">
    <div class="col-sm-12 col-md-4 cColDiagram">
-      <img src="/img/home-page/the-network-in-the-language.png"/>
+      <img src="/img/home-page/network-in-the-language.png"/>
    </div>
    <div class="col-sm-12 col-md-8 cColCOntent">
       <h3>The Network in the Language</h3>
@@ -66,7 +65,7 @@
 </p>
    </div>
 </div>
-<a class="cBookmarkTop" id="Sequence-Diagrams-for-Programming""></a>
+<a class="cBookmarkTop" id="Sequence-Diagrams-for-Programming"></a>
 <div id="" class="container cFeatureSection">
    <div class="col-sm-12 col-md-8 cColCOntent">
       <h3>Sequence Diagrams for Programming</h3>
@@ -93,17 +92,17 @@
       <p>In the cloud-era, running a program is no longer just a matter of compiling and executing but rather it is about compiling, building the image, pushing the image, configuring container orchestration, and .. eventually running. Ballerina brings the entire program execution process to the hands of the developer with extensible metadata that gets compiled to runnable programs for all major cloud platforms. You code, we cloud!</p>
    </div>
    <div class="col-sm-12 col-md-4 cColDiagram">
-      <img src="/img/dummy.svg"/>
+      <img src="/img/home-page/from-code-to-cloud.png"/>
    </div>
 </div>
 <a class="cBookmarkTop" id="Batteries-Included"></a>
 <div id="" class="container cFeatureSection">
    <div class="col-sm-12 col-md-4 cColDiagram">
-      <img src="/img/dummy.svg"/>
+      <img src="/img/home-page/batteries-included.png"/>
    </div>
    <div class="col-sm-12 col-md-8 cColCOntent">
       <h3>Batteries Included</h3>
-      <p>Today’s network is democratized! HTTPS to HTTP/2 to WebSockets to MQTT to WebSub to AMQP to JSON to XML to ProtoBuf to GRPC to OpenAPI to plain old bytes - Ballerina has it all in the standard library and toolchain to help developers rapidly build applications. At development time, Ballerina covers documentation, testing, sharing, versioning, and more. We plumb, you build!</p>
+      <p>Today’s network is democratized! HTTPS to HTTP/2 to WebSockets to WebSub to AMQP to JSON to XML to ProtoBuf to GRPC to OpenAPI to plain old bytes - Ballerina has it all in the standard library and toolchain to help developers rapidly build applications. At development time, Ballerina covers documentation, testing, sharing, versioning, and more. We plumb, you build!</p>
    </div>
 </div>
 <a class="cBookmarkTop" id="Developer-First"></a>
@@ -113,7 +112,7 @@
       <p>Programs in the real world are written once and read tens to hundreds of times. Whenever possible, Ballerina prioritizes programmer convenience with familiarity, clearer abstractions, and easier concepts over uber system performance.  Hardware is cheap, we programmers are not.</p>
    </div>
    <div class="col-sm-12 col-md-4 cColDiagram">
-      <img src="/img/dummy.svg"/>
+      <img src="/img/home-page/developer-first.png"/>
    </div>
 </div>
 </div>
