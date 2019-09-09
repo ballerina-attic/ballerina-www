@@ -43,26 +43,12 @@ The installer should put the `C:\Program Files\Ballerina\<ballerina-directory>\b
 dpkg -i <ballerina-binary>.deb
 ```
 
-## Installing via the Ballerina language ZIP file
-
-> **Note**: Before you install Ballerina using the ZIP file, ensure that you have Java Development Kit (JDK) version 1.8 installed.
-
-[Download the Ballerina language ZIP file](/downloads) and unzip it to a preferred location using an archiver tool of your choice. This creates a directory named `ballerina-<version>` in your system.
-
-Follow one of the steps below depending on your operating system to configure your system environment to run Ballerina:
-
-- If your operating system is Linux or Mac OS, set the PATH environment variable to point to the bin directory of the unzipped Ballerina distribution.
-- If your operating system is Windows, add a new environment variable specifying the following values:
-  - Variable name: PATH
-  - Variable value: The location of the bin directory of the unzipped Ballerina distribution. For example,  `C:\Program Files\Ballerina\ballerina-<version>\bin`
-  
 ## Uninstalling Ballerina
 
 To remove an existing Ballerina installation, go to the Ballerina installation location and delete the Ballerina directory.
 
 > **Note**:
-> - If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/usr/lib/ballerina/` in Ubuntu and `C:\Program Files\Ballerina\` in Windows.
-> - If you installed Ballerina using the Ballerina language ZIP file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
+> - The installation location is usually `/Library/Ballerina` in Mac OS X, `/usr/lib/ballerina/` in Ubuntu and `C:\Program Files\Ballerina\` in Windows.
 
 ## Getting help
 
