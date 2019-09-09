@@ -1,6 +1,6 @@
-<h1>Learn Ballerina</h1>
+<h1>Lets learn Ballerina!</h1>
 <div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is a statically typed, concurrent programming language, focusing on network interaction and structured data. It is intended to be the core of a language-centric middleware platform. Here you’ll find all the resources you need to get hands-on experience with Ballerina.
+   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!
 </p>
    <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
