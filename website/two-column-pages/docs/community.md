@@ -1,74 +1,71 @@
-# Community and Project
+# The Ballerina Community
 
-Ballerina is an open-source project under [Apache 2.0 license](https://opensource.org/licenses/Apache-2.0) and is developed by the Ballerina community.
+The Ballerina community has been bootstrapped by <a href=”https://wso2.com/”>WSO2</a> via sponsorship of the design & implementation of the Ballerina platform. Ballerina is a fully open source project with all source code licensed under the <a href=”https://www.apache.org/licenses/LICENSE-2.0”>Apache License, Version 2.0</a> and the specifications licensed under the <a href=”https://creativecommons.org/licenses/by-nd/4.0/”>Creative Commons Attribution-NoDerivatives 4.0 International</a> license.
 
-We appreciate your help and participation!
+We warmly welcome any and all contributors to the community to help establish Ballerina as a truly community owned resource!
 
-## Announcement List
+## Looking for help?
 
-We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list. By submitting your email address here, you will receive emails with the latest news about Ballerina.
+We’re happy to help! Come engage with us on any channel that works for you:
+
+<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper cCommunityLinks">
+  <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
+      <div class="cBallerina-Box">
+      <a class="cCommunityIcons" href="https://twitter.com/ballerinalang"><img src="/img/twitter.svg"></a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
+      <div class="cBallerina-Box">
+      <a class="cCommunityIcons" href="/open-source/slack/"><img src="/img/slack.svg"></a>
+      </div>
+   </div>
+      <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
+      <div class="cBallerina-Box">
+      <a class="cCommunityIcons" href="https://stackoverflow.com/questions/tagged/ballerina"><img src="/img/stackoverflow.svg"></a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
+      <div class="cBallerina-Box">
+      <a class="cCommunityIcons" href="https://groups.google.com/forum/#!forum/ballerina-dev"><img src="/img/google-groups.svg"></a>
+      </div>
+   </div>
+</div>
+
+## Want to be kept up-to-date?
+
+We run an announcement-only, no-marketing-spam mailing list that we will use to inform you of new releases and similar relevant information. If you’d like to join please submit the form below 
+
+(GDPR compliant mandatory consent click included!):
 
 <form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
 <input class="cTextfieldstyle" maxlength="90" value="" id="emailUserOS" name="email" placeholder="I consent to join the email list" title="Email" type="text">
 </form>
 
-## Version History
+## Want to report issues? 
 
-Please see [Ballerina Downloads page](/downloads/) for Ballerina version history and release notes.
+Oh no, you hit a bump on the road! Please tell us - we want to fix all bugs!
 
-## Developer Resources
+- Found a bug in the compiler, standard libraries or the runtime? Create an issue here: https://github.com/ballerina-platform/ballerina-lang/issues
+- Found a bug in the language specification? Create an issue here: https://github.com/ballerina-platform/ballerina-spec/issues
+- Found a bug on the website? Create an issue here: https://github.com/ballerina-platform/ballerina-www/issues
 
-### Source Code
 
-<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
+## Want to help us make Ballerina popular?!
 
-See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and star the repo to show your appreciation to Ballerina maintainers. Watch the repo to keep track of Ballerina issues.
+We know getting a language established is like getting a new religion going! We really need you, our fans, to help spread the word!
 
-### Developer Mailing List
+First let’s start with starring the main GitHub repo right here: <a href=”https://github.com/ballerina-platform/ballerina-lang”>https://github.com/ballerina-platform/ballerina-lang</a>. Thank you!
 
-[Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
+Second is to share the wealth by publishing your code on <a href=”https://central.ballerna.io”>Ballerina Central</a>! Do it today. Do it now.
 
-We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click [here](/community/slack) to get a Slack invite</p>
+Follow us on Twitter: <a href=”https://twitter.com/ballerinalang”>@ballerinalang</a>. Tweet with the “#ballerinalang” hashtag!
 
-Comments in GitHub issues and pull requests are used for issue or feature-specific discussions.
 
-## Report Issues
+Do you want to organize a local meetup or hackathon? WSO2 can help with presentation / training content, logistics, swag, and some funds to for munchies. Give us a buzz and we’ll get right on it: <a href=”mailto:contact@ballerina.io”>contact@ballerina.io</a>.
 
-Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
-*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](/security) for details.
+## Want to help implement Ballerina?
+Join the project and write some code with us to make Ballerina better! You can hang out with us in the Slack channel, the mailing list and of course on GitHub.
 
-To file non-security issues:
-
-1. Click the Issues tab in the corresponding [GitHub repository](https://github.com/ballerina-platform/)
-1. Click the *New Issue* button
-1. Fill out all sections in the issue template and submit
-
-If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
-
-## Contribute Code
-
-Ballerina is an open source project and any contributions from the wider community is much appreciated. We would love for you to join our team!
-
-To get started, read these [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md) for information on our build process, design, commit requirements, and other aspects of collaboration.
-
-## Spread the Word
-
-Like most open source projects, building community is a labor of love among the the project committers and others from around the world who get involved to aid in its evolution and promotion. We want to help you promote Ballerina and communicate to others within your projects, organizations, or companies. We have lots of resources available to you to help with this. Whether you are doing a small presentation within your team or running a Ballerina meetup, we can give you a helping hand (err, shoe).
-
-### Meetup Materials
-
-We have lots of materials prepared to help with different meetup presentations. We'll be happy to sponsor your meetup with content, speakers, pizza and cross-promotion, too!
-
-1. <a href="https://docs.google.com/presentation/d/1yuixfusHrICWn6nxRobDEMjuWaHvn3qMJMzQnjNIkMk/edit?usp=sharing" target="_blank">Ballerina overview slide deck</a>
-2. <a href="https://github.com/ballerina-guides/ballerina-demo" target="_blank">Ballerina overview demo script and example download</a>
-<!--3. <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/printed_material" target="_blank">Ballerina postcards and brochures</a> - for printing as give aways-->
-3. <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/logos" target="_blank">Ballerina logos</a> and <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/images" target="_blank">Ballerina-style icons</a> for your presentations
-4. To have us sponsor, promote, provide speakers, or get BallerinaCon discount codes for your meetup, please [contact us](mailto:contact@ballerina.io)!
-
-### Get Stuff
-
-We have supplies of Ballerina stickers, shirts, and committer sweaters. We send these with our speakers and to committers. Our supplies are en pointe, and we can send your team a package, too. Please [contact us](mailto:contact@ballerina.io) with your details.
-
-<style>.cVersionContainer {display:none;}</style>
+Please read the <a href=”XX”>Contributor Guide</a> so you are aware of the ground rules as you start! Happy dancing!
