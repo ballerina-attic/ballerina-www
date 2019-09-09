@@ -56,7 +56,7 @@
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Read the language & platform specifications to really understand the guts of the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
+         <a class="cBallerinaLearnButtons" href="/spec/">Language Specification</a>
       </div>
    </div>
 </div>
