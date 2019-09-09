@@ -18,30 +18,27 @@ For build time client stub generation, annotation support is provided.
 
 ### Mock service from OpenAPI
 `ballerina openapi gen-service <moduleName>:<serivceName> 
-    <openapi_contract>
-    [-c: copy-contract] 
-    [-o: outputFile]`
+                               <openapi_contract>
+                               [-c: copy-contract] 
+                               [-o: outputFile]`
 
 Generates a Ballerina service for the OpenAPI file.
 
 This generated service is a mock version of the actual Ballerina service. Generated sources contain the service definition in `src/<module-name>/` and the OpenAPI contract that used to generate will be copied to `src/<module-name>/resources`. 
 
 ### Client stub from OpenAPI
-`ballerina openapi gen-client 
-    [<moduleName>]:<clientName> 
-    <openapi-contract> 
-    [-o <dir-path> | --output <dir-path>]`
+`ballerina openapi gen-client [<moduleName>]:<clientName> 
+                   <openapi-contract> [-o <dir-path> | --output <dir-path>]`
     
 Generates a Ballerina client stub for the service defined in a OpenAPI file.
 
 This client can be used in client applications to call the service defined in the OpenAPI file.
 
 ### Service to OpenAPI export
-`ballerina openapi gen-contract 
-    [<moduleName>:]<serviceName> 
-    [-i: <ballerinaFile> | --ballerina-file <ballerina-file>] 
-    [-o: <openapi-contract> | --output <openapi-contract>] 
-    [-s | --skip-bind]`
+`ballerina openapi gen-contract [<moduleName>:]<serviceName> 
+                                [-i: <ballerinaFile> | --ballerina-file <ballerina-file>] 
+                                [-o: <openapi-contract> | --output <openapi-contract>] 
+                                [-s | --skip-bind]`
 
 Export the Ballerina service to a definition of OpenApi Specification 3.0.
 For the export to work properly, the input Ballerina service should be defined using basic service and resource level HTTP annotations.

@@ -88,7 +88,7 @@
       <p>How to use logging, metrics, and tracing to observe Ballerina services.</p>
    </div>
    <div class="col-sm-12 col-md-6 cTwoCol">
-      <h3><a href="/learn/how-to-generate-code-for-protocol-buffers.md">Generating Ballerina Code for Protocol Buffer Definition</a></h3>
+      <h3><a href="/learn/how-to-generate-code-for-protocol-buffers">Generating Ballerina Code for Protocol Buffer Definition</a></h3>
       <p>How to generate Ballerina connector and service code for your existing Protocol Buffer definition.</p>
    </div>
       <div class="clearfix"></div>
