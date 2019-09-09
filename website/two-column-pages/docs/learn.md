@@ -155,7 +155,7 @@
 </tr>
 <tr>
 <td class="cCommand">grpc</td>
-<td class="cDescription">This is the gRPC stub / skeleton generation tool. Read <a href=”XXX”>this How-To</a> for more information.</td>
+<td class="cDescription">This is the gRPC stub / skeleton generation tool.</td>
 </tr>
 </table>
 </div>
