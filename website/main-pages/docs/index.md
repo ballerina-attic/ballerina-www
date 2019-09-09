@@ -109,7 +109,7 @@
 <div id="" class="container cFeatureSection">
    <div class="col-sm-12 col-md-8 cColCOntent">
       <h3>Developer First</h3>
-      <p>Programs in the real world are written once and read tens to hundreds of times. Whenever possible, Ballerina prioritizes programmer convenience with familiarity, clearer abstractions, and easier concepts over uber system performance.  Hardware is cheap, we programmers are not.</p>
+      <p>Programs in the real world are written once and read tens to hundreds of times. Whenever possible, Ballerina prioritizes programmer convenience & productivity with familiarity, clearer abstractions, and easier concepts over uber system performance.  Today, hardware is cheap, we programmers are not and time to market is everything.</p>
    </div>
    <div class="col-sm-12 col-md-4 cColDiagram">
       <img src="/img/home-page/developer-first.png"/>
