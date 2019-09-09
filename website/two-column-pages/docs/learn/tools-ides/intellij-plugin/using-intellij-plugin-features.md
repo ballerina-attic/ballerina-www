@@ -92,18 +92,6 @@ When you copy and paste Ballerina code to IntelliJ, this feature allows you to i
 
 ![Import unambiguous modules](../images/import-unambiguous-modules.gif)
 
-## Finding usages
-
-You can use the plugin to find the usages of variables, functions, etc.
-
-![Find usage](../images/find-usage.gif)
-
-## Viewing definitions
-
-You can view the definition of variables, function invocations, etc. by pressing the **Ctrl** key while clicking on them.
-
-![Got to definition](../images/go-to-definition-intellij.gif)
-
 ## Formatting Ballerina codes
 
 You can reformat the Ballerina codes by pressing the **Ctrl+Alt+L** keys.
@@ -181,5 +169,4 @@ You expand/collapse the following Ballerina code segments using the icons in the
 
 ## What's next?
 
- - For more information on the IntelliJ Ballerina plugin, see [The IntelliJ Plugin](/learn/tools-ides/intellij-plugin).
- - For information on the other tools and IDEs that are supported by Ballerina, see [Tools and IDEs](../tools-ides).
+ - For instructions on testing and debugging the plugin, see [Testing and debugging the plugin](/learn/tools-ides/intellij-plugin/testing-and-debugging-the-plugin)

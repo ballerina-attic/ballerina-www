@@ -5,6 +5,7 @@ Click the links below to start using the IntelliJ Ballerina plugin after [instal
 - [Creating a new Ballerina project](#creating-a-new-ballerina-project)
 - [Setting up Ballerina SDK for an existing project](#setting-up-ballerina-sdk-for-an-existing-project)
 - [Creating a new Ballerina file](#creating-a-new-ballerina-file)
+- [Configuring the plugin settings](#configuring-the-plugin-settings)
 
 ## Creating a new Ballerina project
 
@@ -68,6 +69,26 @@ Follow the steps below to create a new Ballerina file within a Ballerina project
 Now, you have successfully created a new Ballerina file with a **main** function.
 
 ![New Ballerina file with a main function](../images/new-ballerina-file-with-main-function.png)
+
+## Configuring the plugin settings
+
+### Ballerina Home auto detection
+
+In order to automatically detect the Ballerina Home that is being used (without setting up a Ballerina SDK), enable the **Settings** **->** **Languages and Frameworks** **->** **Ballerina** **->** **Ballerina Home Auto Detection** option.
+
+![Ballerina Home auto detection](/learn/images/auto-detection.png)
+
+### Experimental features
+
+Ballerina Language Specification supports a set of experimental features such as transactions syntax. In order to be compatible with the experimental features and for supporting language intelligence in IntelliJ plugin, enable the **Allow Experimental** option in **Settings** **->** **Languages and Frameworks** **->** **Ballerina** **->** **Experimental Features**.
+
+![Experimental features](/learn/images/experimental-features.png)
+
+### Language Server Debug logs
+
+In order to view the plugin debug logs, enable the **Settings** **->** **Languages and Frameworks** **->** **Ballerina** **->** **Language Server Debug Logs** option.
+
+![Debug logs](/learn/images/debug-logs.png)
 
 ## What's next?
 

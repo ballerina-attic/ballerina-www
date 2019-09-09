@@ -1,4 +1,4 @@
-# The IntelliJ IDEA Ballerina Plugin
+ The IntelliJ IDEA Ballerina Plugin
 
 The IntelliJ Ballerina plugin provides the Ballerina development capabilities in IntelliJ IDEA. Click on the below links for instructions on how to download, install, and use the features of the IntelliJ plugin.
 
@@ -6,6 +6,7 @@ The IntelliJ Ballerina plugin provides the Ballerina development capabilities in
 - [Installing the plugin](#installing-the-plugin)
 - [Using the plugin](#using-the-plugin)
 - [Using the features of the plugin](#using-the-features-of-the-plugin)
+- [Testing and debugging the plugin](#testing-and-debugging-the-plugin)
 
 ## Prerequisites
 
@@ -70,12 +71,8 @@ Follow the steps below to obtain the ZIP file by building it from its source.
     ```bash
     ./gradlew buildPlugin
     ```
-    > **Tip:** If you are using Ubuntu/Windows, execute the below command:
-    ```bash
-    gradlew buildPlugin
-    ```
 
-This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
+This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory.
 
 #### Installing the ZIP file via the IDE
 
@@ -104,8 +101,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Viewing the sequence diagram](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-the-sequence-diagram)
 - [Importing modules on the fly](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
 - [Importing unambiguous modules](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
-- [Finding usages](tools-ides/intellij-plugin/using-intellij-plugin-features#finding-usages)
-- [Viewing definitions](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-definitions)
 - [Formatting Ballerina codes](tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
 - [Viewing details of parameters](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-details-of-parameters)
 - [Viewing documentation](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
@@ -117,3 +112,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Code folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
 
+## Testing/Debugging the plugin
+
+For instructions on testing and debugging the plugin, see [Testing and debugging the plugin](/learn/tools-ides/intellij-plugin/testing-and-debugging-the-plugin).
