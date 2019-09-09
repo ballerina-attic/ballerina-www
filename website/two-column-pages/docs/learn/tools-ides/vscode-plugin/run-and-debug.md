@@ -20,6 +20,12 @@ You view the output in the **DEBUG CONSOLE**.
 
 For more information on debugging your code using VS Code, go to [VS Code Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
+## Troubleshooting
+- You need to manually add a breakpoint to the next line when stepping over code lines in non-blocking paths (e.g., action invocations). Otherwise, it will not pause the VM on the next line by default.
+    - workaround: manually put a breakpoint to next line
+- However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
+    - Eg: When there are multiple workers and a wait expression waiting for them, even though step over hit and pass wait line in source, workers are not yet finished execution.
+
 ## What's next?
 
  - For information on the next capability of the VS Code Ballerina plugin, see [Run All Tests](run-all-tests.md).
