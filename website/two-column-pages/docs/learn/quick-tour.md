@@ -6,7 +6,7 @@ Now that you know a little bit of Ballerina, let's take it for a spin!
 
 1. [Download](https://ballerina.io/downloads) Ballerina based on the Operating System you are using. 
 1. Follow the instructions given on the [Getting Started](/learn/getting-started) page to set it up. 
-1. Follow the instructions given on the [Editor and IDE Support](/learn/tools-ides/#editor-and-ide-support) page to set up your preferred editor for Ballerina.
+1. Follow the instructions given on the [The Visual Studio Code Plugin](/learn/tools-ides/vscode-plugin/) page or [The IntelliJ IDEA Ballerina Plugin](/learn/tools-ides/intellij-plugin/) page to set up your preferred editor for Ballerina.
 
 ## Write a Service, Run It, and Invoke It
 
