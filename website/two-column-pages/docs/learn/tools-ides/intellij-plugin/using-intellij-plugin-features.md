@@ -66,7 +66,7 @@ You can debug Ballerina main/service programs with a few clicks.
 
 ![Debug Ballerina programs](../images/debug-ballerina-intellij.gif)
 
-## Troubleshooting
+### Troubleshooting
 - Stepping over code lines in non-blocking paths (eg: action invocations) will not pause VM on next line
     - workaround: manually put a breakpoint to next line
 - There are some cases where stepping over gives unexpected behavior
