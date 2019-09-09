@@ -28,9 +28,9 @@ This generated service is a mock version of the actual Ballerina service. Genera
 
 ### Client stub from OpenAPI
 `ballerina openapi gen-client 
-    [moduleName]:clientName 
-    openapi-contract 
-    -o[output directory name]`
+    [<moduleName>]:<clientName> 
+    <openapi-contract> 
+    [-o <dir-path> | --output <dir-path>]`
     
 Generates a Ballerina client stub for the service defined in a OpenAPI file.
 
@@ -38,10 +38,10 @@ This client can be used in client applications to call the service defined in th
 
 ### Service to OpenAPI export
 `ballerina openapi gen-contract 
-    [moduleName]:serviceName 
-    [-i: ballerinaFile] 
-    [-o: contractFile] 
-    [-s: skip-bind]`
+    [<moduleName>:]<serviceName> 
+    [-i: <ballerinaFile> | --ballerina-file <ballerina-file>] 
+    [-o: <openapi-contract> | --output <openapi-contract>] 
+    [-s | --skip-bind]`
 
 Export the Ballerina service to a definition of OpenApi Specification 3.0.
 For the export to work properly, the input Ballerina service should be defined using basic service and resource level HTTP annotations.
@@ -67,7 +67,7 @@ This command should be executed inside a Ballerina project.
 ### OpenAPI from service
 `ballerina openapi gen-contract hello -i src/helloS/hello.bal`
 
-This will generate the OpenAPI contract for the ballerina service `hello` which is in `hello.bal` ballerina file.
+This will generate the OpenAPI contract for the Ballerina service `hello` which is in `hello.bal` Ballerina file.
 ### Client stub from service
 Apply annotation to say that client generation is enabled by adding `@openapi:ClientConfig { generate: true }`
 and point the client endpoint to be applied on generation by adding `@openapi:ClientEndpoint` annotation to the client endpoint.
