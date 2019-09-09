@@ -22,7 +22,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
                 <a id="packWindows" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-windows-installer-x64-1.0.0.msi" class="cDownload" data-download="downloads" data-pack="ballerina-windows-installer-x64-1.0.0.msi">
                     <div>Windows</div>
-                    <div class="cSize">Installer msi <span id="packWindowsName">(89mb)</span></div>
+                    <div class="cSize">Installer msi <span id="packWindowsName">(125mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packWindowsMd5" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-windows-installer-x64-1.0.0.msi.md5">md5</a></li>
@@ -33,7 +33,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
                 <a id="packLinux" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-linux-installer-x64-1.0.0.deb" class="cDownload" data-download="downloads" data-pack="ballerina-linux-installer-x64-1.0.0.deb">
                     <div>Linux</div>
-                    <div class="cSize">deb Package <span id="packLinuxName">(88mb)</span></div>
+                    <div class="cSize">deb Package <span id="packLinuxName">(120mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packLinuxMd5" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-linux-installer-x64-1.0.0.deb.md5">md5</a></li>
@@ -44,7 +44,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
                 <a id="packMac" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-macos-installer-x64-1.0.0.pkg" class="cDownload" data-download="downloads" data-pack="ballerina-macos-installer-x64-1.0.0.pkg">
                     <div>MacOS</div>
-                    <div class="cSize">Installer pkg <span id="packMacName">(102mb)</span></div>
+                    <div class="cSize">Installer pkg <span id="packMacName">(135mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packMacMd5" href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-macos-installer-x64-1.0.0.pkg.md5">md5</a></li>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
                         <div class="insPackages1container">
-                            <table id="insPackages1"><tr><td style="width: 96%">ballerina-vscode-plugin-1.0.0.vsix</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-vscode-plugin-1.0.0.vsix" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-vscode-plugin-1.0.0.vsix"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-vscode-plugin-1.0.0.vsix.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-vscode-plugin-1.0.0.vsix.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-vscode-plugin-1.0.0.vsix.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-intellij-idea-plugin</td><td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-intellij-idea-plugin-1.0.0"><img src="../img/right-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr><tr><td style="width: 96%">ballerina-metrics-grafana-dashboard-prometheus.json</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-metrics-grafana-dashboard-prometheus.json" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-metrics-grafana-dashboard-prometheus.json-1.0.0"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr></table>
+                            <table id="insPackages1"><tr><td style="width: 96%">ballerina-1.0.0.vsix</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-1.0.0.vsix" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-1.0.0.vsix"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-1.0.0.vsix.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-1.0.0.vsix.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/bballerina-1.0.0.vsix.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-intellij-idea-plugin</td><td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-intellij-idea-plugin-1.0.0"><img src="../img/right-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr><tr><td style="width: 96%">ballerina-metrics-grafana-dashboard-prometheus.json</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/1.0.0/ballerina-metrics-grafana-dashboard-prometheus.json" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-metrics-grafana-dashboard-prometheus.json-1.0.0"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr></table>
                         </div>
                     </div>
                     <div class="clearfix"></div>
