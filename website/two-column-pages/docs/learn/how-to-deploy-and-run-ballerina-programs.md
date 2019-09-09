@@ -481,7 +481,7 @@ employee-data-service-ballerina-conf-config-map   1         2m
 ```
 This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
 ```bash
-$ ballerina run --config ./conf/data-service.toml <source>.balx 
+$ ballerina run --b7a.config.file=./conf/data-service.toml <source>.jar 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
