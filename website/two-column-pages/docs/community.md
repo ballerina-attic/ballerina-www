@@ -2,7 +2,7 @@
 
 The Ballerina community has been bootstrapped by <a href=”https://wso2.com/”>WSO2</a> via sponsorship of the design & implementation of the Ballerina platform. Ballerina is a fully open source project with all source code licensed under the <a href=”https://www.apache.org/licenses/LICENSE-2.0”>Apache License, Version 2.0</a> and the specifications licensed under the <a href=”https://creativecommons.org/licenses/by-nd/4.0/”>Creative Commons Attribution-NoDerivatives 4.0 International</a> license.
 
-We warmly welcome any and all contributors to the community to help establish Ballerina as a truly community owned resource!
+We warmly welcome all contributors to the community to help establish Ballerina as a truly community-owned resource!
 
 ## Looking for help?
 
@@ -33,9 +33,9 @@ We’re happy to help! Come engage with us on any channel that works for you:
 
 ## Want to be kept up-to-date?
 
-We run an announcement-only, no-marketing-spam mailing list that we will use to inform you of new releases and similar relevant information. If you’d like to join please submit the form below 
+We run an announcement-only, no-marketing-spam mailing list, which we will use to inform you of new releases and similar relevant information. If you’d like to join, please submit the below form.
 
-(GDPR compliant mandatory consent click included!):
+(GDPR-compliant mandatory consent click included!):
 
 <form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
@@ -46,26 +46,26 @@ We run an announcement-only, no-marketing-spam mailing list that we will use to 
 
 Oh no, you hit a bump on the road! Please tell us - we want to fix all bugs!
 
-- Found a bug in the compiler, standard libraries or the runtime? Create an issue here: https://github.com/ballerina-platform/ballerina-lang/issues
+- Found a bug in the compiler, standard libraries, or the runtime? Create an issue here: https://github.com/ballerina-platform/ballerina-lang/issues
 - Found a bug in the language specification? Create an issue here: https://github.com/ballerina-platform/ballerina-spec/issues
-- Found a bug on the website? Create an issue here: https://github.com/ballerina-platform/ballerina-www/issues
+- Found a bug in the website? Create an issue here: https://github.com/ballerina-platform/ballerina-www/issues
 
 
-## Want to help us make Ballerina popular?!
+## Want to help us make Ballerina popular?
 
 We know getting a language established is like getting a new religion going! We really need you, our fans, to help spread the word!
 
-First let’s start with starring the main GitHub repo right here: <a href=”https://github.com/ballerina-platform/ballerina-lang”>https://github.com/ballerina-platform/ballerina-lang</a>. Thank you!
+First, let’s start with starring the main GitHub repo right here: <a href=”https://github.com/ballerina-platform/ballerina-lang”>https://github.com/ballerina-platform/ballerina-lang</a>. Thank you!
 
-Second is to share the wealth by publishing your code on <a href=”https://central.ballerna.io”>Ballerina Central</a>! Do it today. Do it now.
+Second is to share the wealth by publishing your code on <a href=”https://central.ballerna.io”>Ballerina Central</a>! 
 
 Follow us on Twitter: <a href=”https://twitter.com/ballerinalang”>@ballerinalang</a>. Tweet with the “#ballerinalang” hashtag!
 
 
-Do you want to organize a local meetup or hackathon? WSO2 can help with presentation / training content, logistics, swag, and some funds to for munchies. Give us a buzz and we’ll get right on it: <a href=”mailto:contact@ballerina.io”>contact@ballerina.io</a>.
+Do you want to organize a local meetup or hackathon? WSO2 can help with presentation / training content, logistics, swag, and some funds for munchies. Give us a buzz and we’ll get right on it: <a href=”mailto:contact@ballerina.io”>contact@ballerina.io</a>.
 
 
 ## Want to help implement Ballerina?
-Join the project and write some code with us to make Ballerina better! You can hang out with us in the Slack channel, the mailing list and of course on GitHub.
+Join the project and write some code with us to make Ballerina better! You can hang out with us in the Slack channel, the mailing list, and of course on GitHub.
 
-Please read the <a href=”XX”>Contributor Guide</a> so you are aware of the ground rules as you start! Happy dancing!
+Read the <a href=”XX”>Contributor Guide</a> to make yourself aware of the ground rules as you start! Happy dancing!
