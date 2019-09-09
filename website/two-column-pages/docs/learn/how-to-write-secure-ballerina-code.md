@@ -89,7 +89,7 @@ When the Ballerina compiler can determine that a function is returning tainted d
 
 ### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `@untainted` annotation on type convertion operator can be used to denote that the value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `@untainted` annotation on type conversion operator can be used to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
