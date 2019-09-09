@@ -16,7 +16,7 @@ Source files and modules can contain zero or more entrypoints, and the runtime e
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
 
-If the source file contains at least one entrypoint, it can be executed using the `run` command.
+If the source file contains at least one entry point, it can be executed using the `run` command.
     
 ```bash
 $ ballerina run foo.bal
