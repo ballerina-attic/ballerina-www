@@ -292,7 +292,7 @@ The following features are supported by the Docker builder extension.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|source|Source path of the file (on your machine)|None|
+|sourceFile|Source path of the file (on your machine)|None|
 |target|Target path (inside container)|None|
 |isBallerinaConf|Whether the file is a Ballerina config file|false|
 
