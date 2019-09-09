@@ -164,16 +164,16 @@ securing_configuration_values.balx
 
 ### Inbound Authentication & Authorization
 
-Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in supports for the following inbound authentication mechanisms whereas it is possible to add custom mechanisms: 
+Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in support for the following inbound authentication mechanisms whereas it is possible to add custom mechanisms: 
 
 - Basic authentication
 - JWT authentication
 - OAuth2 authentication
-- LDAP authentication. 
+- LDAP authentication
 
 Ballerina inbound authentication is abstracted out into 2 layers called `http:InboundAuthHandler` and `auth:InboundAuthProvider`.
 
-`auth:InboundAuthProvider` is a protocol-independent entity that only knows how to authenticate a user when the necessary information is provided. The `http:InboundAuthHandler` can be protocol dependent. Even-though the current focus is on HTTP, the `ballerina/auth` module can operate with other protocols as well.
+The `auth:InboundAuthProvider` is a protocol-independent entity that only knows how to authenticate a user when the necessary information is provided. The `http:InboundAuthHandler` can be protocol dependent. Even-though the current focus is on HTTP, the `ballerina/auth` module can operate with other protocols as well.
 
 The `http:InboundAuthHandler` is used to perform HTTP-level actions, which are extracting the required HTTP header or body, extracting the credentials out of it, passing them into the associated `auth:InboundAuthProvider`, and getting the credentials validated. The `auth:InboundAuthProvider` is used to validate the credentials passed by the `http:InboundAuthHandler`.
 
@@ -932,7 +932,7 @@ The Ballerina HTTP client can be configured to send authentication and authoriza
 
 - Basic authentication
 - JWT authentication
-- OAuth2 authentication. 
+- OAuth2 authentication
 
 Ballerina outbound authentication is also abstracted out into 2 layers called `http:OutboundAuthHandler` and `auth:OutboundAuthProvider`.
 
@@ -1013,7 +1013,7 @@ Ballerina supports JWT Authentication for clients. The `jwt:OutboundJwtAuthProvi
 
 JWT issuing requires several additional configurations for the `jwt:JwtIssuerConfig` including:
 
-* `username` - JWT token username.
+* `username` - JWT token username
 * `issuer` - JWT token issuer.
 * `audience` - JWT token audience.
 * `customClaims` - Map of custom claims.
@@ -1082,7 +1082,7 @@ OAuth2 token issuing requires several additional configurations for the `oauth2:
 * `retryRequest` - Retry the request if the initial request returns a 401 response.
 * `credentialBearer` - How authentication credentials are sent to the authorization endpoint.
   * `http:AUTH_HEADER_BEARER` - Indicates that the authentication credentials should be sent via the Authentication Header.
-  * `http:POST_BODY_BEARER|NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
+  * `http:POST_BODY_BEARER | NO_BEARER` - Indicates that the Authentication credentials should be sent via the body of the POST request.
 * `clientConfig` - HTTP client configurations,which calls the authorization endpoint.
 
 The `oauth2:ClientCredentialsGrantConfig` record should be provided into the `oauth2:OutboundOAuth2Provider` when initializing and the initialized `oauth2:OutboundOAuth2Provider` is passed to the `http:BearerAuthHandler`.
