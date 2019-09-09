@@ -145,14 +145,17 @@
 <p>These powerful supporting tools extend Ballerina to various ecosystem technologies that are inherently cloud native. This functionality will grow over time and will even be developer extensible in the future.</p>
 <table class="cComandTable">
 <tr>
-<td class="cCommand">add</td>
-<td class="cDescription">Add another (selected kind of) module to an existing project
+<td class="cCommand">encrypt</td>
+<td class="cDescription">Use this tool to encrypt sensitive data and pass them to a Ballerina program via the configuration system
 </td>
 </tr>
 <tr>
-<td class="cCommand">push</td>
-<td class="cDescription">Upload a module to Ballerina Central
-</td>
+<td class="cCommand">openapi</td>
+<td class="cDescription">This is the OpenAPI (Swagger) stub / skeleton generation tool. Read <a href=”/learn/how-to-use-openapi-tools/”>this How-To</a> for more information.</td>
+</tr>
+<tr>
+<td class="cCommand">grpc</td>
+<td class="cDescription">This is the gRPC stub / skeleton generation tool. Read <a href=”XXX”>this How-To</a> for more information.</td>
 </tr>
 </table>
 
