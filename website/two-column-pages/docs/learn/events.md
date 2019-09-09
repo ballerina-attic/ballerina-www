@@ -23,78 +23,7 @@
 ## Conferences
 
 
-<table class="cEventTable cConferencesList">
-    <!-- <tr>
-      <td class="cEventDetail c2col" colspan="2">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
-      </td>
-       <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
-      </td> 
-    </tr>  
-<tr>
-      <td class="cEventDetail c2col" colspan="2">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
-      </td>
-           <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
-        </td>
-    </tr> 
- <tr>
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
-    </tr>  -->
-    
-
-
-<!-->
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 17–20</span>
-            <p class="cEventLocation">Brooklyn, New York</p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/NYC/">
-                <h4>DeveloperWeek New York 2019 </h4>
-            </a>
-            <h5>PRO TALK: Microservice in Practice with Ballerina and Kubernetes</h5>
-            <b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/NYC/"
-                target="_blank">Register Now</a></td>
-    </tr>
--->
-<!-->
-    <tr>
-      <td class="cEventDateContainer"><span class="cEventDate">June 24–26</span>
-        <p class="cEventLocation">Santa Clara, CA</p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="https://cloudexpo2019.sched.com/"><h4>CloudEXPO 2019 NYC </h4></a>
-            <h5>Cloud Native Programming with Docker, Kubernetes, and Ballerina</h5>
-            <b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
-   </td>
- <td class="cEventURL"><a class="cEventRegistration" href="https://cloudexpo2019.sched.com/" target="_blank">More Info</a></td> 
-    </tr> 
--->
-<!-->
-    <tr>
-            <td class="cEventDateContainer"><span class="cEventDate">July 15-18 </span>
-              <p class="cEventLocation">Portland, OR</p>
-              </td>
-              <td class="cEventDetail"><a target="_blank" href="https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/75822"><h4> OSCON 2019</h4></a>
-                  <h5>Ballerina: A Modern Programming Language Focused on Cloud Native Applications</h5>
-                  <b>Sameera Jayasoma,</b> Senior Director, WSO2</p>
-         </td>
-       <td class="cEventURL"><a class="cEventRegistration" href="https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/75822" target="_blank">More Info</a></td> 
-          </tr> 
--->
-<!-->
-          <tr>
-                <td class="cEventDateContainer"><span class="cEventDate">August 21-23 </span>
-                  <p class="cEventLocation">San Diego, CA</p>
-                  </td>
-                  <td class="cEventDetail"><a target="_blank" href="https://ossna19.sched.com/event/PUOc?iframe=no"><h4>Open Source Summit 2019</h4></a>
-                      <h5>Microservices with Ballerina: A Open Source, Statically Typed, Cloud Native Programming Language</h5>
-                      <b>Sameera Jayasoma,</b> Senior Director, WSO2</p>
-             </td>
-           <td class="cEventURL"><a class="cEventRegistration" href="https://ossna19.sched.com/event/PUOc?iframe=no" target="_blank">More Info</a></td> 
-              </tr> 
--->              
+<table class="cEventTable cConferencesList">      
             <tr>
                         <td class="cEventDateContainer"><span class="cEventDate">September 9-12 </span>
                           <p class="cEventLocation">Las Vegas, NV</p>
@@ -105,8 +34,6 @@
                      </td>
                    <td class="cEventURL"><a class="cEventRegistration" href="https://www.apachecon.com/acna19/schedule.html" target="_blank">More Info</a></td> 
                       </tr> 
-
-
                       <tr>
                             <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
                               <p class="cEventLocation">San Jose, CA</p>
