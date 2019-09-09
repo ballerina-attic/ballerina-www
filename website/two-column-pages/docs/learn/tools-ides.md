@@ -23,7 +23,7 @@ You can use the existing OpenAPI/Swagger files to generate connectors and servic
 
 ## Protocol Buffers to Ballerina code generator
 
-You can use the existing Protocol Buffers definition to generate connectors and services in Ballerina code. For details, see the [Protocol Buffers to Ballerina Code Generator](tools-ides/proto-ballerina-tool)
+You can use the existing Protocol Buffers definition to generate connectors and services in Ballerina code. For details, see the [Protocol Buffers to Ballerina Code Generator](tools-ides/proto-ballerina-tool).
 
 ## API documentation generator
 
