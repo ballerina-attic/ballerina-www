@@ -67,11 +67,11 @@
 </div>
 <a class="cBookmarkTop" id="Sequence-Diagrams-for-Programming"></a>
 <div id="" class="container cFeatureSection">
-   <div class="col-sm-12 col-md-8 cColCOntent">
+   <div class="col-sm-12 col-md-7 cColCOntent">
       <h3>Sequence Diagrams for Programming</h3>
       <p>Sequence diagrams have been everyone’s favorite tool to describe how distributed & concurrent programs work. Yet, no current programming language lets you write your logic as a sequence diagram. In Ballerina, every program is a sequence diagram that illustrates distributed and concurrent interactions automatically. The diagram is the code. The code is the diagram.</p>
    </div>
-   <div id="" class="col-sm-12 col-md-4 cColDiagram">
+   <div id="" class="col-sm-12 col-md-5 cColDiagram">
       <img src="/img/home-page/sequence-diagrams-for-programming.png"/>
    </div>
 </div>
