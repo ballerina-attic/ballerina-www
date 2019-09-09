@@ -258,7 +258,7 @@ Streaming queries support the following for query projections.
                          == ()
                     </td>
                     <td>
-                        Nill check
+                        Nil check
                     </td>
                     <td>
                         <pre>deviceID == ()</pre>
