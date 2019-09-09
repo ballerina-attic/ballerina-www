@@ -1,6 +1,6 @@
 # Quick Tour
 
-Now that you know a little bit of Ballerina, let's take it for a spin!
+Now, that you know a little bit of Ballerina, let's take it for a spin!
 
 ## Install Ballerina
 
@@ -10,7 +10,7 @@ Now that you know a little bit of Ballerina, let's take it for a spin!
 
 ## Write a Service, Run It, and Invoke It
 
-Write a simple Hello World service in a file with a `.bal` extension.
+Write a simple Hello World service in a file with the `.bal` extension.
 
 ```ballerina
 import ballerina/http;
@@ -27,7 +27,7 @@ service hello on new http:Listener(9090) {
     # + request - the inbound request
     resource function sayHello(http:Caller caller, http:Request request) {
 
-        // Send a response back to the caller.
+        // Sends a response back to the caller.
         error? result = caller->respond("Hello Ballerina!");
         if (result is error) {
             io:println("Error in responding: ", result);
@@ -36,7 +36,7 @@ service hello on new http:Listener(9090) {
 }
 ```
 
-You can now run the service by running the following command.
+Now, you can run the service by running the following command.
 
 ```bash
 $ ballerina run hello_world.bal
@@ -66,7 +66,7 @@ Alternatively, you can use a Ballerina HTTP client to invoke the service.
 
 ## Use a Client to Interact with a Network Accessible Service
 
-A Ballerina client is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service, and accepts configuration parameters related to the network accessible service.
+A Ballerina client is a component, which interacts with a network-accessible service. It aggregates one or more actions that can be executed on the network-accessible service and accepts configuration parameters related to the network-accessible service.
 
 There are two kinds of clients in Ballerina, inbound (or ingress) and outbound (or egress) clients. An outbound client object can be used to send messages to a network service.
 
@@ -74,7 +74,7 @@ Having said that, let's see how you can use a Ballerina client to invoke the Hel
 
 First, you need to create the client with the relevant endpoint URL as follows. We will use a Ballerina program with a 'main' function, which will perform the invocation.
 
-> **Note**: returning `error?` allows you to use the `check` keyword to avoid handling errors explicitly. This is only done to keep the code simple. But in real production code you may have to explicitly handle those errors.
+> **Note**: returning `error?` allows you to use the `check` keyword to avoid handling errors explicitly. This is only done to keep the code simple. However, in real production code, you may have to handle those errors explicitly.
 
 ```ballerina
 http:Client helloClient = new("http://localhost:9090/hello");
@@ -86,7 +86,7 @@ As the next step, add the below code to do a `GET` request to the Hello World se
 http:Response helloResp = check helloClient->get("/sayHello");
 ```
 
-The remote call would return an `http:Response` if successful, or an `error` on failure. If successful, attempt retrieving the payload as a `string` and print out the payload.
+The remote call would return an `http:Response` if successful, or an `error` on failure. If successful, attempt retrieving the payload as a `string` and print the payload.
 
 ```ballerina
 io:println(check helloResp.getTextPayload());
@@ -119,9 +119,9 @@ This would produce the following output.
 Hello Ballerina!
 ```
 
-Similarly you can use a Ballerina HTTP client to interact with any HTTP service.
+Similarly, you can use a Ballerina HTTP client to interact with any HTTP service.
 
-Let's now look at a simple HTTP client that retrieves sunrise/sunset time details for Colombo.
+Now, let's  look at a simple HTTP client that retrieves sunrise/sunset time details for Colombo.
 
 Create a client with the relevant endpoint URL as follows.
 
@@ -135,7 +135,7 @@ As the next step, add the below code to do a `GET` request to the sunrise-sunset
 http:Response sunriseResp = check sunriseApi->get("/json?lat=6.9349969&lng=79.8538463");
 ```
 
-Now add the below code snippet to retrieve the payload and print it out.
+Now, add the below code snippet to retrieve the payload and print it.
 
 ```ballerina
 json sunrisePayload = check sunriseResp.getJsonPayload();
