@@ -1,6 +1,6 @@
-<h1>Learn Ballerina</h1>
+<h1>Lets learn Ballerina!</h1>
 <div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is a statically typed, concurrent programming language, focusing on network interaction and structured data. It is intended to be the core of a language-centric middleware platform. Here you’ll find all the resources you need to get hands-on experience with Ballerina.
+   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!
 </p>
    <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
@@ -86,6 +86,10 @@
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-observe-ballerina-code/">Observing Ballerina Services</a></h3>
       <p>How to use logging, metrics, and tracing to observe Ballerina services.</p>
+   </div>
+   <div class="col-sm-12 col-md-6 cTwoCol">
+      <h3><a href="/learn/how-to-generate-code-for-protocol-buffers.md">Generating Ballerina Code for Protocol Buffer Definition</a></h3>
+      <p>How to generate Ballerina connector and service code for your existing Protocol Buffer definition.</p>
    </div>
       <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">

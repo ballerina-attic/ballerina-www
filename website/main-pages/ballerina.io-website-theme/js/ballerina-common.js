@@ -156,6 +156,7 @@ if (typeof hljs === 'object') {
 }
 
 $(document).ready(function() {
+    var pathValue = window.location.pathname;
 
     var menu = '<div class="container">' +
         '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
@@ -176,19 +177,8 @@ $(document).ready(function() {
         '<li class="active toctree-l1" id="Eventsli"><a class="cBioTopLink" href="/learn/events">Events</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
-        '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="https://blog.ballerina.io">Blog</a></li>' +
-        '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
-        '<div class="cSearchBoxTopMenu">' +
-        '<div role="search">' +
-        '<form role="form">' +
-        '<div class="form-group">' +
-        '<input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" autocomplete="off">' +
-        '</div>' +
-        '</form>' +
-        '<div id="mkdocs-search-results"></div>' +
-        '</div></div>' +
-        '</li>' +
+        '<li class="cVersionItem"><div class="cVersionContainer"><lable class="cVlable">Version</lable><select name="versions" id="versions" class="select-css"><option value="http://v1-0.ballerina.io'+pathValue+'">1.0</option><option value="https://v0-991.ballerina.io'+pathValue+'" selected="selected">0.991</option> </select></div></li>' +
         '</ul>' +
         '</div>' +
         '</div>' +
@@ -232,18 +222,18 @@ $(document).ready(function() {
         '</div>' +
         '<div class="col-xs-12 col-sm-10 col-md-6 col-lg-6 cBallerina-io-right-col">' +
         //'<div class="cFooterBanner"><a href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_footer_banner" class="cFooterBanner-link" target="_blank"><img src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a></div>' +
-        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, Elm, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2.</p></div>' +
+        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, D, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Python, Perl, Flow, Swift, Elm, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2.</p></div>' +
         '</div>';
 
 
 
-    var pathValue = window.location.pathname;
-    var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
-    '<select name="versions" id="versions" class="select-css">' +
-    '<option value="http://ballerina.io'+pathValue+'">Stable</option>' +
-    '<option value="https://v1-0-0-alpha.ballerina.io'+pathValue+'" selected="selected">1.0.0-alpha</option>' +
-    '</select>'+
-    '</div>';
+    // var pathValue = window.location.pathname;
+    // var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
+    // '<select name="versions" id="versions" class="select-css">' +
+    // '<option value="http://v1-0.ballerina.io'+pathValue+'">1.0</option>' +
+    // '<option value="https://v0-991.ballerina.io'+pathValue+'" selected="selected">0.991</option>' +
+    // '</select>'+
+    // '</div>';
 
     var homelink =  '<a href="/"><img class="logo" src="html-template-resources/images/ballerina-logo.png"></a>';
 
@@ -253,8 +243,8 @@ $(document).ready(function() {
 
 
    
-    $('.cBallerina-io-Logo-row .container').append(version);
-    $('.navi-wrapper').append(version);
+   // $('.cBallerina-io-Logo-row .container').append(version);
+   // $('.navi-wrapper').append(version);
 
 
     $('#iMainNavigation').append(menu);
