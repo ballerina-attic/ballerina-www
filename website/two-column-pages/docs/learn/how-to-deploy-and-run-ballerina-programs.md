@@ -188,7 +188,7 @@ Add the following code to the `hello_world_docker.bal` file.
 
 ```ballerina
 import ballerina/http;  
-import ballerinax/docker;  
+import ballerina/docker;  
   
 @http:ServiceConfig {  
     basePath:"/helloWorld"  
@@ -324,7 +324,7 @@ Full example can be found at [Database Interaction Guide](https://ballerina.io/l
 import ballerina/config;
 import ballerina/http; 
 import ballerina/jdbc; 
-import ballerinax/kubernetes;
+import ballerina/kubernetes;
 
 // Create SQL endpoint to MySQL database
 jdbc:Client employeeDB = new ({
