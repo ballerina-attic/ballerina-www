@@ -2,17 +2,17 @@
 
 Ballerina has a built-in test framework named Testerina. Testerina enables developers to write testable code. The test framework provides a set of building blocks to help write tests and a set of tools to help test. 
 
-Developers and testers can cover multiple levels of the test pyramid including unit testing, integration testing and end to end testing with the building blocks the framework provides. It provides the flexibility to programmers and testers to build intelligent tests that suites the domain and application needs. 
+Developers and testers can cover multiple levels of the test pyramid including unit testing, integration testing and end to end testing with the building blocks the framework provides. It provides the flexibility to programmers and testers to build intelligent tests that suit the domain and application needs.
 
 Testerina design and usage is aligned with project and module semantics of Ballerina. You can test the project modules while you are building the project in a seamless manner using the test constructs. 
 
 ## Overview
  
-* Ballerina programmers can either place their test code into a single source code file or in a **tests** folder inside a **project** directory structure
+* Ballerina programmers can place their test code in a **tests** folder in a **module**
 * Ballerina tests are defined using a set of **annotations**
 * Test **assertions** can be used to verify the set of program behaviour expectations 
 * Data providers can be used to feed in the test data sets 
-* Service calls can be tested using service skeletons in the test phase of the project until the system is connected to real service 
+* Service calls can be tested using service skeletons in the test phase of the project until the system is connected to the real service
 * Function mocks can be used to mimic third party function calls to enable testing a project module in isolation 
 
 ## Writing and Running Tests 
@@ -39,8 +39,6 @@ project-name/
 --- tests/         <- tests for this module (e.g. unit tests)
 ---- testmain.bal  <- test file for main
 ---- resources/    <- resources for these tests
-- .gitignore       <- git ignore file
-
 ```
 The test source files could have any name. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the `@test:Config { }` annotation and there is no restriction on the test function name.
 
@@ -52,7 +50,7 @@ Execute tests within the specified module with the following command.
 ballerina test <module_name> 
 ```
 
-Execute tests in the entire project, using the `test --all` command.
+Execute tests in the entire project, using the `--all` option.
 
 ```
 ballerina test --all
@@ -152,7 +150,7 @@ function testFunction3() {
 #### @test:Config {}
 The function specified following the annotation is a test function. This annotation supports the following parameters.
 
-##### Parameters:
+##### Annotation Value Fields:
 `enable: {true | false}`: Enable/disable the test. 
 Default: true
 
