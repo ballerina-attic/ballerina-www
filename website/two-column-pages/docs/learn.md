@@ -22,7 +22,7 @@
 <div class="col-sm-12 col-md-1 cLearnSteps">2</div>
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a></p>or IntelliJ Idea plugin (coming soon!) from their marketplaces.
+     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a>or IntelliJ Idea plugin (coming soon!) from their marketplaces.</p>
     <p>Need some help? Read the instructions for <a  href="/learn/tools-ides/vscode-plugin/">VSCode</a> or <a href="/learn/tools-ides/intellij-plugin/">IntelliJ Idea</a>.</p>
       </div>
    </div>
@@ -63,7 +63,7 @@
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>Learn the “ballerina” command</h2>
    <p>The “ballerina” command is your one-stop-shop for all things Ballerina. Here’s all that you can do with it and what they mean:</p>
-   <p>`ballerina COMMAND ARGS`</p>
+   <p class="code">`ballerina COMMAND ARGS`</p>
    <h3>Get started</h3>
    <p>These commands help you check your installation and know that things are set up smoothly.
 </p>
@@ -181,17 +181,6 @@
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <h2>Tools and IDEs</h2>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>Introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/tools-ides/">Check out Ballerina tools and IDEs</a>
-      </div>
-   </div>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>How To’s</h2>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper">
@@ -221,15 +210,16 @@
       <h3><a href="/learn/how-to-observe-ballerina-code/">Observing Ballerina Services</a></h3>
       <p>How to use logging, metrics, and tracing to observe Ballerina services.</p>
    </div>
+     <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-generate-code-for-protocol-buffers">Generating Ballerina Code for Protocol Buffer Definition</a></h3>
       <p>How to generate Ballerina connector and service code for your existing Protocol Buffer definition.</p>
    </div>
-      <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/style-guide/">Ballerina Style Guide</a></h3>
       <p>The Ballerina Style Guide shows how to maintain a standard coding style among the Ballerina community.</p>
    </div>
+     <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-use-openapi-tools/">Developing Ballerina Service Using an OpenAPI Documentation</a></h3>
       <p>This guide shows how to develop a restful API in Ballerina which is documented in an OpenAPI contract.</p>
@@ -237,27 +227,6 @@
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-write-secure-ballerina-code/">Writing Secure Ballerina Code</a></h3>
       <p>Provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.</p>
-   </div>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-<h2>Get Help from the Community!</h2>
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-
-   <div class="col-sm-12 col-md-4 cBoxContainer cCommunityIconsContainer">
-      <div class="cBallerina-Box">
-      <a class="cCommunityIcons" href="/open-source/slack/"><img src="/img/slack.svg"></a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer cCommunityIconsContainer">
-      <div class="cBallerina-Box">
-      <a class="cCommunityIcons" href="https://groups.google.com/forum/#!forum/ballerina-dev"><img src="/img/google-groups.svg"></a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer cCommunityIconsContainer">
-      <div class="cBallerina-Box">
-      <a class="cCommunityIcons" href="https://github.com/ballerina-platform/ballerina-lang"><img src="/img/github.svg"></a>
-      </div>
    </div>
 </div>
 <link rel="stylesheet" href="/css/ballerina-io-learn.css">

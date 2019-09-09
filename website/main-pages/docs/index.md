@@ -56,7 +56,7 @@
 </div> -->
 <a class="cBookmarkTop" id="The-Network-in-the-Language"></a>
 <div class="container cFeatureSection">
-   <div class="col-sm-12 col-md-4 cColDiagram">
+   <div class="col-sm-12 col-md-4 cColDiagram  cSmallImage ">
       <img src="/img/home-page/network-in-the-language.png"/>
    </div>
    <div class="col-sm-12 col-md-8 cColCOntent">
@@ -77,8 +77,8 @@
 </div>
 <a class="cBookmarkTop" id="Structural-Open-by-Default-Typing"></a>
 <div id="" class="container cFeatureSection">
-   <div class="col-sm-12 col-md-4 cColDiagram">
-      <img src="/img/dummy.svg"/>
+   <div class="col-sm-12 col-md-4 cColDiagram cSmallImage">
+      <img style="width:75%;" src="/img/home-page/structtypes.png"/>
    </div>
    <div  class="col-sm-12 col-md-8 cColCOntent">
       <h3>Structural, Open-by-Default Typing</h3>
@@ -91,7 +91,7 @@
       <h3>From Code to Cloud</h3>
       <p>In the cloud-era, running a program is no longer just a matter of compiling and executing but rather it is about compiling, building the image, pushing the image, configuring container orchestration, and .. eventually running. Ballerina brings the entire program execution process to the hands of the developer with extensible metadata that gets compiled to runnable programs for all major cloud platforms. You code, we cloud!</p>
    </div>
-   <div class="col-sm-12 col-md-4 cColDiagram">
+   <div class="col-sm-12 col-md-4 cColDiagram cSmallImage">
       <img src="/img/home-page/from-code-to-cloud.png"/>
    </div>
 </div>
