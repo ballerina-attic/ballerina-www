@@ -1,4 +1,4 @@
-# Graphical Editor
+# Graphical View
 
 A rich set of Visualization tools will immensely enhance your development experience especially in the integration space. 
 
@@ -6,22 +6,30 @@ The Graphical Editor of the VS Code Ballerina plugin allows you to design your i
 
 The bellow sections discuss how to use the Graphical Editor and explore its capabilities.
 
-- [Launching the Graphical Editor](#launching-the-graphical-editor)
-- [Exploring the features of the Graphical Editor](#exploring-the-features-of-the-graphical-editor)
+- [Launching the Graphical View](#launching-the-graphical-view)
+- [Exploring the features of the Graphical View](#exploring-the-features-of-the-graphical-view)
 
-## Launching the Graphical Editor
+## Launching the Graphical View
 
-Follow either of the below methods to launch the Graphical Editor.
+The below are the two types of Graphical Views you can find in the VSCode plugin.
+
+1. Project Overview
+
+This gives a graphical representation of a grouping of the content in the project modules. Click the name of the entity under **BALLERINA PROJECT OVERVIEW** to view its graphical representation.
+
+![Open using the project overview](/learn/images/select-from-overview.gif)
+
+2. File Overview
+
+This gives a graphical representation of the content of the current Ballerina file. Use one of the methods to view it.
 
 1. Click the **Show Diagram** icon in the top right corner.
 
 ![Open Using the Show Diagram icon](/learn/images/show-diagram-icon.gif)
 
-2. Click the name of the function under **BALLERINA PROJECT OVERVIEW**.
+2. Select the **Show File Overview** command option from the **Command Palette** **->**.
 
-![Open using the project overview](/learn/images/select6-from-overview.gif)
-
-## Exploring the features of the Graphical Editor
+## Exploring the features of the Graphical View
 
 Click on the below links to explore the features of the Graphical Editor.
 

@@ -90,7 +90,7 @@ After obtaining the ZIP file using either of the above approaches, follow the st
 
 ## Using the plugin
 
-For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](tools-ides/intellij-plugin/using-the-intellij-plugin).
+For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](/learn/tools-ides/intellij-plugin/using-the-intellij-plugin).
 
 ## Using the features of the plugin
 
@@ -102,7 +102,6 @@ Click on the below links to find information on the various capabilities that ar
 - [Importing modules on the fly](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
 - [Importing unambiguous modules](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
 - [Formatting Ballerina codes](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
-- [Viewing details of parameters](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-details-of-parameters)
 - [Viewing documentation](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
 - [Adding annotation fields via suggestions](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#adding-annotation-fields-via-suggestions)
 - [Using file templates](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#using-file-templates)

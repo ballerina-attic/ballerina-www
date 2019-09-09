@@ -52,12 +52,14 @@ $ code --install-extension <BALLERINA-PLUGIN-DIRECTORY>
 
 ## Using the plugin
 
+> **Tip:** Ballerina Language Specification supports a set of experimental features such as transactions syntax. In order to be compatible with the experimental features and for supporting language intelligence in VSCode Plugin, enable the Allow Experimental option in user settings.
+
 > **Troubleshooting**: If you installed a new Ballerina version recently, you might need to restart the VS Code Editor to pick the new Ballerina version. Herein, If you are using Mac OS, press 'Command+Q' keys to quit the app and reopen it.
 
 Click on the below links to find information on the various capabilities that are facilitated by the VS Code Ballerina plugin for the development process.
 
 - [Language intelligence](/learn/tools-ides/vscode-plugin/language-intelligence)
 - [Run and debug](/learn/tools-ides//vscode-plugin/run-and-debug)
-- [Graphical Editor](/learn/tools-ides//vscode-plugin/graphical-editor)
+- [Graphical View](/learn/tools-ides//vscode-plugin/graphical-editor)
 - [Documentation Viewer](/learn/tools-ides/vscode-plugin/documentation-viewer)
 
