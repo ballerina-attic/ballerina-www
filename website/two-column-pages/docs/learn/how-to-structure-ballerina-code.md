@@ -69,7 +69,7 @@ $ ballerina build sample.bal
 
 You can use the following command to run the `main()` function or services in a generated `.jar` file:
 ```bash
-$ ballerina run sample-executable.jar
+$ ballerina run sample.jar
 ```
 
 ## Modules
