@@ -33,7 +33,7 @@ Follow the steps below to run the main function of a Ballerina file.
 
     ![Click the Run Application icon](/learn/images/run-application-icon.png)
 
-2. Click the corresponding **Run *<FILE_NAME>*** command.
+2. Click the corresponding **Run <FILE_NAME>** command.
 
     ![Click the Run command](/learn/images/select-run-command.png)
 
@@ -140,14 +140,6 @@ The spell-checker is enabled for all identifiers. You can rename all of the defi
 
 The Ballerina IDEA plugin provides capabilities to diagnose and analyze semantics of your Ballerina programs through the Ballerina Language Server.
 
->**Note:** This feature is disabled by default due to as it might affect the performance of the IDE. 
-
-Follow the steps below to enable it.
-
-1. Open IntelliJ, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
->**Tip:** If you are using Windows, click **File**, click **Settings**, and then click **anguages and Frameworks**.
-2. Click **Live Templates**, select **Ballerina**, and then click **Semantic Analyzer**.
-
 ![Analyzing semantics](/learn/images/analyzing-semantics.gif)
 
 ## Code folding
@@ -164,7 +156,3 @@ You expand/collapse the following Ballerina code segments using the icons in the
 - multiline comments
  
 ![Code folding](../images/code-folding.gif)
-
-## What's next?
-
- - For instructions on testing and debugging the plugin, see [Testing and debugging the plugin](/learn/tools-ides/intellij-plugin/testing-and-debugging-the-plugin)

@@ -18,7 +18,7 @@ Follow the steps below to create a new Ballerina project.
 
 3. Select a Ballerina SDK for the project, and click **Next**.
 
-    >**Tip:** **If you do not have an already-configured Ballerina SDK to select,** click **Configure**, select the location of the Ballerina distribution, click **Open**, and then click **Next** to continue with the project creation.
+    >**Tip:** **If you do not have an already-configured Ballerina SDK to select,** click **Configure**, select the location of the Ballerina distribution, click **Open**, and then click **Next** to continue with the project creation. However, if you do not configure, the plugin will auto detect the Ballerina Home by executing the `ballerina home` command.
 
     ![Select a Ballerina SDK](/learn/images/select-sdk.png)
    

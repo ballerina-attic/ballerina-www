@@ -6,7 +6,6 @@ The IntelliJ Ballerina plugin provides the Ballerina development capabilities in
 - [Installing the plugin](#installing-the-plugin)
 - [Using the plugin](#using-the-plugin)
 - [Using the features of the plugin](#using-the-features-of-the-plugin)
-- [Testing and debugging the plugin](#testing-and-debugging-the-plugin)
 
 ## Prerequisites
 
@@ -45,7 +44,7 @@ This downloads the plugin and installs it.
 Follow the steps below to install the plugin using its ZIP file.
 
 1. [Obtaining the ZIP file](#obtaining-the-zip-file)
-2. [Installing the ZIP file via the IDE](#installing-the-zip-file-via-the-IDE)
+2. [Installing the ZIP file via the IDE](#installing-the-zip-file-via-the-ide)
 
 #### Obtaining the ZIP file
 
@@ -63,10 +62,10 @@ Download the [IntelliJ Ballerina plugin](https://plugins.jetbrains.com/plugin/95
 
 Follow the steps below to obtain the ZIP file by building it from its source.
 
-1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GIT repo.
+1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GitHub repo.
 2. In a new Command Line tab, navigate to the source directory of the plugin (i.e., the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory), and execute the below command.
     > **Info**: In the above step,`<CLONED_BALLERINA_DIRECTORY>` refers to the path of the *ballerina-lang* Git repository, which you cloned locally. 
-    > **Tip:** You need to install the [Gradle Build Tool](£https://gradle.org/) to execute the below command.
+    > **Tip:** You need to install the [Gradle Build Tool](https://gradle.org/) to execute the below command.
 
     ```bash
     ./gradlew buildPlugin
@@ -110,7 +109,3 @@ Click on the below links to find information on the various capabilities that ar
 - [Analyzing semantics](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
 - [Code folding](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
-
-## Testing/Debugging the plugin
-
-For instructions on testing and debugging the plugin, see [Testing and debugging the plugin](/learn/tools-ides/intellij-plugin/testing-and-debugging-the-plugin).
