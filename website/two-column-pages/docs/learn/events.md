@@ -23,7 +23,7 @@
 ## Conferences
 
 
-<table class="cEventTable cConferencesList">      
+<table class="cEventTable cConferencesList" style="width:100%;">      
             <tr>
                         <td class="cEventDateContainer"><span class="cEventDate">September 9-12 </span>
                           <p class="cEventLocation">Las Vegas, NV</p>
