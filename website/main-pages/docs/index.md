@@ -102,7 +102,7 @@
    </div>
    <div class="col-sm-12 col-md-8 cColCOntent">
       <h3>Batteries Included</h3>
-      <p>Today’s network is democratized! HTTPS to HTTP/2 to WebSockets to WebSub to AMQP to JSON to XML to ProtoBuf to GRPC to OpenAPI to plain old bytes - Ballerina has it all in the standard library and toolchain to help developers rapidly build applications. At development time, Ballerina covers documentation, testing, sharing, versioning, and more. We plumb, you build!</p>
+      <p>Today’s network is democratized! HTTPS to HTTP/2 to WebSockets to WebSub to AMQP to JSON to XML to ProtoBuf to gRPC to OpenAPI to plain old bytes - Ballerina has it all in the standard library and toolchain to help developers rapidly build applications. At development time, Ballerina covers documentation, testing, sharing, versioning, and more. We plumb, you build!</p>
    </div>
 </div>
 <a class="cBookmarkTop" id="Developer-First"></a>
