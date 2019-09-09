@@ -1,35 +1,45 @@
 # Quick Tour
 
-Now that you know a little bit of `Ballerina`, let's take it for a spin! 
+Now that you know a little bit of Ballerina, let's take it for a spin!
 
 ## Install Ballerina
 
 1. [Download](https://ballerina.io/downloads) Ballerina based on the Operating System you are using. 
 1. Follow the instructions given on the [Getting Started](/learn/getting-started) page to set it up. 
+1. Follow the instructions given on the [Editor and IDE Support](/learn/tools-ides/#editor-and-ide-support) page to set up your preferred editor for Ballerina.
 
-> **Note**: Throughout this documentation, `<ballerina_home>` refers to the directory in which you just installed Ballerina.
+## Write a Service, Run It, and Invoke It
 
-## Start a Project, Run a Service, and Invoke It
+Write a simple Hello World service in a file with a `.bal` extension.
 
-Start your project by navigating to a directory of your choice and running the following command with the project name 
-`quick-tour`.
+```ballerina
+import ballerina/http;
+import ballerina/io;
 
-```bash
-$ ballerina new quick-tour
+# A service representing a network-accessible API
+# bound to port `9090`.
+service hello on new http:Listener(9090) {
+
+    # A resource respresenting an invokable API method
+    # accessible at `/hello/sayHello`.
+    #
+    # + caller - the client invoking this resource
+    # + request - the inbound request
+    resource function sayHello(http:Caller caller, http:Request request) {
+
+        // Send a response back to the caller.
+        error? result = caller->respond("Hello Ballerina!");
+        if (result is error) {
+            io:println("Error in responding: ", result);
+        }
+    }
+}
 ```
 
-You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
+You can now run the service by running the following command.
 
 ```bash
-$ ballerina add sample_service -t service
-```
-
-This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
-
-Now, you can run the service by running the following command. 
-
-```bash
-$ ballerina run sample_service
+$ ballerina run hello_world.bal
 ```
 
 You get the following output.
@@ -41,7 +51,7 @@ You get the following output.
 This means your service is up and running. You can invoke the service using an HTTP client. In this case, we use cURL.
 
 ```bash
-$ curl -v http://localhost:9090/hello/sayHello
+$ curl http://localhost:9090/hello/sayHello
 ```
 
 > **Tip**: If you do not have cURL installed, you can download it from [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html).
@@ -52,179 +62,107 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, invoked the service you created, and received a response. Now, let's see how we can make this hello service a bit more interesting. Before that, let's set up the editor.
+Alternatively, you can use a Ballerina HTTP client to invoke the service.
 
-## Set up the Editor
+## Use a Client to Interact with a Network Accessible Service
 
-Let's try this on VS Code.
+A Ballerina client is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service, and accepts configuration parameters related to the network accessible service.
 
-> **Tip:** You can use your [favorite editor to work on Ballerina code](https://ballerina.io/learn/tools-ides/).
+There are two kinds of clients in Ballerina, inbound (or ingress) and outbound (or egress) clients. An outbound client object can be used to send messages to a network service.
 
-1. Download and install [VS Code][#https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
+Having said that, let's see how you can use a Ballerina client to invoke the Hello World service.
 
-2. Execute the below commands based on your OS to open your service in VS Code. 
+First, you need to create the client with the relevant endpoint URL as follows. We will use a Ballerina program with a 'main' function, which will perform the invocation.
 
-```bash
-$ code /<folder_path>/hello_service.bal
-```
-
-On Windows, use the following.
-
-```bash
-$ code <folder_path>\hello_service.bal
-```
-
-> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder_path>` (on Windows it is `code <folder_path>`. You can also open VS Code and directly navigate to the directory or file.
-
-You can view your service in VS Code.
+> **Note**: returning `error?` allows you to use the `check` keyword to avoid handling errors explicitly. This is only done to keep the code simple. But in real production code you may have to explicitly handle those errors.
 
 ```ballerina
-// A system module containing protocol access constructs
-// Module objects referenced with 'http:' in code
+http:Client helloClient = new("http://localhost:9090/hello");
+```
+
+As the next step, add the below code to do a `GET` request to the Hello World service.
+
+```ballerina
+http:Response helloResp = check helloClient->get("/sayHello");
+```
+
+The remote call would return an `http:Response` if successful, or an `error` on failure. If successful, attempt retrieving the payload as a `string` and print out the payload.
+
+```ballerina
+io:println(check helloResp.getTextPayload());
+```
+
+The complete source code should look similar to the following:
+
+```ballerina
 import ballerina/http;
 import ballerina/io;
 
-# A service is a network-accessible API
-# Advertised on '/hello', port comes from listener endpoint
-service hello on new http:Listener(9090) {
-
-    # A resource is an invokable API method
-    # Accessible at '/hello/sayHello
-    # 'caller' is the client invoking this resource 
-
-    # + caller - Server Connector
-    # + request - Request
-    resource function sayHello(http:Caller caller, http:Request request) {
-
-        // Send a response back to caller
-        // -> indicates a synchronous network-bound call
-        error? result = caller->respond("Hello Ballerina!");
-        if (result is error) {
-            io:println("Error in responding", result);
-        }
-    }
+public function main() returns error? {
+    http:Client helloClient = new("http://localhost:9090/hello");
+    http:Response helloResp = check helloClient->get("/sayHello");
+    io:println(check helloResp.getTextPayload());
 }
 ```
 
-You can find an extension for Ballerina in the VS Code marketplace. For instructions on installing and using it, see [The Visual Studio Code Extension](#https://ballerina.io/learn/tools-ides/vscode-plugin/).
+Make sure the service is up and running.
 
-## Use an Endpoint
-Ballerina endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
+Now, you can run the `.bal` file containing the `main` function that invokes the service.
 
-There are two kinds of endpoints in Ballerina, inbound (or ingress) and outbound (or egress) endpoints, a client object is an outbound endpoint, which we would use to send messages to a network service.
-
-Having said that, let's see how you can make hello_service a bit more interesting by invoking an external endpoint. In this case, sunrise-sunset API is used as the backend service. First, you need to created the client with the relevant endpoint URL as follows.
-
-```ballerina 
-http:Client weatherApi = new("http://api.sunrise-sunset.org");
+```bash
+$ ballerina run hello_client.bal
 ```
 
-As the next step, let's tweak the service a bit to get sunrise/sunset time details for London. 
+This would produce the following output.
 
-1. Change the service name to `sunriseSunset` and resource name to `london`.
-2. Update the resource signature to have `error?` as the return value.
+```bash
+Hello Ballerina!
+```
 
-> **Note**: returning `error?` allows you to use `check` key word to avoid handling errors explicitly. This is only done to keep the code simple. But in real production code you may have to explicitly handle those errors. 
+Similarly you can use a Ballerina HTTP client to interact with any HTTP service.
 
-Following is the sample code with the aforementioned changes:
+Let's now look at a simple HTTP client that retrieves sunrise/sunset time details for Colombo.
+
+Create a client with the relevant endpoint URL as follows.
 
 ```ballerina
-# A service is a network-accessible API
-# Advertised on '/sunriseSunset', port comes from listener endpoint
-service sunriseSunset on new http:Listener(9090) {
-
-    # A resource is an invokable API method
-    # Accessible at '/hello/sayHello
-    # 'caller' is the client invoking this resource 
-
-    # + caller - Server Connector
-    # + request - Request
-    # + return - error, if there is an issue
-    resource function london(http:Caller caller, http:Request request) returns error? {
+http:Client sunriseApi = new("http://api.sunrise-sunset.org");
 ```
 
-As the next step, add the below code line to do a Get request to the sunrise-sunset backend.
+As the next step, add the below code to do a `GET` request to the sunrise-sunset backend.
 
 ```ballerina
-http:Response sunriseResp = check sunriseApi->get("/json?lat=51.5074&lng=0.1278");
+http:Response sunriseResp = check sunriseApi->get("/json?lat=6.9349969&lng=79.8538463");
 ```
 
-As the next step, add the below code snippet to retrieve the payload and transform it to a simpler response payload.
+Now add the below code snippet to retrieve the payload and print it out.
 
 ```ballerina
 json sunrisePayload = check sunriseResp.getJsonPayload();
-// Creates the response payload
-json resPayload = {
-    city: "London",
-    sunrise: check sunrisePayload.results.sunrise,
-    suset: check sunrisePayload.results.sunset
-};
+io:println(sunrisePayload);
 ```
 
-As the last step you need to change the response payload that is being passed to `respond` action with the new json payload as shown below.
+The complete source code should look similar to the following:
 
 ```ballerina
-var result = check caller->respond(resPayload);
-```
-The complete source code should like similar to the following:
-
-```ballerina
-// A system module containing protocol access constructs
-// Module objects referenced with 'http:' in code
 import ballerina/http;
 import ballerina/io;
 
-http:Client sunriseApi = new("http://api.sunrise-sunset.org");
-
-# A service is a network-accessible API
-# Advertised on '/sunriseSunset', port comes from listener endpoint
-service sunriseSunset on new http:Listener(9090) {
-
-    # A resource is an invokable API method
-    # Accessible at '/hello/sayHello
-    # 'caller' is the client invoking this resource 
-
-    # + caller - Server Connector
-    # + request - Request
-    # + return - error, if there is an issue
-    resource function london(http:Caller caller, http:Request request) returns error? {
-        http:Response sunriseResp = check sunriseApi->get("/json?lat=51.5074&lng=0.1278");
-
-        json sunrisePayload = check sunriseResp.getJsonPayload();
-        // Creates the response payload.
-        json resPayload = {
-            city: "London",
-            sunrise: check sunrisePayload.results.sunrise,
-            suset: check sunrisePayload.results.sunset
-        };
-
-        error? result = caller->respond(resPayload);
-        if (result is error) {
-            io:println("Error in responding", result);
-        }
-    }
+public function main() returns error? {
+    http:Client sunriseApi = new("http://api.sunrise-sunset.org");
+    http:Response sunriseResp = check sunriseApi->get("/json?lat=6.9349969&lng=79.8538463");
+    json sunrisePayload = check sunriseResp.getJsonPayload();
+    io:println(sunrisePayload);
 }
 ```
 
-Now, before we build the module, let's change the `sample_service.bal` to `sunrise_sunset_service.bal`.
-
-Now, you can run the service by running the following command. 
+Now, you can invoke the service using this client by running the following command.
 
 ```bash
-$ ballerina run sample_service
+$ ballerina run sunrise_client.bal
 ```
 
-As before, you should get the following output.
-
-```bash
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
-```
-
-This means your service is up and running. You can invoke the new service by running the below cURL command.
-
-```bash
-$ curl -v http://localhost:9090/sunriseSunset/london
-```
+This should print out the sunrise/sunset details.
 
 ## Follow the Repo
 
@@ -237,4 +175,3 @@ Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and sho
 Now, that you have taken Ballerina around for a quick tour, you can explore Ballerina more.
 
 * Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
-* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, modules, dependencies, coding, unit testing, deployment, and observability.
