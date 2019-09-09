@@ -88,6 +88,8 @@ Ballerina Language Specification supports a set of experimental features such as
 
 In order to view the plugin debug logs, enable the **Settings** **->** **Languages and Frameworks** **->** **Ballerina** **->** **Language Server Debug Logs** option.
 
+Then, the language server debug logs will be added to the IDEA log files. (Click **Help** **->** **Show Log In Files** option to view them).
+
 ![Debug logs](/learn/images/debug-logs.png)
 
 ## What's next?
