@@ -17,6 +17,7 @@ From the start of 2019, Ballerina  specifications are versioned chronologically 
 Note that the ChangeLog section of the specification identifies the changes that have occurred in each version of the specification.
 
 | Version | Release Date | Description | Link |
+| ------- | ------------ | ----------- | ---- |
 | 2019R3 | 2019-09-09 | Stable release used as the basis for jBallerina 1.0.0 implementation. Mostly a cleanup from 2019R2. | <a href="/spec/lang/2019R3">Download</a> |
 | 2019R2 | 2019-0x-0x | Major revised edition of the language | <a href="/spec/lang/2019R2">Download</a> |
 | 2019R1 | 2019-0x-0x | First release with new versioning scheme with significant revisions | <a href="/spec/lang/2019R2">Download</a> |
