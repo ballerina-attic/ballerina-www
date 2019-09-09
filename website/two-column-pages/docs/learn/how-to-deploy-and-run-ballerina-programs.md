@@ -479,9 +479,9 @@ $ kubectl get configmap
 NAME                                              DATA      AGE
 employee-data-service-ballerina-conf-config-map   1         2m
 ```
-This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.conf"` attribute is used. At run time, it is an equivalent of:
+This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.conf"` attribute is used. At run time, it is equivalent to:
 ```bash
-$ ballerina run --b7a.config.file=./conf/data-service.conf <source>.jar 
+$ ballerina run <source>.jar --b7a.config.file=./conf/data-service.conf 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
