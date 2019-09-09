@@ -1,30 +1,164 @@
-<h1>Lets learn Ballerina!</h1>
+<h1>Let’s learn Ballerina!</h1>
 <div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!
-</p>
-   <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
+   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!</p>
+<!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <!-- <h2>&nbsp;</h2> -->
+   <h2>Getting set up to dance</h2>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-6 cBoxContainer">
-      <div class="TopLinks cBallerina-Box">
-        <a class="cBallerinaLearnButtons cButtonswithtext" href="/learn/getting-started/">Getting Started
-         <p>How to download Ballerina and install its tools</p>
-         </a>
+<div class="col-sm-12 col-md-12 cRowLearnSteps">
+<div class="col-sm-12 col-md-1 cLearnSteps">1</div>
+<div class="col-sm-12 col-md-11 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Download a Ballerina installer and make sure it’s working on your machine. </p>
+     <a class="cBallerina-io-Home-main-download-button" href="/downloads">Download Ballerina<p>Distributions available for <br>Linux, OS X, and Windows</p></a>
+     <div class="clearfix"></div>
+   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started guide</a>.</p>
+      </div>
+</div>
+</div>
+<div class="col-sm-12 col-md-12 cRowLearnSteps">
+<div class="col-sm-12 col-md-1 cLearnSteps">2</div>
+<div class="col-sm-12 col-md-11 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a></p>or IntelliJ Idea plugin (coming soon!) from their marketplaces.
+    <p>Need some help? Read the instructions for <a  href="/learn/tools-ides/vscode-plugin/">VSCode</a> or <a href="/learn/tools-ides/intellij-plugin/">IntelliJ Idea</a>.</p>
       </div>
    </div>
-   <div class="col-sm-12 col-md-6 cBoxContainer">
-      <div class="TopLinks cBallerina-Box">
-         <a class="cBallerinaLearnButtons cButtonswithtext" href="/learn/getting-started/">Quick Tour
-         <p>This is the fastest way to try out Ballerina</p>
-         </a>
+</div>
+<div class="col-sm-12 col-md-12 cRowLearnSteps">
+<div class="col-sm-12 col-md-1 cLearnSteps">3</div>
+<div class="col-sm-12 col-md-11 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Take a quick tour to run a simple hello world services and call a web API. </p>
+   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started guide</a>.</p>
+      </div>
+   </div>
+</div>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
+   <h2>Learn the language and the libraries</h2>
+</div>
+<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
+<div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Need to understand a particular feature? Check out an example about it!</p>
+         <a class="cBallerinaLearnButtons cBBEButton" href="/learn/by-example/"><img src="/img/ballerina-bbe-logo.svg"/></a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Learn the “batteries-included” standard library</p>
+         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
+      </div>
+   </div>
+   <div class="col-sm-12 col-md-4 cBoxContainer">
+      <div class="cBallerina-Box">
+     <p>Read the language & platform specifications to really understand the guts of the language.</p>
+         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
       </div>
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
-   <h2>Reference Documentation</h2>
+   <h2>Learn the “ballerina” command</h2>
+   <p>The “ballerina” command is your one-stop-shop for all things Ballerina. Here’s all that you can do with it and what they mean:</p>
+   <p>`ballerina COMMAND ARGS`</p>
+   <h3>Get started</h3>
+   <p>These commands help you check your installation and know that things are set up smoothly.
+</p>
+<table class="cComandTable">
+<tr>
+<td class="cCommand">version</td>
+<td class="cDescription">Tells you the version of Ballerina you have installed
+</td>
+</tr>
+<tr>
+<td class="cCommand">home</td>
+<td class="cDescription">Prints out the location of you current Ballerina distribution. This is useful if you need to help your IDE plugin figure out where Ballerina is.
+</td>
+</tr>
+</table>
+<h3>Build, test & run programs</h3>
+<p>These commands are your best friends! These everyday commands are for the very basics of being a Ballerina programmer: from compiling and running programs to testing them to generating their documentation.
+</p>
+<table class="cComandTable">
+<tr>
+<td class="cCommand">build</td>
+<td class="cDescription">Compile a Ballerina program, a single .bal file, an entire project or a single root module into an executable jar file.
+</td>
+</tr>
+<tr>
+<td class="cCommand">test</td>
+<td class="cDescription">Run tests of a particular module or all the modules of a Ballerina project.
+</td>
+</tr>
+<tr>
+<td class="cCommand">run</td>
+<td class="cDescription">Build and run a Ballerina program, a single .bal file, an entire project or a previously built program
+</td>
+</tr>
+<tr>
+<td class="cCommand">clean</td>
+<td class="cDescription">Clean all artifacts generated by the build command for a project
+</td>
+</tr>
+<tr>
+<td class="cCommand">doc</td>
+<td class="cDescription">Generate API documents for all public symbols of a Ballerina module or project.
+</td>
+</tr>
+<tr>
+<td class="cCommand">format</td>
+<td class="cDescription">Format Ballerina source files as per the <a href="/learn/style-guide/">Ballerina style guide</a></td>
+</tr>
+</table>
+<h3>Work with Ballerina Central</h3>
+<p>Ballerina Central is how you share Ballerina modules with others in a safe, secure, dependable way.</p>
+<table class="cComandTable">
+<tr>
+<td class="cCommand">search</td>
+<td class="cDescription">Search Ballerina central for modules
+</td>
+</tr>
+<tr>
+<td class="cCommand">pull</td>
+<td class="cDescription">Pull a module from Ballerina Central
+</td>
+</tr>
+<tr>
+<td class="cCommand">push</td>
+<td class="cDescription">Upload a module to Ballerina Central
+</td>
+</tr>
+</table>
+<h3>Manage projects</h3>
+<p>Ballerina projects is the way to organize real world Ballerina development tasks. Learn more about in <a href="/learn/how-to-structure-ballerina-code/#projects">this How-To</a>.</p>
+<table class="cComandTable">
+<tr>
+<td class="cCommand">new</td>
+<td class="cDescription">Create a Ballerina project
+</td>
+</tr>
+</table>
+<h3>Use the supporting tools</h3>
+<p>These powerful supporting tools extend Ballerina to various ecosystem technologies that are inherently cloud native. This functionality will grow over time and will even be developer extensible in the future.</p>
+<table class="cComandTable">
+<tr>
+<td class="cCommand">add</td>
+<td class="cDescription">Add another (selected kind of) module to an existing project
+</td>
+</tr>
+<tr>
+<td class="cCommand">push</td>
+<td class="cDescription">Upload a module to Ballerina Central
+</td>
+</tr>
+</table>
+
+
+
+
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
 <div class="col-sm-12 col-md-4 cBoxContainer">
