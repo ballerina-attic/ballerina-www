@@ -1,13 +1,13 @@
 # How to Run and Deploy Ballerina Programs
 
 ## Running Ballerina Programs and Services
-A Ballerina application can either be:
+A Ballerina application can have:
 
-1. A [`public function`](/learn/by-example/functions-as-entry-points.html) including [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
+1. A [`main()`](/learn/by-example/the-main-function.html) function that runs as a terminating process.
 
 2. A [`service`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
 
-Both of these are considered "entrypoints" for program execution. 
+Both of these are considered as entry points for program execution. 
 
 These applications can be structured into a single program file or a Ballerina module. A collection of modules can be managed together with versioning and dependency management as part of a Ballerina project. 
 
@@ -25,12 +25,12 @@ $ ballerina run foo.bal
 You can compile a source file with an entrypoint into an executable jar.
     
 ```bash
-$ ballerina build foo.bal [-o outputfilename.jar]
+$ ballerina build [-o outputfilename.jar] foo.bal
 ```  
 
 And you can run `.jar` files directly:
 ```bash
-$ ballerina run filename-executable.jar
+$ ballerina run filename.jar
 ```
 
 ### Running a Project
@@ -49,7 +49,7 @@ $ ballerina build <module-name>
 Options for running programs with entrypoints in a project:  
 ```bash
 $ ballerina run main.bal
-$ ballerina run main-executable.jar
+$ ballerina run main.jar
 ```
 
 ## Configuring Your Ballerina Runtimes
@@ -76,7 +76,7 @@ public function main() {
 }
 ```
 
-The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `--` passes the key and value to the program.
+The config key is `hello.user.name`. To pass a value to this config from the CLI, we can use `--key=value` format as the following command.
 ```bash
 $ ballerina run  main.bal --hello.user.name=Ballerina
 Hello, Ballerina !
@@ -98,7 +98,7 @@ If `ballerina.conf` resides in the same directory as `main.bal`, `balllerina run
 $ ballerina run main.bal
 Hello, Ballerina !
 ```
-To explicitly specify a configuration file, use either the `--b7a.config.file` flag. The path to the configuration file can be either an absolute or a relative path. 
+To explicitly specify a configuration file, use the `--b7a.config.file` property. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
 $ ballerina run main.bal --b7a.config.file=path/to/conf/file/custom-config-file-name.conf
 Hello, Ballerina !
@@ -217,7 +217,7 @@ $ ballerina build hello_world_docker.bal
 Compiling source
         hello_world_docker.bal
 Generating executables
-        hello_world_docker-executable.jar
+        hello_world_docker.jar
 
 Generating docker artifacts...
         @docker                  - complete 2/2 
@@ -232,7 +232,7 @@ $ tree
 ├── docker
 │   └── Dockerfile
 ├── hello_world_docker.bal
-└── hello_world_docker-executable.jar
+└── hello_world_docker.jar
 
 1 directory, 3 files
 ```
@@ -397,7 +397,7 @@ Compiling source
  	data_backed_service.bal
 
 Generating executables
- 	data_backed_service-executable.jar
+ 	data_backed_service.jar
 
 Generating artifacts...
 
@@ -420,7 +420,7 @@ $ tree
 │   ├── ballerina.conf
 │   └── mysql-connector-java-8.0.11.jar
 ├── data_backed_service.bal
-├── data_backed_service-executable.jar
+├── data_backed_service.jar
 └── kubernetes
     ├── data_backed_service_config_map.yaml
     ├── data_backed_service_deployment.yaml
