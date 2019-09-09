@@ -18,11 +18,11 @@ Note that the ChangeLog section of the specification identifies the changes that
 
 | Version | Release Date | Description | Link |
 | ------- | ------------ | ----------- | ---- |
-| 2019R3 | 2019-09-07 | Stable release used as the basis for jBallerina 1.0.0 implementation. Mostly a cleanup from 2019R2. | <a href="/spec/lang/2019R3">Download</a> |
-| 2019R2 | 2019-07-01 | Major revised edition of the language | <a href="/spec/lang/2019R2">Download</a> |
-| 2019R1 | 2019-05-01 | First release with new versioning scheme with significant revisions | <a href="/spec/lang/2019R2">Download</a> |
-| 0.990  | 2019-01-16 | | <a href="/spec/lang/0.990/">Download</a> |
-| 0.980  | 2018-0x-0x | | <a href="/spec/lang/0.980/">Download</a> |
+| 2019R3 | 2019-09-07 | Stable release used as the basis for jBallerina 1.0.0 implementation. Mostly a cleanup from 2019R2. | <a href="/spec/lang/2019R3/">Read</a> |
+| 2019R2 | 2019-07-01 | Major revised edition of the language | <a href="/spec/lang/2019R2/">Read</a> |
+| 2019R1 | 2019-05-01 | First release with new versioning scheme with significant revisions | <a href="/spec/lang/2019R2/">Read</a> |
+| 0.990  | 2019-01-16 | | <a href="/spec/lang/0.990/">Read</a> |
+| 0.980  | 2018-0x-0x | | <a href="/spec/lang/0.980/">Read</a> |
 | 0.970  | 2018-05-01 | | <a href="/spec/lang/0.970/Ballerina-Language-Specification-WD-2018-05-01.pdf">Download</a> |
 
 ### Specification for experimental features
