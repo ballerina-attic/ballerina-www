@@ -14,11 +14,11 @@ Ballerina binary distributions are available for the following supported operati
 - Ubuntu Linux 12.04 x64 - LTS and above
 - OS X 10.8.3 x64 and above
 
-If your operating system or architecture is not on the list, you can [install from source](https://github.com/ballerina-platform/ballerina-lang#install-from-source) or install from the zip method describe below.
+If your operating system or architecture is not on the list, you can [install from source](https://github.com/ballerina-platform/ballerina-lang#install-from-source) or install from the zip method described below.
 
 ## Installing Ballerina via installers
 
-If you are upgrading to the latest version of Ballerina from an older version, you can download the latest version and the installer will automatically uninstall the old version. 
+If you are upgrading to a new version of Ballerina from an older version, you can download and use the installer for the latest version. The installer will automatically uninstall the old version. 
 If you are building from source, you must update the path with the new version of Ballerina.
 
 ### Installing on OS X
