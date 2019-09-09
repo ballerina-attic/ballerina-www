@@ -4,56 +4,6 @@
 
 # Events
 
-<!-- <table class="cEventTable cWorkshopList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">February 26, 2019</span>7:00 pm
-    <p class="cEventLocation">War Memorial Opera House, San Francisco</p>
-</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/sensorium-2019"><h4>SENSORIUM</h4></a>
-   The Arts Community is as iconic in San Francisco as the Technology Community. Ballerina.io is proud to be the presenting sponsor of Sensorium 2019 because it brings these communities together. 
-  </p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/sensorium-2019">More Info</a></td>
-</tr>
-</table> -->
-
-<!-- 
-## Workshops
-
-<table class="cEventTable cWorkshopList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">April 17, 2019</span>6:30 pm to 8:30 pm (EDT)
-    <p class="cEventLocation">Pivotal, 636 6th Avenue, 6th Floor, New York, NY 1001</p>
-</td>
-    <td class="cEventDetail"><a target="_blank" href="http://www.javasig.com/"><h4>Java SIG NY</h4></a>
-    <p>Ballerina Workshop</p>
-    <p>
-    <b>Nuwan Bandara,</b> Director - Solutions Architecture, WSO2</p>
-     <b>Sameera Jayasoma,</b> Director - Platform Architecture</p>
-  </p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="http://www.javasig.com/">Register Now</a></td>
-</tr>
-
-</table> -->
-
-
-<!-- ## Webinars
-
-<table class="cEventTable cWebinarList">
-
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">March 27, 2019</span>10:30 PM - 11:30 PM IST</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-cloud-native-programming-language/"><h4>Ballerina - Cloud Native Programming Language</h4></a>
-    <p>
-    <b>Anjana Fernando</b> Director - Engineering, WSO2 </p>
-    <p>
-   </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-cloud-native-programming-language/">Register Now</a></td>
-</tr>
-
-</table> -->
-
 <!-- ## Meetups -->
 
 <!-- <table class="cEventTable cMeetupsList">
