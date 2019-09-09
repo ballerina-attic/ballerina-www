@@ -18,17 +18,17 @@ From the start of 2019, Ballerina  specifications are versioned chronologically 
 
 | Version | Release Date | Description | Link |
 | ------- | ------------ | ----------- | ---- |
-| 2019R3 | 2019-09-07 | Stable release used as the basis for jBallerina 1.0.0 implementation. Mostly a cleanup from 2019R2. | <a href="/spec/lang/v2019R3/">Read</a> |
-| 2019R2 | 2019-07-01 | Major revised edition of the language | <a href="/spec/lang/v2019R2/">Read</a> |
-| 2019R1 | 2019-05-01 | First release with new versioning scheme with significant revisions | <a href="/spec/lang/v2019R1/">Read</a> |
+| 2019R3 | 2019-09-07 | Stable release used as the basis for jBallerina 1.0.0 implementation. Mostly a cleanup from 2019R2. | <a target="_blank" href="/spec/lang/v2019R3/">Read</a> |
+| 2019R2 | 2019-07-01 | Major revised edition of the language | <a target="_blank" href="/spec/lang/v2019R2/">Read</a> |
+| 2019R1 | 2019-05-01 | First release with new versioning scheme with significant revisions | <a target="_blank" href="/spec/lang/v2019R1/">Read</a> |
 
 ### Specification for experimental features
 
-Several features that are currently under development have been implemented already and are available for experimental use. These features are <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/ballerina-platform/ballerina-spec/master/lang/experimental.html">documented separately</a>.
+Several features that are currently under development have been implemented already and are available for experimental use. These features are <a target="_blank" href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/ballerina-platform/ballerina-spec/master/lang/experimental.html">documented separately</a>.
 
 ### Proposals for improvements/enhancements
 
-Work in progress proposals for improving Ballerina can be found at the following URL: <a href="https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals">https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals</a>.
+Work in progress proposals for improving Ballerina can be found at the following URL: <a target="_blank" href="https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals">https://github.com/ballerina-platform/ballerina-spec/tree/master/lang/proposals</a>.
 
 <style> 
 table {

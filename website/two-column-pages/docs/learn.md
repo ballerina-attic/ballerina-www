@@ -50,7 +50,7 @@
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Learn the “batteries-included” standard library</p><br>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
+         <a class="cBallerinaLearnButtons" href="/learn/api-docs/ballerina">The Standard Library</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
