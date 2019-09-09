@@ -83,13 +83,13 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
 
 Command-line arguments passed to Ballerina programs and inputs received through service resources are considered as tainted. Additionally, return values of certain functions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
-For example, the `select` remote method of the java:jdbc client highlighted above returns a `@tainted table<record {}>|Error`. This means that any value read from a database is considered as untrusted.
+For example, the `select` remote method of the `java:jdbc` client highlighted above returns a `@tainted table<record {}>|Error`. This means that any value read from a database is considered as untrusted.
 
 When the Ballerina compiler can determine that a function is returning tainted data without tainted data being passed in as parameters to that function, it is required to annotate the function's return type as `@tainted`. If not, the function author has to clean up the data before returning. For instance, if you are to read from the database and return that result, you either need to annotate that function's return type as @tainted or you have to clean up and make sure the returned data is not tainted. 
 
 ### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `@untainted` annotation on type conversion operator can be used to denote that the value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `@untainted` annotation can be used with a type cast operator to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
