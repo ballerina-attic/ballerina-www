@@ -22,7 +22,7 @@ If the source file contains at least one entry point, it can be executed using t
 $ ballerina run foo.bal
 ```
 
-You can compile a source file with an entrypoint into an executable jar.
+You can compile a source file with an entry point into an executable jar.
     
 ```bash
 $ ballerina build [-o outputfilename.jar] foo.bal
