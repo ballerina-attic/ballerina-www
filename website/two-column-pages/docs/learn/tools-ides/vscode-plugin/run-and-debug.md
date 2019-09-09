@@ -16,19 +16,19 @@ debug session.
 
 You view the output in the **DEBUG CONSOLE**.
 
-![Run and debug](../../images/run-and-debug.gif)
+![Run and debug](/learn/images/run-and-debug.gif)
 
 For more information on debugging your code using VS Code, go to [VS Code Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
 ## Troubleshooting
-- You need to manually add a breakpoint to the next line when stepping over code lines in non-blocking paths (e.g., action invocations). Otherwise, it will not pause the VM on the next line by default.
-    - workaround: manually put a breakpoint to next line
-- However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
-    - Eg: When there are multiple workers and a wait expression waiting for them, even though step over hit and pass wait line in source, workers are not yet finished execution.
+You need to manually add a breakpoint to the next line when stepping over code lines in non-blocking paths (e.g., action invocations). Otherwise, it will not pause the VM on the next line by default.
+
+However, this will not happen in certain instances. For example, when there are multiple workers and a `wait` expression waiting for them, even though stepping over hits and passes the waiting line in the source, workers might not yet be executed.
+
 
 ## What's next?
 
- - For information on the next capability of the VS Code Ballerina plugin, see [Run All Tests](run-all-tests.md).
- - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](../vscode-plugin.md).
- - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).
+ - For information on the next capability of the VS Code Ballerina plugin, see [Graphical View](/learn/tools-ides//vscode-plugin/graphical-editor).
+ - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](/learn/tools-ides/vscode-plugin).
+ - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](/learn/tools-ides).
 

@@ -6,14 +6,8 @@ Language intelligence is built in to the plugin via a Language Server implementa
 
 - [Semantic and syntactic diagnostics](#semantic-and-syntactic-diagnostics)
 - [Suggestions and auto completion](#suggestions-and-auto-completion)
-- [Go to definition](#go-to-definition)
-- [Find all references](#find-all-references)
 - [Code actions](#code-actions)
-- [Refactoring options](#refactoring-options)
 - [Hover support](#hover-support)
-- [Signature help support](#signature-help-support)
-- [Document symbols](#document-symbols)
-- [Workspace symbols](#workspace-symbols)
 
 ## Semantic and syntactic diagnostics
 
@@ -21,27 +15,15 @@ When there are syntax or semantic errors in your code, you will be notified with
 
 > **Tip**: The detailed description that appears when you hover over the lines underlined in red will be consistent with the error message that you get during compile-time.
 
-![Semantic and syntactic diagnostics](../../images/semantic-and-syntactic.gif)
+![Semantic and syntactic diagnostics](/learn/images/semantic-and-syntactic.gif)
 
 ## Suggestions and auto completion
 
 The plugin provides you with suggestions on keywords, variables, and code snippets of language constructs (such as functions, services, and iterable constructs etc.).
 
-![Suggestions and auto completion](../../images/suggestions.gif)
+![Suggestions and auto completion](/learn/images/suggestions.gif)
 
 > **Tip**: You can use these suggestions to access the contents of the modules available in your Ballerina home repo as well as in the Ballerina distribution.
-
-## Go to definition
-
-This option allows you to view the definition of a selected variable, function, an object etc. within the same file, in a separate file, in the same module, or in a file of a different module, of the same project.
-
-![Go to definition](../../images/go-to-definition.gif)
-
-## Find all references
-
-This option allows you to find all the references of a selected variable, function, an object etc. within the same file, in a separate file, in the same module, or in a file of a different module, of the same project.
-
-![Find all references](../../images/find-all-references.gif)
 
 ## Code actions
 
@@ -55,19 +37,7 @@ These allow you to perform the below tasks easily based on the diagnostics and t
 
 For example, you can add documentation for a function as shown below.
 
- ![Code actions](../../images/code-actions.gif)
-
-## Refactoring options
-
- The current Language Server implementation supports the below refactoring options.
-
- - Rename a variable, function name, and other entities
- - Add missing imports automatically when you select a completion item 
- - Using code actions such as adding the missing imports, adding documentation, and creating undefined functions and variables.
-
- For example, you can refactor your code to add missing imports corresponding to a service via a code action as shown below.
-
- ![Refactoring options](../../images/refactoring-options.gif)
+ ![Code actions](/learn/images/code-actions.gif)
 
 ## Hover support
 
@@ -75,36 +45,14 @@ For example, you can add documentation for a function as shown below.
  
  For an example, if you hover over a function name, you can view its description, information about its parameters, and the description of its return type as shown below.
 
-  ![Hover support](../../images/hover-support.gif)
+  ![Hover support](/learn/images/hover-support.gif)
  
  > **Tip**: Likewise, if you hover over an entity name of an object or a record, you can view the description of the object/record as well as descriptions of its fields.
-
-## Signature help support
-
-  This provides the descriptions of the parameters of the function while you are typing your code. Signature help will automatically trigger you typing the open parenthesis (i.e., “(“) as well as the comma.
- 
- ![Signature help support](../../images/signature-help-support.gif)
-
-## Document symbols
-
- Document symbols provide the list of all the visible symbols in a certain file including symbols of functions, services, endpoints etc. 
-
-> **Tip**: You can access the document symbols palette by pressing the **Control + Shift + O** keys.
-
-![Document symbols](../../images/document-symbols.gif)
-
-## Workspace symbols
-
-Workspace symbols provide you all the symbols of the current project. These symbols include symbols of services, functions, objects etc. in different the modules of the same project.
-
-> **Tip**: You can access the workspace symbols palette by pressing the **Control + T** keys.
-
-![Workspace symbols](../../images/workspace-symbols.gif)
 
 Above are the lanugage intelligence features that are currently available in the Ballerina VS Code Plugin. 
 
 ## What's next?
 
- - For information on the next capability of the VS Code Ballerina plugin, see [Run and Debug](run-and-debug.md).
- - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Ballerina Plugin](../vscode-plugin.md).
- - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).
+ - For information on the next capability of the VS Code Ballerina plugin, see [Run and Debug](/learn/tools-ides/vscode-plugin/run-and-debug).
+ - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Ballerina Plugin](/learn/tools-ides/vscode-plugin).
+ - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](/learn/tools-ides).

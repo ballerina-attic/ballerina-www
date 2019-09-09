@@ -1,4 +1,4 @@
-# The IntelliJ IDEA Ballerina Plugin
+ The IntelliJ IDEA Ballerina Plugin
 
 The IntelliJ Ballerina plugin provides the Ballerina development capabilities in IntelliJ IDEA. Click on the below links for instructions on how to download, install, and use the features of the IntelliJ plugin.
 
@@ -35,7 +35,7 @@ Use either of the below approaches to install the IntelliJ Ballerina plugin.
 3. Click **Install**, and then click **Accept**.
 4. Click **Restart IDE**, and then click **Restart**.
 
-![Install the plugin via IntelliJ IDEA](images/install-plugin-via-intellij.gif)
+![Install the plugin via IntelliJ IDEA](/learn/images/install-plugin-via-intellij.gif)
 
 This downloads the plugin and installs it.
 
@@ -44,7 +44,7 @@ This downloads the plugin and installs it.
 Follow the steps below to install the plugin using its ZIP file.
 
 1. [Obtaining the ZIP file](#obtaining-the-zip-file)
-2. [Installing the ZIP file via the IDE](#installing-the-zip-file-via-the-IDE)
+2. [Installing the ZIP file via the IDE](#installing-the-zip-file-via-the-ide)
 
 #### Obtaining the ZIP file
 
@@ -62,20 +62,16 @@ Download the [IntelliJ Ballerina plugin](https://plugins.jetbrains.com/plugin/95
 
 Follow the steps below to obtain the ZIP file by building it from its source.
 
-1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GIT repo.
+1. Clone the [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) GitHub repo.
 2. In a new Command Line tab, navigate to the source directory of the plugin (i.e., the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory), and execute the below command.
     > **Info**: In the above step,`<CLONED_BALLERINA_DIRECTORY>` refers to the path of the *ballerina-lang* Git repository, which you cloned locally. 
-    > **Tip:** You need to install the [Gradle Build Tool](£https://gradle.org/) to execute the below command.
+    > **Tip:** You need to install the [Gradle Build Tool](https://gradle.org/) to execute the below command.
 
     ```bash
     ./gradlew buildPlugin
     ```
-    > **Tip:** If you are using Ubuntu/Windows, execute the below command:
-    ```bash
-    gradlew buildPlugin
-    ```
 
-This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `ballerina-platform/ballerina-lang/tree/master/tool-plugins/intellij/tree/master/tool-plugins/intellij` directory.
+This creates the `/build/distributions/ballerina-intellij-idea-plugin-[VERSION].zip` file locally in the `<CLONED_BALLERINA_DIRECTORY>/tool-plugins/intellij` directory.
 
 #### Installing the ZIP file via the IDE
 
@@ -89,31 +85,27 @@ After obtaining the ZIP file using either of the above approaches, follow the st
 > **Important:** Make sure you install the ZIP file and not the extracted JAR files. This is because the ZIP file contains of an additional library that is required by the plugin to function as expected.
 4. Click the **Installed** tab, click **Restart IDE**, and then click **Restart**.
 
-![Install using the Preferences option of the IDE.](images/install-via-editor-preferences.gif)
+![Install using the Preferences option of the IDE.](/learn/images/install-via-editor-preferences.gif)
 
 ## Using the plugin
 
-For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](tools-ides/intellij-plugin/using-the-intellij-plugin).
+For information on using the IntelliJ Ballerina plugin to write Ballerina programs, see [Using the IntelliJ Ballerina plugin](/learn/tools-ides/intellij-plugin/using-the-intellij-plugin).
 
 ## Using the features of the plugin
 
 Click on the below links to find information on the various capabilities that are facilitated by the IntelliJ Ballerina plugin for the development process.
 
-- [Running Ballerina programs](tools-ides/intellij-plugin/using-intellij-plugin-features#running-ballerina-programs)
-- [Debugging Ballerina programs](tools-ides/intellij-plugin/using-intellij-plugin-features#debugging-ballerina-programs)
-- [Viewing the sequence diagram](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-the-sequence-diagram)
-- [Importing modules on the fly](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
-- [Importing unambiguous modules](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
-- [Finding usages](tools-ides/intellij-plugin/using-intellij-plugin-features#finding-usages)
-- [Viewing definitions](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-definitions)
-- [Formatting Ballerina codes](tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
-- [Viewing details of parameters](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-details-of-parameters)
-- [Viewing documentation](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
-- [Adding annotation fields via suggestions](tools-ides/intellij-plugin/using-intellij-plugin-features#adding-annotation-fields-via-suggestions)
-- [Using file templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-file-templates)
-- [Using code snippet templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-code-snippet-templates)
-- [Checking spellings](tools-ides/intellij-plugin/using-intellij-plugin-features#checking-spellings)
-- [Analyzing semantics](tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
-- [Code folding](tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
-
+- [Running Ballerina programs](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#running-ballerina-programs)
+- [Debugging Ballerina programs](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#debugging-ballerina-programs)
+- [Viewing the sequence diagram](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-the-sequence-diagram)
+- [Importing modules on the fly](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
+- [Importing unambiguous modules](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
+- [Formatting Ballerina codes](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
+- [Viewing documentation](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
+- [Adding annotation fields via suggestions](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#adding-annotation-fields-via-suggestions)
+- [Using file templates](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#using-file-templates)
+- [Using code snippet templates](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#using-code-snippet-templates)
+- [Checking spellings](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#checking-spellings)
+- [Analyzing semantics](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
+- [Code folding](/learn/tools-ides/intellij-plugin/using-intellij-plugin-features#code-folding)
 
