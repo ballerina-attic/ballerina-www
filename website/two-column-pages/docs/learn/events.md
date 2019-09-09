@@ -94,7 +94,7 @@
     
 
 
-
+<!-->
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 17–20</span>
             <p class="cEventLocation">Brooklyn, New York</p>
@@ -108,8 +108,8 @@
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/NYC/"
                 target="_blank">Register Now</a></td>
     </tr>
-
-
+-->
+<!-->
     <tr>
       <td class="cEventDateContainer"><span class="cEventDate">June 24–26</span>
         <p class="cEventLocation">Santa Clara, CA</p>
@@ -120,8 +120,8 @@
    </td>
  <td class="cEventURL"><a class="cEventRegistration" href="https://cloudexpo2019.sched.com/" target="_blank">More Info</a></td> 
     </tr> 
-
-
+-->
+<!-->
     <tr>
             <td class="cEventDateContainer"><span class="cEventDate">July 15-18 </span>
               <p class="cEventLocation">Portland, OR</p>
@@ -132,8 +132,8 @@
          </td>
        <td class="cEventURL"><a class="cEventRegistration" href="https://conferences.oreilly.com/oscon/oscon-or/public/schedule/detail/75822" target="_blank">More Info</a></td> 
           </tr> 
-
-
+-->
+<!-->
           <tr>
                 <td class="cEventDateContainer"><span class="cEventDate">August 21-23 </span>
                   <p class="cEventLocation">San Diego, CA</p>
@@ -144,6 +144,7 @@
              </td>
            <td class="cEventURL"><a class="cEventRegistration" href="https://ossna19.sched.com/event/PUOc?iframe=no" target="_blank">More Info</a></td> 
               </tr> 
+-->              
             <tr>
                         <td class="cEventDateContainer"><span class="cEventDate">September 9-12 </span>
                           <p class="cEventLocation">Las Vegas, NV</p>
@@ -170,7 +171,7 @@
 
 </table>
 
-## Meetups
+<!--## Meetups
 
 <table class="cEventTable cMeetupsList">
  <tr>
@@ -181,5 +182,7 @@
       </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Burlington-Ballerina-Meetup-Group/events/261672776/" target="_blank">Register Now</a></td>
 </tr>
+
+-->
 
 </table> 
