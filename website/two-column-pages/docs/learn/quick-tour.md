@@ -26,16 +26,10 @@ $ ballerina add sample_service -t service
 
 This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 
-In order to run the service, you need to build the project using the following command.
-
-```bash
-$ ballerina build
-```
-
 Now, you can run the service by running the following command. 
 
 ```bash
-$ ballerina run /<folder_path>/sample_service-executable.jar
+$ ballerina run sample_service
 ```
 
 You get the following output.
@@ -214,16 +208,10 @@ service sunriseSunset on new http:Listener(9090) {
 
 Now, before we build the module, let's change the `sample_service.bal` to `sunrise_sunset_service.bal`.
 
-All set. Once again, let's build the module by running the below command.
-
-```bash
-$ ballerina build
-```
-
 Now, you can run the service by running the following command. 
 
 ```bash
-$ ballerina run /<folder_path>/sample_service-executable.jar
+$ ballerina run sample_service
 ```
 
 As before, you should get the following output.
