@@ -59,7 +59,7 @@
 
 ## Meetups
 
-<table class="cEventTable cMeetupsList">
+<table class="cEventTable cMeetupsList" style="width:100%;">
  <tr>
     <td class="cEventDateContainer"><span class="cEventDate">September 26 </span>
             <p class="cEventLocation">Columbus, USA</p>
