@@ -34,16 +34,7 @@
                      </td>
                    <td class="cEventURL"><a class="cEventRegistration" href="https://www.apachecon.com/acna19/schedule.html" target="_blank">More Info</a></td> 
                       </tr>
-                         <tr>
-                            <td class="cEventDateContainer"><span class="cEventDate">November 19-21 </span>
-                              <p class="cEventLocation">San Diego, California</p>
-                              </td>
-                              <td class="cEventDetail"><a target="_blank" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"><h4>KubeCon + CloudNativeCon North America 2019</h4></a>
-                                  <h5>Platinum Sponsor</h5>
-                         </td>
-                       <td class="cEventURL"><a class="cEventRegistration" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/" target="_blank">More Info</a></td> 
-                          </tr>
-<tr>
+                 <tr>
                             <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
                               <p class="cEventLocation">San Jose, CA</p>
                               </td>
@@ -52,6 +43,15 @@
                                   <b>Anjana Fernando,</b> Director, WSO2</p>
                          </td>
                        <td class="cEventURL"><a class="cEventRegistration" href="https://apiworld.co/" target="_blank">More Info</a></td> 
+                          </tr>
+                        <tr>
+                            <td class="cEventDateContainer"><span class="cEventDate">November 19-21 </span>
+                              <p class="cEventLocation">San Diego, California</p>
+                              </td>
+                              <td class="cEventDetail"><a target="_blank" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"><h4>KubeCon + CloudNativeCon North America 2019</h4></a>
+                                  <h5>Platinum Sponsor</h5>
+                         </td>
+                       <td class="cEventURL"><a class="cEventRegistration" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/" target="_blank">More Info</a></td> 
                           </tr>
                            
                               
