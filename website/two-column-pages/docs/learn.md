@@ -118,7 +118,7 @@
 <table class="cComandTable">
 <tr>
 <td class="cCommand">search</td>
-<td class="cDescription">Search Ballerina central for modules
+<td class="cDescription">Search Ballerina Central for modules
 </td>
 </tr>
 <tr>
