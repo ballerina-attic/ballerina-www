@@ -61,7 +61,7 @@
 
 <table class="cEventTable cMeetupsList">
  <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">September 26, 2019 </span>
+    <td class="cEventDateContainer"><span class="cEventDate">September 26 </span>
             <p class="cEventLocation">Columbus, USA</p>
         </td>
         <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/columbus-microservices/events/264064167/"><h4>Columbus Microservices Meetup</h4></a>
