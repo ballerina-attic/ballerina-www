@@ -16,7 +16,7 @@ We’re happy to help! Come engage with us on any channel that works for you:
    </div>
    <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
       <div class="cBallerina-Box">
-      <a class="cCommunityIcons" href="/open-source/slack/"><img src="/img/slack.svg"></a>
+      <a class="cCommunityIcons" href="/community/slack/"><img src="/img/slack.svg"></a>
       </div>
    </div>
       <div class="col-sm-12 col-md-3 cBoxContainer cCommunityIconsContainer">
