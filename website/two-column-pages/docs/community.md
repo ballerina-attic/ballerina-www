@@ -57,7 +57,7 @@ We know getting a language established is like getting a new religion going! We 
 
 First let’s start with starring the main GitHub repo right here: <a href="https://github.com/ballerina-platform/ballerina-lang">https://github.com/ballerina-platform/ballerina-lang</a>. Thank you!
 
-Second is to share the wealth by publishing your code on <a href="https://central.ballerna.io">Ballerina Central</a>! Do it today. Do it now.
+Second is to share the wealth by publishing your code on <a href="https://central.ballerina.io">Ballerina Central</a>! Do it today. Do it now.
 
 Follow us on Twitter: <a href="https://twitter.com/ballerinalang">@ballerinalang</a>. Tweet with the “#ballerinalang" hashtag!
 
@@ -68,4 +68,4 @@ Do you want to organize a local meetup or hackathon? WSO2 can help with presenta
 ## Want to help implement Ballerina?
 Join the project and write some code with us to make Ballerina better! You can hang out with us in the Slack channel, the mailing list and of course on GitHub.
 
-Please read the <a href="XX">Contributor Guide</a> so you are aware of the ground rules as you start! Happy dancing!
+Please read the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md">Contributor Guide</a> so you are aware of the ground rules as you start! Happy dancing!
