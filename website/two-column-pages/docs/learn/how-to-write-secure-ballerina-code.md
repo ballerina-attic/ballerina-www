@@ -5,35 +5,35 @@ This document demonstrates different security features and controls available wi
 
 **Table of Contents**
 
-- Secure by Design
-  - Ensuring security of Ballerina standard libraries
-  - Securely using tainted data with security-sensitive parameters
-- Securing Passwords and Secrets
-- Authentication and Authorization
-  - Inbound Authentication & Authorization
-    - Advanced Use Cases
-      - Using Multiple Auth Handlers
-      - Using Multiple Scopes
-      - Per-Resource and Per-Service Customization
-      - Implementing Custom Authentication Mechanism
-      - Disable HTTPS Enforcement
-      - Modify Authn/Authz Filter Index
-    - JWT Inbound Authentication and Authorization
-    - OAuth2 Inbound Authentication and Authorization
-    - LDAP Inbound Authentication and Authorization
-    - Basic Auth Inbound Authentication and Authorization
-  -Outbound Authentication & Authorization
-    - Advanced Use Cases
-      - Implementing Custom Authentication Mechanism
-    - JWT Outbound Authentication
-    - OAuth2 Outbound Authentication
-      - Client Credentials Grant Type
-      - Password Grant Type
-      - Direct Token Mode
-    - Basic Authentication
-    - Token Propagation for Outbound Authentication
-      - Example - 1
-      - Example - 2
+- [Secure by Design](#Secure-by-Design)
+  - [Ensuring security of Ballerina standard libraries](#Ensuring-security-of-Ballerina-standard-libraries)
+  - [Securely using tainted data with security-sensitive parameters](#Securely-using-tainted-data-with-security-sensitive-parameters)
+- [Securing Passwords and Secrets](#Securing-Passwords-and-Secrets)
+- [Authentication and Authorization](#Authentication-and-Authorization)
+  - [Inbound Authentication & Authorization](#Inbound-Authentication--Authorization)
+    - [Advanced Use Cases](#Advanced-Use-Cases)
+      - [Using Multiple Auth Handlers](#Using-Multiple-Auth-Handlers)
+      - [Using Multiple Scopes](#Using-Multiple-Scopes)
+      - [Per-Resource and Per-Service Customization](#Per-Resource-and-Per-Service-Customization)
+      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
+      - [Disable HTTPS Enforcement](#Disable-HTTPS-Enforcement)
+      - [Modify Authn/Authz Filter Index](#Modify-Authn/Authz-Filter-Index)
+    - [JWT Inbound Authentication and Authorization](#JWT-Inbound-Authentication-and-Authorization)
+    - [OAuth2 Inbound Authentication and Authorization](#OAuth2-Inbound-Authentication-and-Authorization)
+    - [LDAP Inbound Authentication and Authorization](#LDAP-Inbound-Authentication-and-Authorization)
+    - [Basic Auth Inbound Authentication and Authorization](#Basic-Auth-Inbound-Authentication-and-Authorization)
+  - [Outbound Authentication & Authorization](#Outbound-Authentication--Authorization)
+    - [Advanced Use Cases](#Advanced-Use-Cases)
+      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
+    - [JWT Outbound Authentication](#JWT-Outbound-Authentication)
+    - [OAuth2 Outbound Authentication](#OAuth2-Outbound-Authentication)
+      - [Client Credentials Grant Type](#Client-Credentials-Grant-Type)
+      - [Password Grant Type](#Password-Grant-Type)
+      - [Direct Token Mode](#Direct-Token-Mode)
+    - [Basic Authentication](#Basic-Authentication)
+    - [Token Propagation for Outbound Authentication](#Token-Propagation-for-Outbound-Authentication)
+      - [Example - 1](#Example---1)
+      - [Example - 2](#Example---2)
 
 ## Secure by Design
 
