@@ -1,6 +1,6 @@
 <h1>Let’s learn Ballerina!</h1>
 <div class="col-sm-12 col-md-12 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!</p>
+   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let's get you dancing with Ballerina!</p>
 <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
@@ -14,7 +14,7 @@
      <p>Download a Ballerina installer and make sure it’s working on your machine. </p>
      <a class="cBallerina-io-Home-main-download-button" href="/downloads">Download Ballerina<p>Distributions available for <br>Linux, OS X, and Windows</p></a>
      <div class="clearfix"></div>
-   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started guide</a>.</p>
+   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started Guide</a>.</p>
       </div>
 </div>
 </div>
@@ -32,7 +32,7 @@
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Take a quick tour to run a simple hello world services and call a web API. </p>
-     <p>Read the <a href="/learn/quick-tour/">quickstart guide</a> and follow along in your IDE</p>
+     <p>Read the <a href="/learn/quick-tour/">Quick Start Guide</a> and follow along in your IDE.</p>
       </div>
    </div>
 </div>
@@ -43,26 +43,26 @@
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
 <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p class="cBoxpara">Need to understand a particular feature? Check out an example about it!</p>
+     <p class="cBoxpara">Need to understand a particular feature? Check out an example about it.</p>
          <a class="cBallerinaLearnButtons cBBEButton" href="/learn/by-example/"><img src="/img/ballerina-bbe-logo.svg"/></a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p class="cBoxpara">Learn the “batteries-included” standard library</p>
+     <p class="cBoxpara">Learn the “batteries-included” standard library.</p>
          <a class="cBallerinaLearnButtons" href="/learn/api-docs/ballerina">The Standard Library</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p class="cBoxpara">Read the language & platform specifications to really understand the guts of the language.</p>
+     <p class="cBoxpara">Read the language & platform specifications to understand the guts of the language.</p>
          <a class="cBallerinaLearnButtons" href="/spec/">Language Specification</a>
       </div>
    </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>Learn the “ballerina” command</h2>
-   <p>The “ballerina” command is your one-stop-shop for all things Ballerina. Here’s all that you can do with it and what they mean:</p>
+   <p>The “ballerina” command is your one-stop-shop for all things of Ballerina. Here’s all that you can do with it and what they mean:</p>
    <p class="code">`ballerina COMMAND ARGS`</p>
    <h3>Get started</h3>
    <p>These commands help you check your installation and know that things are set up smoothly.
@@ -70,22 +70,22 @@
 <table class="cComandTable">
 <tr>
 <td class="cCommand">version</td>
-<td class="cDescription">Tells you the version of Ballerina you have installed
+<td class="cDescription">Tells you the version of Ballerina you have installed.
 </td>
 </tr>
 <tr>
 <td class="cCommand">home</td>
-<td class="cDescription">Prints out the location of you current Ballerina distribution. This is useful if you need to help your IDE plugin figure out where Ballerina is.
+<td class="cDescription">Prints the location of you current Ballerina distribution. This is useful if you need to help your IDE plugin figure out where Ballerina is.
 </td>
 </tr>
 </table>
 <h3>Build, test & run programs</h3>
-<p>These commands are your best friends! These everyday commands are for the very basics of being a Ballerina programmer: from compiling and running programs to testing them to generating their documentation.
+<p>These commands are your best friends! These everyday commands are for the very basics of being a Ballerina programmer: from compiling and running programs to testing them and generating their documentation.
 </p>
 <table class="cComandTable">
 <tr>
 <td class="cCommand">build</td>
-<td class="cDescription">Compile a Ballerina program, a single .bal file, an entire project or a single root module into an executable jar file.
+<td class="cDescription">Compile a Ballerina program, a single .bal file, an entire project, or a single root module into an executable JAR file.
 </td>
 </tr>
 <tr>
@@ -95,12 +95,12 @@
 </tr>
 <tr>
 <td class="cCommand">run</td>
-<td class="cDescription">Build and run a Ballerina program, a single .bal file, an entire project or a previously built program
+<td class="cDescription">Build and run a Ballerina program, a single .bal file, an entire project, or a previously-built program.
 </td>
 </tr>
 <tr>
 <td class="cCommand">clean</td>
-<td class="cDescription">Clean all artifacts generated by the build command for a project
+<td class="cDescription">Clean all artifacts generated by the build command for a project.
 </td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@
 </tr>
 <tr>
 <td class="cCommand">format</td>
-<td class="cDescription">Format Ballerina source files as per the <a href="/learn/style-guide/">Ballerina style guide</a></td>
+<td class="cDescription">Format Ballerina source files as per the <a href="/learn/style-guide/">Ballerina Style Guide.</a></td>
 </tr>
 </table>
 <h3>Work with Ballerina Central</h3>
@@ -133,7 +133,7 @@
 </tr>
 </table>
 <h3>Manage projects</h3>
-<p>Ballerina projects is the way to organize real world Ballerina development tasks. Learn more about in <a href="/learn/how-to-structure-ballerina-code/#projects">this How-To</a>.</p>
+<p>Ballerina projects is the way to organize real world Ballerina development tasks. Learn more about them in the <a href="/learn/how-to-structure-ballerina-code/#projects">How to Structure Ballerina Code Guide</a>.</p>
 <table class="cComandTable">
 <tr>
 <td class="cCommand">new</td>
@@ -146,12 +146,12 @@
 <table class="cComandTable">
 <tr>
 <td class="cCommand">encrypt</td>
-<td class="cDescription">Use this tool to encrypt sensitive data and pass them to a Ballerina program via the configuration system
+<td class="cDescription">Use this tool to encrypt sensitive data and pass them to a Ballerina program via the configuration system.
 </td>
 </tr>
 <tr>
 <td class="cCommand">openapi</td>
-<td class="cDescription">This is the OpenAPI (Swagger) stub / skeleton generation tool. Read <a href=”/learn/how-to-use-openapi-tools/”>this How-To</a> for more information.</td>
+<td class="cDescription">This is the OpenAPI (Swagger) stub / skeleton generation tool. For more information, see the <a href=”/learn/how-to-use-openapi-tools/”>How to Use OpenAPI Tools Guide.</a></td>
 </tr>
 <tr>
 <td class="cCommand">grpc</td>
@@ -201,7 +201,7 @@
      <div class="clearfix"></div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-use-openapi-tools/">Developing Ballerina Service Using an OpenAPI Documentation</a></h3>
-      <p>This guide shows how to develop a restful API in Ballerina which is documented in an OpenAPI contract.</p>
+      <p>This guide shows how to develop a restful API in Ballerina, which is documented in an OpenAPI contract.</p>
    </div>
    <div class="col-sm-12 col-md-6 cTwoCol">
       <h3><a href="/learn/how-to-write-secure-ballerina-code/">Writing Secure Ballerina Code</a></h3>
