@@ -767,15 +767,15 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="authenticate">
+    <div class="main-method-title here" id="authenticate" title="authenticate">
              <a class="url-link" href="#authenticate">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> authenticate </h2>
         
         <span class="method-types">
-            <p>(string credential)</p>
-            <b> returns </b>boolean | Error 
+            <p>(<span class="builtin-type">string</span> credential)</p>
+            <b> returns </b><span class="builtin-type">boolean</span> | <a href="../../auth/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -787,7 +787,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> credential<span class="type">  string </span></li>
+                    <li>
+                        credential<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Credential</p>
 </p>
@@ -802,7 +805,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span> | <a href="../../auth/errors.html#Error">Error</a></span>)</li>
                 <li><p><code>true</code> if authentication is successful, otherwise <code>false</code> or <code>Error</code> occurred while extracting credentials</p>
 </li>
             </ul>

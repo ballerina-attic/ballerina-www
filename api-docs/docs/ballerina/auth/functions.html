@@ -710,15 +710,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="checkForScopeMatch">
+    <div class="main-method-title here" id="checkForScopeMatch" title="checkForScopeMatch">
              <a class="url-link" href="#checkForScopeMatch">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> checkForScopeMatch </h2>
         
         <span class="method-types">
-            <p>(string | string resourceScopes, string userScopes, string authzCacheKey, <a href="../cache/objects/Cache.html">Cache</a>? positiveAuthzCache, <a href="../cache/objects/Cache.html">Cache</a>? negativeAuthzCache)</p>
-            <b> returns </b>boolean 
+            <p>(<span class="builtin-type">string</span> | <span class="builtin-type">string</span> resourceScopes, <span class="builtin-type">string</span> userScopes, <span class="builtin-type">string</span> authzCacheKey, <a href="../cache/objects/Cache.html">Cache</a>? positiveAuthzCache, <a href="../cache/objects/Cache.html">Cache</a>? negativeAuthzCache)</p>
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -730,7 +730,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> resourceScopes<span class="type">  string | string </span></li>
+                    <li>
+                        resourceScopes<span class="type">  <span class="builtin-type">string</span> | <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Scopes of resource</p>
 </p>
@@ -740,7 +743,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> userScopes<span class="type">  string </span></li>
+                    <li>
+                        userScopes<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Scopes of user</p>
 </p>
@@ -750,7 +756,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> authzCacheKey<span class="type">  string </span></li>
+                    <li>
+                        authzCacheKey<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Authorization cache key</p>
 </p>
@@ -760,7 +769,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> positiveAuthzCache<span class="type">  <a href="../cache/objects/Cache.html">Cache</a>? </span></li>
+                    <li>
+                        positiveAuthzCache<span class="type">  <a href="../cache/objects/Cache.html">Cache</a>? </span>
+                        
+                    </li>
                     <li>
                         <p><p>The cache for positive authorizations</p>
 </p>
@@ -770,7 +782,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> negativeAuthzCache<span class="type">  <a href="../cache/objects/Cache.html">Cache</a>? </span></li>
+                    <li>
+                        negativeAuthzCache<span class="type">  <a href="../cache/objects/Cache.html">Cache</a>? </span>
+                        
+                    </li>
                     <li>
                         <p><p>The cache for negative authorizations</p>
 </p>
@@ -785,7 +800,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>true if there is a match between resource and user scopes, else false</p>
 </li>
             </ul>
@@ -795,15 +810,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="extractUsernameAndPassword">
+    <div class="main-method-title here" id="extractUsernameAndPassword" title="extractUsernameAndPassword">
              <a class="url-link" href="#extractUsernameAndPassword">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> extractUsernameAndPassword </h2>
         
         <span class="method-types">
-            <p>(string credential)</p>
-            <b> returns </b><span>[</span>string, string<span>]</span> | Error 
+            <p>(<span class="builtin-type">string</span> credential)</p>
+            <b> returns </b><span>[</span><span class="builtin-type">string</span>, <span class="builtin-type">string</span><span>]</span> | <a href="../auth/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -815,7 +830,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> credential<span class="type">  string </span></li>
+                    <li>
+                        credential<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The credential values.</p>
 </p>
@@ -830,7 +848,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span>string, string<span>]</span> | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><span class="builtin-type">string</span>, <span class="builtin-type">string</span><span>]</span> | <a href="../auth/errors.html#Error">Error</a></span>)</li>
                 <li><p>A <code>string</code> tuple with the extracted username and password or <code>Error</code> occurred while extracting credentials</p>
 </li>
             </ul>
@@ -840,15 +858,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="prepareError">
+    <div class="main-method-title here" id="prepareError" title="prepareError">
              <a class="url-link" href="#prepareError">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> prepareError </h2>
         
         <span class="method-types">
-            <p>(string message, error err)</p>
-            <b> returns </b>Error 
+            <p>(<span class="builtin-type">string</span> message, <span class="builtin-type">error</span> err)</p>
+            <b> returns </b><a href="../auth/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -860,7 +878,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  string </span></li>
+                    <li>
+                        message<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Error message</p>
 </p>
@@ -870,7 +891,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> err<span class="type">  error </span>- ()</li>
+                    <li>
+                        err<span class="type">  <span class="builtin-type">error</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p><code>error</code> instance</p>
 </p>
@@ -885,7 +909,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../auth/errors.html#Error">Error</a></span>)</li>
                 <li><p>Prepared <code>Error</code> instance</p>
 </li>
             </ul>
@@ -895,7 +919,7 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="setAuthenticationContext">
+    <div class="main-method-title here" id="setAuthenticationContext" title="setAuthenticationContext">
              <a class="url-link" href="#setAuthenticationContext">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -910,7 +934,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> scheme<span class="type">  string </span></li>
+                    <li>
+                        scheme<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Auth scheme (JWT, LDAP, OAuth2, Basic etc.)</p>
 </p>
@@ -920,7 +947,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> authToken<span class="type">  string </span></li>
+                    <li>
+                        authToken<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Auth token (credential)</p>
 </p>
@@ -935,7 +965,7 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="setPrincipal">
+    <div class="main-method-title here" id="setPrincipal" title="setPrincipal">
              <a class="url-link" href="#setPrincipal">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -950,7 +980,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> userId<span class="type">  string </span>- ()</li>
+                    <li>
+                        userId<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>User Id of the authenticated user.</p>
 </p>
@@ -960,7 +993,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> username<span class="type">  string </span>- ()</li>
+                    <li>
+                        username<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Username of the authenticated user.</p>
 </p>
@@ -970,7 +1006,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> scopes<span class="type">  string </span>- ()</li>
+                    <li>
+                        scopes<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Authenticated user scopes.</p>
 </p>
@@ -980,7 +1019,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> claims<span class="type">  map </span>- ()</li>
+                    <li>
+                        claims<span class="type">  <span class="builtin-type">map</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Claims of the authenticated user.</p>
 </p>

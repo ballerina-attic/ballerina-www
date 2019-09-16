@@ -758,12 +758,12 @@
                     
                         
                             <h2>Constructor</h2>
-<h3 >__init</h3><p>(string url, <a href="../../http/records/ClientConfiguration.html">ClientConfiguration</a> config, <a href="../../http/records/FollowRedirects.html">FollowRedirects</a> redirectConfig, <a href="../../http/clients/HttpClient.html">HttpClient</a> httpClient)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> url, <a href="../../http/records/ClientConfiguration.html">ClientConfiguration</a> config, <a href="../../http/records/FollowRedirects.html">FollowRedirects</a> redirectConfig, <a href="../../http/clients/HttpClient.html">HttpClient</a> httpClient)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>url</b><span class="type">  string</span> </li>
+                <li> <b>url</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>Target service url</p>
 
@@ -807,45 +807,33 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#forward">
-    <div class="param-sum">
-        <div class="param-name">
-        forward 
-        </div>
-        <div class="param-details"> <p>The <code>forward()</code> function is used to invoke an HTTP call with inbound request's HTTP verb.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="forward"><a
+                                            class="functions" href="#forward">forward</a></td>
+                                    <td class="module-desc"><p>The <code>forward()</code> function is used to invoke an HTTP call with inbound request's HTTP verb.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#execute">
-    <div class="param-sum">
-        <div class="param-name">
-        execute 
-        </div>
-        <div class="param-details"> <p>The <code>execute()</code> sends an HTTP request to a service with the specified HTTP verb. Redirect will be performed
+                                <tr>
+                                    <td class="module-title truncate functions" title="execute"><a
+                                            class="functions" href="#execute">execute</a></td>
+                                    <td class="module-desc"><p>The <code>execute()</code> sends an HTTP request to a service with the specified HTTP verb. Redirect will be performed
 only for HTTP methods.</p>
- </div>
-    </div>
-</a>
+</td>
+                                </tr>
                             
-                                
-<a href="#submit">
-    <div class="param-sum">
-        <div class="param-name">
-        submit 
-        </div>
-        <div class="param-details"> <p>Submits an HTTP request to a service with the specified HTTP verb.
+                                <tr>
+                                    <td class="module-title truncate functions" title="submit"><a
+                                            class="functions" href="#submit">submit</a></td>
+                                    <td class="module-desc"><p>Submits an HTTP request to a service with the specified HTTP verb.
 The <code>submit()</code> function does not give out a <code>Response</code> as the result,
 rather it returns an <code>HttpFuture</code> which can be used to do further interactions with the endpoint.</p>
- </div>
-    </div>
-</a>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -1002,7 +990,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
         
     <div class="params-listing">
         <ul>
-            <li> url<span class="type">  string</span> </li>
+            <li> url<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Target service url</p>
 </p>
@@ -1042,7 +1030,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
         
     <div class="params-listing">
         <ul>
-            <li> currentRedirectCount<span class="type">  int</span> 0</li>
+            <li> currentRedirectCount<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>Current redirect count of the HTTP client</p>
 </p>
@@ -1103,14 +1091,14 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="forward">
+    <div class="main-method-title here" id="forward" title="forward">
              <a class="url-link" href="#forward">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> forward </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/objects/Request.html">Request</a> request)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/objects/Request.html">Request</a> request)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1123,7 +1111,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1133,7 +1124,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> request<span class="type">  <a href="../../http/objects/Request.html">Request</a> </span></li>
+                    <li>
+                        request<span class="type">  <a href="../../http/objects/Request.html">Request</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP inbound request message</p>
 </p>
@@ -1158,14 +1152,14 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="execute">
+    <div class="main-method-title here" id="execute" title="execute">
              <a class="url-link" href="#execute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> execute </h2>
         
         <span class="method-types">
-            <p>(string httpVerb, string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> httpVerb, <span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1179,7 +1173,10 @@ only for HTTP methods.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> httpVerb<span class="type">  string </span></li>
+                    <li>
+                        httpVerb<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The HTTP verb value</p>
 </p>
@@ -1189,7 +1186,10 @@ only for HTTP methods.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1199,7 +1199,10 @@ only for HTTP methods.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span></li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1225,14 +1228,14 @@ only for HTTP methods.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="submit">
+    <div class="main-method-title here" id="submit" title="submit">
              <a class="url-link" href="#submit">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> submit </h2>
         
         <span class="method-types">
-            <p>(string httpVerb, string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> httpVerb, <span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/HttpFuture.html">HttpFuture</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1247,7 +1250,10 @@ rather it returns an <code>HttpFuture</code> which can be used to do further int
                 
             <div class="params-listing">
                 <ul>
-                    <li> httpVerb<span class="type">  string </span></li>
+                    <li>
+                        httpVerb<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The HTTP verb value</p>
 </p>
@@ -1257,7 +1263,10 @@ rather it returns an <code>HttpFuture</code> which can be used to do further int
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The resource path</p>
 </p>
@@ -1267,7 +1276,10 @@ rather it returns an <code>HttpFuture</code> which can be used to do further int
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span></li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1297,14 +1309,14 @@ rather it returns an <code>HttpFuture</code> which can be used to do further int
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="get">
+    <div class="main-method-title here" id="get" title="get">
              <a class="url-link" href="#get">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> get </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1318,7 +1330,10 @@ by this <code>get()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1328,7 +1343,10 @@ by this <code>get()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>- ()</li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>An optional HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>,
 <code>byte[]</code>, <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1354,14 +1372,14 @@ by this <code>get()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="post">
+    <div class="main-method-title here" id="post" title="post">
              <a class="url-link" href="#post">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> post </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1375,7 +1393,10 @@ by this <code>post()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1385,7 +1406,10 @@ by this <code>post()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span></li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1411,14 +1435,14 @@ by this <code>post()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="head">
+    <div class="main-method-title here" id="head" title="head">
              <a class="url-link" href="#head">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> head </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1432,7 +1456,10 @@ by this <code>head()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1442,7 +1469,10 @@ by this <code>head()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>- ()</li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>An optional HTTP outbound request message or or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>,
 <code>byte[]</code>, <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1468,14 +1498,14 @@ by this <code>head()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="put">
+    <div class="main-method-title here" id="put" title="put">
              <a class="url-link" href="#put">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> put </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1489,7 +1519,10 @@ by this <code>put()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1499,7 +1532,10 @@ by this <code>put()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span></li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1525,14 +1561,14 @@ by this <code>put()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="patch">
+    <div class="main-method-title here" id="patch" title="patch">
              <a class="url-link" href="#patch">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> patch </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1546,7 +1582,10 @@ by this <code>patch()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1556,7 +1595,10 @@ by this <code>patch()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span></li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1582,14 +1624,14 @@ by this <code>patch()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="delete">
+    <div class="main-method-title here" id="delete" title="delete">
              <a class="url-link" href="#delete">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> delete </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1603,7 +1645,10 @@ by this <code>delete()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1613,7 +1658,10 @@ by this <code>delete()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>- ()</li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>An HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,
 <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1639,14 +1687,14 @@ by this <code>delete()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="options">
+    <div class="main-method-title here" id="options" title="options">
              <a class="url-link" href="#options">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> options </h2>
         
         <span class="method-types">
-            <p>(string path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
+            <p>(<span class="builtin-type">string</span> path, <a href="../../http/types.html#RequestMessage">RequestMessage</a> message)</p>
             <b> returns </b><a href="../../http/objects/Response.html">Response</a> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
@@ -1660,7 +1708,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Resource path</p>
 </p>
@@ -1670,7 +1721,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>- ()</li>
+                    <li>
+                        message<span class="type">  <a href="../../http/types.html#RequestMessage">RequestMessage</a> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>An optional HTTP outbound request message or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>,
 <code>byte[]</code>, <code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
@@ -1696,7 +1750,7 @@ by this <code>options()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getResponse">
+    <div class="main-method-title here" id="getResponse" title="getResponse">
              <a class="url-link" href="#getResponse">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1716,7 +1770,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span></li>
+                    <li>
+                        httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>HttpFuture</code> relates to a previous asynchronous invocation</p>
 </p>
@@ -1741,7 +1798,7 @@ by this <code>options()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="hasPromise">
+    <div class="main-method-title here" id="hasPromise" title="hasPromise">
              <a class="url-link" href="#hasPromise">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1749,7 +1806,7 @@ by this <code>options()</code> function.</p>
         
         <span class="method-types">
             <p>(<a href="../../http/objects/HttpFuture.html">HttpFuture</a> httpFuture)</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1761,7 +1818,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span></li>
+                    <li>
+                        httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>HttpFuture</code> relates to a previous asynchronous invocation</p>
 </p>
@@ -1776,7 +1836,7 @@ by this <code>options()</code> function.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>A <code>boolean</code> that represents whether a <code>PushPromise</code> exists</p>
 </li>
             </ul>
@@ -1786,7 +1846,7 @@ by this <code>options()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getNextPromise">
+    <div class="main-method-title here" id="getNextPromise" title="getNextPromise">
              <a class="url-link" href="#getNextPromise">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1806,7 +1866,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span></li>
+                    <li>
+                        httpFuture<span class="type">  <a href="../../http/objects/HttpFuture.html">HttpFuture</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>HttpFuture</code> relates to a previous asynchronous invocation</p>
 </p>
@@ -1831,7 +1894,7 @@ by this <code>options()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getPromisedResponse">
+    <div class="main-method-title here" id="getPromisedResponse" title="getPromisedResponse">
              <a class="url-link" href="#getPromisedResponse">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1851,7 +1914,10 @@ by this <code>options()</code> function.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> promise<span class="type">  <a href="../../http/objects/PushPromise.html">PushPromise</a> </span></li>
+                    <li>
+                        promise<span class="type">  <a href="../../http/objects/PushPromise.html">PushPromise</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The related <code>PushPromise</code></p>
 </p>
@@ -1876,7 +1942,7 @@ by this <code>options()</code> function.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="rejectPromise">
+    <div class="main-method-title here" id="rejectPromise" title="rejectPromise">
              <a class="url-link" href="#rejectPromise">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1892,7 +1958,10 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                 
             <div class="params-listing">
                 <ul>
-                    <li> promise<span class="type">  <a href="../../http/objects/PushPromise.html">PushPromise</a> </span></li>
+                    <li>
+                        promise<span class="type">  <a href="../../http/objects/PushPromise.html">PushPromise</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The Push Promise to be rejected</p>
 </p>

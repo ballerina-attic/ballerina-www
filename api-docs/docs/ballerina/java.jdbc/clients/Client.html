@@ -680,53 +680,37 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#call">
-    <div class="param-sum">
-        <div class="param-name">
-        call 
-        </div>
-        <div class="param-details"> <p>The call remote function implementation for JDBC Client to invoke stored procedures/functions.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="call"><a
+                                            class="functions" href="#call">call</a></td>
+                                    <td class="module-desc"><p>The call remote function implementation for JDBC Client to invoke stored procedures/functions.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#select">
-    <div class="param-sum">
-        <div class="param-name">
-        select 
-        </div>
-        <div class="param-details"> <p>The select remote function implementation for JDBC Client to select data from tables.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="select"><a
+                                            class="functions" href="#select">select</a></td>
+                                    <td class="module-desc"><p>The select remote function implementation for JDBC Client to select data from tables.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#update">
-    <div class="param-sum">
-        <div class="param-name">
-        update 
-        </div>
-        <div class="param-details"> <p>The update remote function implementation for JDBC Client to update data and schema of the database.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="update"><a
+                                            class="functions" href="#update">update</a></td>
+                                    <td class="module-desc"><p>The update remote function implementation for JDBC Client to update data and schema of the database.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#batchUpdate">
-    <div class="param-sum">
-        <div class="param-name">
-        batchUpdate 
-        </div>
-        <div class="param-details"> <p>The batchUpdate remote function implementation for JDBC Client to batch data insert.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="batchUpdate"><a
+                                            class="functions" href="#batchUpdate">batchUpdate</a></td>
+                                    <td class="module-desc"><p>The batchUpdate remote function implementation for JDBC Client to batch data insert.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -753,15 +737,15 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="call">
+    <div class="main-method-title here" id="call" title="call">
              <a class="url-link" href="#call">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> call </h2>
         
         <span class="method-types">
-            <p>(string sqlQuery, <a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a>[]? recordType, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
-            <b> returns </b>table | () | <a href="../../java.jdbc/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">string</span> sqlQuery, <span class="builtin-type">typedesc</span> recordType, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
+            <b> returns </b><span class="builtin-type">table</span> | <span class="builtin-type">()</span> | <a href="../../java.jdbc/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -773,7 +757,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> sqlQuery<span class="type">  string </span></li>
+                    <li>
+                        sqlQuery<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The SQL stored procedure to execute</p>
 </p>
@@ -783,7 +770,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> recordType<span class="type">  <a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a>[]? </span></li>
+                    <li>
+                        recordType<span class="type">  <span class="builtin-type">typedesc</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Array of record types of the returned tables if there is any</p>
 </p>
@@ -793,7 +783,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span></li>
+                    <li>
+                        parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
 </p>
@@ -808,7 +801,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">table | () | <a href="../../java.jdbc/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">table</span> | <span class="builtin-type">()</span> | <a href="../../java.jdbc/types.html#Error">Error</a></span>)</li>
                 <li><p>A <code>table[]</code> if there are tables returned by the call remote function and else nil,
 <code>Error</code> will be returned if there is any error</p>
 </li>
@@ -819,15 +812,15 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="select">
+    <div class="main-method-title here" id="select" title="select">
              <a class="url-link" href="#select">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> select </h2>
         
         <span class="method-types">
-            <p>(string sqlQuery, <a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a>? recordType, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
-            <b> returns </b>table | <a href="../../java.jdbc/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">string</span> sqlQuery, <span class="builtin-type">typedesc</span> recordType, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
+            <b> returns </b><span class="builtin-type">table</span> | <a href="../../java.jdbc/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -839,7 +832,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> sqlQuery<span class="type">  string </span></li>
+                    <li>
+                        sqlQuery<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>SQL query to execute</p>
 </p>
@@ -849,7 +845,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> recordType<span class="type">  <a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a>? </span></li>
+                    <li>
+                        recordType<span class="type">  <span class="builtin-type">typedesc</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Type of the returned table</p>
 </p>
@@ -859,7 +858,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span></li>
+                    <li>
+                        parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The parameters to be passed to the select query. The number of parameters is variable</p>
 </p>
@@ -874,7 +876,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">table | <a href="../../java.jdbc/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">table</span> | <a href="../../java.jdbc/types.html#Error">Error</a></span>)</li>
                 <li><p>A <code>table</code> returned by the sql query statement else <code>Error</code> will be returned if there
 is any error</p>
 </li>
@@ -885,14 +887,14 @@ is any error</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="update">
+    <div class="main-method-title here" id="update" title="update">
              <a class="url-link" href="#update">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> update </h2>
         
         <span class="method-types">
-            <p>(string sqlQuery, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
+            <p>(<span class="builtin-type">string</span> sqlQuery, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
             <b> returns </b><a href="../../java.jdbc/records/UpdateResult.html">UpdateResult</a> | <a href="../../java.jdbc/types.html#Error">Error</a> 
         </span>
         
@@ -905,7 +907,10 @@ is any error</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> sqlQuery<span class="type">  string </span></li>
+                    <li>
+                        sqlQuery<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>SQL statement to execute</p>
 </p>
@@ -915,7 +920,10 @@ is any error</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span></li>
+                    <li>
+                        parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The parameters to be passed to the update query. The number of parameters is variable</p>
 </p>
@@ -941,14 +949,14 @@ else  <code>Error</code> will be returned if there is any error</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="batchUpdate">
+    <div class="main-method-title here" id="batchUpdate" title="batchUpdate">
              <a class="url-link" href="#batchUpdate">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> batchUpdate </h2>
         
         <span class="method-types">
-            <p>(string sqlQuery, boolean rollbackAllInFailure, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
+            <p>(<span class="builtin-type">string</span> sqlQuery, <span class="builtin-type">boolean</span> rollbackAllInFailure, <a href="../../java.jdbc/types.html#Param">Param</a>[] parameters)</p>
             <b> returns </b><a href="../../java.jdbc/records/BatchUpdateResult.html">BatchUpdateResult</a> 
         </span>
         
@@ -961,7 +969,10 @@ else  <code>Error</code> will be returned if there is any error</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> sqlQuery<span class="type">  string </span></li>
+                    <li>
+                        sqlQuery<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>SQL statement to execute</p>
 </p>
@@ -971,7 +982,10 @@ else  <code>Error</code> will be returned if there is any error</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> rollbackAllInFailure<span class="type">  boolean </span></li>
+                    <li>
+                        rollbackAllInFailure<span class="type">  <span class="builtin-type">boolean</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>If one of the commands in a batch update fails to execute properly, the JDBC driver
 may or may not continue to process the remaining commands in the batch.  But this property can be
@@ -985,7 +999,10 @@ also will get rollback.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span></li>
+                    <li>
+                        parameters<span class="type">  <a href="../../java.jdbc/types.html#Param">Param</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
 individual update</p>
@@ -1018,7 +1035,7 @@ conains updated row count or the status returned from the each command in the ba
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="stop">
+    <div class="main-method-title here" id="stop" title="stop">
              <a class="url-link" href="#stop">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1026,7 +1043,7 @@ conains updated row count or the status returned from the each command in the ba
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>error 
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -1038,7 +1055,7 @@ conains updated row count or the status returned from the each command in the ba
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Possible error during closing</p>
 </li>
             </ul>

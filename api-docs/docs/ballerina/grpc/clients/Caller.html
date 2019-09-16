@@ -687,42 +687,30 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#send">
-    <div class="param-sum">
-        <div class="param-name">
-        send 
-        </div>
-        <div class="param-details"> <p>Sends outbound response to the caller.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="send"><a
+                                            class="functions" href="#send">send</a></td>
+                                    <td class="module-desc"><p>Sends outbound response to the caller.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#complete">
-    <div class="param-sum">
-        <div class="param-name">
-        complete 
-        </div>
-        <div class="param-details"> <p>Informs the caller, server finished sending messages.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="complete"><a
+                                            class="functions" href="#complete">complete</a></td>
+                                    <td class="module-desc"><p>Informs the caller, server finished sending messages.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#sendError">
-    <div class="param-sum">
-        <div class="param-name">
-        sendError 
-        </div>
-        <div class="param-details"> <p>Sends server error to the caller.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="sendError"><a
+                                            class="functions" href="#sendError">sendError</a></td>
+                                    <td class="module-desc"><p>Sends server error to the caller.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -831,14 +819,14 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="send">
+    <div class="main-method-title here" id="send" title="send">
              <a class="url-link" href="#send">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> send </h2>
         
         <span class="method-types">
-            <p>(any res, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
+            <p>(<span class="builtin-type">any</span> res, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
             <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
@@ -851,7 +839,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> res<span class="type">  any </span></li>
+                    <li>
+                        res<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><ul>
 <li>The outbound response message.</li>
@@ -863,7 +854,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>- ()</li>
+                    <li>
+                        headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -892,7 +886,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="complete">
+    <div class="main-method-title here" id="complete" title="complete">
              <a class="url-link" href="#complete">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -922,14 +916,14 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="sendError">
+    <div class="main-method-title here" id="sendError" title="sendError">
              <a class="url-link" href="#sendError">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> sendError </h2>
         
         <span class="method-types">
-            <p>(int statusCode, string message, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
+            <p>(<span class="builtin-type">int</span> statusCode, <span class="builtin-type">string</span> message, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
             <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
@@ -942,7 +936,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> statusCode<span class="type">  int </span></li>
+                    <li>
+                        statusCode<span class="type">  <span class="builtin-type">int</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Error status code.</p>
 </p>
@@ -952,7 +949,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> message<span class="type">  string </span></li>
+                    <li>
+                        message<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Error message.</p>
 </p>
@@ -962,7 +962,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>- ()</li>
+                    <li>
+                        headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </p>
@@ -991,7 +994,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getId">
+    <div class="main-method-title here" id="getId" title="getId">
              <a class="url-link" href="#getId">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -999,7 +1002,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>int 
+            <b> returns </b><span class="builtin-type">int</span> 
         </span>
         
     </div>
@@ -1010,7 +1013,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span></span>)</li>
                 <li></li>
             </ul>
         </div>
@@ -1019,7 +1022,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="isCancelled">
+    <div class="main-method-title here" id="isCancelled" title="isCancelled">
              <a class="url-link" href="#isCancelled">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1027,7 +1030,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1039,7 +1042,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>Returns true, if caller already closed the connection. false otherwise.</p>
 </li>
             </ul>

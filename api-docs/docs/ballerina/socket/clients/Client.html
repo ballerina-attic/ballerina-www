@@ -672,68 +672,48 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#write">
-    <div class="param-sum">
-        <div class="param-name">
-        write 
-        </div>
-        <div class="param-details"> <p>Writes given data to the client socket.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="write"><a
+                                            class="functions" href="#write">write</a></td>
+                                    <td class="module-desc"><p>Writes given data to the client socket.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#read">
-    <div class="param-sum">
-        <div class="param-name">
-        read 
-        </div>
-        <div class="param-details"> <p>Reads data from the client socket. If the data has the specified length, then wait until that number of bytes
+                                <tr>
+                                    <td class="module-title truncate functions" title="read"><a
+                                            class="functions" href="#read">read</a></td>
+                                    <td class="module-desc"><p>Reads data from the client socket. If the data has the specified length, then wait until that number of bytes
 are received from the client. Else, return the data available in the OS buffer.
 In the case of the connection being closed by the client, then return either -1 or the data
 that is currently available in the buffer.
 Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
- </div>
-    </div>
-</a>
+</td>
+                                </tr>
                             
-                                
-<a href="#close">
-    <div class="param-sum">
-        <div class="param-name">
-        close 
-        </div>
-        <div class="param-details"> <p>Closes the client socket connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="close"><a
+                                            class="functions" href="#close">close</a></td>
+                                    <td class="module-desc"><p>Closes the client socket connection.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#shutdownRead">
-    <div class="param-sum">
-        <div class="param-name">
-        shutdownRead 
-        </div>
-        <div class="param-details"> <p>Shutdowns the further read from socket.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="shutdownRead"><a
+                                            class="functions" href="#shutdownRead">shutdownRead</a></td>
+                                    <td class="module-desc"><p>Shutdowns the further read from socket.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#shutdownWrite">
-    <div class="param-sum">
-        <div class="param-name">
-        shutdownWrite 
-        </div>
-        <div class="param-details"> <p>Shutdowns the further write from socket.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="shutdownWrite"><a
+                                            class="functions" href="#shutdownWrite">shutdownWrite</a></td>
+                                    <td class="module-desc"><p>Shutdowns the further write from socket.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -745,7 +725,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
     <div class="params-listing">
         <ul>
-            <li> remotePort<span class="type">  int</span> 0</li>
+            <li> remotePort<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>the remote port number to which this socket is connected</p>
 </p>
@@ -755,7 +735,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
     <div class="params-listing">
         <ul>
-            <li> localPort<span class="type">  int</span> 0</li>
+            <li> localPort<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>the local port number to which this socket is bound</p>
 </p>
@@ -765,7 +745,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
     <div class="params-listing">
         <ul>
-            <li> remoteAddress<span class="type">  string</span> ()</li>
+            <li> remoteAddress<span class="type">  <span class="builtin-type">string</span></span> ()</li>
             <li>
                 <p><p>the remote IP address string in textual presentation to which the socket is connected</p>
 </p>
@@ -775,7 +755,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
     <div class="params-listing">
         <ul>
-            <li> localAddress<span class="type">  string</span> ()</li>
+            <li> localAddress<span class="type">  <span class="builtin-type">string</span></span> ()</li>
             <li>
                 <p><p>the local IP address string in textual presentation to which the socket is bound</p>
 </p>
@@ -785,7 +765,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
     <div class="params-listing">
         <ul>
-            <li> id<span class="type">  int</span> 0</li>
+            <li> id<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>a unique identifier to identify each client</p>
 </p>
@@ -846,15 +826,15 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="write">
+    <div class="main-method-title here" id="write" title="write">
              <a class="url-link" href="#write">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> write </h2>
         
         <span class="method-types">
-            <p>(byte content)</p>
-            <b> returns </b>int | <a href="../../socket/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">byte</span> content)</p>
+            <b> returns </b><span class="builtin-type">int</span> | <a href="../../socket/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -866,7 +846,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> content<span class="type">  byte </span></li>
+                    <li>
+                        content<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><ul>
 <li>the content that wish to send to the client socket</li>
@@ -883,7 +866,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int | <a href="../../socket/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span> | <a href="../../socket/types.html#Error">Error</a></span>)</li>
                 <li><ul>
 <li>number of bytes got written or an error if encounters an error while writing</li>
 </ul>
@@ -895,15 +878,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="read">
+    <div class="main-method-title here" id="read" title="read">
              <a class="url-link" href="#read">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> read </h2>
         
         <span class="method-types">
-            <p>(int length)</p>
-            <b> returns </b><span>[</span>byte, int<span>]</span> | ReadTimedOutError 
+            <p>(<span class="builtin-type">int</span> length)</p>
+            <b> returns </b><span>[</span><span class="builtin-type">byte</span>, <span class="builtin-type">int</span><span>]</span> | <a href="../../socket/errors.html#ReadTimedOutError">ReadTimedOutError</a> 
         </span>
         
     </div>
@@ -919,7 +902,10 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> length<span class="type">  int </span>- -100</li>
+                    <li>
+                        length<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default -100)</span>
+                    </li>
                     <li>
                         <p><ul>
 <li>Positive integer. Represents the number of bytes which should be read</li>
@@ -936,7 +922,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span>byte, int<span>]</span> | ReadTimedOutError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><span class="builtin-type">byte</span>, <span class="builtin-type">int</span><span>]</span> | <a href="../../socket/errors.html#ReadTimedOutError">ReadTimedOutError</a></span>)</li>
                 <li><ul>
 <li>Content as a byte array and the number of bytes read or an error if encounters an error while reading</li>
 </ul>
@@ -948,7 +934,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -980,7 +966,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="shutdownRead">
+    <div class="main-method-title here" id="shutdownRead" title="shutdownRead">
              <a class="url-link" href="#shutdownRead">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1010,7 +996,7 @@ Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="shutdownWrite">
+    <div class="main-method-title here" id="shutdownWrite" title="shutdownWrite">
              <a class="url-link" href="#shutdownWrite">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>

@@ -754,15 +754,15 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="attach">
+    <div class="main-method-title here" id="attach" title="attach">
              <a class="url-link" href="#attach">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> attach </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKNOWN/service.html">service</a> serviceToAttach, any attachment)</p>
-            <b> returns </b>SchedulerError 
+            <p>(<span class="builtin-type">service</span> serviceToAttach, <span class="builtin-type">any</span> attachment)</p>
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -774,7 +774,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> serviceToAttach<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        serviceToAttach<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Service which needs to be attached to the task.</p>
 </p>
@@ -784,7 +787,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> attachment<span class="type">  any </span>- ()</li>
+                    <li>
+                        attachment<span class="type">  <span class="builtin-type">any</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>An optional parameter which needs to passed inside the resources.</p>
 </p>
@@ -799,7 +805,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> if the process failed due to any reason, nil otherwise.</p>
 </li>
             </ul>
@@ -809,15 +815,15 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="detach">
+    <div class="main-method-title here" id="detach" title="detach">
              <a class="url-link" href="#detach">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> detach </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKNOWN/service.html">service</a> attachedService)</p>
-            <b> returns </b>SchedulerError 
+            <p>(<span class="builtin-type">service</span> attachedService)</p>
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -829,7 +835,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> attachedService<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        attachedService<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>service which needs to be detached from the task.</p>
 </p>
@@ -844,7 +853,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> if the process failed due to any reason, nil otherwise.</p>
 </li>
             </ul>
@@ -854,7 +863,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="start">
+    <div class="main-method-title here" id="start" title="start">
              <a class="url-link" href="#start">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -862,7 +871,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>SchedulerError 
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -874,7 +883,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> if the process failed due to any reason, nil otherwise.</p>
 </li>
             </ul>
@@ -884,7 +893,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="stop">
+    <div class="main-method-title here" id="stop" title="stop">
              <a class="url-link" href="#stop">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -892,7 +901,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>SchedulerError 
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -904,7 +913,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> if the process failed due to any reason, nil otherwise.</p>
 </li>
             </ul>
@@ -914,7 +923,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="pause">
+    <div class="main-method-title here" id="pause" title="pause">
              <a class="url-link" href="#pause">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -922,7 +931,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>SchedulerError 
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -934,7 +943,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> if an error is occurred while resuming, nil Otherwise.</p>
 </li>
             </ul>
@@ -944,7 +953,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="resume">
+    <div class="main-method-title here" id="resume" title="resume">
              <a class="url-link" href="#resume">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -952,7 +961,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>SchedulerError 
+            <b> returns </b><a href="../../task/errors.html#SchedulerError">SchedulerError</a>? 
         </span>
         
     </div>
@@ -964,7 +973,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">SchedulerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../task/errors.html#SchedulerError">SchedulerError</a>?</span>)</li>
                 <li><p>Returns <code>SchedulerError</code> when an error occurred while pausing, nil Otherwise.</p>
 </li>
             </ul>
@@ -974,7 +983,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="isStarted">
+    <div class="main-method-title here" id="isStarted" title="isStarted">
              <a class="url-link" href="#isStarted">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -982,7 +991,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -994,7 +1003,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>Returns <code>true</code> if the Scheduler is already started, <code>false</code> if the Scheduler is
 not started yet or stopped calling the <code>stop()</code> function.</p>
 </li>

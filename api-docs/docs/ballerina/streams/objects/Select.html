@@ -1031,7 +1031,7 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="process">
+    <div class="main-method-title here" id="process" title="process">
              <a class="url-link" href="#process">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1046,7 +1046,10 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span></li>
+                    <li>
+                        streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The array of stream events passed to the select clause.</p>
 </p>
@@ -1061,15 +1064,15 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getGroupByKey">
+    <div class="main-method-title here" id="getGroupByKey" title="getGroupByKey">
              <a class="url-link" href="#getGroupByKey">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getGroupByKey </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>anydata<span>)</span> </code> groupbyFunctionArray, <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> e)</p>
-            <b> returns </b>string 
+            <p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> groupbyFunctionArray, <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> e)</p>
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1081,7 +1084,10 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
                 
             <div class="params-listing">
                 <ul>
-                    <li> groupbyFunctionArray<span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>anydata<span>)</span> </code> </span></li>
+                    <li>
+                        groupbyFunctionArray<span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Function pointer array to the lambda function which returns each group by field.</p>
 </p>
@@ -1091,7 +1097,10 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
                 
             <div class="params-listing">
                 <ul>
-                    <li> e<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span></li>
+                    <li>
+                        e<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Stream Event object being grouped.</p>
 </p>
@@ -1106,7 +1115,7 @@ used as a breadcrumb to identify the select clause if there are multiple <code>f
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>Returns a unique groupby key by which the event <code>e</code> is grouped.</p>
 </li>
             </ul>
