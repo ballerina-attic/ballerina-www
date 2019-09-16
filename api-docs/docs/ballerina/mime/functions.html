@@ -764,15 +764,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="base64Decode">
+    <div class="main-method-title here" id="base64Decode" title="base64Decode">
              <a class="url-link" href="#base64Decode">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> base64Decode </h2>
         
         <span class="method-types">
-            <p>(string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> contentToBeDecoded, string charset)</p>
-            <b> returns </b>string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | DecodeError 
+            <p>(<span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> contentToBeDecoded, <span class="builtin-type">string</span> charset)</p>
+            <b> returns </b><span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/errors.html#DecodeError">DecodeError</a> 
         </span>
         
     </div>
@@ -784,7 +784,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentToBeDecoded<span class="type">  string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span></li>
+                    <li>
+                        contentToBeDecoded<span class="type">  <span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content that needs to be decoded can be of type <code>string</code>, <code>byte[]</code> or <code>io:ReadableByteChannel</code></p>
 </p>
@@ -794,7 +797,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> charset<span class="type">  string </span>- utf-8</li>
+                    <li>
+                        charset<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default utf-8)</span>
+                    </li>
                     <li>
                         <p><p>Charset to be used. This is used only with the string input</p>
 </p>
@@ -809,7 +815,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | DecodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/errors.html#DecodeError">DecodeError</a></span>)</li>
                 <li><p>If the given input is of type string, a decoded <code>string</code> is returned.
 If the given input is of type byte[], a decoded <code>byte[]</code> is returned.
 If the given input is of type io:ReadableByteChannel, a decoded <code>io:ReadableByteChannel</code> is returned.
@@ -822,15 +828,15 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="base64DecodeBlob">
+    <div class="main-method-title here" id="base64DecodeBlob" title="base64DecodeBlob">
              <a class="url-link" href="#base64DecodeBlob">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> base64DecodeBlob </h2>
         
         <span class="method-types">
-            <p>(byte valueToBeDecoded)</p>
-            <b> returns </b>byte | DecodeError 
+            <p>(<span class="builtin-type">byte</span> valueToBeDecoded)</p>
+            <b> returns </b><span class="builtin-type">byte</span> | <a href="../mime/errors.html#DecodeError">DecodeError</a> 
         </span>
         
     </div>
@@ -842,7 +848,10 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> valueToBeDecoded<span class="type">  byte </span></li>
+                    <li>
+                        valueToBeDecoded<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content that needs to be decoded</p>
 </p>
@@ -857,7 +866,7 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">byte | DecodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">byte</span> | <a href="../mime/errors.html#DecodeError">DecodeError</a></span>)</li>
                 <li><p>A decoded <code>byte[]</code>. In case of errors, an <code>DecodeError</code> record is returned</p>
 </li>
             </ul>
@@ -867,15 +876,15 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="base64Encode">
+    <div class="main-method-title here" id="base64Encode" title="base64Encode">
              <a class="url-link" href="#base64Encode">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> base64Encode </h2>
         
         <span class="method-types">
-            <p>(string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> contentToBeEncoded, string charset)</p>
-            <b> returns </b>string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | EncodeError 
+            <p>(<span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> contentToBeEncoded, <span class="builtin-type">string</span> charset)</p>
+            <b> returns </b><span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/errors.html#EncodeError">EncodeError</a> 
         </span>
         
     </div>
@@ -887,7 +896,10 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentToBeEncoded<span class="type">  string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span></li>
+                    <li>
+                        contentToBeEncoded<span class="type">  <span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content that needs to be encoded can be of type <code>string</code>, <code>byte[]</code> or <code>io:ReadableByteChannel</code></p>
 </p>
@@ -897,7 +909,10 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> charset<span class="type">  string </span>- utf-8</li>
+                    <li>
+                        charset<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default utf-8)</span>
+                    </li>
                     <li>
                         <p><p>Charset to be used. This is used only with the string input</p>
 </p>
@@ -912,7 +927,7 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | EncodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/errors.html#EncodeError">EncodeError</a></span>)</li>
                 <li><p>If the given input is of type string, an encoded <code>string</code> is returned.
 If the given input is of type byte[], an encoded <code>byte[]</code> is returned.
 If the given input is of type io:ReadableByteChannel, an encoded <code>io:ReadableByteChannel</code> is returned.
@@ -925,15 +940,15 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="base64EncodeBlob">
+    <div class="main-method-title here" id="base64EncodeBlob" title="base64EncodeBlob">
              <a class="url-link" href="#base64EncodeBlob">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> base64EncodeBlob </h2>
         
         <span class="method-types">
-            <p>(byte valueToBeEncoded)</p>
-            <b> returns </b>byte | EncodeError 
+            <p>(<span class="builtin-type">byte</span> valueToBeEncoded)</p>
+            <b> returns </b><span class="builtin-type">byte</span> | <a href="../mime/errors.html#EncodeError">EncodeError</a> 
         </span>
         
     </div>
@@ -945,7 +960,10 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> valueToBeEncoded<span class="type">  byte </span></li>
+                    <li>
+                        valueToBeEncoded<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content that needs to be encoded</p>
 </p>
@@ -960,7 +978,7 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">byte | EncodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">byte</span> | <a href="../mime/errors.html#EncodeError">EncodeError</a></span>)</li>
                 <li><p>An encoded byte[]. In case of errors, an <code>EncodeError</code> record is returned</p>
 </li>
             </ul>
@@ -970,14 +988,14 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="getContentDispositionObject">
+    <div class="main-method-title here" id="getContentDispositionObject" title="getContentDispositionObject">
              <a class="url-link" href="#getContentDispositionObject">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> getContentDispositionObject </h2>
         
         <span class="method-types">
-            <p>(string contentDisposition)</p>
+            <p>(<span class="builtin-type">string</span> contentDisposition)</p>
             <b> returns </b><a href="../mime/objects/ContentDisposition.html">ContentDisposition</a> 
         </span>
         
@@ -990,7 +1008,10 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentDisposition<span class="type">  string </span></li>
+                    <li>
+                        contentDisposition<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content disposition string</p>
 </p>
@@ -1015,15 +1036,15 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="getMediaType">
+    <div class="main-method-title here" id="getMediaType" title="getMediaType">
              <a class="url-link" href="#getMediaType">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> getMediaType </h2>
         
         <span class="method-types">
-            <p>(string contentType)</p>
-            <b> returns </b><a href="../mime/objects/MediaType.html">MediaType</a> | InvalidContentTypeError 
+            <p>(<span class="builtin-type">string</span> contentType)</p>
+            <b> returns </b><a href="../mime/objects/MediaType.html">MediaType</a> | <a href="../mime/errors.html#InvalidContentTypeError">InvalidContentTypeError</a> 
         </span>
         
     </div>
@@ -1035,7 +1056,10 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span></li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content-Type in string</p>
 </p>
@@ -1050,7 +1074,7 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/objects/MediaType.html">MediaType</a> | InvalidContentTypeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/objects/MediaType.html">MediaType</a> | <a href="../mime/errors.html#InvalidContentTypeError">InvalidContentTypeError</a></span>)</li>
                 <li><p><code>MediaType</code> object or an error in case of invalid content-type</p>
 </li>
             </ul>
@@ -1060,15 +1084,15 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="prepareDecodingErrorWithDetail">
+    <div class="main-method-title here" id="prepareDecodingErrorWithDetail" title="prepareDecodingErrorWithDetail">
              <a class="url-link" href="#prepareDecodingErrorWithDetail">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> prepareDecodingErrorWithDetail </h2>
         
         <span class="method-types">
-            <p>(string detail)</p>
-            <b> returns </b>DecodeError 
+            <p>(<span class="builtin-type">string</span> detail)</p>
+            <b> returns </b><a href="../mime/errors.html#DecodeError">DecodeError</a> 
         </span>
         
     </div>
@@ -1079,7 +1103,10 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> detail<span class="type">  string </span></li>
+                    <li>
+                        detail<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p></p>
                     </li>
@@ -1093,7 +1120,7 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">DecodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/errors.html#DecodeError">DecodeError</a></span>)</li>
                 <li></li>
             </ul>
         </div>
@@ -1102,15 +1129,15 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="prepareEncodingErrorWithDetail">
+    <div class="main-method-title here" id="prepareEncodingErrorWithDetail" title="prepareEncodingErrorWithDetail">
              <a class="url-link" href="#prepareEncodingErrorWithDetail">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> prepareEncodingErrorWithDetail </h2>
         
         <span class="method-types">
-            <p>(string detail)</p>
-            <b> returns </b>EncodeError 
+            <p>(<span class="builtin-type">string</span> detail)</p>
+            <b> returns </b><a href="../mime/errors.html#EncodeError">EncodeError</a> 
         </span>
         
     </div>
@@ -1121,7 +1148,10 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> detail<span class="type">  string </span></li>
+                    <li>
+                        detail<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p></p>
                     </li>
@@ -1135,7 +1165,7 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">EncodeError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/errors.html#EncodeError">EncodeError</a></span>)</li>
                 <li></li>
             </ul>
         </div>

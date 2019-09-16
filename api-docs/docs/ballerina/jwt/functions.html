@@ -719,7 +719,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="buildHeaderString">
+    <div class="main-method-title here" id="buildHeaderString" title="buildHeaderString">
              <a class="url-link" href="#buildHeaderString">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -727,7 +727,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <span class="method-types">
             <p>(<a href="../jwt/records/JwtHeader.html">JwtHeader</a> header)</p>
-            <b> returns </b>string | Error 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -739,7 +739,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> header<span class="type">  <a href="../jwt/records/JwtHeader.html">JwtHeader</a> </span></li>
+                    <li>
+                        header<span class="type">  <a href="../jwt/records/JwtHeader.html">JwtHeader</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT header record to be built as a string</p>
 </p>
@@ -754,7 +757,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a></span>)</li>
                 <li><p>The header string or an <code>Error</code> if building the string fails</p>
 </li>
             </ul>
@@ -764,7 +767,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="buildPayloadString">
+    <div class="main-method-title here" id="buildPayloadString" title="buildPayloadString">
              <a class="url-link" href="#buildPayloadString">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -772,7 +775,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <span class="method-types">
             <p>(<a href="../jwt/records/JwtPayload.html">JwtPayload</a> payload)</p>
-            <b> returns </b>string | Error 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -784,7 +787,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  <a href="../jwt/records/JwtPayload.html">JwtPayload</a> </span></li>
+                    <li>
+                        payload<span class="type">  <a href="../jwt/records/JwtPayload.html">JwtPayload</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT payload record to be built as a string</p>
 </p>
@@ -799,7 +805,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a></span>)</li>
                 <li><p>The payload string or an <code>Error</code> if building the string fails</p>
 </li>
             </ul>
@@ -809,15 +815,15 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="decodeJwt">
+    <div class="main-method-title here" id="decodeJwt" title="decodeJwt">
              <a class="url-link" href="#decodeJwt">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> decodeJwt </h2>
         
         <span class="method-types">
-            <p>(string jwtToken)</p>
-            <b> returns </b><span>[</span><a href="../jwt/records/JwtHeader.html">JwtHeader</a>, <a href="../jwt/records/JwtPayload.html">JwtPayload</a><span>]</span> | Error 
+            <p>(<span class="builtin-type">string</span> jwtToken)</p>
+            <b> returns </b><span>[</span><a href="../jwt/records/JwtHeader.html">JwtHeader</a>, <a href="../jwt/records/JwtPayload.html">JwtPayload</a><span>]</span> | <a href="../jwt/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -829,7 +835,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> jwtToken<span class="type">  string </span></li>
+                    <li>
+                        jwtToken<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT token that needs to be decoded</p>
 </p>
@@ -844,7 +853,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><a href="../jwt/records/JwtHeader.html">JwtHeader</a>, <a href="../jwt/records/JwtPayload.html">JwtPayload</a><span>]</span> | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><a href="../jwt/records/JwtHeader.html">JwtHeader</a>, <a href="../jwt/records/JwtPayload.html">JwtPayload</a><span>]</span> | <a href="../jwt/errors.html#Error">Error</a></span>)</li>
                 <li><p>The JWT header and payload tuple or an <code>Error</code> if token decoding fails.</p>
 </li>
             </ul>
@@ -854,7 +863,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="issueJwt">
+    <div class="main-method-title here" id="issueJwt" title="issueJwt">
              <a class="url-link" href="#issueJwt">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -862,7 +871,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <span class="method-types">
             <p>(<a href="../jwt/records/JwtHeader.html">JwtHeader</a> header, <a href="../jwt/records/JwtPayload.html">JwtPayload</a> payload, <a href="../jwt/records/JwtKeyStoreConfig.html">JwtKeyStoreConfig</a>? config)</p>
-            <b> returns </b>string | Error 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -875,7 +884,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> header<span class="type">  <a href="../jwt/records/JwtHeader.html">JwtHeader</a> </span></li>
+                    <li>
+                        header<span class="type">  <a href="../jwt/records/JwtHeader.html">JwtHeader</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JwtHeader object</p>
 </p>
@@ -885,7 +897,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  <a href="../jwt/records/JwtPayload.html">JwtPayload</a> </span></li>
+                    <li>
+                        payload<span class="type">  <a href="../jwt/records/JwtPayload.html">JwtPayload</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JwtPayload object</p>
 </p>
@@ -895,7 +910,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> config<span class="type">  <a href="../jwt/records/JwtKeyStoreConfig.html">JwtKeyStoreConfig</a>? </span></li>
+                    <li>
+                        config<span class="type">  <a href="../jwt/records/JwtKeyStoreConfig.html">JwtKeyStoreConfig</a>? </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT key store config record</p>
 </p>
@@ -910,7 +928,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../jwt/errors.html#Error">Error</a></span>)</li>
                 <li><p>JWT token string or an <code>Error</code> if token validation fails</p>
 </li>
             </ul>
@@ -920,15 +938,15 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="validateJwt">
+    <div class="main-method-title here" id="validateJwt" title="validateJwt">
              <a class="url-link" href="#validateJwt">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> validateJwt </h2>
         
         <span class="method-types">
-            <p>(string jwtToken, <a href="../jwt/records/JwtValidatorConfig.html">JwtValidatorConfig</a> config)</p>
-            <b> returns </b><a href="../jwt/records/JwtPayload.html">JwtPayload</a> | Error 
+            <p>(<span class="builtin-type">string</span> jwtToken, <a href="../jwt/records/JwtValidatorConfig.html">JwtValidatorConfig</a> config)</p>
+            <b> returns </b><a href="../jwt/records/JwtPayload.html">JwtPayload</a> | <a href="../jwt/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -940,7 +958,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> jwtToken<span class="type">  string </span></li>
+                    <li>
+                        jwtToken<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT token that needs to be validated</p>
 </p>
@@ -950,7 +971,10 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
                 
             <div class="params-listing">
                 <ul>
-                    <li> config<span class="type">  <a href="../jwt/records/JwtValidatorConfig.html">JwtValidatorConfig</a> </span></li>
+                    <li>
+                        config<span class="type">  <a href="../jwt/records/JwtValidatorConfig.html">JwtValidatorConfig</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>JWT validator config record</p>
 </p>
@@ -965,7 +989,7 @@ in the <code>JwtKeyStoreConfig</code> and the <code>alg</code> field of <code>Jw
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../jwt/records/JwtPayload.html">JwtPayload</a> | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../jwt/records/JwtPayload.html">JwtPayload</a> | <a href="../jwt/errors.html#Error">Error</a></span>)</li>
                 <li><p>If the JWT token is valid, return the JWT payload. Else, return an <code>Error</code> if token validation fails.</p>
 </li>
             </ul>

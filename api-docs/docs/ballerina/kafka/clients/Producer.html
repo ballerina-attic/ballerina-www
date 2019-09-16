@@ -664,75 +664,51 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#close">
-    <div class="param-sum">
-        <div class="param-name">
-        close 
-        </div>
-        <div class="param-details"> <p>Closes producer connection to the external Kafka broker.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="close"><a
+                                            class="functions" href="#close">close</a></td>
+                                    <td class="module-desc"><p>Closes producer connection to the external Kafka broker.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#commitConsumer">
-    <div class="param-sum">
-        <div class="param-name">
-        commitConsumer 
-        </div>
-        <div class="param-details"> <p>Commits consumer action which commits consumer consumed offsets to offset topic.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="commitConsumer"><a
+                                            class="functions" href="#commitConsumer">commitConsumer</a></td>
+                                    <td class="module-desc"><p>Commits consumer action which commits consumer consumed offsets to offset topic.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#commitConsumerOffsets">
-    <div class="param-sum">
-        <div class="param-name">
-        commitConsumerOffsets 
-        </div>
-        <div class="param-details"> <p>CommitConsumerOffsets action which commits consumer offsets in given transaction.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="commitConsumerOffsets"><a
+                                            class="functions" href="#commitConsumerOffsets">commitConsumerOffsets</a></td>
+                                    <td class="module-desc"><p>CommitConsumerOffsets action which commits consumer offsets in given transaction.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#flushRecords">
-    <div class="param-sum">
-        <div class="param-name">
-        flushRecords 
-        </div>
-        <div class="param-details"> <p>Flush action which flush batch of records.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="flushRecords"><a
+                                            class="functions" href="#flushRecords">flushRecords</a></td>
+                                    <td class="module-desc"><p>Flush action which flush batch of records.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#getTopicPartitions">
-    <div class="param-sum">
-        <div class="param-name">
-        getTopicPartitions 
-        </div>
-        <div class="param-details"> <p>GetTopicPartitions action which returns given topic partition information.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="getTopicPartitions"><a
+                                            class="functions" href="#getTopicPartitions">getTopicPartitions</a></td>
+                                    <td class="module-desc"><p>GetTopicPartitions action which returns given topic partition information.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#send">
-    <div class="param-sum">
-        <div class="param-name">
-        send 
-        </div>
-        <div class="param-details"> <p>Simple Send action which produce records to Kafka server.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="send"><a
+                                            class="functions" href="#send">send</a></td>
+                                    <td class="module-desc"><p>Simple Send action which produce records to Kafka server.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -754,7 +730,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> connectorId<span class="type">  string</span> system:uuid()</li>
+            <li> connectorId<span class="type">  <span class="builtin-type">string</span></span> system:uuid()</li>
             <li>
                 <p><p>Unique ID for a particular connector.</p>
 </p>
@@ -815,7 +791,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -823,7 +799,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>ProducerError 
+            <b> returns </b><a href="../../kafka/errors.html#ProducerError">ProducerError</a>? 
         </span>
         
     </div>
@@ -835,7 +811,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/errors.html#ProducerError">ProducerError</a>?</span>)</li>
                 <li><p><code>kafka:ProducerError</code> if closing the producer failed, nil otherwise.</p>
 </li>
             </ul>
@@ -845,7 +821,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="commitConsumer">
+    <div class="main-method-title here" id="commitConsumer" title="commitConsumer">
              <a class="url-link" href="#commitConsumer">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -853,7 +829,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>(<a href="../../kafka/clients/Consumer.html">Consumer</a> consumer)</p>
-            <b> returns </b>ProducerError 
+            <b> returns </b><a href="../../kafka/errors.html#ProducerError">ProducerError</a>? 
         </span>
         
     </div>
@@ -865,7 +841,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> consumer<span class="type">  <a href="../../kafka/clients/Consumer.html">Consumer</a> </span></li>
+                    <li>
+                        consumer<span class="type">  <a href="../../kafka/clients/Consumer.html">Consumer</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Consumer which needs offsets to be committed.</p>
 </p>
@@ -880,7 +859,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/errors.html#ProducerError">ProducerError</a>?</span>)</li>
                 <li><p><code>kafka:ProducerError</code> if committing the consumer failed, nil otherwise.</p>
 </li>
             </ul>
@@ -890,15 +869,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="commitConsumerOffsets">
+    <div class="main-method-title here" id="commitConsumerOffsets" title="commitConsumerOffsets">
              <a class="url-link" href="#commitConsumerOffsets">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> commitConsumerOffsets </h2>
         
         <span class="method-types">
-            <p>(<a href="../../kafka/records/PartitionOffset.html">PartitionOffset</a>[] offsets, string groupID)</p>
-            <b> returns </b>ProducerError 
+            <p>(<a href="../../kafka/records/PartitionOffset.html">PartitionOffset</a>[] offsets, <span class="builtin-type">string</span> groupID)</p>
+            <b> returns </b><a href="../../kafka/errors.html#ProducerError">ProducerError</a>? 
         </span>
         
     </div>
@@ -910,7 +889,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> offsets<span class="type">  <a href="../../kafka/records/PartitionOffset.html">PartitionOffset</a>[] </span></li>
+                    <li>
+                        offsets<span class="type">  <a href="../../kafka/records/PartitionOffset.html">PartitionOffset</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>Consumer offsets to commit for given transaction.</p>
 </p>
@@ -920,7 +902,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> groupID<span class="type">  string </span></li>
+                    <li>
+                        groupID<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Consumer group id.</p>
 </p>
@@ -935,7 +920,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/errors.html#ProducerError">ProducerError</a>?</span>)</li>
                 <li><p><code>kafka:ProducerError</code> if committing consumer offsets failed, nil otherwise.</p>
 </li>
             </ul>
@@ -945,7 +930,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="flushRecords">
+    <div class="main-method-title here" id="flushRecords" title="flushRecords">
              <a class="url-link" href="#flushRecords">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -953,7 +938,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>ProducerError 
+            <b> returns </b><a href="../../kafka/errors.html#ProducerError">ProducerError</a>? 
         </span>
         
     </div>
@@ -965,7 +950,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/errors.html#ProducerError">ProducerError</a>?</span>)</li>
                 <li><p><code>kafka:ProducerError</code> if records couldn't be flushed, nil otherwise.</p>
 </li>
             </ul>
@@ -975,15 +960,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getTopicPartitions">
+    <div class="main-method-title here" id="getTopicPartitions" title="getTopicPartitions">
              <a class="url-link" href="#getTopicPartitions">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getTopicPartitions </h2>
         
         <span class="method-types">
-            <p>(string topic)</p>
-            <b> returns </b><a href="../../kafka/records/TopicPartition.html">TopicPartition</a>[] | ProducerError 
+            <p>(<span class="builtin-type">string</span> topic)</p>
+            <b> returns </b><a href="../../kafka/records/TopicPartition.html">TopicPartition</a>[] | <a href="../../kafka/errors.html#ProducerError">ProducerError</a> 
         </span>
         
     </div>
@@ -995,7 +980,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> topic<span class="type">  string </span></li>
+                    <li>
+                        topic<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Topic which the partition information is given.</p>
 </p>
@@ -1010,7 +998,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/records/TopicPartition.html">TopicPartition</a>[] | ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/records/TopicPartition.html">TopicPartition</a>[] | <a href="../../kafka/errors.html#ProducerError">ProducerError</a></span>)</li>
                 <li><p><code>kafka:TopicPartition</code> array for the given topic, returns <code>kafka:ProducerError</code> if operation fails.</p>
 </li>
             </ul>
@@ -1020,15 +1008,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="send">
+    <div class="main-method-title here" id="send" title="send">
              <a class="url-link" href="#send">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> send </h2>
         
         <span class="method-types">
-            <p>(byte value, string topic, byte key, int partition, int timestamp)</p>
-            <b> returns </b>ProducerError 
+            <p>(<span class="builtin-type">byte</span> value, <span class="builtin-type">string</span> topic, <span class="builtin-type">byte</span> key, <span class="builtin-type">int</span> partition, <span class="builtin-type">int</span> timestamp)</p>
+            <b> returns </b><a href="../../kafka/errors.html#ProducerError">ProducerError</a>? 
         </span>
         
     </div>
@@ -1040,7 +1028,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> value<span class="type">  byte </span></li>
+                    <li>
+                        value<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Record contents.</p>
 </p>
@@ -1050,7 +1041,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> topic<span class="type">  string </span></li>
+                    <li>
+                        topic<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Topic to which the record will be appended to.</p>
 </p>
@@ -1060,7 +1054,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  byte </span>- ()</li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">byte</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Key that will be included in the record.</p>
 </p>
@@ -1070,7 +1067,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> partition<span class="type">  int </span>- ()</li>
+                    <li>
+                        partition<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Partition to which the record should be sent.</p>
 </p>
@@ -1080,7 +1080,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> timestamp<span class="type">  int </span>- ()</li>
+                    <li>
+                        timestamp<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Timestamp of the record, in milliseconds since epoch.</p>
 </p>
@@ -1095,7 +1098,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">ProducerError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../kafka/errors.html#ProducerError">ProducerError</a>?</span>)</li>
                 <li><p>Returns <code>kafka:ProducerError</code> if send action fails to send data, nil otherwise.</p>
 </li>
             </ul>

@@ -614,15 +614,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="constructFrom">
+    <div class="main-method-title here" id="constructFrom" title="constructFrom">
              <a class="url-link" href="#constructFrom">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> constructFrom </h2>
         
         <span class="method-types">
-            <p>(<a href="../lang.annotations/UNKNOWN/typedesc.html">typedesc</a> t, anydata v)</p>
-            <b> returns </b>null | error 
+            <p>(<span class="builtin-type">typedesc</span> t, <span class="builtin-type">anydata</span> v)</p>
+            <b> returns </b><span class="builtin-type">null</span> | <span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -634,7 +634,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> t<span class="type">  <a href="../lang.annotations/UNKNOWN/typedesc.html">typedesc</a> </span></li>
+                    <li>
+                        t<span class="type">  <span class="builtin-type">typedesc</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the type for the copy to be constructed</p>
 </p>
@@ -644,7 +647,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> v<span class="type">  anydata </span></li>
+                    <li>
+                        v<span class="type">  <span class="builtin-type">anydata</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the value to be copied</p>
 </p>
@@ -659,7 +665,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">null | error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">null</span> | <span class="builtin-type">error</span></span>)</li>
                 <li><p>a new value that belongs to type <code>t</code>, or an error if this cannot be done</p>
 <p>When <code>v</code> is a structural value, the inherent type of the value to be constructed
 comes from <code>t</code>. When <code>t</code> is a union, it must be possible to determine which

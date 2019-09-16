@@ -631,12 +631,12 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(string name, string desc, map tags)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> name, <span class="builtin-type">string</span> desc, <span class="builtin-type">map</span> tags)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>name</b><span class="type">  string</span> </li>
+                <li> <b>name</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>Name of the Counter instance.</p>
 
@@ -646,7 +646,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>desc</b><span class="type">  string</span> </li>
+                <li> <b>desc</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>Description of the Counter instance. If no description is provided, the the default empty string
 will be used.</p>
@@ -657,7 +657,7 @@ will be used.</p>
     
         <div class="params-listing">
             <ul>
-                <li> <b>tags</b><span class="type">  map</span> ()</li>
+                <li> <b>tags</b><span class="type">  <span class="builtin-type">map</span></span> ()</li>
                 <li>
                     <p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
 
@@ -739,7 +739,7 @@ will be used.</p>
         
     <div class="params-listing">
         <ul>
-            <li> name<span class="type">  string</span> </li>
+            <li> name<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Name of the counter metric.</p>
 </p>
@@ -749,7 +749,7 @@ will be used.</p>
         
     <div class="params-listing">
         <ul>
-            <li> description<span class="type">  string</span> </li>
+            <li> description<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Description of the counter metric.</p>
 </p>
@@ -759,7 +759,7 @@ will be used.</p>
         
     <div class="params-listing">
         <ul>
-            <li> metricTags<span class="type">  map</span> </li>
+            <li> metricTags<span class="type">  <span class="builtin-type">map</span></span> </li>
             <li>
                 <p><p>Tags associated with the counter metric.</p>
 </p>
@@ -820,7 +820,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="register">
+    <div class="main-method-title here" id="register" title="register">
              <a class="url-link" href="#register">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -828,7 +828,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>error 
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -840,7 +840,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Returns error if there is any metric registered already with the same name
 but different parameters or in a different kind.</p>
 </li>
@@ -851,7 +851,7 @@ but different parameters or in a different kind.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="unregister">
+    <div class="main-method-title here" id="unregister" title="unregister">
              <a class="url-link" href="#unregister">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -866,7 +866,7 @@ but different parameters or in a different kind.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="increment">
+    <div class="main-method-title here" id="increment" title="increment">
              <a class="url-link" href="#increment">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -881,7 +881,10 @@ but different parameters or in a different kind.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> amount<span class="type">  int </span>- 1</li>
+                    <li>
+                        amount<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default 1)</span>
+                    </li>
                     <li>
                         <p><p>The amount by which the value needs to be increased. The amount is defaulted as 1 and will be
 used if there is no amount passed in.</p>
@@ -897,7 +900,7 @@ used if there is no amount passed in.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="reset">
+    <div class="main-method-title here" id="reset" title="reset">
              <a class="url-link" href="#reset">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -912,7 +915,7 @@ used if there is no amount passed in.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getValue">
+    <div class="main-method-title here" id="getValue" title="getValue">
              <a class="url-link" href="#getValue">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -920,7 +923,7 @@ used if there is no amount passed in.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>int 
+            <b> returns </b><span class="builtin-type">int</span> 
         </span>
         
     </div>
@@ -932,7 +935,7 @@ used if there is no amount passed in.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span></span>)</li>
                 <li><p>The current value of the counter.</p>
 </li>
             </ul>

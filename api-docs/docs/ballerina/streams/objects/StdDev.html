@@ -1049,7 +1049,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> mean<span class="type">  float</span> 0.0</li>
+            <li> mean<span class="type">  <span class="builtin-type">float</span></span> 0.0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1059,7 +1059,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> stdDeviation<span class="type">  float</span> 0.0</li>
+            <li> stdDeviation<span class="type">  <span class="builtin-type">float</span></span> 0.0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1069,7 +1069,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> sumValue<span class="type">  float</span> 0.0</li>
+            <li> sumValue<span class="type">  <span class="builtin-type">float</span></span> 0.0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1079,7 +1079,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> count<span class="type">  int</span> 0</li>
+            <li> count<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1140,15 +1140,15 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="process">
+    <div class="main-method-title here" id="process" title="process">
              <a class="url-link" href="#process">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> process </h2>
         
         <span class="method-types">
-            <p>(anydata value, <a href="../../streams/types.html#EventType">EventType</a> eventType)</p>
-            <b> returns </b>anydata 
+            <p>(<span class="builtin-type">anydata</span> value, <a href="../../streams/types.html#EventType">EventType</a> eventType)</p>
+            <b> returns </b><span class="builtin-type">anydata</span> 
         </span>
         
     </div>
@@ -1160,7 +1160,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> value<span class="type">  anydata </span></li>
+                    <li>
+                        value<span class="type">  <span class="builtin-type">anydata</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Value being added or removed from aggregation in order to calculate the new standard deviation.</p>
 </p>
@@ -1170,7 +1173,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> eventType<span class="type">  <a href="../../streams/types.html#EventType">EventType</a> </span></li>
+                    <li>
+                        eventType<span class="type">  <a href="../../streams/types.html#EventType">EventType</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Type of the incoming event <code>streams:CURRENT</code>, <code>streams:EXPIRED</code> or <code>streams:RESET</code>.</p>
 </p>
@@ -1185,7 +1191,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">anydata</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">anydata</span></span>)</li>
                 <li><p>Updated standard deviation.</p>
 </li>
             </ul>
@@ -1195,7 +1201,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="copy">
+    <div class="main-method-title here" id="copy" title="copy">
              <a class="url-link" href="#copy">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1225,7 +1231,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="saveState">
+    <div class="main-method-title here" id="saveState" title="saveState">
              <a class="url-link" href="#saveState">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1233,7 +1239,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>map 
+            <b> returns </b><span class="builtin-type">map</span> 
         </span>
         
     </div>
@@ -1245,7 +1251,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">map</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">map</span></span>)</li>
                 <li><p>A map of <code>any</code> typed values.</p>
 </li>
             </ul>
@@ -1255,7 +1261,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="restoreState">
+    <div class="main-method-title here" id="restoreState" title="restoreState">
              <a class="url-link" href="#restoreState">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1270,7 +1276,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> state<span class="type">  map </span></li>
+                    <li>
+                        state<span class="type">  <span class="builtin-type">map</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>A map of typed <code>any</code> values. This map contains the values to be restored from the persisted data.</p>
 </p>

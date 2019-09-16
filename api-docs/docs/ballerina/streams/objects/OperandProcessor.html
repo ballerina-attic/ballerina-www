@@ -991,12 +991,12 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(string alias, <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code> onConditionFunc, int minOccurs, int maxOccurs)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> alias, <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> onConditionFunc, <span class="builtin-type">int</span> minOccurs, <span class="builtin-type">int</span> maxOccurs)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>alias</b><span class="type">  string</span> </li>
+                <li> <b>alias</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     
                 </li>
@@ -1005,7 +1005,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>onConditionFunc</b><span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code></span> </li>
+                <li> <b>onConditionFunc</b><span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code></span> </li>
                 <li>
                     
                 </li>
@@ -1014,7 +1014,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>minOccurs</b><span class="type">  int</span> </li>
+                <li> <b>minOccurs</b><span class="type">  <span class="builtin-type">int</span></span> </li>
                 <li>
                     
                 </li>
@@ -1023,7 +1023,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>maxOccurs</b><span class="type">  int</span> </li>
+                <li> <b>maxOccurs</b><span class="type">  <span class="builtin-type">int</span></span> </li>
                 <li>
                     
                 </li>
@@ -1115,7 +1115,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> onConditionFunc<span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code></span> </li>
+            <li> onConditionFunc<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code></span> </li>
             <li>
                 <p><p>condition function (i.e [e1.id == id])</p>
 </p>
@@ -1125,7 +1125,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> alias<span class="type">  string</span> </li>
+            <li> alias<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>processor alias</p>
 </p>
@@ -1135,7 +1135,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> minOccurs<span class="type">  int</span> 1</li>
+            <li> minOccurs<span class="type">  <span class="builtin-type">int</span></span> 1</li>
             <li>
                 <p><p>minimum occurrences of the event</p>
 </p>
@@ -1145,7 +1145,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> maxOccurs<span class="type">  int</span> 1</li>
+            <li> maxOccurs<span class="type">  <span class="builtin-type">int</span></span> 1</li>
             <li>
                 <p><p>maximum occurrences of the event</p>
 </p>
@@ -1155,7 +1155,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> checkRange<span class="type">  boolean</span> false</li>
+            <li> checkRange<span class="type">  <span class="builtin-type">boolean</span></span> false</li>
             <li>
                 <p><p>is counting pattern</p>
 </p>
@@ -1226,15 +1226,15 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="process">
+    <div class="main-method-title here" id="process" title="process">
              <a class="url-link" href="#process">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> process </h2>
         
         <span class="method-types">
-            <p>(<a href="../../streams/objects/StreamEvent.html">StreamEvent</a> event, string processorAlias)</p>
-            <b> returns </b><span>[</span>boolean, boolean<span>]</span> 
+            <p>(<a href="../../streams/objects/StreamEvent.html">StreamEvent</a> event, <span class="builtin-type">string</span> processorAlias)</p>
+            <b> returns </b><span>[</span><span class="builtin-type">boolean</span>, <span class="builtin-type">boolean</span><span>]</span> 
         </span>
         
     </div>
@@ -1246,7 +1246,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> event<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span></li>
+                    <li>
+                        event<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>event to process</p>
 </p>
@@ -1256,7 +1259,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> processorAlias<span class="type">  string </span></li>
+                    <li>
+                        processorAlias<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>alias for the calling processor, for identification purposes (lhs, rhs).</p>
 </p>
@@ -1271,7 +1277,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span>boolean, boolean<span>]</span></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><span class="builtin-type">boolean</span>, <span class="builtin-type">boolean</span><span>]</span></span>)</li>
                 <li><p>a tuple indicating, whether the event is promoted and whether to continue to the next processor.</p>
 </li>
             </ul>
@@ -1281,7 +1287,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setStateMachine">
+    <div class="main-method-title here" id="setStateMachine" title="setStateMachine">
              <a class="url-link" href="#setStateMachine">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1296,7 +1302,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> stateMachine<span class="type">  <a href="../../streams/objects/StateMachine.html">StateMachine</a> </span></li>
+                    <li>
+                        stateMachine<span class="type">  <a href="../../streams/objects/StateMachine.html">StateMachine</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p><code>StateMachine</code> instance</p>
 </p>
@@ -1311,7 +1320,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="remove">
+    <div class="main-method-title here" id="remove" title="remove">
              <a class="url-link" href="#remove">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1326,7 +1335,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamEvent<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span></li>
+                    <li>
+                        streamEvent<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>event to be removed</p>
 </p>
@@ -1341,7 +1353,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="validate">
+    <div class="main-method-title here" id="validate" title="validate">
              <a class="url-link" href="#validate">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1356,7 +1368,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setPreviousProcessor">
+    <div class="main-method-title here" id="setPreviousProcessor" title="setPreviousProcessor">
              <a class="url-link" href="#setPreviousProcessor">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1371,7 +1383,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> processor<span class="type">  <a href="../../streams/objects/AbstractOperatorProcessor.html">AbstractOperatorProcessor</a> </span></li>
+                    <li>
+                        processor<span class="type">  <a href="../../streams/objects/AbstractOperatorProcessor.html">AbstractOperatorProcessor</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>previous processor</p>
 </p>
@@ -1386,7 +1401,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getAlias">
+    <div class="main-method-title here" id="getAlias" title="getAlias">
              <a class="url-link" href="#getAlias">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1394,7 +1409,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1406,7 +1421,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>alias of the processor.</p>
 </li>
             </ul>

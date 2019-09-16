@@ -998,12 +998,12 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessor, <a href="../../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span>map, map<span>) </span><span>returns (</span>boolean<span>)</span> </code> onConditionFunc)</p>
+<h3 >__init</h3><p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessor, <a href="../../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><span class="builtin-type">map</span>, <span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> onConditionFunc)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>nextProcessor</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code></span> </li>
+                <li> <b>nextProcessor</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code></span> </li>
                 <li>
                     
                 </li>
@@ -1021,7 +1021,7 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
     
         <div class="params-listing">
             <ul>
-                <li> <b>onConditionFunc</b><span class="type">  <code> <span>function(</span>map, map<span>) </span><span>returns (</span>boolean<span>)</span> </code></span> </li>
+                <li> <b>onConditionFunc</b><span class="type">  <code> <span>function(</span><span class="builtin-type">map</span>, <span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code></span> </li>
                 <li>
                     
                 </li>
@@ -1111,7 +1111,7 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
         
     <div class="params-listing">
         <ul>
-            <li> lhsStream<span class="type">  string</span> </li>
+            <li> lhsStream<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1121,7 +1121,7 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
         
     <div class="params-listing">
         <ul>
-            <li> rhsStream<span class="type">  string</span> </li>
+            <li> rhsStream<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1131,7 +1131,7 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
         
     <div class="params-listing">
         <ul>
-            <li> unidirectionalStream<span class="type">  string</span> </li>
+            <li> unidirectionalStream<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1151,7 +1151,7 @@ triggered when the events are received. Usually it is <code>lhsStream</code>, in
         
     <div class="params-listing">
         <ul>
-            <li> lockField<span class="type">  int</span> 0</li>
+            <li> lockField<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1212,7 +1212,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="process">
+    <div class="main-method-title here" id="process" title="process">
              <a class="url-link" href="#process">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1227,7 +1227,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span></li>
+                    <li>
+                        streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>Stream events being joined.</p>
 </p>
@@ -1242,7 +1245,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setLHS">
+    <div class="main-method-title here" id="setLHS" title="setLHS">
              <a class="url-link" href="#setLHS">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1257,7 +1260,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamName<span class="type">  string </span></li>
+                    <li>
+                        streamName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The name of the left hand side stream.</p>
 </p>
@@ -1267,7 +1273,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowInstance<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span></li>
+                    <li>
+                        windowInstance<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The window attached to the left hand side stream.</p>
 </p>
@@ -1282,7 +1291,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setRHS">
+    <div class="main-method-title here" id="setRHS" title="setRHS">
              <a class="url-link" href="#setRHS">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1297,7 +1306,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamName<span class="type">  string </span></li>
+                    <li>
+                        streamName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The name of the right hand side stream.</p>
 </p>
@@ -1307,7 +1319,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowInstance<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span></li>
+                    <li>
+                        windowInstance<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The window attached to the right hand side stream.</p>
 </p>
@@ -1322,7 +1337,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setUnidirectionalStream">
+    <div class="main-method-title here" id="setUnidirectionalStream" title="setUnidirectionalStream">
              <a class="url-link" href="#setUnidirectionalStream">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1337,7 +1352,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamName<span class="type">  string </span></li>
+                    <li>
+                        streamName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The name of the stream. In most cases, the joining is triggered when the events are received by
 the left hand side stream even if the right hand side stream receives the events before the left
