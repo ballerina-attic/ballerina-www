@@ -1,37 +1,48 @@
+
+
 const fs = require("fs");
 const handlebars = require("handlebars");
 const path = require("path");
 
 function build() {
-   const targetDir = path.join("target");  
-   fs.mkdirSync(targetDir, { recursive: true });
+const targetDir = path.join("target");
+fs.mkdirSync(targetDir, { recursive: true });
 
-   const headHbs = fs.readFileSync(path.join("templates", "header.hbs")).toString();
-   const footHbs = fs.readFileSync(path.join("templates", "footer.hbs")).toString();
-   const indexHbs = fs.readFileSync(path.join("templates", "index.hbs")).toString();
-
-
-   handlebars.registerPartial("head", headHbs);
-   handlebars.registerPartial("foot", footHbs);
-
-   const indexTemplate = handlebars.compile(indexHbs);
-   const indexData = { "name": "test", "test": [1, 2, 3, 4, 5]};
-   const indexHtml = indexTemplate(indexData);
-   fs.writeFileSync(path.join(targetDir, "index.html"), indexHtml);
+const baseHbs = fs.readFileSync(path.join("templates", "base.hbs")).toString();
+const baseTemplate = handlebars.compile(baseHbs);
 
 
-   //const headHbs = fs.readFileSync(path.join("templates", "header.hbs")).toString();
-   //const footHbs = fs.readFileSync(path.join("templates", "footer.hbs")).toString();
-   const learnHbs = fs.readFileSync(path.join("templates", "learn.hbs")).toString();
+//Home Page
+const indexContent = fs.readFileSync(path.join("templates", "index.html")).toString();
+const indexData = { "content": indexContent };
+const indexHtml = baseTemplate(indexData);
+fs.writeFileSync(path.join(targetDir, "index.html"), indexHtml);
 
-   handlebars.registerPartial("head", headHbs);
-   handlebars.registerPartial("foot", footHbs);
 
-   const learnTemplate = handlebars.compile(learnHbs);
-   const learnData = { "name": "test", "test": [1, 2, 3, 4, 5]};
-   const learnHtml = learnTemplate(learnData);
+//Learn Page
+const learnContent = fs.readFileSync(path.join("templates", "learn.html")).toString();
+const learnData = { "content": learnContent };
+const learnHtml = baseTemplate(learnData);
+const learnTargetDir = path.join(targetDir,"learn");
+fs.mkdirSync(learnTargetDir, { recursive: true });
+fs.writeFileSync(path.join(learnTargetDir, "index.html"), learnHtml);
 
-   fs.writeFileSync(path.join(targetDir, "learn.html"), learnHtml);
+//Community page
+const communityContent = fs.readFileSync(path.join("templates", "community.html")).toString();
+const communityData = { "content": communityContent};
+const communityHtml = baseTemplate(communityData);
+const commTargetDir = path.join(targetDir,"community");
+fs.mkdirSync(commTargetDir, { recursive: true });
+fs.writeFileSync(path.join(commTargetDir, "index.html"), communityHtml);
+
+
+// //Events page
+// const eventsContent = fs.readFileSync(path.join("templates", "events.html")).toString();
+// const eventsData = { "content": eventsContent};
+// const eventsHtml = baseTemplate(eventsData);
+// const commTargetDir = path.join(targetDir,"events");
+// fs.mkdirSync(commTargetDir, { recursive: true });
+// fs.writeFileSync(path.join(commTargetDir, "index.html"), eventsHtml);
 }
 
 build();
