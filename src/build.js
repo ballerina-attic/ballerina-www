@@ -36,13 +36,13 @@ fs.mkdirSync(commTargetDir, { recursive: true });
 fs.writeFileSync(path.join(commTargetDir, "index.html"), communityHtml);
 
 
-// //Events page
-// const eventsContent = fs.readFileSync(path.join("templates", "events.html")).toString();
-// const eventsData = { "content": eventsContent};
-// const eventsHtml = baseTemplate(eventsData);
-// const commTargetDir = path.join(targetDir,"events");
-// fs.mkdirSync(commTargetDir, { recursive: true });
-// fs.writeFileSync(path.join(commTargetDir, "index.html"), eventsHtml);
+//Events page
+const eventsContent = fs.readFileSync(path.join("templates", "learn","events.html")).toString();
+const eventsData = { "content": eventsContent};
+const eventsHtml = baseTemplate(eventsData);
+const eventsTargetDir = path.join(targetDir,"learn","events");
+fs.mkdirSync(eventsTargetDir, { recursive: true });
+fs.writeFileSync(path.join(eventsTargetDir, "index.html"), eventsHtml);
 }
 
 build();
