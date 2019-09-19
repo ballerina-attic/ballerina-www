@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Documentation for the Ballerina Programming Language"> 
+    <meta name="author" content="WSO2, Inc."> 
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <title></title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+
+    <!--FB-->
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Ballerina" />
+    <meta property="og:description"        content="A Programming Language for Network Distributed Applications" />
+    <meta property="og:image"              content="/img/ballerina-sm-2.jpg" />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ballerinalang">
+    <meta name="twitter:creator" content="@ballerinalang">
+    <meta name="twitter:title" content="Ballerina">
+    <meta name="twitter:description" content="A Programming Language for Network Distributed Applications">
+    <meta name="twitter:image" content="/img/ballerina-sm-2.jpg">
+    <meta name="twitter:text:description" content="A Programming Language for Network Distributed Applications">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:width" content="610">
+
+    <!--LINKED IN  -->
+    <meta property='og:title' content="Ballerina"/>
+    <meta property='og:image' content="/img/ballerina-sm-2.jpg"/>
+    <meta property='og:description' content="A Programming Language for Network Distributed Applications"/>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSL2TX4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="/js/moment-2.22.0/moment.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        var base_url = "";
+    </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+    <!-- <link rel="stylesheet" href="./js/vs/editor/editor.main.css">-->
+
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    
+    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+
+    <script src="/js/ballerina-common.js?1508"></script>
+    <link rel="stylesheet" href="/css/ballerina-io.css"> 
+
+
+
+
+
+      <link rel="stylesheet" href="/css/ballerina-io-docs.css?200618"> 
+
+
+
+    <script>
+        // Current page data
+        var mkdocs_page_name = '"Home"'.replace(/^"|"$/g, '');
+        var mkdocs_page_input_path = '"index.md"'.replace(/^"|"$/g, '');
+        var mkdocs_page_url = '"/"'.replace(/^"|"$/g, '');
+        var base_download_url = 'https://product-dist.ballerina.io/downloads';
+        var nightly_download_url = 'https://product-dist.ballerina.io/nightly';
+        var dev_download_url = 'https://product-dist.ballerina.io/dev';
+        var archived_versions_json = 'https://product-dist.ballerina.io/downloads/archived_releases.json';
+        var releaseNoteFilename = 'RELEASE_NOTE.html';
+        var nightly_versions_json = 'https://product-dist.ballerina.io/nightly/nightly_release.json';
+        var dev_versions_json = 'https://product-dist.ballerina.io/dev/dev_release.json';
+        var latest_versions_json = 'https://product-dist.ballerina.io/downloads/latest_release.json?982';
+        var release_notes_versions_json = 'https://product-dist.ballerina.io/downloads/release_notes_versions.json';
+    </script>
+      
+
+</head>
+
+<body class="cBallerina-io" role="document">
+
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+
+</div>
+
+
+    <div class="row cBallerina-io-Gray-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                    <div class="cBlallerina-io-docs-left-nav-container">
+                        <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                        <div class="cBlallerina-io-docs-left-nav-box">
+                            <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                            <ul id="toc_list">
+
+                                
+                                <li class="toctree-l3"><a href="#how-to-generate-ballerina-code-for-protocol-buffer-definition">How to generate Ballerina code for Protocol Buffer Definition</a></li>
+                                
+                                <li><a class="toctree-l4" href="#cli-command">CLI Command</a></li>
+                                
+                                <li><a class="toctree-l4" href="#sample">Sample</a></li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                    <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                        <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs" id="breadcrumb-list">
+    <li><a href="/">Home</a> &raquo;</li>
+    
+      
+        
+          <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+        
+      
+    
+    <li>How to generate code for protocol buffers</li>
+    <li class="wy-breadcrumbs-aside" id="iGitEdit">
+      
+        <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/how-to-generate-code-for-protocol-buffers.md" target="_blank"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+
+</div>
+                    </div>
+                    <div class="cBlallerina-io-docs-content-container">
+                        <div class="wy-nav-content">
+                            <div class="rst-content">
+
+                                <div role="main">
+                                    <div class="section">
+                                        <!--                <h1>How to generate code for protocol buffers</h1>-->
+                                         <h1 id="how-to-generate-ballerina-code-for-protocol-buffer-definition">How to generate Ballerina code for Protocol Buffer Definition</h1>
+<p>The <code>Protocol Buffers</code> to Ballerina tool provides capabilities to generate Ballerina source code for the Protocol
+ Buffer definition. The code generation tool can produce <code>ballerina stub</code> and <code>ballerina service/client template</code> files.</p>
+<blockquote>
+<p>In Ballerina, Protocol Buffers serialization is only supported in the gRPC module. Therefore, you can only use
+this tool to generate Ballerina source code for gRPC service definitions.</p>
+</blockquote>
+<h2 id="cli-command">CLI Command</h2>
+<p>You can generate Ballerina source code using the following command:</p>
+<pre><code>./ballerina grpc --input &lt;proto-file-path&gt; [--output &lt;path&gt;] [--mode client | server]
+</code></pre>
+
+<p><strong><em>_<strong>Options</strong></em></strong>_</p>
+<p><code>--input</code>  - Path of the input .proto file. This is a mandatory field. You need to provide the path of the definition
+ file.</p>
+<p><code>--output</code> - Location of the generated Ballerina source files. This is an optional field. 
+If output path is not specified, output will be written to a directory corresponding to the package in the Protocol
+ Buffers definition. 
+If package is not specified, output will be written to a 'temp' directory in the current location.</p>
+<p><code>--mode</code>   - Set the mode (client or server) to generate code samples. If not specified, only the stub file is
+ generated.</p>
+<h2 id="sample">Sample</h2>
+<p>The below example shows how you can generate Ballerina source code from the following Protocol Buffers definition (in the <code>helloworld_service.proto</code> file).</p>
+<pre><code class="proto">syntax = &quot;proto3&quot;;
+
+service helloWorld {
+    rpc sayHello(HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+    string name = 1;
+}
+message HelloResponse {
+    string message = 1;
+}
+</code></pre>
+
+<ul>
+<li>You can run the following command to generate the client/service stub and service template.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --mode service --output service
+</code></pre>
+
+<p>Once you execute the command, the stub file(<code>helloworld_service_pb.bal</code>) and the service template file (<code>helloWorld_sample_service.bal</code>) are generated inside the service directory.</p>
+<ul>
+<li>You can run the following command to generate the client/service stub and client template.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --mode client --output client
+</code></pre>
+
+<p>Once you execute the command, the stub file(<code>helloworld_service_pb.bal</code>) and the service template file (<code>helloWorld_sample_client.bal</code>) are generated inside the client directory.</p>
+<ul>
+<li>You can run the following command to generate only the client/service stub.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --output stubs
+</code></pre>
+
+<p>Once you execute the command, only the stub file (<code>helloworld_service_pb.bal</code>) is generated inside the <code>stubs</code> directory.</p> 
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+
+</div>
+
+
+    <script src="/js/clipboard.js-2.0.0/clipboard.min.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="/search/search.js"></script>
+
+ <script>
+
+         $(document).ready(function() {
+              var gitstar = '<iframe id="iGitStarIframe" src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=star&count=true&size=small" frameborder="0" scrolling="0"></iframe>';
+              $('[data-button="iGitStarText"]').replaceWith(gitstar);
+  
+              var gitwatch = '<iframe id="iGitWatchIframe" src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=watch&count=true&size=lsmalle&v=2" frameborder="0" scrolling="0"></iframe>';
+              $('[data-button="iGitWatchText"]').replaceWith(gitwatch);
+  
+      });
+     </script>
+  
+     <style>
+         .cGitButtonContainer {
+             display: inline-block;
+             width: 100%;
+             margin-bottom: 0px;
+         }
+  
+          #iGitStarText {
+              height: 20px;
+              float: left;
+              padding: 0;
+              margin: 0;
+          }
+         #iGitStarIframe , #iGitWatchIframe {
+              height: 20px;
+              width: 100px;
+              float: left;
+          }
+      </style>
+  
+    
+      <div class="cSocial-sidebar">
+                   <ul class="cHorizontalList cSocialMedia" style="list-style: none; padding: 0; margin: 0;">
+                       <li>
+                           <a target="_blank" rel="external nofollow"  class="w-inline-block social-share-btn tw" href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;">
+                                   <img id="iFloating-Twitter-Share" src="https://ballerina.io/img/twitter.svg" alt="Twitter">
+                               </a>
+                       </li>
+                       <li>
+                           <a target="_blank" rel="external nofollow" title="Share with your friends on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
+                               <img id="iFloating-Facebook-Share" src="https://ballerina.io/img/facebook.svg" alt="Facebook">
+                           </a>
+                       </li>
+                       <li>
+                           <a target="_blank" rel="external nofollow" class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' + encodeURIComponent(document.title)); return false;">
+                                   <img id="iFloating-LinkedIn-Share" src="https://ballerina.io/img/linkedin.svg" alt="LinkedIn">
+                               </a>
+                       </li>
+                   </ul>
+               </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Documentation for the Ballerina Programming Language"> 
+    <meta name="author" content="WSO2, Inc."> 
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <title></title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+
+    <!--FB-->
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Ballerina" />
+    <meta property="og:description"        content="A Programming Language for Network Distributed Applications" />
+    <meta property="og:image"              content="/img/ballerina-sm-2.jpg" />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ballerinalang">
+    <meta name="twitter:creator" content="@ballerinalang">
+    <meta name="twitter:title" content="Ballerina">
+    <meta name="twitter:description" content="A Programming Language for Network Distributed Applications">
+    <meta name="twitter:image" content="/img/ballerina-sm-2.jpg">
+    <meta name="twitter:text:description" content="A Programming Language for Network Distributed Applications">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:width" content="610">
+
+    <!--LINKED IN  -->
+    <meta property='og:title' content="Ballerina"/>
+    <meta property='og:image' content="/img/ballerina-sm-2.jpg"/>
+    <meta property='og:description' content="A Programming Language for Network Distributed Applications"/>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSL2TX4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="/js/moment-2.22.0/moment.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        var base_url = "";
+    </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+    <!-- <link rel="stylesheet" href="./js/vs/editor/editor.main.css">-->
+
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    
+    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+
+    <script src="/js/ballerina-common.js?1508"></script>
+    <link rel="stylesheet" href="/css/ballerina-io.css"> 
+
+
+
+
+
+      <link rel="stylesheet" href="/css/ballerina-io-docs.css?200618"> 
+
+
+
+    <script>
+        // Current page data
+        var mkdocs_page_name = '"Home"'.replace(/^"|"$/g, '');
+        var mkdocs_page_input_path = '"index.md"'.replace(/^"|"$/g, '');
+        var mkdocs_page_url = '"/"'.replace(/^"|"$/g, '');
+        var base_download_url = 'https://product-dist.ballerina.io/downloads';
+        var nightly_download_url = 'https://product-dist.ballerina.io/nightly';
+        var dev_download_url = 'https://product-dist.ballerina.io/dev';
+        var archived_versions_json = 'https://product-dist.ballerina.io/downloads/archived_releases.json';
+        var releaseNoteFilename = 'RELEASE_NOTE.html';
+        var nightly_versions_json = 'https://product-dist.ballerina.io/nightly/nightly_release.json';
+        var dev_versions_json = 'https://product-dist.ballerina.io/dev/dev_release.json';
+        var latest_versions_json = 'https://product-dist.ballerina.io/downloads/latest_release.json?982';
+        var release_notes_versions_json = 'https://product-dist.ballerina.io/downloads/release_notes_versions.json';
+    </script>
+      
+
+</head>
+
+<body class="cBallerina-io" role="document">
+
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+
+</div>
+
+<div class="row cBallerina-io-Gray-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                    <div class="cBlallerina-io-docs-left-nav-container">
+                        <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                        <div class="cBlallerina-io-docs-left-nav-box">
+                            <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                            <ul id="toc_list">
+
+                                
+                                <li class="toctree-l3"><a href="#publish-a-module">Publish a Module</a></li>
+                                
+                                <li><a class="toctree-l4" href="#cli-command">CLI Command</a></li>
+                                
+                                <li><a class="toctree-l4" href="#setting-up">Setting up</a></li>
+                                
+                                <li><a class="toctree-l4" href="#organizations">Organizations</a></li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                    <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                        <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs" id="breadcrumb-list">
+    <li><a href="/">Home</a> &raquo;</li>
+    
+      
+        
+          <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+        
+      
+    
+    <li>How to Publish Modules</li>
+    <li class="wy-breadcrumbs-aside" id="iGitEdit">
+      
+        <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/how-to-publish-modules.md" target="_blank"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+
+</div>
+                    </div>
+                    <div class="cBlallerina-io-docs-content-container">
+                        <div class="wy-nav-content">
+                            <div class="rst-content">
+
+                                <div role="main">
+                                    <div class="section">
+                                        <!--                <h1>How to Publish Modules</h1>-->
+                                         <h1 id="publish-a-module">Publish a Module</h1>
+<h2 id="cli-command">CLI Command</h2>
+<p>Pushing a module uploads it to <a href="https://central.ballerina.io/">Ballerina Central</a>.</p>
+<pre><code>ballerina push &lt;module-name&gt;
+</code></pre>
+
+<h2 id="setting-up">Setting up</h2>
+<p>Before you push your module, you must enter your Ballerina Central access token in <code>Settings.toml</code> in your home repository (<code>&lt;USER_HOME&gt;/.ballerina/</code>).</p>
+<p>To get your token, register on Ballerina Central and visit the user dashboard at <a href="https://central.ballerina.io/dashboard">https://central.ballerina.io/dashboard</a>.</p>
+<p>If you are connected to the internet via an HTTP proxy, add the following section to <code>Settings.toml</code> and change accordingly.</p>
+<pre><code>[proxy]
+host = &quot;localhost&quot;
+port = &quot;3128&quot;
+username = &quot;&quot;
+password = &quot;&quot;
+</code></pre>
+
+<h2 id="organizations">Organizations</h2>
+<p>When you push a module to Ballerina Central, the runtime validates organizations for the user against the org-name defined in your module’s <code>Ballerina.toml</code> file. Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the module into and set that as the <code>org-name</code> in the <code>Ballerina.toml</code> file inside the project directory.</p> 
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+
+</div>
+
+    <script>
+        $(document).ready(function() {
+            $(".cSideBar-Button").click(function() {
+                $(".cSideBar-Button").toggleClass('cOpen');
+                $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+            });
+
+            $("#breadcrumb-list li").each(function(index) {
+                var current = $(this);
+                var currentLink = $(current.find("a")[0]);
+                if (currentLink && currentLink.attr("href") == "#" && !current.hasClass("wy-breadcrumbs-aside") &&
+                    !current.next().hasClass("wy-breadcrumbs-aside")) {
+                    var prevLink = $(current.prev().find("a")[0]);
+                    if (prevLink && prevLink.attr("href") != "#") {
+                        currentLink.attr("href", prevLink.attr("href") +
+                            (prevLink.attr("href").match(/\/$/) ? "" : "/") +
+                            current.attr("link_candidate").toLowerCase().split(" ").join("-"));
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="/js/theme.js"></script>
+    <script src="/search/search.js"></script>
+
+    <!-- Slack form -->
+    <div class="modal fade" id="subscribe" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Request an invite</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="cBallerinaFormFieldContainer">
+                            <span id="subscribeMessage"></span>
+                            <label class="subscribeForm">Email Address</label>
+                            <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeForm" type="text">
+                        </div>
+                        <a class="cBallerinaButtons subscribeForm" href="" id="subscribeButton">Submit</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+
+</div>
+
+
+    <script src="/js/clipboard.js-2.0.0/clipboard.min.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="/search/search.js"></script>
+
+ <script>
+
+         $(document).ready(function() {
+              var gitstar = '<iframe id="iGitStarIframe" src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=star&count=true&size=small" frameborder="0" scrolling="0"></iframe>';
+              $('[data-button="iGitStarText"]').replaceWith(gitstar);
+  
+              var gitwatch = '<iframe id="iGitWatchIframe" src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=watch&count=true&size=lsmalle&v=2" frameborder="0" scrolling="0"></iframe>';
+              $('[data-button="iGitWatchText"]').replaceWith(gitwatch);
+  
+      });
+     </script>
+  
+     <style>
+         .cGitButtonContainer {
+             display: inline-block;
+             width: 100%;
+             margin-bottom: 0px;
+         }
+  
+          #iGitStarText {
+              height: 20px;
+              float: left;
+              padding: 0;
+              margin: 0;
+          }
+         #iGitStarIframe , #iGitWatchIframe {
+              height: 20px;
+              width: 100px;
+              float: left;
+          }
+      </style>
+  
+    
+      <div class="cSocial-sidebar">
+                   <ul class="cHorizontalList cSocialMedia" style="list-style: none; padding: 0; margin: 0;">
+                       <li>
+                           <a target="_blank" rel="external nofollow"  class="w-inline-block social-share-btn tw" href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;">
+                                   <img id="iFloating-Twitter-Share" src="https://ballerina.io/img/twitter.svg" alt="Twitter">
+                               </a>
+                       </li>
+                       <li>
+                           <a target="_blank" rel="external nofollow" title="Share with your friends on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
+                               <img id="iFloating-Facebook-Share" src="https://ballerina.io/img/facebook.svg" alt="Facebook">
+                           </a>
+                       </li>
+                       <li>
+                           <a target="_blank" rel="external nofollow" class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' + encodeURIComponent(document.title)); return false;">
+                                   <img id="iFloating-LinkedIn-Share" src="https://ballerina.io/img/linkedin.svg" alt="LinkedIn">
+                               </a>
+                       </li>
+                   </ul>
+               </div>
+
+
+</body>
+
+</html>

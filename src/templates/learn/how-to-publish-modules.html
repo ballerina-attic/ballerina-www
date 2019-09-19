@@ -1,0 +1,135 @@
+<div class="row cBallerina-io-Gray-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                    <div class="cBlallerina-io-docs-left-nav-container">
+                        <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                        <div class="cBlallerina-io-docs-left-nav-box">
+                            <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                            <ul id="toc_list">
+
+                                
+                                <li class="toctree-l3"><a href="#publish-a-module">Publish a Module</a></li>
+                                
+                                <li><a class="toctree-l4" href="#cli-command">CLI Command</a></li>
+                                
+                                <li><a class="toctree-l4" href="#setting-up">Setting up</a></li>
+                                
+                                <li><a class="toctree-l4" href="#organizations">Organizations</a></li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                    <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                        <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs" id="breadcrumb-list">
+    <li><a href="/">Home</a> &raquo;</li>
+    
+      
+        
+          <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+        
+      
+    
+    <li>How to Publish Modules</li>
+    <li class="wy-breadcrumbs-aside" id="iGitEdit">
+      
+        <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/how-to-publish-modules.md" target="_blank"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+
+</div>
+                    </div>
+                    <div class="cBlallerina-io-docs-content-container">
+                        <div class="wy-nav-content">
+                            <div class="rst-content">
+
+                                <div role="main">
+                                    <div class="section">
+                                        <!--                <h1>How to Publish Modules</h1>-->
+                                         <h1 id="publish-a-module">Publish a Module</h1>
+<h2 id="cli-command">CLI Command</h2>
+<p>Pushing a module uploads it to <a href="https://central.ballerina.io/">Ballerina Central</a>.</p>
+<pre><code>ballerina push &lt;module-name&gt;
+</code></pre>
+
+<h2 id="setting-up">Setting up</h2>
+<p>Before you push your module, you must enter your Ballerina Central access token in <code>Settings.toml</code> in your home repository (<code>&lt;USER_HOME&gt;/.ballerina/</code>).</p>
+<p>To get your token, register on Ballerina Central and visit the user dashboard at <a href="https://central.ballerina.io/dashboard">https://central.ballerina.io/dashboard</a>.</p>
+<p>If you are connected to the internet via an HTTP proxy, add the following section to <code>Settings.toml</code> and change accordingly.</p>
+<pre><code>[proxy]
+host = &quot;localhost&quot;
+port = &quot;3128&quot;
+username = &quot;&quot;
+password = &quot;&quot;
+</code></pre>
+
+<h2 id="organizations">Organizations</h2>
+<p>When you push a module to Ballerina Central, the runtime validates organizations for the user against the org-name defined in your module’s <code>Ballerina.toml</code> file. Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the module into and set that as the <code>org-name</code> in the <code>Ballerina.toml</code> file inside the project directory.</p> 
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+
+</div>
+
+    <script>
+        $(document).ready(function() {
+            $(".cSideBar-Button").click(function() {
+                $(".cSideBar-Button").toggleClass('cOpen');
+                $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+            });
+
+            $("#breadcrumb-list li").each(function(index) {
+                var current = $(this);
+                var currentLink = $(current.find("a")[0]);
+                if (currentLink && currentLink.attr("href") == "#" && !current.hasClass("wy-breadcrumbs-aside") &&
+                    !current.next().hasClass("wy-breadcrumbs-aside")) {
+                    var prevLink = $(current.prev().find("a")[0]);
+                    if (prevLink && prevLink.attr("href") != "#") {
+                        currentLink.attr("href", prevLink.attr("href") +
+                            (prevLink.attr("href").match(/\/$/) ? "" : "/") +
+                            current.attr("link_candidate").toLowerCase().split(" ").join("-"));
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="/js/theme.js"></script>
+    <script src="/search/search.js"></script>
+
+    <!-- Slack form -->
+    <div class="modal fade" id="subscribe" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Request an invite</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="cBallerinaFormFieldContainer">
+                            <span id="subscribeMessage"></span>
+                            <label class="subscribeForm">Email Address</label>
+                            <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeForm" type="text">
+                        </div>
+                        <a class="cBallerinaButtons subscribeForm" href="" id="subscribeButton">Submit</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
