@@ -1,0 +1,333 @@
+
+    <div class="row cBallerina-io-Gray-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                        <div class="cBlallerina-io-docs-left-nav-container">
+                            <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                            <div class="cBlallerina-io-docs-left-nav-box">
+                                <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                                <ul id="toc_list">
+    
+                                    
+                                    <li class="toctree-l3"><a href="#ballerina-style-guide">Ballerina Style Guide</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#indentation-and-line-length">Indentation and line length</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#line-spacing">Line spacing</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#blank-lines">Blank lines</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#blocks">Blocks</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#parentheses-and-brackets">Parentheses and Brackets</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#line-breaks">Line breaks</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#top-level-definitions">Top Level Definitions</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#operators-keywords-and-types">Operators, Keywords, and Types</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#statements">Statements</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#expressions">Expressions</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#annotations-documentation-and-comments">Annotations, Documentation, and Comments</a></li>
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                        <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                            <div role="navigation" aria-label="breadcrumbs navigation">
+      <ul class="wy-breadcrumbs" id="breadcrumb-list">
+        <li><a href="/">Home</a> &raquo;</li>
+        
+          
+            
+              <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+            
+          
+        
+        <li>Style Guide</li>
+        <li class="wy-breadcrumbs-aside" id="iGitEdit">
+          
+            <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/style-guide.md" target="_blank"
+              class="icon icon-github"> Edit on GitHub</a>
+          
+        </li>
+      </ul>
+    
+    </div>
+                        </div>
+                        <div class="cBlallerina-io-docs-content-container">
+                            <div class="wy-nav-content">
+                                <div class="rst-content">
+    
+                                    <div role="main">
+                                        <div class="section">
+                                            <!--                <h1>Style Guide</h1>-->
+                                             <h1 id="ballerina-style-guide">Ballerina Style Guide</h1>
+    <p>The Ballerina Style Guide aims at maintaining a standard coding style among the Ballerina community. Therefore, the Ballerina code formatting tools are based on this guide.</p>
+    <p>You can follow your own coding style when writing Ballerina source code. Also, plugins and tools can be configured to match your coding style.</p>
+    <h2 id="indentation-and-line-length">Indentation and line length</h2>
+    <ul>
+    <li>Use four spaces (not tabs) for each level of indentation.</li>
+    <li>Keep the maximum length of a line to 120 characters. </li>
+    </ul>
+    <blockquote>
+    <p><strong>Note:</strong> You can configure tools and plugins to use tabs when indenting and to change the number of maximum characters of the line length.</p>
+    </blockquote>
+    <h2 id="line-spacing">Line spacing</h2>
+    <ul>
+    <li>Use only a single space to separate keywords, types, and identifiers. </li>
+    </ul>
+    <p><strong>Do's</strong></p>
+    <pre><code class="ballerina">public function getFullName() returns string {
+        string fullName = &quot;john doe&quot;;
+        return fullName;
+    }
+    </code></pre>
+    
+    <p><strong>Don'ts</strong></p>
+    <pre><code class="ballerina">public   function   getFullName()   returns   string {
+        string   fullName = &quot;john doe&quot;;
+        return     fullName;
+    }
+    </code></pre>
+    
+    <p>Few exceptions for this rule are:
+    - Do not keep spaces around a type when it is enclosed using angle brackets <code>&lt;string&gt;</code>. </p>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">map&lt;string&gt; names = {};
+    </code></pre>
+    
+    <ul>
+    <li>Do not keep spaces between the type and the opening bracket in the array definition <code>string[]</code>.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">    string[] names = [];
+    </code></pre>
+    
+    <ul>
+    <li>If it is a list of values separated by commas, add only a single space after each comma and don't add spaces before the comma.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">[string, int, boolean] tupleVar = [&quot;&quot;, 0, false];
+    
+    int[] arrayOfString = [1, 2, 3, 4]
+    
+    map&lt;string&gt; stringMap = {one: st1, two: st2, three: st3};
+    
+    Person personRecord = {name:&quot;marcus&quot;, id: 0};
+    
+    function foo(string name, int id) {}
+    
+    service hello on ep1, ep2 {...}
+    </code></pre>
+    
+    <h2 id="blank-lines">Blank lines</h2>
+    <p>Separate both statements and top level definitions by zero or one blank lines.</p>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">import ballerina/http;
+    import ballerina/io;
+    
+    const string CITY = &quot;Colombo&quot;;
+    const int CITY_NO = 1;
+    
+    function getName() returns string {
+        string firstName = &quot;john&quot;;
+        string lastName = &quot;doe&quot;;
+    
+        return firstName + lastName;
+    }
+    
+    function setName(string name) {}
+    function setAge(int age) {}
+    </code></pre>
+    
+    <blockquote>
+    <p><strong>Note:</strong> You can configure tools and plugins to change the number of minimum and maximum blank lines used when formatting. </p>
+    </blockquote>
+    <h2 id="blocks">Blocks</h2>
+    <ul>
+    <li>Opening curly braces of a block should be placed inline.</li>
+    </ul>
+    <p><strong>Do's</strong></p>
+    <pre><code class="ballerina">if (true) {
+    }
+    
+    function setName(string name) {
+    
+    }
+    </code></pre>
+    
+    <p><strong>Don'ts</strong></p>
+    <pre><code class="ballerina">if (true)
+    {
+    
+    }
+    
+    function setName(string name)
+    {
+    
+    }
+    </code></pre>
+    
+    <ul>
+    <li>Add a single space before the opening curly braces. </li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">
+    function func1() {
+        if (true) {}
+    }
+    
+    </code></pre>
+    
+    <ul>
+    <li>If a block is empty, do not keep spaces in between the opening and closing braces.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">function func1() {}
+    </code></pre>
+    
+    <ul>
+    <li>Indent all the statements inside a block to be at the same level.</li>
+    <li>Indent the closing brace of a block to align it with the starting position of the block statement.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">if (false) {
+       ...
+    }
+    
+    match a {
+       ...
+    }
+    </code></pre>
+    
+    <h2 id="parentheses-and-brackets">Parentheses and Brackets</h2>
+    <ul>
+    <li>Do not have spaces after opening parentheses/bracket and before closing parentheses/bracket.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">[string, int] tupleVar = [&quot;&quot;, 0];
+    
+    function setValue(string value) {...}
+    
+    setValue(&quot;value&quot;);
+    </code></pre>
+    
+    <ul>
+    <li>To define an empty parentheses, do not keep spaces between the opening and closing parentheses <code>()</code>.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">int | () result = getResult();
+    </code></pre>
+    
+    <h2 id="line-breaks">Line breaks</h2>
+    <ul>
+    <li>Have only one statement in a line.</li>
+    <li>When splitting lines, which contains operator(s), split them right before an operator.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">// Binary operations.
+    string s = &quot;added &quot; + People.name
+        + &quot; in to database.&quot;;
+    
+    // Function invocation.
+    string s = person
+        .getName();
+    
+    // Binary operations in if condition
+    if (isNameAvailable 
+        &amp;&amp; (i == 1)) {
+    
+    }
+    </code></pre>
+    
+    <ul>
+    <li>When splitting lines, which contains separator(s), split them right after a separator.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">// Function parameters.
+    function getName(int id, int age,
+        string searchValue) returns string {
+        ...
+    }
+    </code></pre>
+    
+    <ul>
+    <li>If there isn't any operator or separator to break the line from, move the whole expression to a new line.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">// String literal.
+    string s1 =
+        &quot;My name is not in this description&quot;;
+    
+    // Function invocation.
+    string s2 =
+        getPersonNameWithUpperCaseLetters();
+    </code></pre>
+    
+    <ul>
+    <li>If a line exceeds the max line length, start from the end of the line and come towards the start of the line until you find a point, which matches the above rules to break the line.</li>
+    <li>Indent split lines with relation to the starting position of the statement or definition.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">if (isNameAvailable 
+        &amp;&amp; (i == 1)) {
+    
+    }
+    
+    // Function parameters.
+    function getName(int id, int age,
+        string searchValue) returns string {
+        ...
+    }
+    </code></pre>
+    
+    <ul>
+    <li>However, if you cannot add the type-casting expression or statement with the constrained type in a single line 
+      due to it exceeding the max line length, </li>
+    <li>move the casting type with the operators to a new line.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">    string name =
+            &lt;string&gt;json.name;
+    </code></pre>
+    
+    <ul>
+    <li>keep the constrained type on the same line by splitting the statement from a point before the constraint type.</li>
+    </ul>
+    <p><strong>Example,</strong></p>
+    <pre><code class="ballerina">map&lt;int | string&gt; registry = {
+        name: &quot;marcus&quot;
+    };
+    
+    table&lt;Employee&gt; employee = table {
+        {key id, name, address}
+        };
+    </code></pre>
+    
+    <h2 id="top-level-definitions">Top Level Definitions</h2>
+    <p>For style guidelines on imports, service definition, object definiiton, record definition, referencing record or abstract object, etc., see <a href="../../learn/style-guide/definitions">Top Level Definitions</a>.</p>
+    <h2 id="operators-keywords-and-types">Operators, Keywords, and Types</h2>
+    <p>For style guidelines on operators, keywords, and types, see <a href="../../learn/style-guide/operators_keywords_and_types">Operators, Keywords, and Types</a>.</p>
+    <h2 id="statements">Statements</h2>
+    <p>For style guidelines on statemnets such as if, match, transcation etc., see <a href="../../learn/style-guide/statements">Statements</a>.</p>
+    <h2 id="expressions">Expressions</h2>
+    <p>For style guidelines on function invocation, literals, tuple, type casting etc. see <a href="../../learn/style-guide/expressions">Expressions</a>.</p>
+    <h2 id="annotations-documentation-and-comments">Annotations, Documentation, and Comments</h2>
+    <p>For style guidelines on annotations, documentation, and comments, see <a href="../../learn/style-guide/annotations_documentation_and_comments">Annotations, Documentation, and Comments</a>.</p> 
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

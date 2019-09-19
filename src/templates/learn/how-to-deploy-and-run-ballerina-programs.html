@@ -1,0 +1,1001 @@
+
+    <div class="row cBallerina-io-Gray-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                        <div class="cBlallerina-io-docs-left-nav-container">
+                            <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                            <div class="cBlallerina-io-docs-left-nav-box">
+                                <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                                <ul id="toc_list">
+    
+                                    
+                                    <li class="toctree-l3"><a href="#how-to-run-and-deploy-ballerina-programs">How to Run and Deploy Ballerina Programs</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#running-ballerina-programs-and-services">Running Ballerina Programs and Services</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#configuring-your-ballerina-runtimes">Configuring Your Ballerina Runtimes</a></li>
+                                    
+                                    <li><a class="toctree-l4" href="#deploying-ballerina-programs-and-services">Deploying Ballerina Programs and Services</a></li>
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                        <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                            <div role="navigation" aria-label="breadcrumbs navigation">
+      <ul class="wy-breadcrumbs" id="breadcrumb-list">
+        <li><a href="/">Home</a> &raquo;</li>
+        
+          
+            
+              <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+            
+          
+        
+        <li>How to deploy and run ballerina programs</li>
+        <li class="wy-breadcrumbs-aside" id="iGitEdit">
+          
+            <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/how-to-deploy-and-run-ballerina-programs.md" target="_blank"
+              class="icon icon-github"> Edit on GitHub</a>
+          
+        </li>
+      </ul>
+    
+    </div>
+                        </div>
+                        <div class="cBlallerina-io-docs-content-container">
+                            <div class="wy-nav-content">
+                                <div class="rst-content">
+    
+                                    <div role="main">
+                                        <div class="section">
+                                            <!--                <h1>How to deploy and run ballerina programs</h1>-->
+                                             <h1 id="how-to-run-and-deploy-ballerina-programs">How to Run and Deploy Ballerina Programs</h1>
+    <h2 id="running-ballerina-programs-and-services">Running Ballerina Programs and Services</h2>
+    <p>A Ballerina application can have:</p>
+    <ol>
+    <li>
+    <p>A <a href="../../learn/by-example/the-main-function.html"><code>main()</code></a> function that runs as a terminating process.</p>
+    </li>
+    <li>
+    <p>A <a href="../../learn/by-example/hello-world-service.html"><code>service</code></a>, which is a hosted non-terminating process.</p>
+    </li>
+    </ol>
+    <p>Both of these are considered as entry points for program execution. </p>
+    <p>These applications can be structured into a single program file or a Ballerina module. A collection of modules can be managed together with versioning and dependency management as part of a Ballerina project. </p>
+    <p>Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.</p>
+    <h3 id="running-standalone-source-code">Running Standalone Source Code</h3>
+    <p>A single Ballerina source code file can be placed into any folder. </p>
+    <p>If the source file contains at least one entry point, it can be executed using the <code>run</code> command.</p>
+    <pre><code class="bash">$ ballerina run foo.bal
+    </code></pre>
+    
+    <p>You can compile a source file with an entry point into an executable jar.</p>
+    <pre><code class="bash">$ ballerina build [-o outputfilename.jar] foo.bal
+    </code></pre>
+    
+    <p>And you can run <code>.jar</code> files directly:</p>
+    <pre><code class="bash">$ ballerina run filename.jar
+    </code></pre>
+    
+    <h3 id="running-a-project">Running a Project</h3>
+    <p>A project is a folder that manages modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See <a href="../../learn/how-to-structure-ballerina-code/">How To Structure Ballerina Code</a> for in-depth structuring of projects.</p>
+    <p>Build all modules of a project:</p>
+    <pre><code class="bash">$ ballerina build
+    </code></pre>
+    
+    <p>Build a single module in a project:</p>
+    <pre><code class="bash">$ ballerina build &lt;module-name&gt;
+    </code></pre>
+    
+    <p>Options for running programs with entrypoints in a project:  </p>
+    <pre><code class="bash">$ ballerina run main.bal
+    $ ballerina run main.jar
+    </code></pre>
+    
+    <h2 id="configuring-your-ballerina-runtimes">Configuring Your Ballerina Runtimes</h2>
+    <h3 id="ballerina-runtime-configuration-files">Ballerina Runtime Configuration Files</h3>
+    <p>A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The <code>ballerina/config</code> module provides an API for sourcing configuration parameters and using them within your source code. See <a href="../../learn/api-docs/ballerina/config.html">Config API Documentation</a> for details.</p>
+    <p>The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.</p>
+    <h3 id="sourcing-parameters-into-ballerina-programs">Sourcing Parameters Into Ballerina Programs</h3>
+    <p>Configuration parameters for your programs and apps can be defined on the CLI, as an environment variable, or from a configuration file, with loading and override precedence in the same order.</p>
+    <h4 id="sourcing-cli-parameters">Sourcing CLI Parameters</h4>
+    <p>Consider the following example, which reads a Ballerina config value and prints it.</p>
+    <pre><code class="ballerina">import ballerina/io;
+    import ballerina/config;
+    
+    public function main() {
+      string name = config:getAsString(&quot;hello.user.name&quot;);
+      io:println(&quot;Hello, &quot; + name + &quot; !&quot;);
+    }
+    </code></pre>
+    
+    <p>The config key is <code>hello.user.name</code>. To pass a value to this config from the CLI, we can use <code>--key=value</code> format as the following command.</p>
+    <pre><code class="bash">$ ballerina run  main.bal --hello.user.name=Ballerina
+    Hello, Ballerina !
+    </code></pre>
+    
+    <h4 id="sourcing-configuration-values">Sourcing Configuration Values</h4>
+    <p>The value can be passed as a config file as well. A configuration file should conform to the <a href="https://github.com/toml-lang/toml">TOML</a> format. Ballerina only supports the following features of TOML: value types (string, int, float, and boolean), tables, and nested tables. Given below is a sample <code>ballerina.conf</code>:</p>
+    <pre><code class="toml">[hello.user]
+    name=&quot;Ballerina&quot;
+    </code></pre>
+    
+    <p>When running a program with config API lookups, Ballerina looks for a <code>ballerina.conf</code> file in the directory where the source files are located.</p>
+    <p>If <code>ballerina.conf</code> resides in the same directory as <code>main.bal</code>, <code>balllerina run</code> can be used without any argument.</p>
+    <pre><code class="bash">$ ballerina run main.bal
+    Hello, Ballerina !
+    </code></pre>
+    
+    <p>To explicitly specify a configuration file, use the <code>--b7a.config.file</code> property. The path to the configuration file can be either an absolute or a relative path. </p>
+    <pre><code class="bash">$ ballerina run main.bal --b7a.config.file=path/to/conf/file/custom-config-file-name.conf
+    Hello, Ballerina !
+    </code></pre>
+    
+    <h4 id="configure-secrets-as-configuration-items">Configure Secrets as Configuration Items</h4>
+    <p>Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuration API in the code.</p>
+    <h5 id="creating-a-secured-value">Creating a Secured Value</h5>
+    <p>The <code>ballerina encrypt</code> command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named <code>Ballerina</code> with the value <code>12345</code> as the secret.</p>
+    <pre><code class="ballerina">$ ballerina encrypt
+    Enter value:
+    Enter secret:
+    Re-enter secret to verify:
+    Add the following to the runtime config:
+    &lt;key&gt;=&quot;@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}&quot;
+    
+    Or add to the runtime command line:
+    --&lt;key&gt;=@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}
+    </code></pre>
+    
+    <h5 id="using-the-secured-value-at-runtime">Using the Secured Value at Runtime</h5>
+    <p>The secured value can be placed in a config file as a value or passed on the command line. </p>
+    <pre><code>[hello.user]
+    name=&quot;@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}&quot;
+    </code></pre>
+    
+    <p>or (Enter secret <code>12345</code> when prompted.):</p>
+    <pre><code class="bash">$ ballerina run main.bal --hello.user.name=@encrypted:{Z1CfAJwCEzmv2JNXIPnR/9AXHqOJqnDaaAQ7HsggGLQ=}
+    ballerina: enter secret for config value decryption:
+    
+    Hello, Ballerina !
+    </code></pre>
+    
+    <h5 id="decrypting-the-value">Decrypting the Value</h5>
+    <p>If a configuration contains an encrypted value, Ballerina looks for a <code>secret.txt</code> file in the directory where the source files are located. The <code>secret.txt</code> should contain the secret used to encrypt the value. The <code>secret.txt</code> file will be deleted after it is read.</p>
+    <pre><code class="bash">$ echo 12345 &gt; secret.txt
+    $ ballerina run main.bal --b7a.config.file=ballerina.conf
+    Hello, Ballerina !
+    </code></pre>
+    
+    <p>If the <code>secret.txt</code> file is not present, then CLI prompts the user for the secret. Enter secret <code>12345</code> when prompted.</p>
+    <pre><code class="bash">$ ballerina run main.bal --b7a.config.file=ballerina.conf
+    ballerina: enter secret for config value decryption:
+    
+    Hello, Ballerina !
+    </code></pre>
+    
+    <h2 id="deploying-ballerina-programs-and-services">Deploying Ballerina Programs and Services</h2>
+    <p>Deploying a Ballerina program or service is the process of creating assets that ready the program and services(s) for activation in another runtime, such as Docker Engine, Moby, Kubernetes, or Cloud Foundry. The Ballerina compiler is able to generate the necessary artifacts for different deployment annotations based upon annotations that decorate the source code, which provide compiler instructions for artifact generation.</p>
+    <h3 id="how-deployment-works">How Deployment Works</h3>
+    <p>Ballerina has builder extensions that run after the compilation phase. These extensions analyze code to generate deployment artifacts and utilities to make deployment of your apps and services easier.</p>
+    <p>When you start building a project, the system starts parsing. This is followed by dependency analysis, compilation, and a phase at which deployment artifact generation can take place.</p>
+    <p>These deployment artifacts can be a form of simple files or complex types, like container images, virtual images, etc. The Ballerina builder extension supports the following list of deployment artifacts.</p>
+    <ul>
+    <li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfiles</a></li>
+    <li><a href="https://docs.docker.com/engine/reference/commandline/images/">Docker images</a></li>
+    <li><a href="http://kubernetes.io">Kubernetes</a> artifacts</li>
+    </ul>
+    <p>It is possible for third parties and the ecosystem to create their own annotations and builder extensions that generate different kinds of deployment artifacts. You can publish these extensions within Ballerina Central for others to use. For more information, see <a href="../../learn/how-to-extend-ballerina/">How to Extend Ballerina</a>.</p>
+    <h3 id="how-to-enable-deployment">How to Enable Deployment</h3>
+    <p>A developer enables deployment artifact generation by adding annotations to their Ballerina code: </p>
+    <ol>
+    <li>Import the relevant extension module in the code.</li>
+    <li>Add relevant annotations within the code. </li>
+    <li>Build the Ballerina project.</li>
+    </ol>
+    <h4 id="docker-based-deployment">Docker-Based Deployment</h4>
+    <p>See the following example on how a developer can add Docker support in the code.</p>
+    <p>Add the following code to the <code>hello_world_docker.bal</code> file.</p>
+    <pre><code class="ballerina">import ballerina/http;  
+    import ballerina/docker;  
+    
+    @http:ServiceConfig {  
+        basePath:&quot;/helloWorld&quot;  
+    }  
+    @docker:Config {
+        registry:&quot;docker.abc.com&quot;,
+        name:&quot;helloworld&quot;,
+        tag:&quot;v1.0&quot;
+    }
+    service helloWorld on new http:Listener(9090) {
+        resource function sayHello (http:Caller caller, http:Request request) {
+            http:Response response = new;
+            response.setTextPayload(&quot;Hello, World! \n&quot;);
+            var result = caller -&gt; respond(response);
+            if (result is error) {
+                log:printError(&quot;Error sending response&quot;, result);
+            }
+        }
+    }
+    </code></pre>
+    
+    <p>Now your code is ready to generate deployment artifacts. In this case it is a Docker image.</p>
+    <pre><code class="bash">$ ballerina build hello_world_docker.bal  
+    Compiling source
+            hello_world_docker.bal
+    Generating executables
+            hello_world_docker.jar
+    
+    Generating docker artifacts...
+            @docker                  - complete 2/2 
+    
+            Run the following command to start a Docker container:
+            docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+    </code></pre>
+    
+    <pre><code class="bash">$ tree  
+    .
+    ├── docker
+    │   └── Dockerfile
+    ├── hello_world_docker.bal
+    └── hello_world_docker.jar
+    
+    1 directory, 3 files
+    </code></pre>
+    
+    <pre><code class="bash">$ docker images  
+    REPOSITORY                  TAG                 IMAGE ID            CREATED              SIZE
+    docker.abc.com/helloworld   v1.0                154053b4e4cd        About a minute ago   108MB
+    </code></pre>
+    
+    <p>You can run a Docker container by copying and pasting the Docker <code>run</code> command that displays as output of the Ballerina <code>build</code> command.</p>
+    <pre><code class="bash">$ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+    938761fa222fde551c5092b7f5fda2a72c3cd43178c7fd86f43f678ec5227d35
+    </code></pre>
+    
+    <pre><code class="bash">$ docker ps  
+    CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORTS                    NAMES
+    938761fa222f        docker.abc.com/helloworld:v1.0   &quot;/bin/sh -c 'java -j…&quot;   18 seconds ago      Up 17 seconds       0.0.0.0:9090-&gt;9090/tcp   brave_hamilton
+    </code></pre>
+    
+    <p>Invoke the hello world service with a cURL command:</p>
+    <pre><code class="bash">$ curl http://localhost:9090/helloWorld/sayHello  
+    Hello, World!
+    </code></pre>
+    
+    <p>The following features are supported by the Docker builder extension.</p>
+    <ul>
+    <li>Dockerfile generation</li>
+    <li>Docker image generation</li>
+    <li>Docker push support with Docker registry</li>
+    <li>Docker-based Ballerina debug support</li>
+    <li>Copy file support</li>
+    </ul>
+    <h5 id="supported-docker-annotations">Supported Docker Annotations</h5>
+    <p><strong>@docker:Config{}</strong>
+    - Supported with Ballerina services or endpoints.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the Docker image</td>
+    <td>output <code>.jar</code> file name</td>
+    </tr>
+    <tr>
+    <td>registry</td>
+    <td>Docker registry</td>
+    <td>None</td>
+    </tr>
+    <tr>
+    <td>tag</td>
+    <td>Docker image tag</td>
+    <td>latest</td>
+    </tr>
+    <tr>
+    <td>buildImage</td>
+    <td>Whether to build Docker image</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td>dockerHost</td>
+    <td>Docker host IP and Docker PORT (e.g., minikube IP and Docker PORT)</td>
+    <td>unix:///var/run/docker.sock</td>
+    </tr>
+    <tr>
+    <td>dockerCertPath</td>
+    <td>Docker cert path</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>baseImage</td>
+    <td>Base image to create the Docker image</td>
+    <td>ballerina/ballerina:latest</td>
+    </tr>
+    <tr>
+    <td>enableDebug</td>
+    <td>Enable debug for Ballerina</td>
+    <td>false</td>
+    </tr>
+    <tr>
+    <td>debugPort</td>
+    <td>Remote debug port</td>
+    <td>5005</td>
+    </tr>
+    <tr>
+    <td>push</td>
+    <td>Push to remote registry</td>
+    <td>false</td>
+    </tr>
+    <tr>
+    <td>username</td>
+    <td>Username for Docker registry</td>
+    <td>None</td>
+    </tr>
+    <tr>
+    <td>password</td>
+    <td>Password for Docker registry</td>
+    <td>None</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@docker:CopyFiles{}</strong>
+    - Supported with Ballerina services or endpoints.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>sourceFile</td>
+    <td>Source path of the file (on your machine)</td>
+    <td>None</td>
+    </tr>
+    <tr>
+    <td>target</td>
+    <td>Target path (inside container)</td>
+    <td>None</td>
+    </tr>
+    <tr>
+    <td>isBallerinaConf</td>
+    <td>Whether the file is a Ballerina config file</td>
+    <td>false</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@docker:Expose{}</strong>
+    - Supported with Ballerina endpoints.</p>
+    <p>For more information, see the <a href="https://github.com/ballerinax/docker">Docker build extension GitHub repo</a>.</p>
+    <h4 id="kubernetes-based-deployment">Kubernetes-Based Deployment</h4>
+    <p>The Kubernetes builder extension offers native support for running Ballerina programs on Kubernetes with the use of annotations that you can include as part of your service code. Also, it will take care of the creation of the Docker images, so you don't need to explicitly create Docker images prior to deployment on Kubernetes.</p>
+    <p>The following Kubernetes configurations are supported:
+    - Kubernetes deployment support
+    - Kubernetes service support
+    - Kubernetes liveness probe support
+    - Kubernetes ingress support
+    - Kubernetes horizontal pod autoscaler support
+    - Docker image generation
+    - Docker push support with remote Docker registry
+    - Kubernetes secret support
+    - Kubernetes config map support
+    - Kubernetes persistent volume claim support</p>
+    <p>The following Ballerina code section explains how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina. 
+    Full example can be found at <a href="https://ballerina.io/learn/by-guide/data-backed-service/">Database Interaction Guide</a></p>
+    <pre><code class="ballerina">import ballerina/config;
+    import ballerina/http; 
+    import ballerina/jdbc; 
+    import ballerina/kubernetes;
+    
+    // Create SQL endpoint to MySQL database
+    jdbc:Client employeeDB = new ({
+        url:config:getAsString(&quot;db-url&quot;),
+        username:config:getAsString(&quot;db-username&quot;),
+        password:config:getAsString(&quot;db-password&quot;)
+    });
+    
+    @kubernetes:Ingress {
+        hostname:&quot;ballerina.guides.io&quot;,
+        name:&quot;ballerina-guides-employee-database-service&quot;,
+        path:&quot;/&quot;
+    }
+    @kubernetes:Service {
+        serviceType:&quot;NodePort&quot;,
+        name:&quot;ballerina-guides-employee-database-service&quot;
+    }
+    listener http:Listener ep = new (9090, config = {
+        secureSocket:{
+            keyStore:{
+                path:&quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;,
+                password:config:getAsString(&quot;key-store-password&quot;)
+            },
+            trustStore:{
+                path:&quot;${ballerina.home}/bre/security/ballerinaTruststore.p12&quot;,
+                password:config:getAsString(&quot;trust-store-password&quot;)
+            }
+        }
+    });
+    
+    @kubernetes:ConfigMap {
+        ballerinaConf:&quot;conf/data-service.conf&quot;
+    }
+    @kubernetes:Deployment {
+        image:&quot;ballerina.guides.io/employee_database_service:v1.0&quot;,
+        name:&quot;ballerina-guides-employee-database-service&quot;,
+        copyFiles:[{target:&quot;/ballerina/runtime/bre/lib&quot;,
+                    sourceFile:&quot;conf/mysql-connector-java-8.0.11.jar&quot;}]
+    }
+    @http:ServiceConfig {
+        basePath:&quot;/records&quot;
+    }
+    service employee_data_service on ep {
+    </code></pre>
+    
+    <p>Sample content of <code>data-service.conf</code>:</p>
+    <pre><code class="toml"># Ballerina database config file
+    db-url = &quot;jdbc:mysql://mysql-server:3306/EMPLOYEE_RECORDS&quot;
+    db-username = &quot;root&quot;
+    db-password = &quot;root&quot;
+    key-store-password = &quot;abc123&quot;
+    trust-store-password = &quot;xyz123&quot;
+    </code></pre>
+    
+    <p>Here we have used <code>@kubernetes:Deployment</code> to specify the Docker image name that will be created as part of building this service. The <code>CopyFiles</code> field is used to copy the MySQL JAR file into the Ballerina <code>bre/lib</code> folder.</p>
+    <p>The <code>@kubernetes:Service {}</code> annotation will create a Kubernetes service that will expose the Ballerina service running on a Pod.</p>
+    <p>In addition, you can use <code>@kubernetes:Ingress</code>, which is the external interface to access your service (with path / and host name <code>ballerina.guides.io</code>).</p>
+    <p>Minikube users please see the <a href="https://github.com/ballerinax/kubernetes/tree/master/samples">Kubernetes Extension samples</a> for additional configurations required for Minikube.</p>
+    <p>Now you can use the following command to build the Ballerina service that we developed above. This will also create the corresponding Docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.</p>
+    <pre><code class="bash">$ ballerina build data_backed_service.bal
+    Compiling source
+        data_backed_service.bal
+    
+    Generating executables
+        data_backed_service.jar
+    
+    Generating artifacts...
+    
+    @kubernetes:Service                     - complete 1/1
+    @kubernetes:Ingress                     - complete 1/1
+    @kubernetes:Secret                      - complete 1/1
+    @kubernetes:ConfigMap                   - complete 1/1
+    @kubernetes:Docker                      - complete 3/3 
+    @kubernetes:Deployment                  - complete 1/1
+    
+    Run the following command to deploy the Kubernetes artifacts: 
+    kubectl apply -f ./kubernetes/
+    
+    </code></pre>
+    
+    <p>You can use the <code>docker images</code> command to verify that the Docker image that we specified in <code>@kubernetes:Deployment</code> was created. The Kubernetes artifacts related to your service will be generated in addition to the <code>.balx</code> file.</p>
+    <pre><code class="bash">$ tree
+    ├── conf
+    │   ├── ballerina.conf
+    │   └── mysql-connector-java-8.0.11.jar
+    ├── data_backed_service.bal
+    ├── data_backed_service.jar
+    └── kubernetes
+        ├── data_backed_service_config_map.yaml
+        ├── data_backed_service_deployment.yaml
+        ├── data_backed_service_ingress.yaml
+        ├── data_backed_service_secret.yaml
+        ├── data_backed_service_svc.yaml
+        └── docker
+            ├── Dockerfile
+            └── mysql-connector-java-8.0.11.jar
+    
+    </code></pre>
+    
+    <p>Now you can create the Kubernetes deployment using:</p>
+    <pre><code class="bash">$ kubectl apply -f ./kubernetes 
+    
+    configmap &quot;employee-data-service-ballerina-conf-config-map&quot; created
+    deployment &quot;ballerina-guides-employee-database-service&quot; created
+    ingress &quot;ballerina-guides-employee-database-service&quot; created
+    secret &quot;listener-secure-socket&quot; created
+    service &quot;ballerina-guides-employee-database-service&quot; created
+    </code></pre>
+    
+    <p>You can verify Kubernetes deployment, service, and ingress are running properly by using the following Kubernetes commands.</p>
+    <pre><code class="bash">$ kubectl get pods
+    NAME                                                          READY     STATUS    RESTARTS   AGE
+    ballerina-guides-employee-database-service-57479b7c67-l5v9k   1/1       Running     0          26s
+    </code></pre>
+    
+    <p>This is the container based on the deployment annotation. This container has the <code>.jar</code> file, secrets, config-maps, and dependencies wrapped within. </p>
+    <pre><code class="bash">$ kubectl get svc
+    NAME                                         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
+    ballerina-guides-employee-database-service   NodePort    10.96.24.77   &lt;none&gt;        9090:30281/TCP   51s
+    </code></pre>
+    
+    <p>This is the Kubernetes service that exposes the listener endpoint.</p>
+    <pre><code class="bash">$ kubectl get ingress
+    NAME                                         HOSTS                 ADDRESS   PORTS     AGE
+    ballerina-guides-employee-database-service   ballerina.guides.io             80, 443   1m
+    </code></pre>
+    
+    <p>This is the Kubernetes nginx rule that exposes the hostname to the outside world.</p>
+    <pre><code class="bash">$ kubectl get secrets
+    NAME                     TYPE                                  DATA      AGE
+    listener-secure-socket   Opaque                                2         1m
+    </code></pre>
+    
+    <p>The secrets are generated automatically for endpoint keystores and truststores. This secret is mounted to <code>${ballerina_home}</code> of the container.</p>
+    <pre><code class="bash">$ kubectl get configmap
+    NAME                                              DATA      AGE
+    employee-data-service-ballerina-conf-config-map   1         2m
+    </code></pre>
+    
+    <p>This is the config-map created for the <code>ballerina.conf</code> file, as the <code>ballerinaConf:"./conf/data-service.conf"</code> attribute is used. At run time, it is equivalent to:</p>
+    <pre><code class="bash">$ ballerina run &lt;source&gt;.jar --b7a.config.file=./conf/data-service.conf 
+    </code></pre>
+    
+    <p>The Kubernetes extension automatically passes the config file to the Ballerina program.</p>
+    <p>If everything is successfully deployed, you can invoke the service either via Node port or ingress.</p>
+    <p><strong>Access via Node Port:</strong></p>
+    <pre><code class="bash">$ curl -v -X POST -d '{&quot;name&quot;:&quot;Alice&quot;, &quot;age&quot;:20,&quot;ssn&quot;:123456789,&quot;employeeId&quot;:1}' \
+    &quot;http://localhost:&lt;Node_Port&gt;/records/employee&quot; -H &quot;Content-Type:application/json&quot; 
+    </code></pre>
+    
+    <p><strong>Access via Ingress:</strong></p>
+    <p>Add an <code>/etc/hosts</code> entry to match hostname.</p>
+    <pre><code class="bash">127.0.0.1 ballerina.guides.io
+    </code></pre>
+    
+    <p>Access the service:</p>
+    <pre><code class="bash">$ curl -v -X POST -d '{&quot;name&quot;:&quot;Alice&quot;, &quot;age&quot;:20,&quot;ssn&quot;:123456789,&quot;employeeId&quot;:1}' \
+    &quot;http://ballerina.guides.io/records/employee&quot; -H &quot;Content-Type:application/json&quot;
+    </code></pre>
+    
+    <h5 id="supported-kubernetes-annotations">Supported Kubernetes Annotations</h5>
+    <p><strong>@kubernetes:Deployment{}</strong>
+    - Supported with Ballerina services or endpoints.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the deployment</td>
+    <td>\&lt;outputfilename>-deployment</td>
+    </tr>
+    <tr>
+    <td>labels</td>
+    <td>Labels for deployment</td>
+    <td>"app: \&lt;outputfilename>"</td>
+    </tr>
+    <tr>
+    <td>replicas</td>
+    <td>Number of replicas</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>enableLiveness</td>
+    <td>Enable or disable liveness probe</td>
+    <td>disable</td>
+    </tr>
+    <tr>
+    <td>initialDelaySeconds</td>
+    <td>Initial delay in seconds before performing the first probe</td>
+    <td>10s</td>
+    </tr>
+    <tr>
+    <td>periodSeconds</td>
+    <td>Liveness probe interval</td>
+    <td>5s</td>
+    </tr>
+    <tr>
+    <td>livenessPort</td>
+    <td>Port that the liveness probe checks</td>
+    <td>\&lt;ServicePort></td>
+    </tr>
+    <tr>
+    <td>imagePullPolicy</td>
+    <td>Docker image pull policy</td>
+    <td>IfNotPresent</td>
+    </tr>
+    <tr>
+    <td>image</td>
+    <td>Docker image with tag</td>
+    <td><output file name>:latest</td>
+    </tr>
+    <tr>
+    <td>env</td>
+    <td>List of environment variables</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>buildImage</td>
+    <td>Building Docker image</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td>copyFiles</td>
+    <td>Copy external files for Docker image</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>dockerHost</td>
+    <td>Docker host IP and Docker PORT (e.g., "tcp://192.168.99.100:2376")</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>dockerCertPath</td>
+    <td>Docker cert path</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>push</td>
+    <td>Push Docker image to registry. This can only be true if image build is true.</td>
+    <td>false</td>
+    </tr>
+    <tr>
+    <td>username</td>
+    <td>Username for the Docker registry</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>password</td>
+    <td>Password for the Docker registry</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>baseImage</td>
+    <td>Base image to create the Docker image</td>
+    <td>ballerina/ballerina:latest</td>
+    </tr>
+    <tr>
+    <td>singleYAML</td>
+    <td>Generate a single yaml file for all k8s resources</td>
+    <td>false</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:Service{}</strong>
+    - Supported with Ballerina endpoints.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the service</td>
+    <td>\&lt;ballerina service name>-service</td>
+    </tr>
+    <tr>
+    <td>labels</td>
+    <td>Labels for the service</td>
+    <td>"app: \&lt;outputfilename>"</td>
+    </tr>
+    <tr>
+    <td>serviceType</td>
+    <td>Service type of the service</td>
+    <td>ClusterIP</td>
+    </tr>
+    <tr>
+    <td>port</td>
+    <td>Service port</td>
+    <td>Port of the Ballerina service</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:Ingress{}</strong>
+    - Supported with Ballerina endpoints.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of Ingress</td>
+    <td>\&lt;ballerina service name>-ingress</td>
+    </tr>
+    <tr>
+    <td>labels</td>
+    <td>Labels for service</td>
+    <td>"app: \&lt;outputfilename>"</td>
+    </tr>
+    <tr>
+    <td>hostname</td>
+    <td>Host name of Ingress</td>
+    <td>\&lt;ballerina service name>.com</td>
+    </tr>
+    <tr>
+    <td>path</td>
+    <td>Resource path.</td>
+    <td>/</td>
+    </tr>
+    <tr>
+    <td>targetPath</td>
+    <td>This is used for URL rewrite.</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>ingressClass</td>
+    <td>Ingress class</td>
+    <td>nginx</td>
+    </tr>
+    <tr>
+    <td>enableTLS</td>
+    <td>Enable ingress TLS</td>
+    <td>false</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:HPA{}</strong>
+    - Supported with Ballerina services.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the Horizontal Pod Autoscaler</td>
+    <td>\&lt;ballerina service name>-hpa</td>
+    </tr>
+    <tr>
+    <td>labels</td>
+    <td>Labels for service</td>
+    <td>"app: \&lt;outputfilename>"</td>
+    </tr>
+    <tr>
+    <td>minReplicas</td>
+    <td>Minimum number of replicas</td>
+    <td>No of replicas in deployment</td>
+    </tr>
+    <tr>
+    <td>maxReplicas</td>
+    <td>Maximum number of replicas</td>
+    <td>minReplicas+1</td>
+    </tr>
+    <tr>
+    <td>cpuPrecentage</td>
+    <td>CPU percentage to start scaling</td>
+    <td>50</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:Secret{}</strong>
+    - Supported with Ballerina services.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the secret volume mount</td>
+    <td>\&lt;service_name>-secret</td>
+    </tr>
+    <tr>
+    <td>mountPath</td>
+    <td>Path to mount on container</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>readOnly</td>
+    <td>Is mount read only</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td>data</td>
+    <td>Paths to data files</td>
+    <td>null</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:ConfigMap{}</strong>
+    - Supported with Ballerina services.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the configmap volume mount</td>
+    <td>\&lt;service_name>-config-map</td>
+    </tr>
+    <tr>
+    <td>mountPath</td>
+    <td>Path to mount on container</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>readOnly</td>
+    <td>Is mount read only</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td>ballerinaConf</td>
+    <td>Ballerina conf file location</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>data</td>
+    <td>Paths to data files</td>
+    <td>null</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:PersistentVolumeClaim{}</strong>
+    - Supported with Ballerina services.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the volume mount</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>mountPath</td>
+    <td>Path to mount on container</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>readOnly</td>
+    <td>Is mount read only</td>
+    <td>false</td>
+    </tr>
+    <tr>
+    <td>accessMode</td>
+    <td>Access mode</td>
+    <td>ReadWriteOnce</td>
+    </tr>
+    <tr>
+    <td>volumeClaimSize</td>
+    <td>Size of the volume claim</td>
+    <td>null</td>
+    </tr>
+    </tbody>
+    </table>
+    <p><strong>@kubernetes:Job{}</strong>
+    - Supported with the Ballerina <code>main()</code> function.</p>
+    <table>
+    <thead>
+    <tr>
+    <th><strong>Annotation Name</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Default value</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>name</td>
+    <td>Name of the job</td>
+    <td>\&lt;output file name>-job</td>
+    </tr>
+    <tr>
+    <td>labels</td>
+    <td>Labels for job</td>
+    <td>"app: \&lt;outputfilename>"</td>
+    </tr>
+    <tr>
+    <td>restartPolicy</td>
+    <td>Restart policy</td>
+    <td>Never</td>
+    </tr>
+    <tr>
+    <td>backoffLimit</td>
+    <td>Restart tries before termination</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>activeDeadlineSeconds</td>
+    <td>Active deadline seconds</td>
+    <td>20</td>
+    </tr>
+    <tr>
+    <td>schedule</td>
+    <td>Schedule for cron jobs</td>
+    <td>none</td>
+    </tr>
+    <tr>
+    <td>imagePullPolicy</td>
+    <td>Docker image pull policy</td>
+    <td>IfNotPresent</td>
+    </tr>
+    <tr>
+    <td>image</td>
+    <td>Docker image with tag</td>
+    <td>\&lt;output file name>:latest</td>
+    </tr>
+    <tr>
+    <td>env</td>
+    <td>List of environment variables</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>buildImage</td>
+    <td>Building Docker image</td>
+    <td>true</td>
+    </tr>
+    <tr>
+    <td>dockerHost</td>
+    <td>Docker host IP and Docker PORT (e.g., "tcp://192.168.99.100:2376")</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>dockerCertPath</td>
+    <td>Docker cert path</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>push</td>
+    <td>Push Docker image to registry. This can only be true if image build is true.</td>
+    <td>false</td>
+    </tr>
+    <tr>
+    <td>username</td>
+    <td>Username for the Docker registry</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>password</td>
+    <td>Password for the Docker registry</td>
+    <td>null</td>
+    </tr>
+    <tr>
+    <td>baseImage</td>
+    <td>Base image to create the Docker image</td>
+    <td>ballerina/ballerina:latest</td>
+    </tr>
+    </tbody>
+    </table>
+    <h3 id="extend-ballerina-deployment-and-annotations">Extend Ballerina Deployment and Annotations</h3>
+    <p>Ballerina can be augmented with your own annotations that represent your own unique deployment artifacts. You can also write builder extensions that generate these files during compilation. For more information on how to extend Ballerina, see <a href="../../learn/how-to-extend-ballerina/">How to Extend Ballerina</a>.</p> 
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

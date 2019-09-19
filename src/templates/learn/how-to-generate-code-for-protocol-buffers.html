@@ -1,0 +1,120 @@
+
+    <div class="row cBallerina-io-Gray-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                    <div class="cBlallerina-io-docs-left-nav-container">
+                        <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
+                        <div class="cBlallerina-io-docs-left-nav-box">
+                            <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                            <ul id="toc_list">
+
+                                
+                                <li class="toctree-l3"><a href="#how-to-generate-ballerina-code-for-protocol-buffer-definition">How to generate Ballerina code for Protocol Buffer Definition</a></li>
+                                
+                                <li><a class="toctree-l4" href="#cli-command">CLI Command</a></li>
+                                
+                                <li><a class="toctree-l4" href="#sample">Sample</a></li>
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-Middle-col">
+                    <div class="col-md-12 col-lg-12 cBallerina-io-breadcrumbs">
+                        <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs" id="breadcrumb-list">
+    <li><a href="/">Home</a> &raquo;</li>
+    
+      
+        
+          <li link_candidate="Learn"><a href="#" >Learn</a> &raquo;</li>
+        
+      
+    
+    <li>How to generate code for protocol buffers</li>
+    <li class="wy-breadcrumbs-aside" id="iGitEdit">
+      
+        <a href="https://github.com/ballerina-platform/ballerina-www/tree/1.0 rc1/website/two-column-pages/docs/learn/how-to-generate-code-for-protocol-buffers.md" target="_blank"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+
+</div>
+                    </div>
+                    <div class="cBlallerina-io-docs-content-container">
+                        <div class="wy-nav-content">
+                            <div class="rst-content">
+
+                                <div role="main">
+                                    <div class="section">
+                                        <!--                <h1>How to generate code for protocol buffers</h1>-->
+                                         <h1 id="how-to-generate-ballerina-code-for-protocol-buffer-definition">How to generate Ballerina code for Protocol Buffer Definition</h1>
+<p>The <code>Protocol Buffers</code> to Ballerina tool provides capabilities to generate Ballerina source code for the Protocol
+ Buffer definition. The code generation tool can produce <code>ballerina stub</code> and <code>ballerina service/client template</code> files.</p>
+<blockquote>
+<p>In Ballerina, Protocol Buffers serialization is only supported in the gRPC module. Therefore, you can only use
+this tool to generate Ballerina source code for gRPC service definitions.</p>
+</blockquote>
+<h2 id="cli-command">CLI Command</h2>
+<p>You can generate Ballerina source code using the following command:</p>
+<pre><code>./ballerina grpc --input &lt;proto-file-path&gt; [--output &lt;path&gt;] [--mode client | server]
+</code></pre>
+
+<p><strong><em>_<strong>Options</strong></em></strong>_</p>
+<p><code>--input</code>  - Path of the input .proto file. This is a mandatory field. You need to provide the path of the definition
+ file.</p>
+<p><code>--output</code> - Location of the generated Ballerina source files. This is an optional field. 
+If output path is not specified, output will be written to a directory corresponding to the package in the Protocol
+ Buffers definition. 
+If package is not specified, output will be written to a 'temp' directory in the current location.</p>
+<p><code>--mode</code>   - Set the mode (client or server) to generate code samples. If not specified, only the stub file is
+ generated.</p>
+<h2 id="sample">Sample</h2>
+<p>The below example shows how you can generate Ballerina source code from the following Protocol Buffers definition (in the <code>helloworld_service.proto</code> file).</p>
+<pre><code class="proto">syntax = &quot;proto3&quot;;
+
+service helloWorld {
+    rpc sayHello(HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+    string name = 1;
+}
+message HelloResponse {
+    string message = 1;
+}
+</code></pre>
+
+<ul>
+<li>You can run the following command to generate the client/service stub and service template.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --mode service --output service
+</code></pre>
+
+<p>Once you execute the command, the stub file(<code>helloworld_service_pb.bal</code>) and the service template file (<code>helloWorld_sample_service.bal</code>) are generated inside the service directory.</p>
+<ul>
+<li>You can run the following command to generate the client/service stub and client template.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --mode client --output client
+</code></pre>
+
+<p>Once you execute the command, the stub file(<code>helloworld_service_pb.bal</code>) and the service template file (<code>helloWorld_sample_client.bal</code>) are generated inside the client directory.</p>
+<ul>
+<li>You can run the following command to generate only the client/service stub.</li>
+</ul>
+<pre><code>$ ballerina grpc --input helloworld_service.proto --output stubs
+</code></pre>
+
+<p>Once you execute the command, only the stub file (<code>helloworld_service_pb.bal</code>) is generated inside the <code>stubs</code> directory.</p> 
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
