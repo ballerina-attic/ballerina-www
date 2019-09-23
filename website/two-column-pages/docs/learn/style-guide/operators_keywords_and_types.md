@@ -90,6 +90,6 @@ name += lastName;
   
 ```ballerina
 io:println("john");
-http:Response res = new();
+http:Response res = new ();
 ```
   
