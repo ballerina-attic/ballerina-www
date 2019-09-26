@@ -129,17 +129,17 @@ The encrypt command will prompt for the plain-text value to be encrypted and an 
 
 ```cmd
 $ ballerina encrypt
-Enter value:
+Enter value: 
 
-Enter secret:
+Enter secret: 
 
-Re-enter secret to verify:
+Re-enter secret to verify: 
 
-Add the following to the runtime config:
-@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Add the following to the configuration file:
+<key>="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 
-Or add to the runtime command line:
--e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Or provide it as a command line argument:
+--<key>=@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}
 ```
 
 Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
@@ -147,7 +147,7 @@ Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated e
 For example, contents of a configuration file that includes a secret value should look as follows:
 
 ```
-api.secret="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
+api.secret="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 api.provider="not-a-security-sensitive-value"
 ```
 
@@ -158,8 +158,7 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -e ballerina.config.secret=path/to/secret/file \
-securing_configuration_values.balx
+$ ballerina run --b7a.config.secret=path/to/secret/file securing_configuration_values.bal
 ```
 
 ## Authentication and Authorization
