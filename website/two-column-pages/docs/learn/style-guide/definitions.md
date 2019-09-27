@@ -196,7 +196,7 @@ type Person record {|
 ```
 * Also, block-indent.
 
-**Example:**
+**Example,**
 
 ```ballerina
 type UserId record {
