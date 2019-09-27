@@ -31,20 +31,20 @@ You can follow your own coding style when writing Ballerina source code. Also, p
   Few exceptions for this rule are:
   - Do not keep spaces around a type when it is enclosed using angle brackets `<string>`. 
       
-      Example,
+      **Example,**
       ```ballerina
       map<string> names = {};
       ```
   - Do not keep spaces between the type and the opening bracket in the array definition `string[]`.
       
-      Example,
+      **Example,**
       ```ballerina
       string[] names = [];
       
       ```
 * If it is a list of values separated by commas, add only a single space after each comma and don't add spaces before the comma.
   
-  Example,
+  **Example,**
     ```ballerina
     (string, int, boolean) tupleVar = ("", 0, false);
     
@@ -62,7 +62,7 @@ You can follow your own coding style when writing Ballerina source code. Also, p
 
 Separate both statements and top level definitions by zero or one blank lines.
 
-  Example,
+  **Example,**
   
   ```ballerina
   import ballerina/http;
@@ -111,7 +111,7 @@ Separate both statements and top level definitions by zero or one blank lines.
   ```
 * Add a single space before the opening curly braces. 
 
-  Example,
+  **Example,**
   ```ballerina
 
   function func1() {
@@ -121,14 +121,14 @@ Separate both statements and top level definitions by zero or one blank lines.
    ```
 * If a block is empty, do not keep spaces in between the opening and closing braces.
   
-  Example,
+  **Example,**
   ```ballerina
   function func1() {}
   ``` 
 * Indent all the statements inside a block to be at the same level.
 * Indent the closing brace of a block to align it with the starting position of the block statement.
 
-  Example,
+  **Example,**
   
   ```ballerina
   if (false) {
@@ -143,7 +143,7 @@ Separate both statements and top level definitions by zero or one blank lines.
 ### Parentheses
 * Do not have spaces after opening parentheses and before closing parentheses.
   
-  Example,
+  **Example,**
   ```ballerina
   (string, int) tupleVar = ("", 0);
   
@@ -153,7 +153,7 @@ Separate both statements and top level definitions by zero or one blank lines.
   ```
 * To define an empty parentheses, do not keep spaces between the opening and closing parentheses `()`.
   
-  Example,
+  **Example,**
   ```ballerina
   int | () result = getResult();
   ```
@@ -163,7 +163,7 @@ Separate both statements and top level definitions by zero or one blank lines.
 * Have only one statement in a line.
 * When splitting lines, which contains operator(s), split them right before an operator.
   
-  Example,
+  **Example,**
   
   ```ballerina
   // Binary operations.
@@ -182,7 +182,7 @@ Separate both statements and top level definitions by zero or one blank lines.
   ```
 * When splitting lines, which contains separator(s), split them right before a separator.
   
-  Example,
+  **Example,**
     
     ```ballerina
     // Function parameters.
@@ -193,7 +193,7 @@ Separate both statements and top level definitions by zero or one blank lines.
     ```
 * If there isn't any operator or separator to break the line from, move the whole expression to a new line.
   
-  Example,
+  **Example,**
   ```ballerina
   // String literal.
   string s1 =
@@ -206,7 +206,7 @@ Separate both statements and top level definitions by zero or one blank lines.
 * If a line exceeds the max line length, start from the end of the line and come towards the start of the line until you find a point, which matches the above rules to break the line.
 * Indent split lines with relation to the starting position of the statement or definition.
   
-  Example,
+  **Example,**
   ```ballerina
   if (isNameAvailable 
       && (i == 1)) {
@@ -223,7 +223,7 @@ Separate both statements and top level definitions by zero or one blank lines.
   due to it exceeding the max line length, 
     - move the casting type with the operators to a new line.
   
-      Example,
+      **Example,**
       ```ballerina
       string name =
           <string>json.name;
@@ -231,7 +231,7 @@ Separate both statements and top level definitions by zero or one blank lines.
   
     - keep the constrained type on the same line by splitting the statement from a point before the constraint type.
       
-      Example,
+      **Example,**
       ```ballerina
       map<int | string> registry = {
           name: "marcus"

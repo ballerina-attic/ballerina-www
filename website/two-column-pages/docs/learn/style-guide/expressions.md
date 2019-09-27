@@ -211,14 +211,14 @@ table<Employee> employee3 = table {
 
 * `new` keyword should always be followed by a single space.
 
-  Example,
+  **Example,**
   ```ballerina
     http:Response res = new ();
   ```
   
 * If the type name is available, there should be no spaces between the opening parentheses and the type name.
 
-  Example,
+  **Example,**
   ```ballerina
     http:Response res = new http:Response();
   ```
