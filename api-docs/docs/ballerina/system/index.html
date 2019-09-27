@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -324,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -626,7 +626,7 @@ public function main() {
     // Get the user home path.
     io:println(&quot;User home: &quot; + system:getUserHome());  // E.g. “/home/john”
 
-    // Execute an OS command as a subprocess
+    // Execute an OS command as a subprocess.
     system:Process|system:Error proc = checkpanic system:exec(&quot;ls&quot;, {}, &quot;/&quot;, &quot;-la&quot;);
 }
 </code></pre>
@@ -728,25 +728,29 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_OPERATION_ERROR" title="INVALID_OPERATION_ERROR"><a
                                     class="constant" href="constants.html#INVALID_OPERATION_ERROR">INVALID_OPERATION_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for invalid operations</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="PERMISSION_ERROR" title="PERMISSION_ERROR"><a
                                     class="constant" href="constants.html#PERMISSION_ERROR">PERMISSION_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for permission errors</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="FILE_SYSTEM_ERROR" title="FILE_SYSTEM_ERROR"><a
                                     class="constant" href="constants.html#FILE_SYSTEM_ERROR">FILE_SYSTEM_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for file system errors</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR" title="FILE_NOT_FOUND_ERROR"><a
                                     class="constant" href="constants.html#FILE_NOT_FOUND_ERROR">FILE_NOT_FOUND_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for file not found</p>
+</td>
                         </tr>
                     
                 </table>
@@ -770,7 +774,8 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                             <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents System related errors.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -791,28 +796,32 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                             <td class="module-title truncate errors" id="FileNotFoundError" title="FileNotFoundError">
                                 <a class="errors" href="errors.html#FileNotFoundError">FileNotFoundError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>FileNotFoundError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="FileSystemError" title="FileSystemError">
                                 <a class="errors" href="errors.html#FileSystemError">FileSystemError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>FileSystemError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InvalidOperationError" title="InvalidOperationError">
                                 <a class="errors" href="errors.html#InvalidOperationError">InvalidOperationError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>InvalidOperationError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="PermissionError" title="PermissionError">
                                 <a class="errors" href="errors.html#PermissionError">PermissionError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>PermissionError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                 </table>

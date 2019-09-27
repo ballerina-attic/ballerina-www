@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -340,7 +340,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -649,7 +649,7 @@
 <p>Load balancing is used in the round robin or failover manner.</p>
 <p>When a failure occurs in the remote service, the client connections might wait for some time before a timeout occurs. Awaiting requests consume resources in the system. Circuit Breakers are used to trip after a certain number of failed requests to the remote service. Once a circuit breaker trips, it does not allow the client to send requests to the remote service for a period of time.</p>
 <p>The Ballerina circuit breaker supports tripping on HTTP error status codes and I/O errors. Failure thresholds can be configured based on a sliding window (e.g., 5 failures within 10 seconds). <code>Client</code> endpoints also support a retry mechanism that allows a client to resend failed requests periodically for a given number of times.</p>
-<p><code>Client</code> endpoints support Certificate Revocation List (CRL), Online Certificate Status Protocol (OCSP), and OCSP Stapling for SSL/TLS connections. They also support HTTP2, keep-alive, chunking, HTTP caching, data compression/decompression, and authentication/authorization.</p>
+<p><code>Client</code> endpoints support Server Name Indication (SNI), Certificate Revocation List (CRL), Online Certificate Status Protocol (OCSP), and OCSP Stapling for SSL/TLS connections. They also support HTTP2, keep-alive, chunking, HTTP caching, data compression/decompression, and authentication/authorization.</p>
 <p>A <code>Client</code> endpoint can be defined using the URL of the remote service that the client needs to connect with, as shown below:</p>
 <pre><code class="language-ballerina">http:Client clientEndpoint = new(&quot;https://my-simple-backend.com&quot;);
 </code></pre>
@@ -690,7 +690,7 @@ service helloWorld on helloWorldEP {
 }
 </code></pre>
 <p>See <a href="https://ballerina.io/learn/by-example/http-data-binding.html">Listener Endpoint Example</a>, <a href="https://ballerina.io/learn/by-example/http-cors.html">HTTP CORS Example</a>, <a href="https://ballerina.io/learn/by-example/http-failover.html">HTTP Failover Example</a>, <a href="https://ballerina.io/learn/by-example/http-load-balancer.html">HTTP Load Balancer Example</a></p>
-<p><code>Listener</code> endpoints can be exposed via SSL. They support Mutual SSL, Hostname Verification, Server Name Indication (SNI), and Application Layer Protocol Negotiation (ALPN). <code>Listener</code> endpoints also support Certificate Revocation List (CRL), Online Certificate Status Protocol (OCSP), OCSP Stapling, HTTP2, keep-alive, chunking, HTTP caching, data compression/decompression, and authentication/authorization.</p>
+<p><code>Listener</code> endpoints can be exposed via SSL. They support Mutual SSL, Hostname Verification, and Application Layer Protocol Negotiation (ALPN) for HTTP2. <code>Listener</code> endpoints also support Certificate Revocation List (CRL), Online Certificate Status Protocol (OCSP), OCSP Stapling, HTTP2, keep-alive, chunking, HTTP caching, data compression/decompression, and authentication/authorization.</p>
 <p>For more information, see <a href="https://ballerina.io/learn/by-example/mutual-ssl.html">Mutual SSL Example</a>.</p>
 <p>For more information, see <a href="https://ballerina.io/learn/by-example/caching.html">Caching Example</a>, <a href="https://ballerina.io/learn/by-example/http-disable-chunking.html">HTTP Disable Chunking Example</a>.</p>
 <h2>WebSocket</h2>
@@ -1132,7 +1132,7 @@ resource function upgrader(http:Caller caller, http:Request req, string name) {
                                     AuthzFilter
                                 </a>
                             </td>
-                            <td class="module-desc"><p>Representation of the Authorization filter</p>
+                            <td class="module-desc"><p>Representation of the Authorization filter.</p>
 </td>
                         </tr>
                     
@@ -1545,14 +1545,14 @@ HTTP remote function provider.</p>
                         <tr>
                             <td class="module-title truncate constant" id="AUTH_HEADER" title="AUTH_HEADER"><a
                                     class="constant" href="constants.html#AUTH_HEADER">AUTH_HEADER</a></td>
-                            <td class="module-desc"><p>Authorization header name.</p>
+                            <td class="module-desc"><p>Represents the Authorization header name.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="AUTH_HEADER_BEARER" title="AUTH_HEADER_BEARER"><a
                                     class="constant" href="constants.html#AUTH_HEADER_BEARER">AUTH_HEADER_BEARER</a></td>
-                            <td class="module-desc"><p>Indicates that the authentication credentials should be sent via the Authentication Header</p>
+                            <td class="module-desc"><p>Indicates that the authentication credentials should be sent via the Authentication header.</p>
 </td>
                         </tr>
                     
@@ -1566,7 +1566,7 @@ HTTP remote function provider.</p>
                         <tr>
                             <td class="module-title truncate constant" id="NO_BEARER" title="NO_BEARER"><a
                                     class="constant" href="constants.html#NO_BEARER">NO_BEARER</a></td>
-                            <td class="module-desc"><p>Indicates that the authentication credentials should not be sent</p>
+                            <td class="module-desc"><p>Indicates that the authentication credentials should not be sent.</p>
 </td>
                         </tr>
                     
@@ -1875,177 +1875,197 @@ outbound request/response accept-encoding/content-encoding option.</p>
                         <tr>
                             <td class="module-title truncate constant" id="FAILOVER_ALL_ENDPOINTS_FAILED" title="FAILOVER_ALL_ENDPOINTS_FAILED"><a
                                     class="constant" href="constants.html#FAILOVER_ALL_ENDPOINTS_FAILED">FAILOVER_ALL_ENDPOINTS_FAILED</a></td>
-                            <td class="module-desc"><p>Resiliency errors</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:FailoverAllEndpointsFailedError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="FAILOVER_ENDPOINT_ACTION_FAILED" title="FAILOVER_ENDPOINT_ACTION_FAILED"><a
                                     class="constant" href="constants.html#FAILOVER_ENDPOINT_ACTION_FAILED">FAILOVER_ENDPOINT_ACTION_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:FailoverActionFailedError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="UPSTREAM_SERVICE_UNAVAILABLE" title="UPSTREAM_SERVICE_UNAVAILABLE"><a
                                     class="constant" href="constants.html#UPSTREAM_SERVICE_UNAVAILABLE">UPSTREAM_SERVICE_UNAVAILABLE</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:UpstreamServiceUnavailableError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="ALL_LOAD_BALANCE_ENDPOINTS_FAILED" title="ALL_LOAD_BALANCE_ENDPOINTS_FAILED"><a
                                     class="constant" href="constants.html#ALL_LOAD_BALANCE_ENDPOINTS_FAILED">ALL_LOAD_BALANCE_ENDPOINTS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:AllLoadBalanceEndpointsFailedError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="ALL_RETRY_ATTEMPTS_FAILED" title="ALL_RETRY_ATTEMPTS_FAILED"><a
                                     class="constant" href="constants.html#ALL_RETRY_ATTEMPTS_FAILED">ALL_RETRY_ATTEMPTS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:AllRetryAttemptsFailed</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="IDLE_TIMEOUT_TRIGGERED" title="IDLE_TIMEOUT_TRIGGERED"><a
                                     class="constant" href="constants.html#IDLE_TIMEOUT_TRIGGERED">IDLE_TIMEOUT_TRIGGERED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:IdleTimeoutError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="AUTHN_FAILED" title="AUTHN_FAILED"><a
                                     class="constant" href="constants.html#AUTHN_FAILED">AUTHN_FAILED</a></td>
-                            <td class="module-desc"><p>Security errors</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:AuthenticationError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="AUTHZ_FAILED" title="AUTHZ_FAILED"><a
                                     class="constant" href="constants.html#AUTHZ_FAILED">AUTHZ_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:AuthorizationError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INIT_OUTBOUND_REQUEST_FAILED" title="INIT_OUTBOUND_REQUEST_FAILED"><a
                                     class="constant" href="constants.html#INIT_OUTBOUND_REQUEST_FAILED">INIT_OUTBOUND_REQUEST_FAILED</a></td>
-                            <td class="module-desc"><p>Outbound request errors in client</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:InitializingOutboundRequestError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="WRITING_OUTBOUND_REQUEST_HEADERS_FAILED" title="WRITING_OUTBOUND_REQUEST_HEADERS_FAILED"><a
                                     class="constant" href="constants.html#WRITING_OUTBOUND_REQUEST_HEADERS_FAILED">WRITING_OUTBOUND_REQUEST_HEADERS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:WritingOutboundRequestHeadersError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="WRITING_OUTBOUND_REQUEST_BODY_FAILED" title="WRITING_OUTBOUND_REQUEST_BODY_FAILED"><a
                                     class="constant" href="constants.html#WRITING_OUTBOUND_REQUEST_BODY_FAILED">WRITING_OUTBOUND_REQUEST_BODY_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:WritingOutboundRequestBodyError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INIT_INBOUND_RESPONSE_FAILED" title="INIT_INBOUND_RESPONSE_FAILED"><a
                                     class="constant" href="constants.html#INIT_INBOUND_RESPONSE_FAILED">INIT_INBOUND_RESPONSE_FAILED</a></td>
-                            <td class="module-desc"><p>Inbound response errors in client</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:InitializingInboundResponseError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="READING_INBOUND_RESPONSE_HEADERS_FAILED" title="READING_INBOUND_RESPONSE_HEADERS_FAILED"><a
                                     class="constant" href="constants.html#READING_INBOUND_RESPONSE_HEADERS_FAILED">READING_INBOUND_RESPONSE_HEADERS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:ReadingInboundResponseBodyError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="READING_INBOUND_RESPONSE_BODY_FAILED" title="READING_INBOUND_RESPONSE_BODY_FAILED"><a
                                     class="constant" href="constants.html#READING_INBOUND_RESPONSE_BODY_FAILED">READING_INBOUND_RESPONSE_BODY_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:ReadingInboundResponseBodyError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INIT_INBOUND_REQUEST_FAILED" title="INIT_INBOUND_REQUEST_FAILED"><a
                                     class="constant" href="constants.html#INIT_INBOUND_REQUEST_FAILED">INIT_INBOUND_REQUEST_FAILED</a></td>
-                            <td class="module-desc"><p>Inbound request errors in listener</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:InitialingInboundRequestError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="READING_INBOUND_REQUEST_HEADERS_FAILED" title="READING_INBOUND_REQUEST_HEADERS_FAILED"><a
                                     class="constant" href="constants.html#READING_INBOUND_REQUEST_HEADERS_FAILED">READING_INBOUND_REQUEST_HEADERS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:ReadingInboundRequestHeadersError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="READING_INBOUND_REQUEST_BODY_FAILED" title="READING_INBOUND_REQUEST_BODY_FAILED"><a
                                     class="constant" href="constants.html#READING_INBOUND_REQUEST_BODY_FAILED">READING_INBOUND_REQUEST_BODY_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:ReadingInboundRequestBodyError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INIT_OUTBOUND_RESPONSE_FAILED" title="INIT_OUTBOUND_RESPONSE_FAILED"><a
                                     class="constant" href="constants.html#INIT_OUTBOUND_RESPONSE_FAILED">INIT_OUTBOUND_RESPONSE_FAILED</a></td>
-                            <td class="module-desc"><p>Outbound response errors in listener</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:InitializingOutboundResponseError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="WRITING_OUTBOUND_RESPONSE_HEADERS_FAILED" title="WRITING_OUTBOUND_RESPONSE_HEADERS_FAILED"><a
                                     class="constant" href="constants.html#WRITING_OUTBOUND_RESPONSE_HEADERS_FAILED">WRITING_OUTBOUND_RESPONSE_HEADERS_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:WritingOutboundResponseHeadersError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="WRITING_OUTBOUND_RESPONSE_BODY_FAILED" title="WRITING_OUTBOUND_RESPONSE_BODY_FAILED"><a
                                     class="constant" href="constants.html#WRITING_OUTBOUND_RESPONSE_BODY_FAILED">WRITING_OUTBOUND_RESPONSE_BODY_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:WritingOutboundResponseBodyError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INITIATING_100_CONTINUE_RESPONSE_FAILED" title="INITIATING_100_CONTINUE_RESPONSE_FAILED"><a
                                     class="constant" href="constants.html#INITIATING_100_CONTINUE_RESPONSE_FAILED">INITIATING_100_CONTINUE_RESPONSE_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:Initiating100ContinueResponseError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="WRITING_100_CONTINUE_RESPONSE_FAILED" title="WRITING_100_CONTINUE_RESPONSE_FAILED"><a
                                     class="constant" href="constants.html#WRITING_100_CONTINUE_RESPONSE_FAILED">WRITING_100_CONTINUE_RESPONSE_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:Writing100ContinueResponseError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="GENERIC_CLIENT_ERROR" title="GENERIC_CLIENT_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_CLIENT_ERROR">GENERIC_CLIENT_ERROR</a></td>
-                            <td class="module-desc"><p>Generic errors (mostly to wrap errors from other modules)</p>
+                            <td class="module-desc"><p>Error reason for generic client error</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="GENERIC_LISTENER_ERROR" title="GENERIC_LISTENER_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_LISTENER_ERROR">GENERIC_LISTENER_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:GenericListenerError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="UNSUPPORTED_ACTION" title="UNSUPPORTED_ACTION"><a
                                     class="constant" href="constants.html#UNSUPPORTED_ACTION">UNSUPPORTED_ACTION</a></td>
-                            <td class="module-desc"><p>Other client-related errors</p>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:UnsupportedActionError</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="HTTP2_CLIENT_ERROR" title="HTTP2_CLIENT_ERROR"><a
                                     class="constant" href="constants.html#HTTP2_CLIENT_ERROR">HTTP2_CLIENT_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:Http2ClientError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="MAXIMUM_WAIT_TIME_EXCEEDED" title="MAXIMUM_WAIT_TIME_EXCEEDED"><a
                                     class="constant" href="constants.html#MAXIMUM_WAIT_TIME_EXCEEDED">MAXIMUM_WAIT_TIME_EXCEEDED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:MaximumWaitTimeExceededError</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="SSL_ERROR" title="SSL_ERROR"><a
                                     class="constant" href="constants.html#SSL_ERROR">SSL_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the reason string for the <code>http:SslError</code></p>
+</td>
                         </tr>
                     
                         <tr>
@@ -2594,43 +2614,50 @@ will trip and move to the <code>OPEN</code> state.</p>
                         <tr>
                             <td class="module-title truncate constant" id="CONNECTION_CLOSURE_ERROR" title="CONNECTION_CLOSURE_ERROR"><a
                                     class="constant" href="constants.html#CONNECTION_CLOSURE_ERROR">CONNECTION_CLOSURE_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for failures during connection closure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_HANDSHAKE_ERROR" title="INVALID_HANDSHAKE_ERROR"><a
                                     class="constant" href="constants.html#INVALID_HANDSHAKE_ERROR">INVALID_HANDSHAKE_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for WebSocket handshake failures</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="PAYLOAD_TOO_BIG_ERROR" title="PAYLOAD_TOO_BIG_ERROR"><a
                                     class="constant" href="constants.html#PAYLOAD_TOO_BIG_ERROR">PAYLOAD_TOO_BIG_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for exceeding maximum frame size</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="PROTOCOL_ERROR" title="PROTOCOL_ERROR"><a
                                     class="constant" href="constants.html#PROTOCOL_ERROR">PROTOCOL_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for other side breaking the protocol</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="CONNECTION_ERROR" title="CONNECTION_ERROR"><a
                                     class="constant" href="constants.html#CONNECTION_ERROR">CONNECTION_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for connection failures</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_CONTINUATION_FRAME_ERROR" title="INVALID_CONTINUATION_FRAME_ERROR"><a
                                     class="constant" href="constants.html#INVALID_CONTINUATION_FRAME_ERROR">INVALID_CONTINUATION_FRAME_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for invalid continuation frame</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="GENERIC_ERROR" title="GENERIC_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_ERROR">GENERIC_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Error reason for errors not captured by the specific errors</p>
+</td>
                         </tr>
                     
                 </table>
@@ -2719,14 +2746,16 @@ in the <code>HALF_OPEN</code> state succeeds, the circuit goes back to the <code
                             <td class="module-title truncate types" id="ClientAuthError" title="ClientAuthError">
                                 <a class="types" href="types.html#ClientAuthError">ClientAuthError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the Auth error types that returned from client</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate types" id="ClientError" title="ClientError">
                                 <a class="types" href="types.html#ClientError">ClientError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the possible client error types</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -2782,14 +2811,16 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate types" id="InboundRequestError" title="InboundRequestError">
                                 <a class="types" href="types.html#InboundRequestError">InboundRequestError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the listener error types that returned while receiving inbound request</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate types" id="InboundResponseError" title="InboundResponseError">
                                 <a class="types" href="types.html#InboundResponseError">InboundResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the client error types that returned while receiving inbound response</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -2804,7 +2835,8 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate types" id="ListenerError" title="ListenerError">
                                 <a class="types" href="types.html#ListenerError">ListenerError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the possible listener error types</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -2821,14 +2853,16 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate types" id="OutboundRequestError" title="OutboundRequestError">
                                 <a class="types" href="types.html#OutboundRequestError">OutboundRequestError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the client error types that returned while sending outbound request</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate types" id="OutboundResponseError" title="OutboundResponseError">
                                 <a class="types" href="types.html#OutboundResponseError">OutboundResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Defines the listener error types that returned while sending outbound response</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -2851,7 +2885,7 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate types" id="ResiliencyError" title="ResiliencyError">
                                 <a class="types" href="types.html#ResiliencyError">ResiliencyError</a>
                             </td>
-                            <td class="module-desc"><p>Ballerina Http Union Errors</p>
+                            <td class="module-desc"><p>Defines the resiliency error types that returned from client</p>
 </td>
                         </tr>
                     
@@ -2867,7 +2901,8 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate types" id="WebSocketError" title="WebSocketError">
                                 <a class="types" href="types.html#WebSocketError">WebSocketError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>The union of all the WebSocket related errors</p>
+</td>
                         </tr>
                     
                 </table>
@@ -2888,105 +2923,120 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate errors" id="AllLoadBalanceEndpointsFailedError" title="AllLoadBalanceEndpointsFailedError">
                                 <a class="errors" href="errors.html#AllLoadBalanceEndpointsFailedError">AllLoadBalanceEndpointsFailedError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to all the load balance endpoint failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="AllRetryAttemptsFailed" title="AllRetryAttemptsFailed">
                                 <a class="errors" href="errors.html#AllRetryAttemptsFailed">AllRetryAttemptsFailed</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to all the the retry attempts failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="AuthenticationError" title="AuthenticationError">
                                 <a class="errors" href="errors.html#AuthenticationError">AuthenticationError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred due to inbound request authentication failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="AuthorizationError" title="AuthorizationError">
                                 <a class="errors" href="errors.html#AuthorizationError">AuthorizationError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred due to inbound request authorization failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="FailoverActionFailedError" title="FailoverActionFailedError">
                                 <a class="errors" href="errors.html#FailoverActionFailedError">FailoverActionFailedError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to failover action failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="FailoverAllEndpointsFailedError" title="FailoverAllEndpointsFailedError">
                                 <a class="errors" href="errors.html#FailoverAllEndpointsFailedError">FailoverAllEndpointsFailedError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to all the failover endpoint failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="GenericClientError" title="GenericClientError">
                                 <a class="errors" href="errors.html#GenericClientError">GenericClientError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a generic client error</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="GenericListenerError" title="GenericListenerError">
                                 <a class="errors" href="errors.html#GenericListenerError">GenericListenerError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a generic listener error</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="Http2ClientError" title="Http2ClientError">
                                 <a class="errors" href="errors.html#Http2ClientError">Http2ClientError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an HTTP/2 client generic error</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="IdleTimeoutError" title="IdleTimeoutError">
                                 <a class="errors" href="errors.html#IdleTimeoutError">IdleTimeoutError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error that triggered upon a request/response idle timeout</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InitializingInboundRequestError" title="InitializingInboundRequestError">
                                 <a class="errors" href="errors.html#InitializingInboundRequestError">InitializingInboundRequestError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred due to inbound request initialization failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InitializingInboundResponseError" title="InitializingInboundResponseError">
                                 <a class="errors" href="errors.html#InitializingInboundResponseError">InitializingInboundResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to inbound response initialization failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InitializingOutboundRequestError" title="InitializingOutboundRequestError">
                                 <a class="errors" href="errors.html#InitializingOutboundRequestError">InitializingOutboundRequestError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to outbound request initialization failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InitializingOutboundResponseError" title="InitializingOutboundResponseError">
                                 <a class="errors" href="errors.html#InitializingOutboundResponseError">InitializingOutboundResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred due to outbound response initialization failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="Initiating100ContinueResponseError" title="Initiating100ContinueResponseError">
                                 <a class="errors" href="errors.html#Initiating100ContinueResponseError">Initiating100ContinueResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an error that occurred due to 100 continue response initialization failure</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -3000,140 +3050,160 @@ outbound request/response accept-encoding/content-encoding option
                             <td class="module-title truncate errors" id="MaximumWaitTimeExceededError" title="MaximumWaitTimeExceededError">
                                 <a class="errors" href="errors.html#MaximumWaitTimeExceededError">MaximumWaitTimeExceededError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred exceeding maximum wait time</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ReadingInboundRequestBodyError" title="ReadingInboundRequestBodyError">
                                 <a class="errors" href="errors.html#ReadingInboundRequestBodyError">ReadingInboundRequestBodyError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred while writing the inbound request entity body</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ReadingInboundRequestHeadersError" title="ReadingInboundRequestHeadersError">
                                 <a class="errors" href="errors.html#ReadingInboundRequestHeadersError">ReadingInboundRequestHeadersError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred while reading inbound request headers</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ReadingInboundResponseBodyError" title="ReadingInboundResponseBodyError">
                                 <a class="errors" href="errors.html#ReadingInboundResponseBodyError">ReadingInboundResponseBodyError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred while reading inbound response entity body</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ReadingInboundResponseHeadersError" title="ReadingInboundResponseHeadersError">
                                 <a class="errors" href="errors.html#ReadingInboundResponseHeadersError">ReadingInboundResponseHeadersError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred while reading inbound response headers</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="SslError" title="SslError">
                                 <a class="errors" href="errors.html#SslError">SslError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to SSL failure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="UnsupportedActionError" title="UnsupportedActionError">
                                 <a class="errors" href="errors.html#UnsupportedActionError">UnsupportedActionError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to unsupported action invocation</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="UpstreamServiceUnavailableError" title="UpstreamServiceUnavailableError">
                                 <a class="errors" href="errors.html#UpstreamServiceUnavailableError">UpstreamServiceUnavailableError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred due to upstream service unavailability</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="Writing100ContinueResponseError" title="Writing100ContinueResponseError">
                                 <a class="errors" href="errors.html#Writing100ContinueResponseError">Writing100ContinueResponseError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an error that occurred while writing 100 continue response</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WritingOutboundRequestBodyError" title="WritingOutboundRequestBodyError">
                                 <a class="errors" href="errors.html#WritingOutboundRequestBodyError">WritingOutboundRequestBodyError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred while writing outbound request entity body</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WritingOutboundRequestHeadersError" title="WritingOutboundRequestHeadersError">
                                 <a class="errors" href="errors.html#WritingOutboundRequestHeadersError">WritingOutboundRequestHeadersError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a client error that occurred while writing outbound request headers</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WritingOutboundResponseBodyError" title="WritingOutboundResponseBodyError">
                                 <a class="errors" href="errors.html#WritingOutboundResponseBodyError">WritingOutboundResponseBodyError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred while writing outbound response entity body</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WritingOutboundResponseHeadersError" title="WritingOutboundResponseHeadersError">
                                 <a class="errors" href="errors.html#WritingOutboundResponseHeadersError">WritingOutboundResponseHeadersError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a listener error that occurred while writing outbound response headers</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsConnectionClosureError" title="WsConnectionClosureError">
                                 <a class="errors" href="errors.html#WsConnectionClosureError">WsConnectionClosureError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised during failures in connection closure</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsConnectionError" title="WsConnectionError">
                                 <a class="errors" href="errors.html#WsConnectionError">WsConnectionError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised during connection failures</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsGenericError" title="WsGenericError">
                                 <a class="errors" href="errors.html#WsGenericError">WsGenericError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised for errors not captured by the specific errors</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsInvalidContinuationFrameError" title="WsInvalidContinuationFrameError">
                                 <a class="errors" href="errors.html#WsInvalidContinuationFrameError">WsInvalidContinuationFrameError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised when an out of order/invalid continuation frame is received</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsInvalidHandshakeError" title="WsInvalidHandshakeError">
                                 <a class="errors" href="errors.html#WsInvalidHandshakeError">WsInvalidHandshakeError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised during the handshake when the WebSocket upgrade fails</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsPayloadTooBigError" title="WsPayloadTooBigError">
                                 <a class="errors" href="errors.html#WsPayloadTooBigError">WsPayloadTooBigError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised when receiving a frame with a payload exceeding the maximum size</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="WsProtocolError" title="WsProtocolError">
                                 <a class="errors" href="errors.html#WsProtocolError">WsProtocolError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Raised when the other side breaks the protocol</p>
+</td>
                         </tr>
                     
                 </table>

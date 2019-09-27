@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -308,7 +308,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -626,22 +626,24 @@ $ set(x) b7a_http_accesslog_path=”./access.log”
 <h2>Reading configurations</h2>
 <p>The API provides functions to read configs in their original type.</p>
 <pre><code class="language-ballerina">// Reads a configuration as a string.
-string host = config:getAsString(&quot;host&quot;); // Returns “” (i.e., empty string) if the configuration 
-//is not available.
+// Returns “” (i.e., empty string) if the configuration is not available.
+string host = config:getAsString(&quot;host&quot;); 
 
 // Reads a configuration as an integer.
-int port = config:getAsInt(&quot;port&quot;); // Returns 0 if the configuration is not available.
-
+// Returns 0 if the configuration is not available.
+int port = config:getAsInt(&quot;port&quot;); 
 
 // Reads a configuration as a float.
-float rate = config:getAsFloat(&quot;rate&quot;); // Returns 0.0 if the configuration is not available.
+// Returns 0.0 if the configuration is not available.
+float rate = config:getAsFloat(&quot;rate&quot;); 
 
 // Reads a configuration as a boolean.
-boolean enabled = config:getAsBoolean(&quot;service.enabled&quot;); // Returns ‘false’ if the configuration 
-// is not available.
+// Returns ‘false’ if the configuration is not available.
+boolean enabled = config:getAsBoolean(&quot;service.enabled&quot;); 
 </code></pre>
 <p>When reading a configuration, a default value can be specified as well. If a default value is specified, it is returned if a configuration entry cannot be found for the specified key.</p>
-<pre><code class="language-ballerina">// Reads a configuration as a string, and if it does not exist, returns “localhost”.
+<pre><code class="language-ballerina">// Reads a configuration as a string, and if it does not exist, 
+// returns “localhost”.
 string host  = config:getAsString(&quot;host&quot;, defaultValue = &quot;localhost&quot;);
 </code></pre>
 <p>The <code>contains()</code> function is used to check whether a configuration entry exists for the specified key.</p>

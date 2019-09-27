@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -100,10 +100,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -359,7 +355,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -407,10 +403,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -678,8 +670,8 @@
                 
                 <span class="clients">Producer</span>
             </h1>
-            <p><p>NATS producer would act as a basic client allowing to publish messages to the NATS server.
-Producer needs the NATS connection to be initialized.</p>
+            <p><p>NATS <code>Producer</code> would act as a basic client allowing to publish messages to the NATS server.
+Producer needs the NATS <code>Connection</code> to be initialized.</p>
 </p>
 
             <div class="constants">
@@ -687,12 +679,12 @@ Producer needs the NATS connection to be initialized.</p>
                     
                         
                             <h2>Constructor</h2>
-<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> c)</p>
+<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> connection)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>c</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
+                <li> <b>connection</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
                 <li>
                     <p>An already-established connection.</p>
 
@@ -774,7 +766,7 @@ Producer needs the NATS connection to be initialized.</p>
                         
                     </li>
                     <li>
-                        <p><p>Could also be referred as the 'topic/queue' name.</p>
+                        <p><p>The subject to send the message to.</p>
 </p>
                     </li>
                 </ul>
@@ -848,7 +840,7 @@ Producer needs the NATS connection to be initialized.</p>
                         
                     </li>
                     <li>
-                        <p><p>Data to publish.</p>
+                        <p><p>The message body to publish.</p>
 </p>
                     </li>
                 </ul>

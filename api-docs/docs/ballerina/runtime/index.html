@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -312,7 +312,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -614,7 +614,8 @@ public function main() {
         principal.scopes = scopes;
     }
 
-    runtime:AuthenticationContext? authContext = invocationContext[&quot;authenticationContext&quot;];
+    runtime:AuthenticationContext? authContext = 
+                            invocationContext[&quot;authenticationContext&quot;];
     if (authContext is runtime:AuthenticationContext) {
         // Set auth scheme.
         authContext.scheme = &quot;jwt&quot;;
@@ -640,7 +641,8 @@ public function main() {
         io:println(retrievedScopes);
     }
 
-    runtime:AuthenticationContext? authContext1 = invocationContext1[&quot;authenticationContext&quot;];
+    runtime:AuthenticationContext? authContext1 = 
+                            invocationContext1[&quot;authenticationContext&quot;];
     if (authContext1 is runtime:AuthenticationContext) {
         // Retrieve auth scheme.
         string? authScheme = authContext1[&quot;scheme&quot;];

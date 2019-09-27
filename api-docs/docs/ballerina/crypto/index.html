@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -324,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -622,7 +622,8 @@ public function main() {
      string input = &quot;Hello Ballerina&quot;;
      byte[] inputArr = input.toBytes();
 
-     // Hashing input value using different hashing algorithms, and printing hash value using Hex encoding.
+     // Hashing input value using different hashing algorithms, 
+     // and printing hash value using Hex encoding.
      byte[] output = crypto:hashMd5(inputArr);
      io:println(&quot;Hash with MD5: &quot; + output.toBase16());
 
@@ -700,11 +701,15 @@ public function main() returns error? {
      byte[] inputArr = input.toBytes();
 
      // PrivateKey used for signing operations.
-     crypto:KeyStore keyStore = { path: &quot;/home/ballerina/keystore.p12&quot;, password: &quot;ballerina&quot; };
-     crypto:PrivateKey privateKey = check crypto:decodePrivateKey(keyStore, &quot;ballerina&quot;, &quot;ballerina&quot;);
+     crypto:KeyStore keyStore = { 
+         path: &quot;/home/ballerina/keystore.p12&quot;,
+         password: &quot;ballerina&quot;
+     };
+     crypto:PrivateKey privateKey = 
+        check crypto:decodePrivateKey(keyStore, &quot;ballerina&quot;, &quot;ballerina&quot;);
 
-     // Signing input value using different signature algorithms, and printing the signature value
-     // using Hex encoding.
+     // Signing input value using different signature algorithms, 
+     // and printing the signature value using Hex encoding.
      byte[] output = check crypto:signRsaMd5(inputArr, privateKey);
      io:println(&quot;RSA-MD5 signature: &quot; + output.toBase16());
 
@@ -732,23 +737,33 @@ public function main() returns error? {
     string input = &quot;Hello Ballerina&quot;;
     byte[] inputArr = input.toBytes();
 
-    crypto:KeyStore keyStore = { path: &quot;/home/ballerina/keystore.p12&quot;, password: &quot;ballerina&quot; };
+    crypto:KeyStore keyStore = {
+        path: &quot;/home/ballerina/keystore.p12&quot;,
+        password: &quot;ballerina&quot;
+    };
 
     // Public key used for encryption.
-    crypto:PublicKey publicKey = check crypto:decodePublicKey(keyStore, &quot;ballerina&quot;);
+    crypto:PublicKey publicKey = 
+        check crypto:decodePublicKey(keyStore, &quot;ballerina&quot;);
 
     // Private key used for decryption.
-    crypto:PrivateKey privateKey = check crypto:decodePrivateKey(keyStore, &quot;ballerina&quot;, &quot;ballerina&quot;);
+    crypto:PrivateKey privateKey = 
+        check crypto:decodePrivateKey(keyStore, &quot;ballerina&quot;, &quot;ballerina&quot;);
 
     // Encrypt and decrypt input value using RSA ECB PKCS1 padding.
     byte[] output = check crypto:encryptRsaEcb(inputArr, publicKey);
     output = check crypto:decryptRsaEcb(output, privateKey);
-    io:println(&quot;RSA ECB PKCS1 decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;RSA ECB PKCS1 decrypted value: &quot; + 
+        check str:fromBytes(output));
 
-    // Encrypt and decrypt input value using RSA ECB OAEPwithSHA512andMGF1 padding.
-    output = check crypto:encryptRsaEcb(inputArr, publicKey, crypto:OAEPwithSHA512andMGF1);
-    output = check crypto:decryptRsaEcb(output, privateKey, crypto:OAEPwithSHA512andMGF1);
-    io:println(&quot;RSA ECB OAEPwithSHA512andMGF1 decrypted value: &quot; + check str:fromBytes(output));
+    // Encrypt and decrypt input value using 
+    // RSA ECB OAEPwithSHA512andMGF1 padding.
+    output = check crypto:encryptRsaEcb(inputArr, publicKey, 
+        crypto:OAEPwithSHA512andMGF1);
+    output = check crypto:decryptRsaEcb(output, privateKey, 
+        crypto:OAEPwithSHA512andMGF1);
+    io:println(&quot;RSA ECB OAEPwithSHA512andMGF1 decrypted value: &quot; + 
+        check str:fromBytes(output));
 }
 </code></pre>
 <h2>AES Encryption</h2>
@@ -778,32 +793,38 @@ public function main() returns error? {
     // Encrypt and decrypt input value using AES CBC PKCS5 padding.
     byte[] output = check crypto:encryptAesCbc(inputArr, keyArr, ivArr);
     output = check crypto:decryptAesCbc(output, keyArr, ivArr);
-    io:println(&quot;AES CBC PKCS5 decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES CBC PKCS5 decrypted value: &quot; + 
+        check str:fromBytes(output));
 
     // Encrypt and decrypt input value using AES CBC no padding.
     output = check crypto:encryptAesCbc(inputArr, keyArr, ivArr, crypto:NONE);
     output = check crypto:decryptAesCbc(output, keyArr, ivArr, crypto:NONE);
-    io:println(&quot;AES CBC no padding decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES CBC no padding decrypted value: &quot; + 
+        check str:fromBytes(output));
 
     // Encrypt and decrypt input value using AES GCM PKCS5 padding.
     output = check crypto:encryptAesGcm(inputArr, keyArr, ivArr);
     output = check crypto:decryptAesGcm(output, keyArr, ivArr);
-    io:println(&quot;AES GCM PKCS5 decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES GCM PKCS5 decrypted value: &quot; + 
+        check str:fromBytes(output));
 
     // Encrypt and decrypt input value using AES GCM no padding.
     output = check crypto:encryptAesGcm(inputArr, keyArr, ivArr, crypto:NONE);
     output = check crypto:decryptAesGcm(output, keyArr, ivArr, crypto:NONE);
-    io:println(&quot;AES GCM no padding decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES GCM no padding decrypted value: &quot; + 
+        check str:fromBytes(output));
 
     // Encrypt and decrypt input value using AES ECB PKCS5 padding.
     output = check crypto:encryptAesEcb(inputArr, keyArr);
     output = check crypto:decryptAesEcb(output, keyArr);
-    io:println(&quot;AES ECB PKCS5 decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES ECB PKCS5 decrypted value: &quot; + 
+        check str:fromBytes(output));
 
     // Encrypt and decrypt input value using AES ECB no padding.
     output = check crypto:encryptAesEcb(inputArr, keyArr, crypto:NONE);
     output = check crypto:decryptAesEcb(output, keyArr, crypto:NONE);
-    io:println(&quot;AES ECB no padding decrypted value: &quot; + check str:fromBytes(output));
+    io:println(&quot;AES ECB no padding decrypted value: &quot; + 
+        check str:fromBytes(output));
 }
 </code></pre>
 
@@ -831,7 +852,7 @@ public function main() returns error? {
                             <td class="module-title truncate records" id="KeyStore" title="KeyStore">
                                 <a class="records"
                                    href="records/KeyStore.html">KeyStore</a></td>
-                            <td class="module-desc">Record for providing key store related configurations.
+                            <td class="module-desc">Key store related configurations.
 </td>
                         </tr>
                     
@@ -855,7 +876,7 @@ public function main() returns error? {
                             <td class="module-title truncate records" id="TrustStore" title="TrustStore">
                                 <a class="records"
                                    href="records/TrustStore.html">TrustStore</a></td>
-                            <td class="module-desc">Record for providing trust store related configurations.
+                            <td class="module-desc">Trust store related configurations.
 </td>
                         </tr>
                     
@@ -1122,7 +1143,7 @@ public function main() returns error? {
                         <tr>
                             <td class="module-title truncate constant" id="NONE" title="NONE"><a
                                     class="constant" href="constants.html#NONE">NONE</a></td>
-                            <td class="module-desc"><p>No padding</p>
+                            <td class="module-desc"><p>Represents no padding.</p>
 </td>
                         </tr>
                     
@@ -1178,7 +1199,8 @@ public function main() returns error? {
                         <tr>
                             <td class="module-title truncate constant" id="CRYPTO_ERROR" title="CRYPTO_ERROR"><a
                                     class="constant" href="constants.html#CRYPTO_ERROR">CRYPTO_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the Crypto error reason.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -1202,7 +1224,7 @@ public function main() returns error? {
                             <td class="module-title truncate types" id="AesPadding" title="AesPadding">
                                 <a class="types" href="types.html#AesPadding">AesPadding</a>
                             </td>
-                            <td class="module-desc"><p>Padding algorithms supported with AES encryption and decryption</p>
+                            <td class="module-desc"><p>Padding algorithms supported with AES encryption and decryption.</p>
 </td>
                         </tr>
                     
@@ -1218,7 +1240,7 @@ public function main() returns error? {
                             <td class="module-title truncate types" id="RsaPadding" title="RsaPadding">
                                 <a class="types" href="types.html#RsaPadding">RsaPadding</a>
                             </td>
-                            <td class="module-desc"><p>Padding algorithms supported with RSA encryption and decryption</p>
+                            <td class="module-desc"><p>Padding algorithms supported with RSA encryption and decryption.</p>
 </td>
                         </tr>
                     
@@ -1240,7 +1262,8 @@ public function main() returns error? {
                             <td class="module-title truncate errors" id="Error" title="Error">
                                 <a class="errors" href="errors.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the Crypto error type with details.</p>
+</td>
                         </tr>
                     
                 </table>

@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -328,7 +328,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -656,8 +656,9 @@ service test on new http:Listener(9090) {
             }
             response.setPayload(&lt;@untainted&gt; content);
         } else {
-            // If there is an error while getting the body parts, set the response code as 500 and
-            // set the error message as the response message.
+            // If there is an error while getting the body parts, set the 
+            // response code as 500 and set the error message as the 
+            // response message.
             response.statusCode = 500;
             response.setPayload(&lt;@untainted&gt; bodyParts.reason());
         }
@@ -675,7 +676,8 @@ function handleContent(mime:Entity bodyPart) returns @tainted string {
     if (mediaType is mime:MediaType) {
         // Get the base type of the specific body part.
         string baseType = mediaType.getBaseType();
-        // If the base type is ‘application/xml’ or ‘text/xml’, get the XML content from body part.
+        // If the base type is ‘application/xml’ or ‘text/xml’, get the XML 
+        // content from body part.
         if (mime:APPLICATION_XML == baseType || mime:TEXT_XML == baseType) {
             var payload = bodyPart.getXml();
             if (payload is xml) {
@@ -684,7 +686,8 @@ function handleContent(mime:Entity bodyPart) returns @tainted string {
                 return &quot;Error in parsing xml payload&quot;;
             }
         } else if (mime:APPLICATION_JSON == baseType) {
-            // If the base type is ‘application/json’, get the JSON content from body part.
+            // If the base type is ‘application/json’, get the JSON content 
+            // from body part.
             var payload = bodyPart.getJson();
             if (payload is json) {
                 return payload.toJsonString();
@@ -737,7 +740,8 @@ outRequest.setBodyParts(bodyParts, contentType = mime:MULTIPART_MIXED);
                             <td class="module-title truncate records" id="Detail" title="Detail">
                                 <a class="records"
                                    href="records/Detail.html">Detail</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc">Holds the details of entity header and body related errors.
+</td>
                         </tr>
                     
                 </table>
@@ -810,28 +814,28 @@ and an entity(body part) inside of a multipart entity.</p>
                         <tr>
                             <td class="module-title truncate functions" id="base64Decode" title="base64Decode"><a
                                     class="functions" href="functions.html#base64Decode">base64Decode</a></td>
-                            <td class="module-desc"><p>Decodes a given input with MIME specific Base64 encoding scheme.</p>
+                            <td class="module-desc"><p><strong>Deprecated API</strong>. Decodes a given input with MIME specific Base64 encoding scheme.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="base64DecodeBlob" title="base64DecodeBlob"><a
                                     class="functions" href="functions.html#base64DecodeBlob">base64DecodeBlob</a></td>
-                            <td class="module-desc"><p>Decodes a given byte[] with Base64 encoding scheme.</p>
+                            <td class="module-desc"><p><strong>Deprecated API</strong>. Decodes a given byte[] with Base64 encoding scheme.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="base64Encode" title="base64Encode"><a
                                     class="functions" href="functions.html#base64Encode">base64Encode</a></td>
-                            <td class="module-desc"><p>Encodes a given input with MIME specific Base64 encoding scheme.</p>
+                            <td class="module-desc"><p><strong>Deprecated API</strong>. Encodes a given input with MIME specific Base64 encoding scheme.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="base64EncodeBlob" title="base64EncodeBlob"><a
                                     class="functions" href="functions.html#base64EncodeBlob">base64EncodeBlob</a></td>
-                            <td class="module-desc"><p>Encodes a given byte[] with Base64 encoding scheme.</p>
+                            <td class="module-desc"><p><strong>Deprecated API</strong>. Encodes a given byte[] with Base64 encoding scheme.</p>
 </td>
                         </tr>
                     
@@ -852,13 +856,15 @@ and an entity(body part) inside of a multipart entity.</p>
                         <tr>
                             <td class="module-title truncate functions" id="prepareDecodingErrorWithDetail" title="prepareDecodingErrorWithDetail"><a
                                     class="functions" href="functions.html#prepareDecodingErrorWithDetail">prepareDecodingErrorWithDetail</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Constructs a <code>DecodeError</code> with the given details.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="prepareEncodingErrorWithDetail" title="prepareEncodingErrorWithDetail"><a
                                     class="functions" href="functions.html#prepareEncodingErrorWithDetail">prepareEncodingErrorWithDetail</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Constructs an <code>EncodeError</code> with the given details.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -1012,55 +1018,64 @@ and an entity(body part) inside of a multipart entity.</p>
                         <tr>
                             <td class="module-title truncate constant" id="ENCODE_ERROR" title="ENCODE_ERROR"><a
                                     class="constant" href="constants.html#ENCODE_ERROR">ENCODE_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies encoding errors.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="DECODE_ERROR" title="DECODE_ERROR"><a
                                     class="constant" href="constants.html#DECODE_ERROR">DECODE_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies decoding errors.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="GENERIC_MIME_ERROR" title="GENERIC_MIME_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_MIME_ERROR">GENERIC_MIME_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies generic errors related to MIME.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="SET_HEADER_FAILED" title="SET_HEADER_FAILED"><a
                                     class="constant" href="constants.html#SET_HEADER_FAILED">SET_HEADER_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies set header failures.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="READING_HEADER_FAILED" title="READING_HEADER_FAILED"><a
                                     class="constant" href="constants.html#READING_HEADER_FAILED">READING_HEADER_FAILED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies header parsing errors.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="PARSER_ERROR" title="PARSER_ERROR"><a
                                     class="constant" href="constants.html#PARSER_ERROR">PARSER_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies entity body parsing errors.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_CONTENT_TYPE" title="INVALID_CONTENT_TYPE"><a
                                     class="constant" href="constants.html#INVALID_CONTENT_TYPE">INVALID_CONTENT_TYPE</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies errors related to content-type header.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="HEADER_UNAVAILABLE" title="HEADER_UNAVAILABLE"><a
                                     class="constant" href="constants.html#HEADER_UNAVAILABLE">HEADER_UNAVAILABLE</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies errors related to header unavailability.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="IDLE_TIMEOUT_TRIGGERED" title="IDLE_TIMEOUT_TRIGGERED"><a
                                     class="constant" href="constants.html#IDLE_TIMEOUT_TRIGGERED">IDLE_TIMEOUT_TRIGGERED</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Identifies errors related to read/write timeouts.</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -1148,7 +1163,8 @@ payload.</p>
                             <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents MIME related errors.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -1169,63 +1185,72 @@ payload.</p>
                             <td class="module-title truncate errors" id="DecodeError" title="DecodeError">
                                 <a class="errors" href="errors.html#DecodeError">DecodeError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>DecodeError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="EncodeError" title="EncodeError">
                                 <a class="errors" href="errors.html#EncodeError">EncodeError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>EncodeError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="GenericMimeError" title="GenericMimeError">
                                 <a class="errors" href="errors.html#GenericMimeError">GenericMimeError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>GenericMimeError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="HeaderUnavailableError" title="HeaderUnavailableError">
                                 <a class="errors" href="errors.html#HeaderUnavailableError">HeaderUnavailableError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>HeaderUnavailableError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="IdleTimeoutTriggeredError" title="IdleTimeoutTriggeredError">
                                 <a class="errors" href="errors.html#IdleTimeoutTriggeredError">IdleTimeoutTriggeredError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>IdleTimeoutTriggeredError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InvalidContentTypeError" title="InvalidContentTypeError">
                                 <a class="errors" href="errors.html#InvalidContentTypeError">InvalidContentTypeError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>InvalidContentTypeError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ParserError" title="ParserError">
                                 <a class="errors" href="errors.html#ParserError">ParserError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>ParserError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="ReadingHeaderFailed" title="ReadingHeaderFailed">
                                 <a class="errors" href="errors.html#ReadingHeaderFailed">ReadingHeaderFailed</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>ReadingHeaderFailed</code> error with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="SetHeaderError" title="SetHeaderError">
                                 <a class="errors" href="errors.html#SetHeaderError">SetHeaderError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents a <code>SetHeaderError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                 </table>

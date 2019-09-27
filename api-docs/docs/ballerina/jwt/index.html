@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -328,7 +328,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -655,8 +655,10 @@ import ballerina/jwt;
 import ballerina/time;
 
 public function main() {
-    crypto:KeyStore keyStore = { path: &quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;, 
-                                 password: &quot;ballerina&quot; };
+    crypto:KeyStore keyStore = { 
+        path: &quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;, 
+        password: &quot;ballerina&quot;
+    };
     jwt:JwtKeyStoreConfig config = {
         keyStore: keyStore,
         keyAlias: &quot;ballerina&quot;,
@@ -682,8 +684,10 @@ public function main() {
 import ballerina/jwt;
 
 public function main() {
-    crypto:TrustStore trustStore = { path: &quot;${ballerina.home}/bre/security/ballerinaTruststore.p12&quot;, 
-                                     password: &quot;ballerina&quot; };
+    crypto:TrustStore trustStore = {
+        path: &quot;${ballerina.home}/bre/security/ballerinaTruststore.p12&quot;, 
+        password: &quot;ballerina&quot;
+    };
     jwt:JwtValidatorConfig config = {
         issuer: &quot;wso2&quot;,
         audience: &quot;ballerina&quot;,
@@ -722,14 +726,15 @@ public function main() {
                             <td class="module-title truncate records" id="JwtHeader" title="JwtHeader">
                                 <a class="records"
                                    href="records/JwtHeader.html">JwtHeader</a></td>
-                            <td class="module-desc">Represents a JWT header.</td>
+                            <td class="module-desc">Represents JWT header.
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate records" id="JwtIssuerConfig" title="JwtIssuerConfig">
                                 <a class="records"
                                    href="records/JwtIssuerConfig.html">JwtIssuerConfig</a></td>
-                            <td class="module-desc">Represents authentication provider configurations that supports generating JWT for client interactions.
+                            <td class="module-desc">Represents JWT validator configurations.
 </td>
                         </tr>
                     
@@ -745,7 +750,8 @@ public function main() {
                             <td class="module-title truncate records" id="JwtPayload" title="JwtPayload">
                                 <a class="records"
                                    href="records/JwtPayload.html">JwtPayload</a></td>
-                            <td class="module-desc">Represents a JWT payload.</td>
+                            <td class="module-desc">Represents JWT payload.
+</td>
                         </tr>
                     
                         <tr>
@@ -760,7 +766,8 @@ public function main() {
                             <td class="module-title truncate records" id="JwtValidatorConfig" title="JwtValidatorConfig">
                                 <a class="records"
                                    href="records/JwtValidatorConfig.html">JwtValidatorConfig</a></td>
-                            <td class="module-desc">Represents JWT validator configurations.</td>
+                            <td class="module-desc">Represents JWT validator configurations.
+</td>
                         </tr>
                     
                 </table>

@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -367,7 +367,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -699,7 +699,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#base64Decode">base64Decode</a></td>
-                                <td width="70%"><p>Decodes a given input with MIME specific Base64 encoding scheme.</p>
+                                <td width="70%"><p><strong>Deprecated API</strong>. Decodes a given input with MIME specific Base64 encoding scheme.</p>
 </td>
                             </tr>
                         </tbody>
@@ -707,7 +707,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#base64DecodeBlob">base64DecodeBlob</a></td>
-                                <td width="70%"><p>Decodes a given byte[] with Base64 encoding scheme.</p>
+                                <td width="70%"><p><strong>Deprecated API</strong>. Decodes a given byte[] with Base64 encoding scheme.</p>
 </td>
                             </tr>
                         </tbody>
@@ -715,7 +715,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#base64Encode">base64Encode</a></td>
-                                <td width="70%"><p>Encodes a given input with MIME specific Base64 encoding scheme.</p>
+                                <td width="70%"><p><strong>Deprecated API</strong>. Encodes a given input with MIME specific Base64 encoding scheme.</p>
 </td>
                             </tr>
                         </tbody>
@@ -723,7 +723,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#base64EncodeBlob">base64EncodeBlob</a></td>
-                                <td width="70%"><p>Encodes a given byte[] with Base64 encoding scheme.</p>
+                                <td width="70%"><p><strong>Deprecated API</strong>. Encodes a given byte[] with Base64 encoding scheme.</p>
 </td>
                             </tr>
                         </tbody>
@@ -747,14 +747,16 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#prepareDecodingErrorWithDetail">prepareDecodingErrorWithDetail</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Constructs a <code>DecodeError</code> with the given details.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#prepareEncodingErrorWithDetail">prepareEncodingErrorWithDetail</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Constructs an <code>EncodeError</code> with the given details.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -776,7 +778,7 @@
         </span>
         
     </div>
-    <p><p>Decodes a given input with MIME specific Base64 encoding scheme.</p>
+    <p><p><strong>Deprecated API</strong>. Decodes a given input with MIME specific Base64 encoding scheme.</p>
 </p>
      
         <div class="data-wrapper">
@@ -840,7 +842,7 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
         </span>
         
     </div>
-    <p><p>Decodes a given byte[] with Base64 encoding scheme.</p>
+    <p><p><strong>Deprecated API</strong>. Decodes a given byte[] with Base64 encoding scheme.</p>
 </p>
      
         <div class="data-wrapper">
@@ -888,7 +890,7 @@ In case of errors, an <code>DecodeError</code> record is returned.</p>
         </span>
         
     </div>
-    <p><p>Encodes a given input with MIME specific Base64 encoding scheme.</p>
+    <p><p><strong>Deprecated API</strong>. Encodes a given input with MIME specific Base64 encoding scheme.</p>
 </p>
      
         <div class="data-wrapper">
@@ -952,7 +954,7 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         </span>
         
     </div>
-    <p><p>Encodes a given byte[] with Base64 encoding scheme.</p>
+    <p><p><strong>Deprecated API</strong>. Encodes a given byte[] with Base64 encoding scheme.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1096,7 +1098,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Constructs a <code>DecodeError</code> with the given details.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1108,7 +1111,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                         
                     </li>
                     <li>
-                        <p></p>
+                        <p><p>error details</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1121,7 +1125,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/errors.html#DecodeError">DecodeError</a></span>)</li>
-                <li></li>
+                <li><p><code>DecodeError</code> with the given details set to message</p>
+</li>
             </ul>
         </div>
         
@@ -1141,7 +1146,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Constructs an <code>EncodeError</code> with the given details.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1153,7 +1159,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
                         
                     </li>
                     <li>
-                        <p></p>
+                        <p><p>error details</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1166,7 +1173,8 @@ In case of errors, an <code>EncodeError</code> record is returned.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../mime/errors.html#EncodeError">EncodeError</a></span>)</li>
-                <li></li>
+                <li><p><code>EncodeError</code> with the given details set to message</p>
+</li>
             </ul>
         </div>
         
