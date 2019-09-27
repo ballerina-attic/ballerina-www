@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -324,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -666,7 +666,7 @@ usernames and passwords provided Ballerina configurations to authenticate extern
                             <td class="module-title truncate records" id="Credential" title="Credential">
                                 <a class="records"
                                    href="records/Credential.html">Credential</a></td>
-                            <td class="module-desc">The `Credential` record can be used to configure Basic authentication, which is used by the HTTP endpoint.
+                            <td class="module-desc">The `Credential` record can be used to configure Basic Authentication, which is used by the HTTP endpoint.
 </td>
                         </tr>
                     
@@ -691,7 +691,7 @@ usernames and passwords provided Ballerina configurations to authenticate extern
                                     InboundAuthProvider
                                 </a>
                             </td>
-                            <td class="module-desc"><p>Represents the inbound Auth provider. Any type of implementation such as LDAP, JDBC, file-based etc.
+                            <td class="module-desc"><p>Represents the inbound Auth provider. Any type of implementation such as JWT, OAuth2, LDAP, JDBC, file-based etc.
 should be object-wise similar.</p>
 </td>
                         </tr>
@@ -703,7 +703,7 @@ should be object-wise similar.</p>
                                     InboundBasicAuthProvider
                                 </a>
                             </td>
-                            <td class="module-desc"><p>Represents an inbound basic Auth provider, which is a configuration-file-based Auth store provider.</p>
+                            <td class="module-desc"><p>Represents the inbound basic Auth provider, which is a configuration-file-based Auth provider.</p>
 </td>
                         </tr>
                     
@@ -773,14 +773,14 @@ to the <code>OutboundAuthProvider</code> object.</p>
                         <tr>
                             <td class="module-title truncate functions" id="setAuthenticationContext" title="setAuthenticationContext"><a
                                     class="functions" href="functions.html#setAuthenticationContext">setAuthenticationContext</a></td>
-                            <td class="module-desc"><p>Set the authentication context values to invocation context.</p>
+                            <td class="module-desc"><p>Set the authentication related values (scheme, auth token) to the authentication context of the invocation context.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="setPrincipal" title="setPrincipal"><a
                                     class="functions" href="functions.html#setPrincipal">setPrincipal</a></td>
-                            <td class="module-desc"><p>Set the principal values to invocation context.</p>
+                            <td class="module-desc"><p>Set the authentication related values (user id, username, scopes, claims) to the principal of the invocation context.</p>
 </td>
                         </tr>
                     
@@ -802,7 +802,8 @@ to the <code>OutboundAuthProvider</code> object.</p>
                         <tr>
                             <td class="module-title truncate constant" id="AUTH_ERROR" title="AUTH_ERROR"><a
                                     class="constant" href="constants.html#AUTH_ERROR">AUTH_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the Auth error reason.</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -843,14 +844,14 @@ to the <code>OutboundAuthProvider</code> object.</p>
                         <tr>
                             <td class="module-title truncate constant" id="AUTH_SCHEME_BASIC" title="AUTH_SCHEME_BASIC"><a
                                     class="constant" href="constants.html#AUTH_SCHEME_BASIC">AUTH_SCHEME_BASIC</a></td>
-                            <td class="module-desc"><p>Basic Authentication scheme.</p>
+                            <td class="module-desc"><p>Prefix used to denote Basic Authentication scheme.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="AUTH_SCHEME_BEARER" title="AUTH_SCHEME_BEARER"><a
                                     class="constant" href="constants.html#AUTH_SCHEME_BEARER">AUTH_SCHEME_BEARER</a></td>
-                            <td class="module-desc"><p>Bearer Authentication scheme.</p>
+                            <td class="module-desc"><p>Prefix used to denote Bearer Authentication scheme.</p>
 </td>
                         </tr>
                     
@@ -877,7 +878,9 @@ to the <code>OutboundAuthProvider</code> object.</p>
                             <td class="module-title truncate errors" id="Error" title="Error">
                                 <a class="errors" href="errors.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the Auth error type with details. This will be returned if an error occurred while inbound auth providers
+try to authenticate the received credentials and outbound auth providers try to generate the token.</p>
+</td>
                         </tr>
                     
                 </table>

@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -320,7 +320,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -761,13 +761,6 @@ The returned path does not end in a separator unless it is the root directory.</
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="prepareError" title="prepareError"><a
-                                    class="functions" href="functions.html#prepareError">prepareError</a></td>
-                            <td class="module-desc"><p>Prepare the <code>error</code> as a <code>Error</code>.</p>
-</td>
-                        </tr>
-                    
-                        <tr>
                             <td class="module-title truncate functions" id="relative" title="relative"><a
                                     class="functions" href="functions.html#relative">relative</a></td>
                             <td class="module-desc"><p>Returns a relative path that is logically equivalent to target path when joined to base path with an intervening
@@ -811,63 +804,63 @@ Resolve calls normalize on the result.</p>
                         <tr>
                             <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR" title="FILE_NOT_FOUND_ERROR"><a
                                     class="constant" href="constants.html#FILE_NOT_FOUND_ERROR">FILE_NOT_FOUND_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that a file/directory does not exist at the given filepath</p>
+                            <td class="module-desc"><p>Identifies file not found error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="NOT_LINK_ERROR" title="NOT_LINK_ERROR"><a
                                     class="constant" href="constants.html#NOT_LINK_ERROR">NOT_LINK_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that the file at the given filepath is not a symbolic link</p>
+                            <td class="module-desc"><p>Identifies no link error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="IO_ERROR" title="IO_ERROR"><a
                                     class="constant" href="constants.html#IO_ERROR">IO_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that an IO error occurred when trying to access the file at the given filepath</p>
+                            <td class="module-desc"><p>Identifies io error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="SECURITY_ERROR" title="SECURITY_ERROR"><a
                                     class="constant" href="constants.html#SECURITY_ERROR">SECURITY_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that a security error occurred when trying to access the file at the given filepath</p>
+                            <td class="module-desc"><p>Identifies security error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_PATH_ERROR" title="INVALID_PATH_ERROR"><a
                                     class="constant" href="constants.html#INVALID_PATH_ERROR">INVALID_PATH_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that the given file path is invalid</p>
+                            <td class="module-desc"><p>Identifies invalid path error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="INVALID_PATTERN_ERROR" title="INVALID_PATTERN_ERROR"><a
                                     class="constant" href="constants.html#INVALID_PATTERN_ERROR">INVALID_PATTERN_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that the given pattern does not confirm to the java FileSystem PathMatcher</p>
+                            <td class="module-desc"><p>Identifies invalid pattern error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="RELATIVE_PATH_ERROR" title="RELATIVE_PATH_ERROR"><a
                                     class="constant" href="constants.html#RELATIVE_PATH_ERROR">RELATIVE_PATH_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that the given target filepath cannot be made relative to the base filepath</p>
+                            <td class="module-desc"><p>Identifies relative path error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="UNC_PATH_ERROR" title="UNC_PATH_ERROR"><a
                                     class="constant" href="constants.html#UNC_PATH_ERROR">UNC_PATH_ERROR</a></td>
-                            <td class="module-desc"><p>Indicates that an error has occured with the UNC path</p>
+                            <td class="module-desc"><p>Identifies unc path error.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate constant" id="GENERIC_ERROR" title="GENERIC_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_ERROR">GENERIC_ERROR</a></td>
-                            <td class="module-desc"><p>Generic error for filepath</p>
+                            <td class="module-desc"><p>Identifies generic error.</p>
 </td>
                         </tr>
                     
@@ -892,14 +885,8 @@ Resolve calls normalize on the result.</p>
                             <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
-                        </tr>
-                    
-                        <tr>
-                            <td class="module-title truncate types" id="ErrorType" title="ErrorType">
-                                <a class="types" href="types.html#ErrorType">ErrorType</a>
-                            </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents filepath related errors.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -920,63 +907,72 @@ Resolve calls normalize on the result.</p>
                             <td class="module-title truncate errors" id="FileNotFoundError" title="FileNotFoundError">
                                 <a class="errors" href="errors.html#FileNotFoundError">FileNotFoundError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents error occur when the file/directory does not exist at the given filepath.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="GenericError" title="GenericError">
                                 <a class="errors" href="errors.html#GenericError">GenericError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents generic error for filepath</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="IOError" title="IOError">
                                 <a class="errors" href="errors.html#IOError">IOError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents IO error occur when trying to access the file at the given filepath.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InvalidPathError" title="InvalidPathError">
                                 <a class="errors" href="errors.html#InvalidPathError">InvalidPathError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents error occur when the given file path is invalid.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="InvalidPatternError" title="InvalidPatternError">
                                 <a class="errors" href="errors.html#InvalidPatternError">InvalidPatternError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represent error occur when the given pattern is not a valid filepath pattern.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="NotLinkError" title="NotLinkError">
                                 <a class="errors" href="errors.html#NotLinkError">NotLinkError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents error occur when the file at the given filepath is not a symbolic link.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="RelativePathError" title="RelativePathError">
                                 <a class="errors" href="errors.html#RelativePathError">RelativePathError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an error that occurs when the given target filepath cannot be derived relative to the base filepath.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="SecurityError" title="SecurityError">
                                 <a class="errors" href="errors.html#SecurityError">SecurityError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents security error occur when trying to access the file at the given filepath.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate errors" id="UNCPathError" title="UNCPathError">
                                 <a class="errors" href="errors.html#UNCPathError">UNCPathError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents error occur in the UNC path.</p>
+</td>
                         </tr>
                     
                 </table>

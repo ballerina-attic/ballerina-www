@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -327,7 +327,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -615,7 +615,7 @@
                  :
                 <span class="objects">Cache</span>
             </h1>
-            <p><p>Represents a cache.</p>
+            <p><p>Represents a Ballerina <code>Cache</code> which can hold multiple entries and remove entries based on time and size.</p>
 </p>
 
             <div class="constants">
@@ -630,7 +630,8 @@
             <ul>
                 <li> <b>expiryTimeInMillis</b><span class="type">  <span class="builtin-type">int</span></span> 900000</li>
                 <li>
-                    
+                    <p>Time since its last access in which the cache will be expired.</p>
+
                 </li>
             </ul>
         </div>
@@ -639,7 +640,8 @@
             <ul>
                 <li> <b>capacity</b><span class="type">  <span class="builtin-type">int</span></span> 100</li>
                 <li>
-                    
+                    <p>Maximum number of entries allowed.</p>
+
                 </li>
             </ul>
         </div>
@@ -648,7 +650,8 @@
             <ul>
                 <li> <b>evictionFactor</b><span class="type">  <span class="builtin-type">float</span></span> 0.25</li>
                 <li>
-                    
+                    <p>The factor which the entries will be evicted once the cache full.</p>
+
                 </li>
             </ul>
         </div>
@@ -668,7 +671,7 @@
         <div class="param-name">
         hasKey 
         </div>
-        <div class="param-details"> <p>Checks whether the given key has an accociated cache value.</p>
+        <div class="param-details"> <p>Checks whether the given key has an associated cache value.</p>
  </div>
     </div>
 </a>
@@ -750,7 +753,7 @@
         </span>
         
     </div>
-    <p><p>Checks whether the given key has an accociated cache value.</p>
+    <p><p>Checks whether the given key has an associated cache value.</p>
 </p>
      
         <div class="data-wrapper">
@@ -763,7 +766,7 @@
                         
                     </li>
                     <li>
-                        <p><p>the key to be checked</p>
+                        <p><p>The key to be checked.</p>
 </p>
                     </li>
                 </ul>
@@ -777,7 +780,7 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
-                <li><p>True if the given key has an associated value, false otherwise.</p>
+                <li><p><code>true</code> if the given key has an associated value, <code>false</code> otherwise.</p>
 </li>
             </ul>
         </div>
@@ -807,7 +810,7 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span></span>)</li>
-                <li><p>The size of the cache</p>
+                <li><p>The size of the cache.</p>
 </li>
             </ul>
         </div>
@@ -836,7 +839,7 @@
                         
                     </li>
                     <li>
-                        <p><p>value which should be used as the key</p>
+                        <p><p>Value which should be used as the key.</p>
 </p>
                     </li>
                 </ul>
@@ -849,7 +852,7 @@
                         
                     </li>
                     <li>
-                        <p><p>value to be cached</p>
+                        <p><p>Value to be cached.</p>
 </p>
                     </li>
                 </ul>
@@ -888,7 +891,7 @@
                         
                     </li>
                     <li>
-                        <p><p>key which is used to retrieve the cached value</p>
+                        <p><p>Key which is used to retrieve the cached value.</p>
 </p>
                     </li>
                 </ul>
@@ -902,7 +905,7 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">any</span></span>)</li>
-                <li><p>The cached value associated with the given key</p>
+                <li><p>The cached value associated with the given key.</p>
 </li>
             </ul>
         </div>
@@ -931,7 +934,7 @@
                         
                     </li>
                     <li>
-                        <p><p>key of the cache entry which needs to be removed</p>
+                        <p><p>Key of the cache entry which needs to be removed.</p>
 </p>
                     </li>
                 </ul>
@@ -965,7 +968,7 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
-                <li><p>all keys</p>
+                <li><p>Array of all keys from the current cache.</p>
 </li>
             </ul>
         </div>

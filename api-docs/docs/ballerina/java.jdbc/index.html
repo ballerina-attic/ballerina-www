@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -332,7 +332,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -690,7 +690,7 @@ a connection pool matching with the properties you provided already exists.</p>
 <li>
 <p>Local shareable connection pool</p>
 <p>If you create a record of type <code>jdbc:PoolOptions</code> and reuse that in the configuration of multiple clients, for each
-set of clients that connect to the same database instance with the same set of properties, a shared connection pool
+set of clients that connects to the same database instance with the same set of properties, a shared connection pool
 will be created.</p>
 <pre><code class="language-ballerina">jdbc:Client testDB1;
 jdbc:Client testDB2;
@@ -755,7 +755,7 @@ if (returned is jdbc:UpdateResult) {
 </code></pre>
 <p>In the second example, the parameter values, which are in local variables, are passed directly as parameters to
 the <code>update</code> remote function. This direct parameter passing can be done for any primitive Ballerina type like <code>string</code>,
-<code>int</code>, <code>float</code>, or <code>boolean</code>. The sql type of the parameter is derived from the type of the Ballerina variable that
+<code>int</code>, <code>float</code>, or <code>boolean</code>. The SQL type of the parameter is derived from the type of the Ballerina variable that
 is passed in.</p>
 <pre><code class="language-ballerina">string name = &quot;Anne&quot;;
 int age = 8;
@@ -767,7 +767,7 @@ if (returned is jdbc:UpdateResult) {
     io:println(&quot;Insert to Students table failed: &quot;, &lt;string&gt;err.detail()[&quot;message&quot;]);
 }
 </code></pre>
-<p>In the third example, parameter values are passed as an <code>jdbc:Parameter</code> to the <code>update</code> remote function. Use
+<p>In the third example, parameter values are passed as a <code>jdbc:Parameter</code> to the <code>update</code> remote function. Use
 <code>jdbc:Parameter</code> when you need to provide more details such as the exact SQL type of the parameter, or the parameter
 direction. The default parameter direction is <code>IN</code>.</p>
 <pre><code class="language-ballerina">jdbc:Parameter p1 = { sqlType: jdbc:TYPE_VARCHAR, value: &quot;James&quot; };
@@ -913,7 +913,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
 }
 </code></pre>
 <blockquote>
-<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processers available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
+<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processors available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
 </blockquote>
 
 
@@ -932,7 +932,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                             <td class="module-title truncate records" id="ApplicationErrorData" title="ApplicationErrorData">
                                 <a class="records"
                                    href="records/ApplicationErrorData.html">ApplicationErrorData</a></td>
-                            <td class="module-desc">Represents the properties which are related to Non SQL errors
+                            <td class="module-desc">Represents the properties belonging to an `ApplicationError`
 </td>
                         </tr>
                     
@@ -940,7 +940,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                             <td class="module-title truncate records" id="BatchUpdateResult" title="BatchUpdateResult">
                                 <a class="records"
                                    href="records/BatchUpdateResult.html">BatchUpdateResult</a></td>
-                            <td class="module-desc">BatchUpdateResult represents the output of the `batchUpdate` remote function.
+                            <td class="module-desc">`BatchUpdateResult` represents the output of the `batchUpdate` remote function.
 </td>
                         </tr>
                     
@@ -956,7 +956,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                             <td class="module-title truncate records" id="DatabaseErrorData" title="DatabaseErrorData">
                                 <a class="records"
                                    href="records/DatabaseErrorData.html">DatabaseErrorData</a></td>
-                            <td class="module-desc">Represents the properties which are related to SQL database errors
+                            <td class="module-desc">Represents the properties belonging to a `DatabaseError`
 </td>
                         </tr>
                     
@@ -964,7 +964,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                             <td class="module-title truncate records" id="Parameter" title="Parameter">
                                 <a class="records"
                                    href="records/Parameter.html">Parameter</a></td>
-                            <td class="module-desc">Parameter represents a parameter for the SQL remote functions when a variable parameter needs to be passed to the remote function.
+                            <td class="module-desc">`Parameter` represents a parameter for the SQL remote functions when a variable parameter needs to be passed to the remote function.
 </td>
                         </tr>
                     
@@ -981,7 +981,7 @@ Default values of the fields can be set through the configuration API.
                             <td class="module-title truncate records" id="UpdateResult" title="UpdateResult">
                                 <a class="records"
                                    href="records/UpdateResult.html">UpdateResult</a></td>
-                            <td class="module-desc">UpdateResult represents the output of the `update` remote function.
+                            <td class="module-desc">`UpdateResult` represents the output of the `update` remote function.
 </td>
                         </tr>
                     
@@ -1387,7 +1387,7 @@ Default values of the fields can be set through the configuration API.
                             <td class="module-title truncate errors" id="ApplicationError" title="ApplicationError">
                                 <a class="errors" href="errors.html#ApplicationError">ApplicationError</a>
                             </td>
-                            <td class="module-desc"><p>Represents the error which is related to Non SQL errors</p>
+                            <td class="module-desc"><p>Represents an error originating from application level causes</p>
 </td>
                         </tr>
                     

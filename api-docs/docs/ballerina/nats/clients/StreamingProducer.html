@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -100,10 +100,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -359,7 +355,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -407,10 +403,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -678,21 +670,24 @@
                 
                 <span class="clients">StreamingProducer</span>
             </h1>
-            <p></p>
+            <p><p>NATS <code>StreamingProducer</code> would act as a client allowing to publish messages to the
+NATS streaming server. <code>StreamingProducer</code> needs the NATS <code>Connection</code> to be initialized.</p>
+</p>
 
             <div class="constants">
                 <div class="method-sum">
                     
                         
                             <h2>Constructor</h2>
-<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> conn, <span class="builtin-type">string</span> clientId, <span class="builtin-type">string</span> clusterId, <a href="../../nats/records/StreamingConfig.html">StreamingConfig</a>? streamingConfig)</p>
+<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> connection, <span class="builtin-type">string</span> clientId, <span class="builtin-type">string</span> clusterId, <a href="../../nats/records/StreamingConfig.html">StreamingConfig</a>? streamingConfig)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>conn</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
+                <li> <b>connection</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
                 <li>
-                    
+                    <p>An established NATS connection.</p>
+
                 </li>
             </ul>
         </div>
@@ -701,7 +696,8 @@
             <ul>
                 <li> <b>clientId</b><span class="type">  <span class="builtin-type">string</span></span> ()</li>
                 <li>
-                    
+                    <p>A unique identifier representing the client.</p>
+
                 </li>
             </ul>
         </div>
@@ -710,7 +706,8 @@
             <ul>
                 <li> <b>clusterId</b><span class="type">  <span class="builtin-type">string</span></span> test-cluster</li>
                 <li>
-                    
+                    <p>The ID of the cluster configured in the NATS server.</p>
+
                 </li>
             </ul>
         </div>
@@ -719,7 +716,8 @@
             <ul>
                 <li> <b>streamingConfig</b><span class="type">  <a href="../../nats/records/StreamingConfig.html">StreamingConfig</a>?</span> ()</li>
                 <li>
-                    
+                    <p>The configuration related to the NATS streaming connectivity.</p>
+
                 </li>
             </ul>
         </div>
@@ -791,7 +789,7 @@
                         
                     </li>
                     <li>
-                        <p><p>NATS subject to publish data</p>
+                        <p><p>The subject to send the message to.</p>
 </p>
                     </li>
                 </ul>
@@ -804,7 +802,7 @@
                         
                     </li>
                     <li>
-                        <p><p>data to publish</p>
+                        <p><p>Data to publish.</p>
 </p>
                     </li>
                 </ul>
@@ -819,10 +817,10 @@
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../nats/errors.html#Error">Error</a></span>)</li>
                 <li><p><code>string</code> value representing the NUID (NATS Unique Identifier) of the published message, if the
-message gets successfully published and acknowedged by the NATS server OR
-<code>nats/Error</code> with <code>nuid</code> and <code>message</code> fields in case an error occurs in publishing, the timeout
+message gets successfully published and acknowledged by the NATS server OR
+<code>nats/Error</code> with NUID and <code>message</code> fields in case an error occurs in publishing, the timeout
 elapses while waiting for the acknowledgement OR
-<code>nats/Error</code> only with the <code>message</code> field in case an error occurrs even before publishing
+<code>nats/Error</code> only with the <code>message</code> field in case an error occurs even before publishing
 is completed</p>
 </li>
             </ul>
@@ -857,7 +855,7 @@ is completed</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
-                <li><p>Retruns () or the error if unable to complete the close operation.</p>
+                <li><p>Returns () or the error if unable to complete the close operation.</p>
 </li>
             </ul>
         </div>

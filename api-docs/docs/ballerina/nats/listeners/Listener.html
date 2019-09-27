@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Listeners</h3>
@@ -96,10 +96,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -355,7 +351,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Listeners</h3>
@@ -399,10 +395,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -678,12 +670,12 @@
                 
                     
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> c)</p>
+<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> connection)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>c</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
+                <li> <b>connection</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
                 <li>
                     <p>An already-established connection or configuration to create a new connection.</p>
 
@@ -715,7 +707,8 @@
         <div class="param-name">
         __gracefulStop 
         </div>
-        <div class="param-details">  </div>
+        <div class="param-details"> <p>Gracefully stops the listener in the lifecycle.</p>
+ </div>
     </div>
 </a>
                         
@@ -725,7 +718,7 @@
         <div class="param-name">
         __immediateStop 
         </div>
-        <div class="param-details"> <p>Stops the listener in the lifecyle.</p>
+        <div class="param-details"> <p>Forcefully stops the listener in the lifecycle.</p>
  </div>
     </div>
 </a>
@@ -754,7 +747,7 @@
         <div class="param-name">
         __start 
         </div>
-        <div class="param-details"> <p>Starts the listener in the lifecyle.</p>
+        <div class="param-details"> <p>Starts the listener in the lifecycle.</p>
  </div>
     </div>
 </a>
@@ -826,7 +819,8 @@
         </span>
         
     </div>
-    <p></p>
+    <p><p>Gracefully stops the listener in the lifecycle.</p>
+</p>
      
 
     
@@ -834,7 +828,8 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
-                <li></li>
+                <li><p>Error or ().</p>
+</li>
             </ul>
         </div>
         
@@ -854,7 +849,7 @@
         </span>
         
     </div>
-    <p><p>Stops the listener in the lifecyle.</p>
+    <p><p>Forcefully stops the listener in the lifecycle.</p>
 </p>
      
 
@@ -863,7 +858,7 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
-                <li><p>error or ().</p>
+                <li><p>Error or ().</p>
 </li>
             </ul>
         </div>
@@ -950,7 +945,7 @@
         </span>
         
     </div>
-    <p><p>Starts the listener in the lifecyle.</p>
+    <p><p>Starts the listener in the lifecycle.</p>
 </p>
      
 
