@@ -2,6 +2,39 @@
 
 This document demonstrates different security features and controls available within Ballerina, and serves the purpose of providing guidelines on writing secure Ballerina programs.
 
+
+**Table of Contents**
+
+- [Secure by Design](#Secure-by-Design)
+  - [Ensuring security of Ballerina standard libraries](#Ensuring-security-of-Ballerina-standard-libraries)
+  - [Securely using tainted data with security-sensitive parameters](#Securely-using-tainted-data-with-security-sensitive-parameters)
+- [Securing Passwords and Secrets](#Securing-Passwords-and-Secrets)
+- [Authentication and Authorization](#Authentication-and-Authorization)
+  - [Inbound Authentication & Authorization](#Inbound-Authentication--Authorization)
+    - [Advanced Use Cases](#Advanced-Use-Cases)
+      - [Using Multiple Auth Handlers](#Using-Multiple-Auth-Handlers)
+      - [Using Multiple Scopes](#Using-Multiple-Scopes)
+      - [Per-Resource and Per-Service Customization](#Per-Resource-and-Per-Service-Customization)
+      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
+      - [Disable HTTPS Enforcement](#Disable-HTTPS-Enforcement)
+      - [Modify Authn/Authz Filter Index](#Modify-Authn/Authz-Filter-Index)
+    - [JWT Inbound Authentication and Authorization](#JWT-Inbound-Authentication-and-Authorization)
+    - [OAuth2 Inbound Authentication and Authorization](#OAuth2-Inbound-Authentication-and-Authorization)
+    - [LDAP Inbound Authentication and Authorization](#LDAP-Inbound-Authentication-and-Authorization)
+    - [Basic Auth Inbound Authentication and Authorization](#Basic-Auth-Inbound-Authentication-and-Authorization)
+  - [Outbound Authentication & Authorization](#Outbound-Authentication--Authorization)
+    - [Advanced Use Cases](#Advanced-Use-Cases)
+      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
+    - [JWT Outbound Authentication](#JWT-Outbound-Authentication)
+    - [OAuth2 Outbound Authentication](#OAuth2-Outbound-Authentication)
+      - [Client Credentials Grant Type](#Client-Credentials-Grant-Type)
+      - [Password Grant Type](#Password-Grant-Type)
+      - [Direct Token Mode](#Direct-Token-Mode)
+    - [Basic Authentication](#Basic-Authentication)
+    - [Token Propagation for Outbound Authentication](#Token-Propagation-for-Outbound-Authentication)
+      - [Example - 1](#Example---1)
+      - [Example - 2](#Example---2)
+
 ## Secure by Design
 
 This approach makes it unnecessary for developers to review best practice coding lists that itemize how to avoid security vulnerabilities. The Ballerina compiler ensures that Ballerina programs do not introduce security vulnerabilities.
@@ -9,7 +42,6 @@ This approach makes it unnecessary for developers to review best practice coding
 A taint analysis mechanism is used to achieve this.
 
 Parameters in function calls can be designated as security-sensitive. The compiler will generate an error if you pass untrusted data (tainted data) into a security-sensitive parameter:
-
 
 ```
 tainted value passed to sensitive parameter 'sqlQuery'
@@ -412,7 +444,7 @@ service helloWorld on secureHelloWorldEp {
 }
 ```
 
-### JWT Inbound Authentication and Authorization
+#### JWT Inbound Authentication and Authorization
 
 Ballerina supports JWT Authentication and Authorizations for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Bearer <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `jwt:InboundJwtAuthProvider` is used to validate the credentials (JWT) passed by the AuthHandler against the `jwt:JwtValidatorConfig` provided by the user.
 
@@ -574,7 +606,7 @@ mAEcstgiHVw
 Hello, World!
 ```
 
-### OAuth2 Inbound Authentication and Authorization
+#### OAuth2 Inbound Authentication and Authorization
 
 Ballerina supports OAuth2 Authentication and Authorization for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credentials from the header value, which is the `Bearer <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider to get them validated. The `oauth2:InboundOAuth2Provider` is used to validate the credentials passed by the AuthHandler against the introspection endpoint configured at `oauth2:IntrospectionServerConfig`, which is provided by the user.
 
@@ -677,7 +709,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Bearer <token>'
 Hello, World!
 ```
 
-### LDAP Inbound Authentication and Authorization
+#### LDAP Inbound Authentication and Authorization
 
 Ballerina supports LDAP Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credentials from the header value, which is `Basic <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider to get validated. The `ldap:InboundLdapAuthProvider` is used to validate the credentials passed by the AuthHandler against the LDAP server configured at `ldap:LdapConnectionConfig`, which is provided by the user.
 
@@ -820,7 +852,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Basic <token>'
 Hello, World!
 ```
 
-### Basic Auth Inbound Authentication and Authorization
+#### Basic Auth Inbound Authentication and Authorization
 
 Ballerina supports Basic Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value, which is the `Basic <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider and gets validated. The `jwt:InboundBasicAuthProvider` is used to read the user information from the configuration file and authenticate the credentials passed by the AuthHandler.
 
