@@ -864,7 +864,7 @@ in the <code>HALF_OPEN</code> state succeeds, the circuit goes back to the <code
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="ClientAuthError"><b>ClientAuthError</b><span class="type">  AuthenticationError | AuthorizationError</span></li>
+                                <li id="ClientAuthError"><b>ClientAuthError</b><span class="type">  <a href="../http/errors.html#AuthenticationError">AuthenticationError</a> | <a href="../http/errors.html#AuthorizationError">AuthorizationError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -873,7 +873,7 @@ in the <code>HALF_OPEN</code> state succeeds, the circuit goes back to the <code
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="ClientError"><b>ClientError</b><span class="type">  <a href="../http/types.html#ResiliencyError">ResiliencyError</a> | <a href="../http/types.html#ClientAuthError">ClientAuthError</a> | <a href="../http/types.html#OutboundRequestError">OutboundRequestError</a> | <a href="../http/types.html#InboundResponseError">InboundResponseError</a> | UnsupportedActionError | Http2ClientError | MaximumWaitTimeExceededError | SslError | GenericClientError</span></li>
+                                <li id="ClientError"><b>ClientError</b><span class="type">  <a href="../http/types.html#ResiliencyError">ResiliencyError</a> | <a href="../http/types.html#ClientAuthError">ClientAuthError</a> | <a href="../http/types.html#OutboundRequestError">OutboundRequestError</a> | <a href="../http/types.html#InboundResponseError">InboundResponseError</a> | <a href="../http/errors.html#UnsupportedActionError">UnsupportedActionError</a> | <a href="../http/errors.html#Http2ClientError">Http2ClientError</a> | <a href="../http/errors.html#MaximumWaitTimeExceededError">MaximumWaitTimeExceededError</a> | <a href="../http/errors.html#SslError">SslError</a> | <a href="../http/errors.html#GenericClientError">GenericClientError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -939,7 +939,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="InboundRequestError"><b>InboundRequestError</b><span class="type">  InitializingInboundRequestError | ReadingInboundRequestHeadersError | ReadingInboundRequestBodyError</span></li>
+                                <li id="InboundRequestError"><b>InboundRequestError</b><span class="type">  <a href="../http/errors.html#InitializingInboundRequestError">InitializingInboundRequestError</a> | <a href="../http/errors.html#ReadingInboundRequestHeadersError">ReadingInboundRequestHeadersError</a> | <a href="../http/errors.html#ReadingInboundRequestBodyError">ReadingInboundRequestBodyError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -948,7 +948,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="InboundResponseError"><b>InboundResponseError</b><span class="type">  InitializingInboundResponseError | ReadingInboundResponseHeadersError | ReadingInboundResponseBodyError</span></li>
+                                <li id="InboundResponseError"><b>InboundResponseError</b><span class="type">  <a href="../http/errors.html#InitializingInboundResponseError">InitializingInboundResponseError</a> | <a href="../http/errors.html#ReadingInboundResponseHeadersError">ReadingInboundResponseHeadersError</a> | <a href="../http/errors.html#ReadingInboundResponseBodyError">ReadingInboundResponseBodyError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -967,7 +967,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="ListenerError"><b>ListenerError</b><span class="type">  GenericListenerError | <a href="../http/types.html#InboundRequestError">InboundRequestError</a> | <a href="../http/types.html#OutboundResponseError">OutboundResponseError</a></span></li>
+                                <li id="ListenerError"><b>ListenerError</b><span class="type">  <a href="../http/errors.html#GenericListenerError">GenericListenerError</a> | <a href="../http/types.html#InboundRequestError">InboundRequestError</a> | <a href="../http/types.html#OutboundResponseError">OutboundResponseError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -976,7 +976,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="MutualSslStatus"><b>MutualSslStatus</b><span class="type">  <a href="../http/constants.html#PASSED">PASSED</a> | <a href="../http/constants.html#FAILED">FAILED</a> | ()</span></li>
+                                <li id="MutualSslStatus"><b>MutualSslStatus</b><span class="type">  <a href="../http/constants.html#PASSED">PASSED</a> | <a href="../http/constants.html#FAILED">FAILED</a> | <span class="builtin-type">()</span></span></li>
                                 <li>
                                     <p>Defines the possible values for the mutual ssl status.</p>
 <p><code>passed</code>: Mutual SSL handshake is successful.
@@ -988,7 +988,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="OutboundRequestError"><b>OutboundRequestError</b><span class="type">  InitializingOutboundRequestError | WritingOutboundRequestHeadersError | WritingOutboundRequestBodyError</span></li>
+                                <li id="OutboundRequestError"><b>OutboundRequestError</b><span class="type">  <a href="../http/errors.html#InitializingOutboundRequestError">InitializingOutboundRequestError</a> | <a href="../http/errors.html#WritingOutboundRequestHeadersError">WritingOutboundRequestHeadersError</a> | <a href="../http/errors.html#WritingOutboundRequestBodyError">WritingOutboundRequestBodyError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -997,7 +997,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="OutboundResponseError"><b>OutboundResponseError</b><span class="type">  InitializingOutboundResponseError | WritingOutboundResponseHeadersError | WritingOutboundResponseBodyError | Initiating100ContinueResponseError | Writing100ContinueResponseError</span></li>
+                                <li id="OutboundResponseError"><b>OutboundResponseError</b><span class="type">  <a href="../http/errors.html#InitializingOutboundResponseError">InitializingOutboundResponseError</a> | <a href="../http/errors.html#WritingOutboundResponseHeadersError">WritingOutboundResponseHeadersError</a> | <a href="../http/errors.html#WritingOutboundResponseBodyError">WritingOutboundResponseBodyError</a> | <a href="../http/errors.html#Initiating100ContinueResponseError">Initiating100ContinueResponseError</a> | <a href="../http/errors.html#Writing100ContinueResponseError">Writing100ContinueResponseError</a></span></li>
                                 <li>
                                     
                                 </li>
@@ -1016,7 +1016,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="RequestMessage"><b>RequestMessage</b><span class="type">  <a href="../http/objects/Request.html">Request</a> | string | xml | json | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/objects/Entity.html">Entity</a>[] | ()</span></li>
+                                <li id="RequestMessage"><b>RequestMessage</b><span class="type">  <a href="../http/objects/Request.html">Request</a> | <span class="builtin-type">string</span> | <span class="builtin-type">xml</span> | <span class="builtin-type">json</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/objects/Entity.html">Entity</a>[] | <span class="builtin-type">()</span></span></li>
                                 <li>
                                     <p>The types of messages that are accepted by HTTP <code>client</code> when sending out the outbound request.</p>
 
@@ -1026,7 +1026,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="ResiliencyError"><b>ResiliencyError</b><span class="type">  FailoverAllEndpointsFailedError | FailoverActionFailedError | UpstreamServiceUnavailableError | AllLoadBalanceEndpointsFailedError | AllRetryAttemptsFailed | IdleTimeoutError</span></li>
+                                <li id="ResiliencyError"><b>ResiliencyError</b><span class="type">  <a href="../http/errors.html#FailoverAllEndpointsFailedError">FailoverAllEndpointsFailedError</a> | <a href="../http/errors.html#FailoverActionFailedError">FailoverActionFailedError</a> | <a href="../http/errors.html#UpstreamServiceUnavailableError">UpstreamServiceUnavailableError</a> | <a href="../http/errors.html#AllLoadBalanceEndpointsFailedError">AllLoadBalanceEndpointsFailedError</a> | <a href="../http/errors.html#AllRetryAttemptsFailed">AllRetryAttemptsFailed</a> | <a href="../http/errors.html#IdleTimeoutError">IdleTimeoutError</a></span></li>
                                 <li>
                                     <p>Ballerina Http Union Errors</p>
 
@@ -1036,7 +1036,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="ResponseMessage"><b>ResponseMessage</b><span class="type">  <a href="../http/objects/Response.html">Response</a> | string | xml | json | byte | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/objects/Entity.html">Entity</a>[] | ()</span></li>
+                                <li id="ResponseMessage"><b>ResponseMessage</b><span class="type">  <a href="../http/objects/Response.html">Response</a> | <span class="builtin-type">string</span> | <span class="builtin-type">xml</span> | <span class="builtin-type">json</span> | <span class="builtin-type">byte</span> | <a href="../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../mime/objects/Entity.html">Entity</a>[] | <span class="builtin-type">()</span></span></li>
                                 <li>
                                     <p>The types of messages that are accepted by HTTP <code>listener</code> when sending out the outbound response.</p>
 
@@ -1046,7 +1046,7 @@ outbound request/response accept-encoding/content-encoding option
                     
                         <div class="params-listing">
                             <ul>
-                                <li id="WebSocketError"><b>WebSocketError</b><span class="type">  WsConnectionClosureError | WsInvalidHandshakeError | WsPayloadTooBigError | WsProtocolError | WsConnectionError | WsInvalidContinuationFrameError | WsGenericError</span></li>
+                                <li id="WebSocketError"><b>WebSocketError</b><span class="type">  <a href="../http/errors.html#WsConnectionClosureError">WsConnectionClosureError</a> | <a href="../http/errors.html#WsInvalidHandshakeError">WsInvalidHandshakeError</a> | <a href="../http/errors.html#WsPayloadTooBigError">WsPayloadTooBigError</a> | <a href="../http/errors.html#WsProtocolError">WsProtocolError</a> | <a href="../http/errors.html#WsConnectionError">WsConnectionError</a> | <a href="../http/errors.html#WsInvalidContinuationFrameError">WsInvalidContinuationFrameError</a> | <a href="../http/errors.html#WsGenericError">WsGenericError</a></span></li>
                                 <li>
                                     
                                 </li>

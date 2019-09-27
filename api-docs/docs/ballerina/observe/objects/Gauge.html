@@ -632,12 +632,12 @@ during the usage.</p>
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(string name, string desc, map tags, <a href="../../observe/records/StatisticConfig.html">StatisticConfig</a>[]? statisticConfig)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> name, <span class="builtin-type">string</span> desc, <span class="builtin-type">map</span> tags, <a href="../../observe/records/StatisticConfig.html">StatisticConfig</a>[]? statisticConfig)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>name</b><span class="type">  string</span> </li>
+                <li> <b>name</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>Name of the Gauge instance.</p>
 
@@ -647,7 +647,7 @@ during the usage.</p>
     
         <div class="params-listing">
             <ul>
-                <li> <b>desc</b><span class="type">  string</span> </li>
+                <li> <b>desc</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>Description of the Gauge instance. If no description is provided, the the default empty string
 will be used.</p>
@@ -658,7 +658,7 @@ will be used.</p>
     
         <div class="params-listing">
             <ul>
-                <li> <b>tags</b><span class="type">  map</span> ()</li>
+                <li> <b>tags</b><span class="type">  <span class="builtin-type">map</span></span> ()</li>
                 <li>
                     <p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
 
@@ -775,7 +775,7 @@ calculation.</p>
         
     <div class="params-listing">
         <ul>
-            <li> name<span class="type">  string</span> </li>
+            <li> name<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Name of the counter metric.</p>
 </p>
@@ -785,7 +785,7 @@ calculation.</p>
         
     <div class="params-listing">
         <ul>
-            <li> description<span class="type">  string</span> </li>
+            <li> description<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Description of the counter metric.</p>
 </p>
@@ -795,7 +795,7 @@ calculation.</p>
         
     <div class="params-listing">
         <ul>
-            <li> metricTags<span class="type">  map</span> </li>
+            <li> metricTags<span class="type">  <span class="builtin-type">map</span></span> </li>
             <li>
                 <p><p>Tags associated with the counter metric.</p>
 </p>
@@ -867,7 +867,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="register">
+    <div class="main-method-title here" id="register" title="register">
              <a class="url-link" href="#register">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -875,7 +875,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>error 
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -887,7 +887,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Returns error if there is any metric registered already with the same name
 but different parameters or in a different kind.</p>
 </li>
@@ -898,7 +898,7 @@ but different parameters or in a different kind.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="unregister">
+    <div class="main-method-title here" id="unregister" title="unregister">
              <a class="url-link" href="#unregister">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -913,7 +913,7 @@ but different parameters or in a different kind.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="increment">
+    <div class="main-method-title here" id="increment" title="increment">
              <a class="url-link" href="#increment">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -928,7 +928,10 @@ but different parameters or in a different kind.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> amount<span class="type">  float </span>- 1.0</li>
+                    <li>
+                        amount<span class="type">  <span class="builtin-type">float</span> </span>
+                        <span class="default"> (default 1.0)</span>
+                    </li>
                     <li>
                         <p><p>The amount by which the value of gauge needs to be increased.
 The amount is defaulted as 1.0 and will be used if there is no amount passed in.</p>
@@ -944,7 +947,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="decrement">
+    <div class="main-method-title here" id="decrement" title="decrement">
              <a class="url-link" href="#decrement">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -959,7 +962,10 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
                 
             <div class="params-listing">
                 <ul>
-                    <li> amount<span class="type">  float </span>- 1.0</li>
+                    <li>
+                        amount<span class="type">  <span class="builtin-type">float</span> </span>
+                        <span class="default"> (default 1.0)</span>
+                    </li>
                     <li>
                         <p><p>The amount by which the value of gauge needs to be decreased.
 The amount is defaulted as 1.0 and will be used if there is no amount passed in.</p>
@@ -975,7 +981,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setValue">
+    <div class="main-method-title here" id="setValue" title="setValue">
              <a class="url-link" href="#setValue">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -990,7 +996,10 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
                 
             <div class="params-listing">
                 <ul>
-                    <li> amount<span class="type">  float </span></li>
+                    <li>
+                        amount<span class="type">  <span class="builtin-type">float</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The instantaneous value that needs to be set as gauge value.</p>
 </p>
@@ -1005,7 +1014,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getValue">
+    <div class="main-method-title here" id="getValue" title="getValue">
              <a class="url-link" href="#getValue">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1013,7 +1022,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>float 
+            <b> returns </b><span class="builtin-type">float</span> 
         </span>
         
     </div>
@@ -1025,7 +1034,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">float</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">float</span></span>)</li>
                 <li><p>The current value of the gauge.</p>
 </li>
             </ul>
@@ -1035,7 +1044,7 @@ The amount is defaulted as 1.0 and will be used if there is no amount passed in.
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getSnapshot">
+    <div class="main-method-title here" id="getSnapshot" title="getSnapshot">
              <a class="url-link" href="#getSnapshot">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>

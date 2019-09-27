@@ -679,12 +679,12 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(string url, <a href="../../nats/records/ConnectionConfig.html">ConnectionConfig</a>? config)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> url, <a href="../../nats/records/ConnectionConfig.html">ConnectionConfig</a>? config)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>url</b><span class="type">  string</span> </li>
+                <li> <b>url</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>NATS Broker URL. For a clustered use case, pass the URLs as comma-separated values.</p>
 
@@ -731,15 +731,15 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> close </h2>
         
         <span class="method-types">
-            <p>(boolean forceful)</p>
-            <b> returns </b>Error 
+            <p>(<span class="builtin-type">boolean</span> forceful)</p>
+            <b> returns </b><a href="../../nats/errors.html#Error">Error</a>? 
         </span>
         
     </div>
@@ -751,7 +751,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> forceful<span class="type">  boolean </span>- ()</li>
+                    <li>
+                        forceful<span class="type">  <span class="builtin-type">boolean</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The graceful shutdown flag. If <code>true</code>, the connection closes immediately.
 By default, this is set to false.</p>
@@ -767,7 +770,7 @@ By default, this is set to false.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../nats/errors.html#Error">Error</a>?</span>)</li>
                 <li><p>Returns () or the error if unable to complete the close operation.</p>
 </li>
             </ul>

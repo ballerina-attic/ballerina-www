@@ -705,7 +705,7 @@ Default values of the fields can be set through the configuration API.
         
     <div class="params-listing">
         <ul>
-            <li> connectionInitSql<span class="type">  string</span> config:getAsString(b7a.jdbc.pool.connectionInitSql, )</li>
+            <li> connectionInitSql<span class="type">  <span class="builtin-type">string</span></span> config:getAsString(b7a.jdbc.pool.connectionInitSql, )</li>
             <li>
                 <p><p>SQL statement that will be executed after every new connection creation before adding it
 to the pool. Default value is none and it can be changed through the
@@ -717,7 +717,7 @@ configuration API with the key <code>b7a.jdbc.pool.connectionInitSql</code>.</p>
         
     <div class="params-listing">
         <ul>
-            <li> dataSourceClassName<span class="type">  string</span> config:getAsString(b7a.jdbc.pool.dataSourceClassName, )</li>
+            <li> dataSourceClassName<span class="type">  <span class="builtin-type">string</span></span> config:getAsString(b7a.jdbc.pool.dataSourceClassName, )</li>
             <li>
                 <p><p>Name of the DataSource class provided by the JDBC driver. This is used on following scenarios.
 1. In JDBC client when DB specific properties are required (which are given with dbOptions)
@@ -731,7 +731,7 @@ the configuration API with the key <code>b7a.jdbc.pool.dataSourceClassName</code
         
     <div class="params-listing">
         <ul>
-            <li> autoCommit<span class="type">  boolean</span> config:getAsBoolean(b7a.jdbc.pool.autoCommit, true)</li>
+            <li> autoCommit<span class="type">  <span class="builtin-type">boolean</span></span> config:getAsBoolean(b7a.jdbc.pool.autoCommit, true)</li>
             <li>
                 <p><p>Auto-commit behavior of connections returned from the pool.
 Default value is <code>true</code> and it can be changed through the configuration API with the key
@@ -743,7 +743,7 @@ Default value is <code>true</code> and it can be changed through the configurati
         
     <div class="params-listing">
         <ul>
-            <li> isXA<span class="type">  boolean</span> config:getAsBoolean(b7a.jdbc.pool.isXA, false)</li>
+            <li> isXA<span class="type">  <span class="builtin-type">boolean</span></span> config:getAsBoolean(b7a.jdbc.pool.isXA, false)</li>
             <li>
                 <p><p>Whether connections are used for a distributed transaction. Default value is <code>false</code> and it
 can be set through the configuration API with the key <code>b7a.jdbc.pool.isXA</code>.</p>
@@ -754,7 +754,7 @@ can be set through the configuration API with the key <code>b7a.jdbc.pool.isXA</
         
     <div class="params-listing">
         <ul>
-            <li> maximumPoolSize<span class="type">  int</span> config:getAsInt(&quot;b7a.jdbc.pool.maximumPoolSize&quot;, 15)</li>
+            <li> maximumPoolSize<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(&quot;b7a.jdbc.pool.maximumPoolSize&quot;, 15)</li>
             <li>
                 <p><p>The maximum size that the pool is allowed to reach, including both idle and in-use connections.
 Default value is 15 and it can be changed through the configuration API with the key
@@ -766,7 +766,7 @@ Default value is 15 and it can be changed through the configuration API with the
         
     <div class="params-listing">
         <ul>
-            <li> connectionTimeoutInMillis<span class="type">  int</span> config:getAsInt(&quot;b7a.jdbc.pool.connectionTimeoutInMillis&quot;, 30000)</li>
+            <li> connectionTimeoutInMillis<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(&quot;b7a.jdbc.pool.connectionTimeoutInMillis&quot;, 30000)</li>
             <li>
                 <p><p>The maximum number of milliseconds that a client will wait for a connection from the
 pool. Default value is 30000 (30 seconds) and it can be changed through the configuration API
@@ -779,7 +779,7 @@ value is 250 ms.</p>
         
     <div class="params-listing">
         <ul>
-            <li> idleTimeoutInMillis<span class="type">  int</span> config:getAsInt(b7a.jdbc.pool.idleTimeoutInMillis, 600000)</li>
+            <li> idleTimeoutInMillis<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(b7a.jdbc.pool.idleTimeoutInMillis, 600000)</li>
             <li>
                 <p><p>The maximum amount of time that a connection is allowed to sit idle in the pool. Default value
 is 600000 (10 minutes) and it can be changed through the configuration API with the key
@@ -792,7 +792,7 @@ This setting only applies when minimumIdle is defined to be less than maximumPoo
         
     <div class="params-listing">
         <ul>
-            <li> minimumIdle<span class="type">  int</span> config:getAsInt(b7a.jdbc.pool.minimumIdle, 15)</li>
+            <li> minimumIdle<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(b7a.jdbc.pool.minimumIdle, 15)</li>
             <li>
                 <p><p>The minimum number of idle connections that pool tries to maintain in the pool. Default is same as
 maximumPoolSize and it can be changed through the configuration API with the key
@@ -804,7 +804,7 @@ maximumPoolSize and it can be changed through the configuration API with the key
         
     <div class="params-listing">
         <ul>
-            <li> maxLifetimeInMillis<span class="type">  int</span> config:getAsInt(b7a.jdbc.pool.maxLifetimeInMillis, 1800000)</li>
+            <li> maxLifetimeInMillis<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(b7a.jdbc.pool.maxLifetimeInMillis, 1800000)</li>
             <li>
                 <p><p>The maximum lifetime of a connection in the pool. Default value is 1800000 (30 minutes)
 and it can be changed through the configuration API with the key <code>b7a.jdbc.pool.maxLifetimeInMillis</code>.
@@ -817,7 +817,7 @@ the <code>idleTimeoutInMillis</code>.</p>
         
     <div class="params-listing">
         <ul>
-            <li> validationTimeoutInMillis<span class="type">  int</span> config:getAsInt(&quot;b7a.jdbc.pool.validationTimeoutInMillis&quot;, 5000)</li>
+            <li> validationTimeoutInMillis<span class="type">  <span class="builtin-type">int</span></span> config:getAsInt(&quot;b7a.jdbc.pool.validationTimeoutInMillis&quot;, 5000)</li>
             <li>
                 <p><p>The maximum duration of time that a connection will be tested for aliveness. Default
 value is 5000 (5 seconds) and it can be changed through the configuration API with the key

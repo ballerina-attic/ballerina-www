@@ -672,7 +672,7 @@ transaction  that is passed in to those functions.</p>
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="getCurrentTransactionId">
+    <div class="main-method-title here" id="getCurrentTransactionId" title="getCurrentTransactionId">
              <a class="url-link" href="#getCurrentTransactionId">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -680,7 +680,7 @@ transaction  that is passed in to those functions.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -694,7 +694,7 @@ transaction  that is passed in to those functions.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>A string representing the ID of the current transaction.</p>
 </li>
             </ul>
@@ -704,15 +704,15 @@ transaction  that is passed in to those functions.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="registerParticipantWithRemoteInitiator">
+    <div class="main-method-title here" id="registerParticipantWithRemoteInitiator" title="registerParticipantWithRemoteInitiator">
              <a class="url-link" href="#registerParticipantWithRemoteInitiator">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> registerParticipantWithRemoteInitiator </h2>
         
         <span class="method-types">
-            <p>(string transactionId, string transactionBlockId, string registerAtURL, <a href="../transactions/records/RemoteProtocol.html">RemoteProtocol</a>[] participantProtocols)</p>
-            <b> returns </b><a href="../transactions/records/TransactionContext.html">TransactionContext</a> | error 
+            <p>(<span class="builtin-type">string</span> transactionId, <span class="builtin-type">string</span> transactionBlockId, <span class="builtin-type">string</span> registerAtURL, <a href="../transactions/records/RemoteProtocol.html">RemoteProtocol</a>[] participantProtocols)</p>
+            <b> returns </b><a href="../transactions/records/TransactionContext.html">TransactionContext</a> | <span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -724,7 +724,10 @@ transaction  that is passed in to those functions.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> transactionId<span class="type">  string </span></li>
+                    <li>
+                        transactionId<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Global transaction ID to which this participant is registering with.</p>
 </p>
@@ -734,7 +737,10 @@ transaction  that is passed in to those functions.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> transactionBlockId<span class="type">  string </span></li>
+                    <li>
+                        transactionBlockId<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The local ID of the transaction block on the participant.</p>
 </p>
@@ -744,7 +750,10 @@ transaction  that is passed in to those functions.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> registerAtURL<span class="type">  string </span></li>
+                    <li>
+                        registerAtURL<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The URL of the coordinator.</p>
 </p>
@@ -754,7 +763,10 @@ transaction  that is passed in to those functions.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> participantProtocols<span class="type">  <a href="../transactions/records/RemoteProtocol.html">RemoteProtocol</a>[] </span></li>
+                    <li>
+                        participantProtocols<span class="type">  <a href="../transactions/records/RemoteProtocol.html">RemoteProtocol</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The coordination protocals supported by the participant.</p>
 </p>
@@ -769,7 +781,7 @@ transaction  that is passed in to those functions.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../transactions/records/TransactionContext.html">TransactionContext</a> | error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../transactions/records/TransactionContext.html">TransactionContext</a> | <span class="builtin-type">error</span></span>)</li>
                 <li><p>TransactionContext if the registration is successful or an error in case of a failure.</p>
 </li>
             </ul>

@@ -683,44 +683,32 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#sendTo">
-    <div class="param-sum">
-        <div class="param-name">
-        sendTo 
-        </div>
-        <div class="param-details"> <p>Send given data to the specified remote client.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="sendTo"><a
+                                            class="functions" href="#sendTo">sendTo</a></td>
+                                    <td class="module-desc"><p>Send given data to the specified remote client.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#receiveFrom">
-    <div class="param-sum">
-        <div class="param-name">
-        receiveFrom 
-        </div>
-        <div class="param-details"> <p>Reads data from the remote client. If the data has the specified length, then wait until that number of bytes
+                                <tr>
+                                    <td class="module-title truncate functions" title="receiveFrom"><a
+                                            class="functions" href="#receiveFrom">receiveFrom</a></td>
+                                    <td class="module-desc"><p>Reads data from the remote client. If the data has the specified length, then wait until that number of bytes
 are received from the client. Else, return the data available in the OS buffer or wait until data receive.
 If the request length is lesser than the data in the buffer, then the rest will be discarded.</p>
- </div>
-    </div>
-</a>
+</td>
+                                </tr>
                             
-                                
-<a href="#close">
-    <div class="param-sum">
-        <div class="param-name">
-        close 
-        </div>
-        <div class="param-details"> <p>Closes the client socket connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="close"><a
+                                            class="functions" href="#close">close</a></td>
+                                    <td class="module-desc"><p>Closes the client socket connection.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -732,7 +720,7 @@ If the request length is lesser than the data in the buffer, then the rest will 
         
     <div class="params-listing">
         <ul>
-            <li> localPort<span class="type">  int</span> 0</li>
+            <li> localPort<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>the local port number to which this socket is bound</p>
 </p>
@@ -742,7 +730,7 @@ If the request length is lesser than the data in the buffer, then the rest will 
         
     <div class="params-listing">
         <ul>
-            <li> interface<span class="type">  string</span> ()</li>
+            <li> interface<span class="type">  <span class="builtin-type">string</span></span> ()</li>
             <li>
                 <p><p>network interface to bind to</p>
 </p>
@@ -752,7 +740,7 @@ If the request length is lesser than the data in the buffer, then the rest will 
         
     <div class="params-listing">
         <ul>
-            <li> id<span class="type">  int</span> 0</li>
+            <li> id<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>a unique identifier to identify each client</p>
 </p>
@@ -813,15 +801,15 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="sendTo">
+    <div class="main-method-title here" id="sendTo" title="sendTo">
              <a class="url-link" href="#sendTo">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> sendTo </h2>
         
         <span class="method-types">
-            <p>(byte content, <a href="../../socket/records/Address.html">Address</a> address)</p>
-            <b> returns </b>int | <a href="../../socket/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">byte</span> content, <a href="../../socket/records/Address.html">Address</a> address)</p>
+            <b> returns </b><span class="builtin-type">int</span> | <a href="../../socket/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -833,7 +821,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> content<span class="type">  byte </span></li>
+                    <li>
+                        content<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the content that wish to send to the client socket</p>
 </p>
@@ -843,7 +834,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> address<span class="type">  <a href="../../socket/records/Address.html">Address</a> </span></li>
+                    <li>
+                        address<span class="type">  <a href="../../socket/records/Address.html">Address</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the address of the remote client socket</p>
 </p>
@@ -858,7 +852,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int | <a href="../../socket/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span> | <a href="../../socket/types.html#Error">Error</a></span>)</li>
                 <li><p>number of bytes got written or an error if encounters an error while writing</p>
 </li>
             </ul>
@@ -868,15 +862,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="receiveFrom">
+    <div class="main-method-title here" id="receiveFrom" title="receiveFrom">
              <a class="url-link" href="#receiveFrom">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> receiveFrom </h2>
         
         <span class="method-types">
-            <p>(int length)</p>
-            <b> returns </b><span>[</span>byte, int, <a href="../../socket/records/Address.html">Address</a><span>]</span> | ReadTimedOutError 
+            <p>(<span class="builtin-type">int</span> length)</p>
+            <b> returns </b><span>[</span><span class="builtin-type">byte</span>, <span class="builtin-type">int</span>, <a href="../../socket/records/Address.html">Address</a><span>]</span> | <a href="../../socket/errors.html#ReadTimedOutError">ReadTimedOutError</a> 
         </span>
         
     </div>
@@ -890,7 +884,10 @@ If the request length is lesser than the data in the buffer, then the rest will 
                 
             <div class="params-listing">
                 <ul>
-                    <li> length<span class="type">  int </span>- -100</li>
+                    <li>
+                        length<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default -100)</span>
+                    </li>
                     <li>
                         <p><p>Positive integer. Represents the number of bytes which should be read</p>
 </p>
@@ -905,7 +902,7 @@ If the request length is lesser than the data in the buffer, then the rest will 
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span>byte, int, <a href="../../socket/records/Address.html">Address</a><span>]</span> | ReadTimedOutError</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><span class="builtin-type">byte</span>, <span class="builtin-type">int</span>, <a href="../../socket/records/Address.html">Address</a><span>]</span> | <a href="../../socket/errors.html#ReadTimedOutError">ReadTimedOutError</a></span>)</li>
                 <li><p>Content as a byte array, the number of bytes read and the address of the sender
 or an error if encounters an error while reading</p>
 </li>
@@ -916,7 +913,7 @@ or an error if encounters an error while reading</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>

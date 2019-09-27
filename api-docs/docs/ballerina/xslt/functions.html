@@ -614,15 +614,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="transform">
+    <div class="main-method-title here" id="transform" title="transform">
              <a class="url-link" href="#transform">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> transform </h2>
         
         <span class="method-types">
-            <p>(xml input, xml xsl)</p>
-            <b> returns </b>xml | error 
+            <p>(<span class="builtin-type">xml</span> input, <span class="builtin-type">xml</span> xsl)</p>
+            <b> returns </b><span class="builtin-type">xml</span> | <span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -634,7 +634,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> input<span class="type">  xml </span></li>
+                    <li>
+                        input<span class="type">  <span class="builtin-type">xml</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An XML object, which needs to be transformed.</p>
 </p>
@@ -644,7 +647,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> xsl<span class="type">  xml </span></li>
+                    <li>
+                        xsl<span class="type">  <span class="builtin-type">xml</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The XSL style sheet represented in an XML object.</p>
 </p>
@@ -659,7 +665,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">xml | error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">xml</span> | <span class="builtin-type">error</span></span>)</li>
                 <li><p>The transformed result represented in an XML object or the <code>error</code> in case of an error.</p>
 </li>
             </ul>

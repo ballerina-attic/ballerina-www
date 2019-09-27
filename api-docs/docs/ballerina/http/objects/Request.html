@@ -1186,7 +1186,7 @@ set the content-type header to <code>application/json</code> or use the <code>se
         
     <div class="params-listing">
         <ul>
-            <li> rawPath<span class="type">  string</span> </li>
+            <li> rawPath<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Resource path of the request URL</p>
 </p>
@@ -1196,7 +1196,7 @@ set the content-type header to <code>application/json</code> or use the <code>se
         
     <div class="params-listing">
         <ul>
-            <li> method<span class="type">  string</span> </li>
+            <li> method<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>The HTTP request method</p>
 </p>
@@ -1206,7 +1206,7 @@ set the content-type header to <code>application/json</code> or use the <code>se
         
     <div class="params-listing">
         <ul>
-            <li> httpVersion<span class="type">  string</span> </li>
+            <li> httpVersion<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>The HTTP version supported by the client</p>
 </p>
@@ -1216,7 +1216,7 @@ set the content-type header to <code>application/json</code> or use the <code>se
         
     <div class="params-listing">
         <ul>
-            <li> userAgent<span class="type">  string</span> </li>
+            <li> userAgent<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>The user-agent. This value is used when setting the <code>user-agent</code> header</p>
 </p>
@@ -1226,7 +1226,7 @@ set the content-type header to <code>application/json</code> or use the <code>se
         
     <div class="params-listing">
         <ul>
-            <li> extraPathInfo<span class="type">  string</span> </li>
+            <li> extraPathInfo<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Additional information associated with the URL provided by the client</p>
 </p>
@@ -1308,7 +1308,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setEntity">
+    <div class="main-method-title here" id="setEntity" title="setEntity">
              <a class="url-link" href="#setEntity">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1323,7 +1323,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> e<span class="type">  <a href="../../mime/objects/Entity.html">Entity</a> </span></li>
+                    <li>
+                        e<span class="type">  <a href="../../mime/objects/Entity.html">Entity</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>Entity</code> to be set to the request</p>
 </p>
@@ -1338,7 +1341,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getQueryParams">
+    <div class="main-method-title here" id="getQueryParams" title="getQueryParams">
              <a class="url-link" href="#getQueryParams">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1346,7 +1349,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>map 
+            <b> returns </b><span class="builtin-type">map</span> 
         </span>
         
     </div>
@@ -1358,7 +1361,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">map</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">map</span></span>)</li>
                 <li><p>String array map of the query params</p>
 </li>
             </ul>
@@ -1368,15 +1371,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getQueryParamValue">
+    <div class="main-method-title here" id="getQueryParamValue" title="getQueryParamValue">
              <a class="url-link" href="#getQueryParamValue">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getQueryParamValue </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>string 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1388,7 +1391,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Represents the query param key</p>
 </p>
@@ -1403,7 +1409,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>Returns the query param value associated with the given key as a string. If multiple param values are
 present, then the first value is returned. Nil is returned if no key is found.</p>
 </li>
@@ -1414,15 +1420,15 @@ present, then the first value is returned. Nil is returned if no key is found.</
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getQueryParamValues">
+    <div class="main-method-title here" id="getQueryParamValues" title="getQueryParamValues">
              <a class="url-link" href="#getQueryParamValues">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getQueryParamValues </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>string 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1434,7 +1440,10 @@ present, then the first value is returned. Nil is returned if no key is found.</
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Represents the query param key</p>
 </p>
@@ -1449,7 +1458,7 @@ present, then the first value is returned. Nil is returned if no key is found.</
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>Returns all the query param values associated with the given key as a <code>string[]</code>. Nil is returned if no key
 is found.</p>
 </li>
@@ -1460,15 +1469,15 @@ is found.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getMatrixParams">
+    <div class="main-method-title here" id="getMatrixParams" title="getMatrixParams">
              <a class="url-link" href="#getMatrixParams">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getMatrixParams </h2>
         
         <span class="method-types">
-            <p>(string path)</p>
-            <b> returns </b>map 
+            <p>(<span class="builtin-type">string</span> path)</p>
+            <b> returns </b><span class="builtin-type">map</span> 
         </span>
         
     </div>
@@ -1480,7 +1489,10 @@ is found.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> path<span class="type">  string </span></li>
+                    <li>
+                        path<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Path to the location of matrix parameters</p>
 </p>
@@ -1495,7 +1507,7 @@ is found.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">map</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">map</span></span>)</li>
                 <li><p>A map of matrix parameters which can be found for the given path</p>
 </li>
             </ul>
@@ -1505,7 +1517,7 @@ is found.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getEntity">
+    <div class="main-method-title here" id="getEntity" title="getEntity">
              <a class="url-link" href="#getEntity">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1535,15 +1547,15 @@ is found.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="hasHeader">
+    <div class="main-method-title here" id="hasHeader" title="hasHeader">
              <a class="url-link" href="#hasHeader">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> hasHeader </h2>
         
         <span class="method-types">
-            <p>(string headerName)</p>
-            <b> returns </b>boolean 
+            <p>(<span class="builtin-type">string</span> headerName)</p>
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1555,7 +1567,10 @@ is found.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerName<span class="type">  string </span></li>
+                    <li>
+                        headerName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1570,7 +1585,7 @@ is found.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>Returns true if the specified header key exists</p>
 </li>
             </ul>
@@ -1580,15 +1595,15 @@ is found.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getHeader">
+    <div class="main-method-title here" id="getHeader" title="getHeader">
              <a class="url-link" href="#getHeader">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getHeader </h2>
         
         <span class="method-types">
-            <p>(string headerName)</p>
-            <b> returns </b>string 
+            <p>(<span class="builtin-type">string</span> headerName)</p>
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1601,7 +1616,10 @@ these values is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerName<span class="type">  string </span></li>
+                    <li>
+                        headerName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1616,7 +1634,7 @@ these values is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>The first header value for the specified header name. An exception is thrown if no header is found. Use
 <code>hasHeader()</code> beforehand to check the existence of header.</p>
 </li>
@@ -1627,15 +1645,15 @@ these values is returned.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getHeaders">
+    <div class="main-method-title here" id="getHeaders" title="getHeaders">
              <a class="url-link" href="#getHeaders">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getHeaders </h2>
         
         <span class="method-types">
-            <p>(string headerName)</p>
-            <b> returns </b>string 
+            <p>(<span class="builtin-type">string</span> headerName)</p>
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1647,7 +1665,10 @@ these values is returned.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerName<span class="type">  string </span></li>
+                    <li>
+                        headerName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1662,7 +1683,7 @@ these values is returned.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>The header values the specified header key maps to. An exception is thrown if no header is found. Use
 <code>hasHeader()</code> beforehand to check the existence of header.</p>
 </li>
@@ -1673,7 +1694,7 @@ these values is returned.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setHeader">
+    <div class="main-method-title here" id="setHeader" title="setHeader">
              <a class="url-link" href="#setHeader">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1689,7 +1710,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerName<span class="type">  string </span></li>
+                    <li>
+                        headerName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1699,7 +1723,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerValue<span class="type">  string </span></li>
+                    <li>
+                        headerValue<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header value</p>
 </p>
@@ -1714,7 +1741,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="addHeader">
+    <div class="main-method-title here" id="addHeader" title="addHeader">
              <a class="url-link" href="#addHeader">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1729,7 +1756,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerName<span class="type">  string </span></li>
+                    <li>
+                        headerName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1739,7 +1769,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headerValue<span class="type">  string </span></li>
+                    <li>
+                        headerValue<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header value</p>
 </p>
@@ -1754,7 +1787,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="removeHeader">
+    <div class="main-method-title here" id="removeHeader" title="removeHeader">
              <a class="url-link" href="#removeHeader">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1769,7 +1802,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The header name</p>
 </p>
@@ -1784,7 +1820,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="removeAllHeaders">
+    <div class="main-method-title here" id="removeAllHeaders" title="removeAllHeaders">
              <a class="url-link" href="#removeAllHeaders">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1799,7 +1835,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getHeaderNames">
+    <div class="main-method-title here" id="getHeaderNames" title="getHeaderNames">
              <a class="url-link" href="#getHeaderNames">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1807,7 +1843,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1819,7 +1855,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>An array of all the header names</p>
 </li>
             </ul>
@@ -1829,7 +1865,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="expects100Continue">
+    <div class="main-method-title here" id="expects100Continue" title="expects100Continue">
              <a class="url-link" href="#expects100Continue">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1837,7 +1873,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1849,7 +1885,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>Returns true if the client expects a <code>100-continue</code> response</p>
 </li>
             </ul>
@@ -1859,15 +1895,15 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setContentType">
+    <div class="main-method-title here" id="setContentType" title="setContentType">
              <a class="url-link" href="#setContentType">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> setContentType </h2>
         
         <span class="method-types">
-            <p>(string contentType)</p>
-            <b> returns </b>error 
+            <p>(<span class="builtin-type">string</span> contentType)</p>
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -1879,7 +1915,10 @@ header value is replaced with the specified header value.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span></li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Content type value to be set as the <code>content-type</code> header</p>
 </p>
@@ -1894,7 +1933,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Nil if successful, error in case of invalid content-type</p>
 </li>
             </ul>
@@ -1904,7 +1943,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getContentType">
+    <div class="main-method-title here" id="getContentType" title="getContentType">
              <a class="url-link" href="#getContentType">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1912,7 +1951,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1924,7 +1963,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>Returns the <code>content-type</code> header value as a string</p>
 </li>
             </ul>
@@ -1934,7 +1973,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getJsonPayload">
+    <div class="main-method-title here" id="getJsonPayload" title="getJsonPayload">
              <a class="url-link" href="#getJsonPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1942,7 +1981,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>json | <a href="../../http/types.html#ClientError">ClientError</a> 
+            <b> returns </b><span class="builtin-type">json</span> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
     </div>
@@ -1954,7 +1993,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">json | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">json</span> | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
                 <li><p>The <code>json</code> payload or <code>http:ClientError</code> in case of errors</p>
 </li>
             </ul>
@@ -1964,7 +2003,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getXmlPayload">
+    <div class="main-method-title here" id="getXmlPayload" title="getXmlPayload">
              <a class="url-link" href="#getXmlPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1972,7 +2011,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>xml | <a href="../../http/types.html#ClientError">ClientError</a> 
+            <b> returns </b><span class="builtin-type">xml</span> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
     </div>
@@ -1984,7 +2023,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">xml | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">xml</span> | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
                 <li><p>The <code>xml</code> payload or <code>http:ClientError</code> in case of errors</p>
 </li>
             </ul>
@@ -1994,7 +2033,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getTextPayload">
+    <div class="main-method-title here" id="getTextPayload" title="getTextPayload">
              <a class="url-link" href="#getTextPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2002,7 +2041,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string | <a href="../../http/types.html#ClientError">ClientError</a> 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
     </div>
@@ -2014,7 +2053,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
                 <li><p>The <code>text</code> payload or <code>http:ClientError</code> in case of errors</p>
 </li>
             </ul>
@@ -2024,7 +2063,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getByteChannel">
+    <div class="main-method-title here" id="getByteChannel" title="getByteChannel">
              <a class="url-link" href="#getByteChannel">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2055,7 +2094,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getBinaryPayload">
+    <div class="main-method-title here" id="getBinaryPayload" title="getBinaryPayload">
              <a class="url-link" href="#getBinaryPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2063,7 +2102,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>byte | <a href="../../http/types.html#ClientError">ClientError</a> 
+            <b> returns </b><span class="builtin-type">byte</span> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
     </div>
@@ -2075,7 +2114,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">byte | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">byte</span> | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
                 <li><p>The byte[] representation of the message payload or <code>http:ClientError</code> in case of errors</p>
 </li>
             </ul>
@@ -2085,7 +2124,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getFormParams">
+    <div class="main-method-title here" id="getFormParams" title="getFormParams">
              <a class="url-link" href="#getFormParams">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2093,7 +2132,7 @@ header value is replaced with the specified header value.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>map | <a href="../../http/types.html#ClientError">ClientError</a> 
+            <b> returns </b><span class="builtin-type">map</span> | <a href="../../http/types.html#ClientError">ClientError</a> 
         </span>
         
     </div>
@@ -2105,7 +2144,7 @@ header value is replaced with the specified header value.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">map | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">map</span> | <a href="../../http/types.html#ClientError">ClientError</a></span>)</li>
                 <li><p>The map of form params or <code>http:ClientError</code> in case of errors</p>
 </li>
             </ul>
@@ -2115,7 +2154,7 @@ header value is replaced with the specified header value.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getBodyParts">
+    <div class="main-method-title here" id="getBodyParts" title="getBodyParts">
              <a class="url-link" href="#getBodyParts">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2147,7 +2186,7 @@ constructing the body parts from the request</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setJsonPayload">
+    <div class="main-method-title here" id="setJsonPayload" title="setJsonPayload">
              <a class="url-link" href="#setJsonPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2162,7 +2201,10 @@ constructing the body parts from the request</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  json </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">json</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>json</code> payload</p>
 </p>
@@ -2172,7 +2214,10 @@ constructing the body parts from the request</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- application/json</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default application/json)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the payload. Set this to override the default <code>content-type</code> header value
 for <code>json</code></p>
@@ -2188,7 +2233,7 @@ for <code>json</code></p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setXmlPayload">
+    <div class="main-method-title here" id="setXmlPayload" title="setXmlPayload">
              <a class="url-link" href="#setXmlPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2203,7 +2248,10 @@ for <code>json</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  xml </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">xml</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>xml</code> payload</p>
 </p>
@@ -2213,7 +2261,10 @@ for <code>json</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- application/xml</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default application/xml)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the payload. Set this to override the default <code>content-type</code> header value
 for <code>xml</code></p>
@@ -2229,7 +2280,7 @@ for <code>xml</code></p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setTextPayload">
+    <div class="main-method-title here" id="setTextPayload" title="setTextPayload">
              <a class="url-link" href="#setTextPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2244,7 +2295,10 @@ for <code>xml</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  string </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>string</code> payload</p>
 </p>
@@ -2254,7 +2308,10 @@ for <code>xml</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- text/plain</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default text/plain)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the payload. Set this to override the default <code>content-type</code> header value
 for <code>string</code></p>
@@ -2270,7 +2327,7 @@ for <code>string</code></p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setBinaryPayload">
+    <div class="main-method-title here" id="setBinaryPayload" title="setBinaryPayload">
              <a class="url-link" href="#setBinaryPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2285,7 +2342,10 @@ for <code>string</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  byte </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>byte[]</code> payload</p>
 </p>
@@ -2295,7 +2355,10 @@ for <code>string</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- application/octet-stream</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default application/octet-stream)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the payload. Set this to override the default <code>content-type</code> header value
 for <code>byte[]</code></p>
@@ -2311,7 +2374,7 @@ for <code>byte[]</code></p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setBodyParts">
+    <div class="main-method-title here" id="setBodyParts" title="setBodyParts">
              <a class="url-link" href="#setBodyParts">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2326,7 +2389,10 @@ for <code>byte[]</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> bodyParts<span class="type">  <a href="../../mime/objects/Entity.html">Entity</a>[] </span></li>
+                    <li>
+                        bodyParts<span class="type">  <a href="../../mime/objects/Entity.html">Entity</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The entities which make up the message body</p>
 </p>
@@ -2336,7 +2402,10 @@ for <code>byte[]</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- multipart/form-data</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default multipart/form-data)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the top level message. Set this to override the default
 <code>content-type</code> header value</p>
@@ -2352,7 +2421,7 @@ for <code>byte[]</code></p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setFileAsPayload">
+    <div class="main-method-title here" id="setFileAsPayload" title="setFileAsPayload">
              <a class="url-link" href="#setFileAsPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2367,7 +2436,10 @@ for <code>byte[]</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> filePath<span class="type">  string </span></li>
+                    <li>
+                        filePath<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Path to the file to be set as the payload</p>
 </p>
@@ -2377,7 +2449,10 @@ for <code>byte[]</code></p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- application/octet-stream</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default application/octet-stream)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the specified file. Set this to override the default <code>content-type</code>
 header value</p>
@@ -2393,7 +2468,7 @@ header value</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setByteChannel">
+    <div class="main-method-title here" id="setByteChannel" title="setByteChannel">
              <a class="url-link" href="#setByteChannel">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2408,7 +2483,10 @@ header value</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  <a href="../../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span></li>
+                    <li>
+                        payload<span class="type">  <a href="../../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>A <code>ByteChannel</code> through which the message payload can be read</p>
 </p>
@@ -2418,7 +2496,10 @@ header value</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> contentType<span class="type">  string </span>- application/octet-stream</li>
+                    <li>
+                        contentType<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default application/octet-stream)</span>
+                    </li>
                     <li>
                         <p><p>The content type of the payload. Set this to override the default <code>content-type</code>
 header value</p>
@@ -2434,7 +2515,7 @@ header value</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setPayload">
+    <div class="main-method-title here" id="setPayload" title="setPayload">
              <a class="url-link" href="#setPayload">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -2450,7 +2531,10 @@ set the content-type header to <code>application/json</code> or use the <code>se
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  string | xml | json | byte | <a href="../../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../../mime/objects/Entity.html">Entity</a>[] </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">string</span> | <span class="builtin-type">xml</span> | <span class="builtin-type">json</span> | <span class="builtin-type">byte</span> | <a href="../../io/objects/ReadableByteChannel.html">ReadableByteChannel</a> | <a href="../../mime/objects/Entity.html">Entity</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>Payload can be of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>, <code>ByteChannel</code>, or <code>Entity[]</code> (i.e., a set
 of body parts).</p>
