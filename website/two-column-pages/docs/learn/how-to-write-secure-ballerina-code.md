@@ -5,35 +5,61 @@ This document demonstrates different security features and controls available wi
 
 **Table of Contents**
 
-- [Secure by Design](#Secure-by-Design)
-  - [Ensuring security of Ballerina standard libraries](#Ensuring-security-of-Ballerina-standard-libraries)
-  - [Securely using tainted data with security-sensitive parameters](#Securely-using-tainted-data-with-security-sensitive-parameters)
-- [Securing Passwords and Secrets](#Securing-Passwords-and-Secrets)
-- [Authentication and Authorization](#Authentication-and-Authorization)
-  - [Inbound Authentication & Authorization](#Inbound-Authentication--Authorization)
-    - [Advanced Use Cases](#Advanced-Use-Cases)
-      - [Using Multiple Auth Handlers](#Using-Multiple-Auth-Handlers)
-      - [Using Multiple Scopes](#Using-Multiple-Scopes)
-      - [Per-Resource and Per-Service Customization](#Per-Resource-and-Per-Service-Customization)
-      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
-      - [Disable HTTPS Enforcement](#Disable-HTTPS-Enforcement)
-      - [Modify Authn/Authz Filter Index](#Modify-Authn/Authz-Filter-Index)
-    - [JWT Inbound Authentication and Authorization](#JWT-Inbound-Authentication-and-Authorization)
-    - [OAuth2 Inbound Authentication and Authorization](#OAuth2-Inbound-Authentication-and-Authorization)
-    - [LDAP Inbound Authentication and Authorization](#LDAP-Inbound-Authentication-and-Authorization)
-    - [Basic Auth Inbound Authentication and Authorization](#Basic-Auth-Inbound-Authentication-and-Authorization)
-  - [Outbound Authentication & Authorization](#Outbound-Authentication--Authorization)
-    - [Advanced Use Cases](#Advanced-Use-Cases)
-      - [Implementing Custom Authentication Mechanism](#Implementing-Custom-Authentication-Mechanism)
-    - [JWT Outbound Authentication](#JWT-Outbound-Authentication)
-    - [OAuth2 Outbound Authentication](#OAuth2-Outbound-Authentication)
-      - [Client Credentials Grant Type](#Client-Credentials-Grant-Type)
-      - [Password Grant Type](#Password-Grant-Type)
-      - [Direct Token Mode](#Direct-Token-Mode)
-    - [Basic Authentication](#Basic-Authentication)
-    - [Token Propagation for Outbound Authentication](#Token-Propagation-for-Outbound-Authentication)
-      - [Example - 1](#Example---1)
-      - [Example - 2](#Example---2)
+<ul>
+<li><a href="#Secure-by-Design">Secure by Design</a>
+<ul>
+<li><a href="#Ensuring-security-of-Ballerina-standard-libraries">Ensuring security of Ballerina standard libraries</a></li>
+<li><a href="#Securely-using-tainted-data-with-security-sensitive-parameters">Securely using tainted data with security-sensitive parameters</a></li>
+</ul>
+</li>
+<li><a href="#Securing-Passwords-and-Secrets">Securing Passwords and Secrets</a></li>
+<li><a href="#Authentication-and-Authorization">Authentication and Authorization</a>
+<ul>
+<li><a href="#Inbound-Authentication--Authorization">Inbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#Advanced-Use-Cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#Using-Multiple-Auth-Handlers">Using Multiple Auth Handlers</a></li>
+<li><a href="#Using-Multiple-Scopes">Using Multiple Scopes</a></li>
+<li><a href="#Per-Resource-and-Per-Service-Customization">Per-Resource and Per-Service Customization</a></li>
+<li><a href="#Implementing-Custom-Authentication-Mechanism">Implementing Custom Authentication Mechanism</a></li>
+<li><a href="#Disable-HTTPS-Enforcement">Disable HTTPS Enforcement</a></li>
+<li><a href="#Modify-Authn/Authz-Filter-Index">Modify Authn/Authz Filter Index</a></li>
+</ul>
+</li>
+<li><a href="#JWT-Inbound-Authentication-and-Authorization">JWT Inbound Authentication and Authorization</a></li>
+<li><a href="#OAuth2-Inbound-Authentication-and-Authorization">OAuth2 Inbound Authentication and Authorization</a></li>
+<li><a href="#LDAP-Inbound-Authentication-and-Authorization">LDAP Inbound Authentication and Authorization</a></li>
+<li><a href="#Basic-Auth-Inbound-Authentication-and-Authorization">Basic Auth Inbound Authentication and Authorization</a></li>
+</ul>
+</li>
+<li><a href="#Outbound-Authentication--Authorization">Outbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#Advanced-Use-Cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#Implementing-Custom-Authentication-Mechanism">Implementing Custom Authentication Mechanism</a></li>
+</ul>
+</li>
+<li><a href="#JWT-Outbound-Authentication">JWT Outbound Authentication</a></li>
+<li><a href="#OAuth2-Outbound-Authentication">OAuth2 Outbound Authentication</a>
+<ul>
+<li><a href="#Client-Credentials-Grant-Type">Client Credentials Grant Type</a></li>
+<li><a href="#Password-Grant-Type">Password Grant Type</a></li>
+<li><a href="#Direct-Token-Mode">Direct Token Mode</a></li>
+</ul>
+</li>
+<li><a href="#Basic-Authentication">Basic Authentication</a></li>
+<li><a href="#Token-Propagation-for-Outbound-Authentication">Token Propagation for Outbound Authentication</a>
+<ul>
+<li><a href="#Example---1">Example - 1</a></li>
+<li><a href="#Example---2">Example - 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 ## Secure by Design
 
