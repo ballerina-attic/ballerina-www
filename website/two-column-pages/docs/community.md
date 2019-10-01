@@ -46,9 +46,9 @@ We run an announcement-only, no-marketing-spam mailing list, which we will use t
 
 Oh no, you hit a bump on the road! Please tell us - we want to fix all bugs!
 
-- Found a bug in the compiler, standard libraries, or the runtime? Create an issue here: https://github.com/ballerina-platform/ballerina-lang/issues
-- Found a bug in the language specification? Create an issue here: https://github.com/ballerina-platform/ballerina-spec/issues
-- Found a bug in the website? Create an issue here: https://github.com/ballerina-platform/ballerina-www/issues
+- Found a bug in the compiler, standard libraries or the runtime? Create an issue here: <a href="https://github.com/ballerina-platform/ballerina-lang/issue">https://github.com/ballerina-platform/ballerina-lang/issues</a>
+- Found a bug in the language specification? Create an issue here: <a href="https://github.com/ballerina-platform/ballerina-spec/issues">https://github.com/ballerina-platform/ballerina-spec/issues</a>
+- Found a bug on the website? Create an issue here:<a href="https://github.com/ballerina-platform/ballerina-www/issues">https://github.com/ballerina-platform/ballerina-www/issues</a> 
 
 
 ## Want to help us make Ballerina popular?

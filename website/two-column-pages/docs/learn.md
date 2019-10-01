@@ -1,5 +1,5 @@
 <h1>Let’s learn Ballerina!</h1>
-<div class="col-sm-12 col-md-6 cTwoCol cBallerinaLearnWrapper">
+<div class="col-sm-12 col-md-12 cTwoCol cBallerinaLearnWrapper">
    <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let’s get you going on to happy dancing!</p>
 <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
@@ -22,7 +22,7 @@
 <div class="col-sm-12 col-md-1 cLearnSteps">2</div>
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a>or IntelliJ Idea plugin (coming soon!) from their marketplaces.</p>
+     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a> or IntelliJ Idea plugin (coming soon!) from their marketplaces.</p>
     <p>Need some help? Read the instructions for <a  href="/learn/tools-ides/vscode-plugin/">VSCode</a> or <a href="/learn/tools-ides/intellij-plugin/">IntelliJ Idea</a>.</p>
       </div>
    </div>
@@ -32,7 +32,7 @@
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Take a quick tour to run a simple hello world services and call a web API. </p>
-   <p>Need some help? Read the <a href="/learn/getting-started/">Getting Started guide</a>.</p>
+     <p>Read the <a href="/learn/quick-tour/">quickstart guide</a> and follow along in your IDE</p>
       </div>
    </div>
 </div>
@@ -43,20 +43,20 @@
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
 <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Need to understand a particular feature? Check out an example about it!</p>
+     <p>Need to understand a particular feature? Check out an example about it!</p><br>
          <a class="cBallerinaLearnButtons cBBEButton" href="/learn/by-example/"><img src="/img/ballerina-bbe-logo.svg"/></a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Learn the “batteries-included” standard library</p>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
+     <p>Learn the “batteries-included” standard library</p><br>
+         <a class="cBallerinaLearnButtons" href="/learn/api-docs/ballerina">The Standard Library</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
      <p>Read the language & platform specifications to really understand the guts of the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
+         <a class="cBallerinaLearnButtons" href="/spec/">Language Specification</a>
       </div>
    </div>
 </div>
@@ -145,40 +145,19 @@
 <p>These powerful supporting tools extend Ballerina to various ecosystem technologies that are inherently cloud native. This functionality will grow over time and will even be developer extensible in the future.</p>
 <table class="cComandTable">
 <tr>
-<td class="cCommand">add</td>
-<td class="cDescription">Add another (selected kind of) module to an existing project
+<td class="cCommand">encrypt</td>
+<td class="cDescription">Use this tool to encrypt sensitive data and pass them to a Ballerina program via the configuration system
 </td>
 </tr>
 <tr>
-<td class="cCommand">push</td>
-<td class="cDescription">Upload a module to Ballerina Central
-</td>
+<td class="cCommand">openapi</td>
+<td class="cDescription">This is the OpenAPI (Swagger) stub / skeleton generation tool. Read <a href=”/learn/how-to-use-openapi-tools/”>this How-To</a> for more information.</td>
+</tr>
+<tr>
+<td class="cCommand">grpc</td>
+<td class="cDescription">This is the gRPC stub / skeleton generation tool.</td>
 </tr>
 </table>
-
-
-
-
-</div>
-<div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
-<div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>Learn Ballerina incrementally with commented examples that cover every nuance of the syntax.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/by-example/">Ballerina by Example</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>The standard library provides comprehensive documentation for the Ballerina standard library APIs.</p>
-         <a class="cBallerinaLearnButtons" href="/learn/api-docs/">The Standard Library</a>
-      </div>
-   </div>
-   <div class="col-sm-12 col-md-4 cBoxContainer">
-      <div class="cBallerina-Box">
-     <p>This spec defines the language and will be useful to understand, evaluate, or start using the language.</p>
-         <a class="cBallerinaLearnButtons" href="https://v1-0-0-alpha.ballerina.io/learn/language-specification/2019R2/">Language Specification</a>
-      </div>
-   </div>
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
    <h2>How To’s</h2>
