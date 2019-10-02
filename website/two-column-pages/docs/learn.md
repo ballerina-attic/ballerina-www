@@ -110,7 +110,7 @@
 </tr>
 <tr>
 <td class="cCommand">format</td>
-<td class="cDescription">Format Ballerina source files as per the <a href="/learn/style-guide/">Ballerina Style Guide.</a></td>
+<td class="cDescription">Format Ballerina source files as per the <a href="/learn/style-guide/">Ballerina Style Guide</a>.</td>
 </tr>
 </table>
 <h3>Work with Ballerina Central</h3>
