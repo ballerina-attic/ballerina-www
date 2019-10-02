@@ -151,7 +151,7 @@
 </tr>
 <tr>
 <td class="cCommand">openapi</td>
-<td class="cDescription">This is the OpenAPI (Swagger) stub / skeleton generation tool. For more information, see the <a href=”/learn/how-to-use-openapi-tools/”>How to Use OpenAPI Tools Guide.</a></td>
+<td class="cDescription">This is the OpenAPI (Swagger) stub/skeleton generation tool. For more information, see the <a href=”/learn/how-to-use-openapi-tools/”>How to Use OpenAPI Tools Guide</a>.</td>
 </tr>
 <tr>
 <td class="cCommand">grpc</td>
