@@ -1,6 +1,6 @@
 <h1>Let’s learn Ballerina!</h1>
 <div class="col-sm-12 col-md-12 cTwoCol cBallerinaLearnWrapper">
-   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let's get you dancing with Ballerina!</p>
+   <p>Ballerina is meant to be a quick start for anyone with prior programming experience. Let's get Ballerina up and running!</p>
 <!-- <a href="" class="cGreenLinkArrow">Take Quick Tour</a> -->
 </div>
 <div class="col-sm-12 col-md-12 cBallerinaLearnTitleWrapper">
@@ -55,7 +55,7 @@
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p class="cBoxpara">Read the language & platform specifications to understand the guts of the language.</p>
+     <p class="cBoxpara">Read the language & platform specifications to understand the essentials of the language.</p>
          <a class="cBallerinaLearnButtons" href="/spec/">Language Specification</a>
       </div>
    </div>
