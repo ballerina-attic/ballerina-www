@@ -22,7 +22,7 @@
 <div class="col-sm-12 col-md-1 cLearnSteps">2</div>
 <div class="col-sm-12 col-md-11 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a> or IntelliJ Idea plugin (coming soon!) from their marketplaces.</p>
+     <p>Get your IDE set up: Download your <a href="https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina" target="_blank">VSCode</a> or <a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank">IntelliJ IDEA</a> plugin from the respective marketplaces.</p>
     <p>Need some help? Read the instructions for <a  href="/learn/tools-ides/vscode-plugin/">VSCode</a> or <a href="/learn/tools-ides/intellij-plugin/">IntelliJ Idea</a>.</p>
       </div>
    </div>
