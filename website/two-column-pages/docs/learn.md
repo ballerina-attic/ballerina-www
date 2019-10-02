@@ -133,7 +133,7 @@
 </tr>
 </table>
 <h3>Manage projects</h3>
-<p>Ballerina projects is the way to organize real world Ballerina development tasks. Learn more about them in the <a href="/learn/how-to-structure-ballerina-code/#projects">How to Structure Ballerina Code Guide</a>.</p>
+<p>Ballerina projects are the way to organize real world Ballerina development tasks. Learn more about them in the <a href="/learn/how-to-structure-ballerina-code/#projects">How to Structure Ballerina Code Guide</a>.</p>
 <table class="cComandTable">
 <tr>
 <td class="cCommand">new</td>
