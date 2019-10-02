@@ -146,7 +146,7 @@
 <table class="cComandTable">
 <tr>
 <td class="cCommand">encrypt</td>
-<td class="cDescription">Use this tool to encrypt sensitive data and pass them to a Ballerina program via the configuration system.
+<td class="cDescription">Use this tool to encrypt sensitive data to be passed to a Ballerina program via the configuration API.
 </td>
 </tr>
 <tr>
