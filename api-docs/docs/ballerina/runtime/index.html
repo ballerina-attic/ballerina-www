@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -312,7 +312,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -614,7 +614,8 @@ public function main() {
         principal.scopes = scopes;
     }
 
-    runtime:AuthenticationContext? authContext = invocationContext[&quot;authenticationContext&quot;];
+    runtime:AuthenticationContext? authContext = 
+                            invocationContext[&quot;authenticationContext&quot;];
     if (authContext is runtime:AuthenticationContext) {
         // Set auth scheme.
         authContext.scheme = &quot;jwt&quot;;
@@ -640,7 +641,8 @@ public function main() {
         io:println(retrievedScopes);
     }
 
-    runtime:AuthenticationContext? authContext1 = invocationContext1[&quot;authenticationContext&quot;];
+    runtime:AuthenticationContext? authContext1 = 
+                            invocationContext1[&quot;authenticationContext&quot;];
     if (authContext1 is runtime:AuthenticationContext) {
         // Retrieve auth scheme.
         string? authScheme = authContext1[&quot;scheme&quot;];
@@ -704,7 +706,7 @@ function panicWithError() {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate records" id="AuthenticationContext">
+                            <td class="module-title truncate records" id="AuthenticationContext" title="AuthenticationContext">
                                 <a class="records"
                                    href="records/AuthenticationContext.html">AuthenticationContext</a></td>
                             <td class="module-desc">Represents the AuthenticationContext, populated with authenticated information.
@@ -712,7 +714,7 @@ function panicWithError() {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="CallStackElement">
+                            <td class="module-title truncate records" id="CallStackElement" title="CallStackElement">
                                 <a class="records"
                                    href="records/CallStackElement.html">CallStackElement</a></td>
                             <td class="module-desc">Representation of `CallStackElement`
@@ -720,7 +722,7 @@ function panicWithError() {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="InvocationContext">
+                            <td class="module-title truncate records" id="InvocationContext" title="InvocationContext">
                                 <a class="records"
                                    href="records/InvocationContext.html">InvocationContext</a></td>
                             <td class="module-desc">Represents the InvocationContext.
@@ -728,7 +730,7 @@ function panicWithError() {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="Principal">
+                            <td class="module-title truncate records" id="Principal" title="Principal">
                                 <a class="records"
                                    href="records/Principal.html">Principal</a></td>
                             <td class="module-desc">Represents the Principal, populated with authenticated user information.
@@ -757,35 +759,35 @@ function panicWithError() {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getCallStack"><a
+                            <td class="module-title truncate functions" id="getCallStack" title="getCallStack"><a
                                     class="functions" href="functions.html#getCallStack">getCallStack</a></td>
                             <td class="module-desc"><p>Retrieves the Call Stack</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getInvocationContext"><a
+                            <td class="module-title truncate functions" id="getInvocationContext" title="getInvocationContext"><a
                                     class="functions" href="functions.html#getInvocationContext">getInvocationContext</a></td>
                             <td class="module-desc"><p>Creates a InvocationContext instance.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getProperty"><a
+                            <td class="module-title truncate functions" id="getProperty" title="getProperty"><a
                                     class="functions" href="functions.html#getProperty">getProperty</a></td>
                             <td class="module-desc"><p>Returns the value associated with the specified property name.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="sleep"><a
+                            <td class="module-title truncate functions" id="sleep" title="sleep"><a
                                     class="functions" href="functions.html#sleep">sleep</a></td>
                             <td class="module-desc"><p>Halts the current worker for a predefined amount of time.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="timeout"><a
+                            <td class="module-title truncate functions" id="timeout" title="timeout"><a
                                     class="functions" href="functions.html#timeout">timeout</a></td>
                             <td class="module-desc"><p>Gives a timeout to the current worker for a predefined amount of time.</p>
 </td>

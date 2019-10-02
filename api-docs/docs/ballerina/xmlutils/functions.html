@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -327,7 +327,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -638,15 +638,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="fromJSON">
+    <div class="main-method-title here" id="fromJSON" title="fromJSON">
              <a class="url-link" href="#fromJSON">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> fromJSON </h2>
         
         <span class="method-types">
-            <p>(json x, <a href="../xmlutils/records/JsonOptions.html">JsonOptions</a> options)</p>
-            <b> returns </b>xml | error 
+            <p>(<span class="builtin-type">json</span> j, <a href="../xmlutils/records/JsonOptions.html">JsonOptions</a> options)</p>
+            <b> returns </b><span class="builtin-type">xml</span> | <span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -658,7 +658,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> x<span class="type">  json </span></li>
+                    <li>
+                        j<span class="type">  <span class="builtin-type">json</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The json source</p>
 </p>
@@ -668,7 +671,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> options<span class="type">  <a href="../xmlutils/records/JsonOptions.html">JsonOptions</a> </span>-  {}</li>
+                    <li>
+                        options<span class="type">  <a href="../xmlutils/records/JsonOptions.html">JsonOptions</a> </span>
+                        <span class="default"> (default  {})</span>
+                    </li>
                     <li>
                         <p><p>JsonOptions struct for JSON to XML conversion properties</p>
 </p>
@@ -683,7 +689,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">xml | error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">xml</span> | <span class="builtin-type">error</span></span>)</li>
                 <li><p>XML representation of the given JSON</p>
 </li>
             </ul>
@@ -693,15 +699,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="fromTable">
+    <div class="main-method-title here" id="fromTable" title="fromTable">
              <a class="url-link" href="#fromTable">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> fromTable </h2>
         
         <span class="method-types">
-            <p>(table tbl)</p>
-            <b> returns </b>xml 
+            <p>(<span class="builtin-type">table</span> tbl)</p>
+            <b> returns </b><span class="builtin-type">xml</span> 
         </span>
         
     </div>
@@ -713,7 +719,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tbl<span class="type">  table </span></li>
+                    <li>
+                        tbl<span class="type">  <span class="builtin-type">table</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The source table</p>
 </p>
@@ -728,7 +737,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">xml</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">xml</span></span>)</li>
                 <li><p>XML representation of source table</p>
 </li>
             </ul>

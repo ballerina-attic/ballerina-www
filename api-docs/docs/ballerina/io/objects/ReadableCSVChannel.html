@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -375,7 +375,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -719,7 +719,7 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(<a href="../../io/objects/ReadableCharacterChannel.html">ReadableCharacterChannel</a> byteChannel, <a href="../../io/types.html#Separator">Separator</a> fs, int nHeaders)</p>
+<h3 >__init</h3><p>(<a href="../../io/objects/ReadableCharacterChannel.html">ReadableCharacterChannel</a> byteChannel, <a href="../../io/types.html#Separator">Separator</a> fs, <span class="builtin-type">int</span> nHeaders)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
@@ -744,7 +744,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>nHeaders</b><span class="type">  int</span> 0</li>
+                <li> <b>nHeaders</b><span class="type">  <span class="builtin-type">int</span></span> 0</li>
                 <li>
                     <p>Number of headers, which should be skipped prior to reading records</p>
 
@@ -814,7 +814,7 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="hasNext">
+    <div class="main-method-title here" id="hasNext" title="hasNext">
              <a class="url-link" href="#hasNext">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -822,7 +822,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -834,7 +834,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>True if there's a record</p>
 </li>
             </ul>
@@ -844,7 +844,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getNext">
+    <div class="main-method-title here" id="getNext" title="getNext">
              <a class="url-link" href="#getNext">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -852,7 +852,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string | <a href="../../io/types.html#Error">Error</a> | () 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span> 
         </span>
         
     </div>
@@ -864,7 +864,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | <a href="../../io/types.html#Error">Error</a> | ()</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span></span>)</li>
                 <li><p>List of fields in the CSV or <code>Error</code> if any error occurred</p>
 </li>
             </ul>
@@ -874,7 +874,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -904,15 +904,15 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getTable">
+    <div class="main-method-title here" id="getTable" title="getTable">
              <a class="url-link" href="#getTable">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getTable </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a> structType)</p>
-            <b> returns </b>table | <a href="../../io/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">typedesc</span> structType)</p>
+            <b> returns </b><span class="builtin-type">table</span> | <a href="../../io/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -924,7 +924,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> structType<span class="type">  <a href="../../lang.annotations/UNKNOWN/typedesc.html">typedesc</a> </span></li>
+                    <li>
+                        structType<span class="type">  <span class="builtin-type">typedesc</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The object the CSV records should be deserialized</p>
 </p>
@@ -939,7 +942,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">table | <a href="../../io/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">table</span> | <a href="../../io/types.html#Error">Error</a></span>)</li>
                 <li><p>Table which represents CSV records or <code>Error</code> if any error occurred</p>
 </li>
             </ul>

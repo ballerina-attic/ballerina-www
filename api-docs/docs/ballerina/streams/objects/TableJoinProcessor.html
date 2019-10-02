@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -511,7 +511,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -995,12 +995,12 @@ window is <code>'windowInstance</code>. The <code>tableName</code> is the name o
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessor, <a href="../../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>map<span>)</span> </code> tableQuery)</p>
+<h3 >__init</h3><p>(<code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessor, <a href="../../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code> tableQuery)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>nextProcessor</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code></span> </li>
+                <li> <b>nextProcessor</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code></span> </li>
                 <li>
                     
                 </li>
@@ -1018,7 +1018,7 @@ window is <code>'windowInstance</code>. The <code>tableName</code> is the name o
     
         <div class="params-listing">
             <ul>
-                <li> <b>tableQuery</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>map<span>)</span> </code></span> </li>
+                <li> <b>tableQuery</b><span class="type">  <code> <span>function(</span><a href="../../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code></span> </li>
                 <li>
                     
                 </li>
@@ -1076,7 +1076,7 @@ window is <code>'windowInstance</code>. The <code>tableName</code> is the name o
         
     <div class="params-listing">
         <ul>
-            <li> streamName<span class="type">  string</span> </li>
+            <li> streamName<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1086,7 +1086,7 @@ window is <code>'windowInstance</code>. The <code>tableName</code> is the name o
         
     <div class="params-listing">
         <ul>
-            <li> tableName<span class="type">  string</span> </li>
+            <li> tableName<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1106,7 +1106,7 @@ window is <code>'windowInstance</code>. The <code>tableName</code> is the name o
         
     <div class="params-listing">
         <ul>
-            <li> lockField<span class="type">  int</span> 0</li>
+            <li> lockField<span class="type">  <span class="builtin-type">int</span></span> 0</li>
             <li>
                 <p><p>description</p>
 </p>
@@ -1167,7 +1167,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="process">
+    <div class="main-method-title here" id="process" title="process">
              <a class="url-link" href="#process">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1182,7 +1182,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span></li>
+                    <li>
+                        streamEvents<span class="type">  <a href="../../streams/objects/StreamEvent.html">StreamEvent</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The stream events being joined with the table.</p>
 </p>
@@ -1197,7 +1200,7 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setJoinProperties">
+    <div class="main-method-title here" id="setJoinProperties" title="setJoinProperties">
              <a class="url-link" href="#setJoinProperties">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1212,7 +1215,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> tn<span class="type">  string </span></li>
+                    <li>
+                        tn<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The name of the table being joined with the stream.</p>
 </p>
@@ -1222,7 +1228,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> sn<span class="type">  string </span></li>
+                    <li>
+                        sn<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The name of the stream being joined with the table.</p>
 </p>
@@ -1232,7 +1241,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> wi<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span></li>
+                    <li>
+                        wi<span class="type">  <a href="../../streams/objects/Window.html">Window</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The window instance which is attached to the stream.</p>
 </p>

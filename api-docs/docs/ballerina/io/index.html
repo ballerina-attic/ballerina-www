@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -324,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -619,15 +619,15 @@ writing, respectively.</p>
 <h2>Byte channels</h2>
 <p>The most primitive channel is the <code>ByteChannel</code> which reads and writes 8-bit bytes.</p>
 <pre><code class="language-ballerina">// Open a file in read mode.
-io:ReadableByteChannel | io:Error readableByteChannel = io:openReadableFile(&quot;some/file.txt&quot;);
+io:ReadableByteChannel | io:Error readableChannel = io:openReadableFile(&quot;file.txt&quot;);
 
 // Here is how 100 bytes are read from the channel.
-if (readableByteChannel is io:ReadableByteChannel) {
-    byte[] | io:Error result = readableByteChannel.read(100);
+if (readableChannel is io:ReadableByteChannel) {
+    byte[] | io:Error result = readableChannel.read(100);
 }
 
 // Open a file in write mode.
-io:WritableByteChannel | io:Error writableByteChannel = io:openWritableFile(&quot;some/file.txt&quot;);
+io:WritableByteChannel | io:Error writableByteChannel = io:openWritableFile(&quot;file.txt&quot;);
 
 // Write some content to the beginning of the file.
 if (writableByteChannel is io:WritableByteChannel) {
@@ -642,7 +642,7 @@ if (writableByteChannel is io:WritableByteChannel) {
 <code>CharacterChannel</code>.</p>
 <pre><code class="language-ballerina">// Create a `ReadableCharacterChannel` from the `ReadableByteChannel`.
 io:ReadableCharacterChannel | io:Error readableCharChannel = 
-                       new io:ReadableCharacterChannel(readableByteChannel, &quot;UTF-8&quot;);
+       new io:ReadableCharacterChannel(readableChannel, &quot;UTF-8&quot;);
 </code></pre>
 <p>If a <code>ReadableCharacterChannel</code> points to a JSON or XML source, it can be read and then written, directly into a variable of
 the respective type.</p>
@@ -654,7 +654,7 @@ xml | io:Error result = readableCharChannel.readXml();
 </code></pre>
 <pre><code class="language-ballerina">// Create a `WritableCharacterChannel` from the `WritableByteChannel`.
 io:WritableCharacterChannel | io:Error writableCharChannel = 
-                        new io:WritableCharacterChannel(writableByteChannel, &quot;UTF-8&quot;);
+            new io:WritableCharacterChannel(writableByteChannel, &quot;UTF-8&quot;);
 </code></pre>
 <pre><code class="language-ballerina">// Writing a JSON.
 json content = {fname: &quot;Jhon&quot;, lname: &quot;Doe&quot;, age: 40};
@@ -668,8 +668,10 @@ if (writeResult is io:Error) {
 <h2>Record channels</h2>
 <p>Ballerina also supports I/O for delimited records.</p>
 <pre><code class="language-ballerina">// Create a `ReadableTextRecordChannel` from the `ReadableCharacterChannel`.
-// Records are separated using a new line, and fields of a record are separated using a comma.
-var readableRecordsChannel = new io:ReadableTextRecordChannel(readableCharChannel, fs = &quot;,&quot;, rs = &quot;\n&quot;);
+// Records are separated using a new line.
+// Fields of a record are separated using a comma.
+var readableRecordsChannel = 
+        new io:ReadableTextRecordChannel(readableCharChannel, fs = &quot;,&quot;, rs = &quot;\n&quot;);
 
 // Read few records.
 while (readableRecordsChannel.hasNext()) {
@@ -788,18 +790,18 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="ReadableByteChannel">
+                            <td class="module-title truncate objects" id="ReadableByteChannel" title="ReadableByteChannel">
                                 <a class="objects"
                                    href="objects/ReadableByteChannel.html">
                                     ReadableByteChannel
                                 </a>
                             </td>
-                            <td class="module-desc"><p>ReadableByteChannel represents an input resource (i.e file, socket). which could be used to source bytes.</p>
+                            <td class="module-desc"><p>ReadableByteChannel represents an input resource (i.e file). which could be used to source bytes.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="ReadableCSVChannel">
+                            <td class="module-title truncate objects" id="ReadableCSVChannel" title="ReadableCSVChannel">
                                 <a class="objects"
                                    href="objects/ReadableCSVChannel.html">
                                     ReadableCSVChannel
@@ -810,7 +812,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="ReadableCharacterChannel">
+                            <td class="module-title truncate objects" id="ReadableCharacterChannel" title="ReadableCharacterChannel">
                                 <a class="objects"
                                    href="objects/ReadableCharacterChannel.html">
                                     ReadableCharacterChannel
@@ -821,7 +823,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="ReadableDataChannel">
+                            <td class="module-title truncate objects" id="ReadableDataChannel" title="ReadableDataChannel">
                                 <a class="objects"
                                    href="objects/ReadableDataChannel.html">
                                     ReadableDataChannel
@@ -832,7 +834,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="ReadableTextRecordChannel">
+                            <td class="module-title truncate objects" id="ReadableTextRecordChannel" title="ReadableTextRecordChannel">
                                 <a class="objects"
                                    href="objects/ReadableTextRecordChannel.html">
                                     ReadableTextRecordChannel
@@ -843,7 +845,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="StringReader">
+                            <td class="module-title truncate objects" id="StringReader" title="StringReader">
                                 <a class="objects"
                                    href="objects/StringReader.html">
                                     StringReader
@@ -854,18 +856,18 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="WritableByteChannel">
+                            <td class="module-title truncate objects" id="WritableByteChannel" title="WritableByteChannel">
                                 <a class="objects"
                                    href="objects/WritableByteChannel.html">
                                     WritableByteChannel
                                 </a>
                             </td>
-                            <td class="module-desc"><p>WritableByteChannel represents an output resource (i.e file, socket). which could be used to sink bytes.</p>
+                            <td class="module-desc"><p>WritableByteChannel represents an output resource (i.e file). which could be used to sink bytes.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="WritableCSVChannel">
+                            <td class="module-title truncate objects" id="WritableCSVChannel" title="WritableCSVChannel">
                                 <a class="objects"
                                    href="objects/WritableCSVChannel.html">
                                     WritableCSVChannel
@@ -876,7 +878,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="WritableCharacterChannel">
+                            <td class="module-title truncate objects" id="WritableCharacterChannel" title="WritableCharacterChannel">
                                 <a class="objects"
                                    href="objects/WritableCharacterChannel.html">
                                     WritableCharacterChannel
@@ -887,7 +889,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="WritableDataChannel">
+                            <td class="module-title truncate objects" id="WritableDataChannel" title="WritableDataChannel">
                                 <a class="objects"
                                    href="objects/WritableDataChannel.html">
                                     WritableDataChannel
@@ -898,7 +900,7 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="WritableTextRecordChannel">
+                            <td class="module-title truncate objects" id="WritableTextRecordChannel" title="WritableTextRecordChannel">
                                 <a class="objects"
                                    href="objects/WritableTextRecordChannel.html">
                                     WritableTextRecordChannel
@@ -928,72 +930,72 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="createReadableChannel"><a
+                            <td class="module-title truncate functions" id="createReadableChannel" title="createReadableChannel"><a
                                     class="functions" href="functions.html#createReadableChannel">createReadableChannel</a></td>
                             <td class="module-desc"><p>Creates an in-memory channel which will reference stream of bytes.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="openReadableCsvFile"><a
+                            <td class="module-title truncate functions" id="openReadableCsvFile" title="openReadableCsvFile"><a
                                     class="functions" href="functions.html#openReadableCsvFile">openReadableCsvFile</a></td>
                             <td class="module-desc"><p>Retrieves a readable CSV channel from a give file path.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="openReadableFile"><a
+                            <td class="module-title truncate functions" id="openReadableFile" title="openReadableFile"><a
                                     class="functions" href="functions.html#openReadableFile">openReadableFile</a></td>
                             <td class="module-desc"><p>Retrieves a ReadableByteChannel from a given file path.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="openWritableCsvFile"><a
+                            <td class="module-title truncate functions" id="openWritableCsvFile" title="openWritableCsvFile"><a
                                     class="functions" href="functions.html#openWritableCsvFile">openWritableCsvFile</a></td>
                             <td class="module-desc"><p>Retrieves a writable CSV channel from a give file path.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="openWritableFile"><a
+                            <td class="module-title truncate functions" id="openWritableFile" title="openWritableFile"><a
                                     class="functions" href="functions.html#openWritableFile">openWritableFile</a></td>
                             <td class="module-desc"><p>Retrieves a WritableByteChannel from a given file path.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="print"><a
+                            <td class="module-title truncate functions" id="print" title="print"><a
                                     class="functions" href="functions.html#print">print</a></td>
                             <td class="module-desc"><p>Prints <code>any</code> or <code>error</code> value(s) to the STDOUT.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="println"><a
+                            <td class="module-title truncate functions" id="println" title="println"><a
                                     class="functions" href="functions.html#println">println</a></td>
                             <td class="module-desc"><p>Prints <code>any</code> or <code>error</code> value(s) to the STDOUT followed by a new line.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="readln"><a
+                            <td class="module-title truncate functions" id="readln" title="readln"><a
                                     class="functions" href="functions.html#readln">readln</a></td>
                             <td class="module-desc"><p>Returns the input read from STDIN.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="sprintf"><a
+                            <td class="module-title truncate functions" id="sprintf" title="sprintf"><a
                                     class="functions" href="functions.html#sprintf">sprintf</a></td>
-                            <td class="module-desc"><p>Returns a formatted string using the specified format string and arguments. Following format specifiers are allowed.
-b              boolean
-B              boolean (ALL_CAPS)
-d              int
-f              float
-x              hex
-X              HEX (ALL_CAPS)
-s              string (This specifier is applicable for any of the supported types in Ballerina.
+                            <td class="module-desc"><p>Returns a formatted string using the specified format string and arguments. Following format specifiers are allowed.</p>
+<p>b - boolean</p>
+<p>B - boolean (ALL_CAPS)</p>
+<p>d - int</p>
+<p>f - float</p>
+<p>x - hex</p>
+<p>X - HEX (ALL_CAPS)</p>
+<p>s - string (This specifier is applicable for any of the supported types in Ballerina.
 These values will be converted to their string representation.)</p>
 </td>
                         </tr>
@@ -1014,102 +1016,115 @@ These values will be converted to their string representation.)</p>
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="DEFAULT"><a
+                            <td class="module-title truncate constant" id="DEFAULT" title="DEFAULT"><a
                                     class="constant" href="constants.html#DEFAULT">DEFAULT</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Would default to the format specified by CSVChannel. Precedence will be given to field separator and record separator.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CSV"><a
+                            <td class="module-title truncate constant" id="CSV" title="CSV"><a
                                     class="constant" href="constants.html#CSV">CSV</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Field separator would be &quot;,&quot; and the record separator would be new line.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TDF"><a
+                            <td class="module-title truncate constant" id="TDF" title="TDF"><a
                                     class="constant" href="constants.html#TDF">TDF</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Field separator will be tab and record separator will be new line.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="COMMA"><a
+                            <td class="module-title truncate constant" id="COMMA" title="COMMA"><a
                                     class="constant" href="constants.html#COMMA">COMMA</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Comma (,) will be used as the field separator.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TAB"><a
+                            <td class="module-title truncate constant" id="TAB" title="TAB"><a
                                     class="constant" href="constants.html#TAB">TAB</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Tab (/t) will be use as the field separator.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="COLON"><a
+                            <td class="module-title truncate constant" id="COLON" title="COLON"><a
                                     class="constant" href="constants.html#COLON">COLON</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Colon (:) will be use as the field separator.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CONNECTION_TIMED_OUT"><a
+                            <td class="module-title truncate constant" id="CONNECTION_TIMED_OUT" title="CONNECTION_TIMED_OUT"><a
                                     class="constant" href="constants.html#CONNECTION_TIMED_OUT">CONNECTION_TIMED_OUT</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will be used to construct a ConnectionTimedOutError.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="GENERIC_ERROR"><a
+                            <td class="module-title truncate constant" id="GENERIC_ERROR" title="GENERIC_ERROR"><a
                                     class="constant" href="constants.html#GENERIC_ERROR">GENERIC_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will be used to construct an IO GenericError.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="ACCESS_DENIED_ERROR"><a
+                            <td class="module-title truncate constant" id="ACCESS_DENIED_ERROR" title="ACCESS_DENIED_ERROR"><a
                                     class="constant" href="constants.html#ACCESS_DENIED_ERROR">ACCESS_DENIED_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will be used to construct a AccessDeniedError.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR"><a
+                            <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR" title="FILE_NOT_FOUND_ERROR"><a
                                     class="constant" href="constants.html#FILE_NOT_FOUND_ERROR">FILE_NOT_FOUND_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will be used to construct a FileNotFoundError.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="END_OF_FILE_ERROR"><a
+                            <td class="module-title truncate constant" id="END_OF_FILE_ERROR" title="END_OF_FILE_ERROR"><a
                                     class="constant" href="constants.html#END_OF_FILE_ERROR">END_OF_FILE_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will be used to construct an EofError.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CSV_RECORD_SEPARATOR"><a
+                            <td class="module-title truncate constant" id="CSV_RECORD_SEPARATOR" title="CSV_RECORD_SEPARATOR"><a
                                     class="constant" href="constants.html#CSV_RECORD_SEPARATOR">CSV_RECORD_SEPARATOR</a></td>
                             <td class="module-desc"><p>Represents record separator of the CSV file.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FS_COLON"><a
+                            <td class="module-title truncate constant" id="FS_COLON" title="FS_COLON"><a
                                     class="constant" href="constants.html#FS_COLON">FS_COLON</a></td>
                             <td class="module-desc"><p>Represents colon separator which should be used to identify colon separated files.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="MINIMUM_HEADER_COUNT"><a
+                            <td class="module-title truncate constant" id="MINIMUM_HEADER_COUNT" title="MINIMUM_HEADER_COUNT"><a
                                     class="constant" href="constants.html#MINIMUM_HEADER_COUNT">MINIMUM_HEADER_COUNT</a></td>
                             <td class="module-desc"><p>Represents minimum number of headers which will be included in CSV.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="BIG_ENDIAN"><a
+                            <td class="module-title truncate constant" id="BIG_ENDIAN" title="BIG_ENDIAN"><a
                                     class="constant" href="constants.html#BIG_ENDIAN">BIG_ENDIAN</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Specifies the bytes to be in the order of most significant byte first.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="LITTLE_ENDIAN"><a
+                            <td class="module-title truncate constant" id="LITTLE_ENDIAN" title="LITTLE_ENDIAN"><a
                                     class="constant" href="constants.html#LITTLE_ENDIAN">LITTLE_ENDIAN</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Specifies the byte order to be the least significant byte first.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -1130,14 +1145,15 @@ These values will be converted to their string representation.)</p>
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Error">
+                            <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents IO module related errors.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Format">
+                            <td class="module-title truncate types" id="Format" title="Format">
                                 <a class="types" href="types.html#Format">Format</a>
                             </td>
                             <td class="module-desc"><p>Format which will be used to represent the CSV.</p>
@@ -1149,10 +1165,13 @@ separator and record separator.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Separator">
+                            <td class="module-title truncate types" id="Separator" title="Separator">
                                 <a class="types" href="types.html#Separator">Separator</a>
                             </td>
                             <td class="module-desc"><p>Field separators which are supported by DelimitedTextRecordChannel.</p>
+<p>COMMA - Delimited text records would be separated using a comma.</p>
+<p>TAB - Delimited text records would be separated using a tab.</p>
+<p>COLON - Delimited text records would be separated using a colon(:).</p>
 </td>
                         </tr>
                     
@@ -1171,38 +1190,43 @@ separator and record separator.</p>
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="AccessDeniedError">
+                            <td class="module-title truncate errors" id="AccessDeniedError" title="AccessDeniedError">
                                 <a class="errors" href="errors.html#AccessDeniedError">AccessDeniedError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will get returned due to file permission issues.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ConnectionTimedOutError">
+                            <td class="module-title truncate errors" id="ConnectionTimedOutError" title="ConnectionTimedOutError">
                                 <a class="errors" href="errors.html#ConnectionTimedOutError">ConnectionTimedOutError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will return when connection timed out happen when try to connect to a remote host.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="EofError">
+                            <td class="module-title truncate errors" id="EofError" title="EofError">
                                 <a class="errors" href="errors.html#EofError">EofError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will get returned if read operations are performed on a channel after it closed.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="FileNotFoundError">
+                            <td class="module-title truncate errors" id="FileNotFoundError" title="FileNotFoundError">
                                 <a class="errors" href="errors.html#FileNotFoundError">FileNotFoundError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>This will get returned if the file is not available in the given file path.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="GenericError">
+                            <td class="module-title truncate errors" id="GenericError" title="GenericError">
                                 <a class="errors" href="errors.html#GenericError">GenericError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents generic IO error. The detail record contains the information related to the error.</p>
+</td>
                         </tr>
                     
                 </table>

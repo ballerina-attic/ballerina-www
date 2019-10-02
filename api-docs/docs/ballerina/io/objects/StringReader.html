@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -375,7 +375,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -719,12 +719,12 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(string content, string encoding)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> content, <span class="builtin-type">string</span> encoding)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>content</b><span class="type">  string</span> </li>
+                <li> <b>content</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>content which should be written</p>
 
@@ -734,7 +734,7 @@
     
         <div class="params-listing">
             <ul>
-                <li> <b>encoding</b><span class="type">  string</span> UTF-8</li>
+                <li> <b>encoding</b><span class="type">  <span class="builtin-type">string</span></span> UTF-8</li>
                 <li>
                     <p>encoding of the characters of the content</p>
 
@@ -804,7 +804,7 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="readJson">
+    <div class="main-method-title here" id="readJson" title="readJson">
              <a class="url-link" href="#readJson">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -812,7 +812,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>json | <a href="../../io/types.html#Error">Error</a> 
+            <b> returns </b><span class="builtin-type">json</span> | <a href="../../io/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -824,7 +824,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">json | <a href="../../io/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">json</span> | <a href="../../io/types.html#Error">Error</a></span>)</li>
                 <li><p>json or <code>Error</code> if any error occurred</p>
 </li>
             </ul>
@@ -834,7 +834,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="readXml">
+    <div class="main-method-title here" id="readXml" title="readXml">
              <a class="url-link" href="#readXml">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -842,7 +842,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>xml | <a href="../../io/types.html#Error">Error</a> | () 
+            <b> returns </b><span class="builtin-type">xml</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span> 
         </span>
         
     </div>
@@ -854,7 +854,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">xml | <a href="../../io/types.html#Error">Error</a> | ()</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">xml</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span></span>)</li>
                 <li></li>
             </ul>
         </div>
@@ -863,15 +863,15 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="readChar">
+    <div class="main-method-title here" id="readChar" title="readChar">
              <a class="url-link" href="#readChar">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> readChar </h2>
         
         <span class="method-types">
-            <p>(int nCharacters)</p>
-            <b> returns </b>string | <a href="../../io/types.html#Error">Error</a> | () 
+            <p>(<span class="builtin-type">int</span> nCharacters)</p>
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span> 
         </span>
         
     </div>
@@ -883,7 +883,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> nCharacters<span class="type">  int </span></li>
+                    <li>
+                        nCharacters<span class="type">  <span class="builtin-type">int</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>read specific number of characters</p>
 </p>
@@ -898,7 +901,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | <a href="../../io/types.html#Error">Error</a> | ()</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../io/types.html#Error">Error</a> | <span class="builtin-type">()</span></span>)</li>
                 <li><p>string or <code>Error</code> if any error occurred</p>
 </li>
             </ul>
@@ -908,7 +911,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>

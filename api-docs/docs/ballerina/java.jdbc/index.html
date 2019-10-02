@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -332,7 +332,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -690,7 +690,7 @@ a connection pool matching with the properties you provided already exists.</p>
 <li>
 <p>Local shareable connection pool</p>
 <p>If you create a record of type <code>jdbc:PoolOptions</code> and reuse that in the configuration of multiple clients, for each
-set of clients that connect to the same database instance with the same set of properties, a shared connection pool
+set of clients that connects to the same database instance with the same set of properties, a shared connection pool
 will be created.</p>
 <pre><code class="language-ballerina">jdbc:Client testDB1;
 jdbc:Client testDB2;
@@ -755,7 +755,7 @@ if (returned is jdbc:UpdateResult) {
 </code></pre>
 <p>In the second example, the parameter values, which are in local variables, are passed directly as parameters to
 the <code>update</code> remote function. This direct parameter passing can be done for any primitive Ballerina type like <code>string</code>,
-<code>int</code>, <code>float</code>, or <code>boolean</code>. The sql type of the parameter is derived from the type of the Ballerina variable that
+<code>int</code>, <code>float</code>, or <code>boolean</code>. The SQL type of the parameter is derived from the type of the Ballerina variable that
 is passed in.</p>
 <pre><code class="language-ballerina">string name = &quot;Anne&quot;;
 int age = 8;
@@ -767,7 +767,7 @@ if (returned is jdbc:UpdateResult) {
     io:println(&quot;Insert to Students table failed: &quot;, &lt;string&gt;err.detail()[&quot;message&quot;]);
 }
 </code></pre>
-<p>In the third example, parameter values are passed as an <code>jdbc:Parameter</code> to the <code>update</code> remote function. Use
+<p>In the third example, parameter values are passed as a <code>jdbc:Parameter</code> to the <code>update</code> remote function. Use
 <code>jdbc:Parameter</code> when you need to provide more details such as the exact SQL type of the parameter, or the parameter
 direction. The default parameter direction is <code>IN</code>.</p>
 <pre><code class="language-ballerina">jdbc:Parameter p1 = { sqlType: jdbc:TYPE_VARCHAR, value: &quot;James&quot; };
@@ -913,7 +913,7 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
 }
 </code></pre>
 <blockquote>
-<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processers available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
+<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processors available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
 </blockquote>
 
 
@@ -929,23 +929,23 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate records" id="ApplicationErrorData">
+                            <td class="module-title truncate records" id="ApplicationErrorData" title="ApplicationErrorData">
                                 <a class="records"
                                    href="records/ApplicationErrorData.html">ApplicationErrorData</a></td>
-                            <td class="module-desc">Represents the properties which are related to Non SQL errors
+                            <td class="module-desc">Represents the properties belonging to an `ApplicationError`
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="BatchUpdateResult">
+                            <td class="module-title truncate records" id="BatchUpdateResult" title="BatchUpdateResult">
                                 <a class="records"
                                    href="records/BatchUpdateResult.html">BatchUpdateResult</a></td>
-                            <td class="module-desc">BatchUpdateResult represents the output of the `batchUpdate` remote function.
+                            <td class="module-desc">`BatchUpdateResult` represents the output of the `batchUpdate` remote function.
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="ClientConfiguration">
+                            <td class="module-title truncate records" id="ClientConfiguration" title="ClientConfiguration">
                                 <a class="records"
                                    href="records/ClientConfiguration.html">ClientConfiguration</a></td>
                             <td class="module-desc">The Client endpoint configuration for SQL databases.
@@ -953,23 +953,23 @@ if (retCall is ()|table&lt;record {}&gt;[]) {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="DatabaseErrorData">
+                            <td class="module-title truncate records" id="DatabaseErrorData" title="DatabaseErrorData">
                                 <a class="records"
                                    href="records/DatabaseErrorData.html">DatabaseErrorData</a></td>
-                            <td class="module-desc">Represents the properties which are related to SQL database errors
+                            <td class="module-desc">Represents the properties belonging to a `DatabaseError`
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="Parameter">
+                            <td class="module-title truncate records" id="Parameter" title="Parameter">
                                 <a class="records"
                                    href="records/Parameter.html">Parameter</a></td>
-                            <td class="module-desc">Parameter represents a parameter for the SQL remote functions when a variable parameter needs to be passed to the remote function.
+                            <td class="module-desc">`Parameter` represents a parameter for the SQL remote functions when a variable parameter needs to be passed to the remote function.
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="PoolOptions">
+                            <td class="module-title truncate records" id="PoolOptions" title="PoolOptions">
                                 <a class="records"
                                    href="records/PoolOptions.html">PoolOptions</a></td>
                             <td class="module-desc">Represents the properties which are used to configure DB connection pool.
@@ -978,10 +978,10 @@ Default values of the fields can be set through the configuration API.
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="UpdateResult">
+                            <td class="module-title truncate records" id="UpdateResult" title="UpdateResult">
                                 <a class="records"
                                    href="records/UpdateResult.html">UpdateResult</a></td>
-                            <td class="module-desc">UpdateResult represents the output of the `update` remote function.
+                            <td class="module-desc">`UpdateResult` represents the output of the `update` remote function.
 </td>
                         </tr>
                     
@@ -1000,7 +1000,7 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="GlobalPoolConfigContainer">
+                            <td class="module-title truncate objects" id="GlobalPoolConfigContainer" title="GlobalPoolConfigContainer">
                                 <a class="objects"
                                    href="objects/GlobalPoolConfigContainer.html">
                                     GlobalPoolConfigContainer
@@ -1024,7 +1024,7 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate clients" id="Client">
+                            <td class="module-title truncate clients" id="Client" title="Client">
                                 <a class="clients"
                                    href="clients/Client.html">Client</a></td>
                             <td class="module-desc"><p>Represents a JDBC client endpoint.</p>
@@ -1032,7 +1032,7 @@ Default values of the fields can be set through the configuration API.
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate clients" id="JdbcClient">
+                            <td class="module-title truncate clients" id="JdbcClient" title="JdbcClient">
                                 <a class="clients"
                                    href="clients/JdbcClient.html">JdbcClient</a></td>
                             <td class="module-desc"><p>Represents the base JDBC Client</p>
@@ -1057,7 +1057,7 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="close"><a
+                            <td class="module-title truncate functions" id="close" title="close"><a
                                     class="functions" href="functions.html#close">close</a></td>
                             <td class="module-desc"><p>An internal function used by clients to shutdown the connection pool.</p>
 </td>
@@ -1079,211 +1079,211 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="DATABASE_ERROR_REASON"><a
+                            <td class="module-title truncate constant" id="DATABASE_ERROR_REASON" title="DATABASE_ERROR_REASON"><a
                                     class="constant" href="constants.html#DATABASE_ERROR_REASON">DATABASE_ERROR_REASON</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="APPLICATION_ERROR_REASON"><a
+                            <td class="module-title truncate constant" id="APPLICATION_ERROR_REASON" title="APPLICATION_ERROR_REASON"><a
                                     class="constant" href="constants.html#APPLICATION_ERROR_REASON">APPLICATION_ERROR_REASON</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_VARCHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_VARCHAR" title="TYPE_VARCHAR"><a
                                     class="constant" href="constants.html#TYPE_VARCHAR">TYPE_VARCHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_CHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_CHAR" title="TYPE_CHAR"><a
                                     class="constant" href="constants.html#TYPE_CHAR">TYPE_CHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_LONGVARCHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_LONGVARCHAR" title="TYPE_LONGVARCHAR"><a
                                     class="constant" href="constants.html#TYPE_LONGVARCHAR">TYPE_LONGVARCHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_NCHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_NCHAR" title="TYPE_NCHAR"><a
                                     class="constant" href="constants.html#TYPE_NCHAR">TYPE_NCHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_LONGNVARCHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_LONGNVARCHAR" title="TYPE_LONGNVARCHAR"><a
                                     class="constant" href="constants.html#TYPE_LONGNVARCHAR">TYPE_LONGNVARCHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_NVARCHAR"><a
+                            <td class="module-title truncate constant" id="TYPE_NVARCHAR" title="TYPE_NVARCHAR"><a
                                     class="constant" href="constants.html#TYPE_NVARCHAR">TYPE_NVARCHAR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_BIT"><a
+                            <td class="module-title truncate constant" id="TYPE_BIT" title="TYPE_BIT"><a
                                     class="constant" href="constants.html#TYPE_BIT">TYPE_BIT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_BOOLEAN"><a
+                            <td class="module-title truncate constant" id="TYPE_BOOLEAN" title="TYPE_BOOLEAN"><a
                                     class="constant" href="constants.html#TYPE_BOOLEAN">TYPE_BOOLEAN</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_TINYINT"><a
+                            <td class="module-title truncate constant" id="TYPE_TINYINT" title="TYPE_TINYINT"><a
                                     class="constant" href="constants.html#TYPE_TINYINT">TYPE_TINYINT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_SMALLINT"><a
+                            <td class="module-title truncate constant" id="TYPE_SMALLINT" title="TYPE_SMALLINT"><a
                                     class="constant" href="constants.html#TYPE_SMALLINT">TYPE_SMALLINT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_INTEGER"><a
+                            <td class="module-title truncate constant" id="TYPE_INTEGER" title="TYPE_INTEGER"><a
                                     class="constant" href="constants.html#TYPE_INTEGER">TYPE_INTEGER</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_BIGINT"><a
+                            <td class="module-title truncate constant" id="TYPE_BIGINT" title="TYPE_BIGINT"><a
                                     class="constant" href="constants.html#TYPE_BIGINT">TYPE_BIGINT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_NUMERIC"><a
+                            <td class="module-title truncate constant" id="TYPE_NUMERIC" title="TYPE_NUMERIC"><a
                                     class="constant" href="constants.html#TYPE_NUMERIC">TYPE_NUMERIC</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_DECIMAL"><a
+                            <td class="module-title truncate constant" id="TYPE_DECIMAL" title="TYPE_DECIMAL"><a
                                     class="constant" href="constants.html#TYPE_DECIMAL">TYPE_DECIMAL</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_REAL"><a
+                            <td class="module-title truncate constant" id="TYPE_REAL" title="TYPE_REAL"><a
                                     class="constant" href="constants.html#TYPE_REAL">TYPE_REAL</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_FLOAT"><a
+                            <td class="module-title truncate constant" id="TYPE_FLOAT" title="TYPE_FLOAT"><a
                                     class="constant" href="constants.html#TYPE_FLOAT">TYPE_FLOAT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_DOUBLE"><a
+                            <td class="module-title truncate constant" id="TYPE_DOUBLE" title="TYPE_DOUBLE"><a
                                     class="constant" href="constants.html#TYPE_DOUBLE">TYPE_DOUBLE</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_BINARY"><a
+                            <td class="module-title truncate constant" id="TYPE_BINARY" title="TYPE_BINARY"><a
                                     class="constant" href="constants.html#TYPE_BINARY">TYPE_BINARY</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_BLOB"><a
+                            <td class="module-title truncate constant" id="TYPE_BLOB" title="TYPE_BLOB"><a
                                     class="constant" href="constants.html#TYPE_BLOB">TYPE_BLOB</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_LONGVARBINARY"><a
+                            <td class="module-title truncate constant" id="TYPE_LONGVARBINARY" title="TYPE_LONGVARBINARY"><a
                                     class="constant" href="constants.html#TYPE_LONGVARBINARY">TYPE_LONGVARBINARY</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_VARBINARY"><a
+                            <td class="module-title truncate constant" id="TYPE_VARBINARY" title="TYPE_VARBINARY"><a
                                     class="constant" href="constants.html#TYPE_VARBINARY">TYPE_VARBINARY</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_CLOB"><a
+                            <td class="module-title truncate constant" id="TYPE_CLOB" title="TYPE_CLOB"><a
                                     class="constant" href="constants.html#TYPE_CLOB">TYPE_CLOB</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_NCLOB"><a
+                            <td class="module-title truncate constant" id="TYPE_NCLOB" title="TYPE_NCLOB"><a
                                     class="constant" href="constants.html#TYPE_NCLOB">TYPE_NCLOB</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_DATE"><a
+                            <td class="module-title truncate constant" id="TYPE_DATE" title="TYPE_DATE"><a
                                     class="constant" href="constants.html#TYPE_DATE">TYPE_DATE</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_TIME"><a
+                            <td class="module-title truncate constant" id="TYPE_TIME" title="TYPE_TIME"><a
                                     class="constant" href="constants.html#TYPE_TIME">TYPE_TIME</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_DATETIME"><a
+                            <td class="module-title truncate constant" id="TYPE_DATETIME" title="TYPE_DATETIME"><a
                                     class="constant" href="constants.html#TYPE_DATETIME">TYPE_DATETIME</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_TIMESTAMP"><a
+                            <td class="module-title truncate constant" id="TYPE_TIMESTAMP" title="TYPE_TIMESTAMP"><a
                                     class="constant" href="constants.html#TYPE_TIMESTAMP">TYPE_TIMESTAMP</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_ARRAY"><a
+                            <td class="module-title truncate constant" id="TYPE_ARRAY" title="TYPE_ARRAY"><a
                                     class="constant" href="constants.html#TYPE_ARRAY">TYPE_ARRAY</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_STRUCT"><a
+                            <td class="module-title truncate constant" id="TYPE_STRUCT" title="TYPE_STRUCT"><a
                                     class="constant" href="constants.html#TYPE_STRUCT">TYPE_STRUCT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="TYPE_REFCURSOR"><a
+                            <td class="module-title truncate constant" id="TYPE_REFCURSOR" title="TYPE_REFCURSOR"><a
                                     class="constant" href="constants.html#TYPE_REFCURSOR">TYPE_REFCURSOR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="DIRECTION_IN"><a
+                            <td class="module-title truncate constant" id="DIRECTION_IN" title="DIRECTION_IN"><a
                                     class="constant" href="constants.html#DIRECTION_IN">DIRECTION_IN</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="DIRECTION_OUT"><a
+                            <td class="module-title truncate constant" id="DIRECTION_OUT" title="DIRECTION_OUT"><a
                                     class="constant" href="constants.html#DIRECTION_OUT">DIRECTION_OUT</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="DIRECTION_INOUT"><a
+                            <td class="module-title truncate constant" id="DIRECTION_INOUT" title="DIRECTION_INOUT"><a
                                     class="constant" href="constants.html#DIRECTION_INOUT">DIRECTION_INOUT</a></td>
                             <td class="module-desc"></td>
                         </tr>
@@ -1306,7 +1306,7 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Direction">
+                            <td class="module-title truncate types" id="Direction" title="Direction">
                                 <a class="types" href="types.html#Direction">Direction</a>
                             </td>
                             <td class="module-desc"><p>The direction of the parameter.</p>
@@ -1317,7 +1317,7 @@ Default values of the fields can be set through the configuration API.
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Error">
+                            <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
                             <td class="module-desc"><p>Represents a database or application level error returned from JDBC client remote functions.</p>
@@ -1325,7 +1325,7 @@ Default values of the fields can be set through the configuration API.
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Param">
+                            <td class="module-title truncate types" id="Param" title="Param">
                                 <a class="types" href="types.html#Param">Param</a>
                             </td>
                             <td class="module-desc"><p>The parameter passed into the operations.</p>
@@ -1333,7 +1333,7 @@ Default values of the fields can be set through the configuration API.
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate types" id="SQLType">
+                            <td class="module-title truncate types" id="SQLType" title="SQLType">
                                 <a class="types" href="types.html#SQLType">SQLType</a>
                             </td>
                             <td class="module-desc"><p>The SQL Datatype of the parameter.</p>
@@ -1384,15 +1384,15 @@ Default values of the fields can be set through the configuration API.
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ApplicationError">
+                            <td class="module-title truncate errors" id="ApplicationError" title="ApplicationError">
                                 <a class="errors" href="errors.html#ApplicationError">ApplicationError</a>
                             </td>
-                            <td class="module-desc"><p>Represents the error which is related to Non SQL errors</p>
+                            <td class="module-desc"><p>Represents an error originating from application level causes</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="DatabaseError">
+                            <td class="module-title truncate errors" id="DatabaseError" title="DatabaseError">
                                 <a class="errors" href="errors.html#DatabaseError">DatabaseError</a>
                             </td>
                             <td class="module-desc"><p>Represents an error caused by an issue related to database accessibility, erroneous queries, constraint violations,

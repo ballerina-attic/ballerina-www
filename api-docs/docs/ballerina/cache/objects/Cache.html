@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -327,7 +327,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -615,7 +615,7 @@
                  :
                 <span class="objects">Cache</span>
             </h1>
-            <p><p>Represents a cache.</p>
+            <p><p>Represents a Ballerina <code>Cache</code> which can hold multiple entries and remove entries based on time and size.</p>
 </p>
 
             <div class="constants">
@@ -623,32 +623,35 @@
                     
                         
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(int expiryTimeInMillis, int capacity, float evictionFactor)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">int</span> expiryTimeInMillis, <span class="builtin-type">int</span> capacity, <span class="builtin-type">float</span> evictionFactor)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>expiryTimeInMillis</b><span class="type">  int</span> 900000</li>
+                <li> <b>expiryTimeInMillis</b><span class="type">  <span class="builtin-type">int</span></span> 900000</li>
                 <li>
-                    
+                    <p>Time since its last access in which the cache will be expired.</p>
+
                 </li>
             </ul>
         </div>
     
         <div class="params-listing">
             <ul>
-                <li> <b>capacity</b><span class="type">  int</span> 100</li>
+                <li> <b>capacity</b><span class="type">  <span class="builtin-type">int</span></span> 100</li>
                 <li>
-                    
+                    <p>Maximum number of entries allowed.</p>
+
                 </li>
             </ul>
         </div>
     
         <div class="params-listing">
             <ul>
-                <li> <b>evictionFactor</b><span class="type">  float</span> 0.25</li>
+                <li> <b>evictionFactor</b><span class="type">  <span class="builtin-type">float</span></span> 0.25</li>
                 <li>
-                    
+                    <p>The factor which the entries will be evicted once the cache full.</p>
+
                 </li>
             </ul>
         </div>
@@ -668,7 +671,7 @@
         <div class="param-name">
         hasKey 
         </div>
-        <div class="param-details"> <p>Checks whether the given key has an accociated cache value.</p>
+        <div class="param-details"> <p>Checks whether the given key has an associated cache value.</p>
  </div>
     </div>
 </a>
@@ -738,19 +741,19 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="hasKey">
+    <div class="main-method-title here" id="hasKey" title="hasKey">
              <a class="url-link" href="#hasKey">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> hasKey </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>boolean 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
-    <p><p>Checks whether the given key has an accociated cache value.</p>
+    <p><p>Checks whether the given key has an associated cache value.</p>
 </p>
      
         <div class="data-wrapper">
@@ -758,9 +761,12 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
                     <li>
-                        <p><p>the key to be checked</p>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
+                    <li>
+                        <p><p>The key to be checked.</p>
 </p>
                     </li>
                 </ul>
@@ -773,8 +779,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
-                <li><p>True if the given key has an associated value, false otherwise.</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
+                <li><p><code>true</code> if the given key has an associated value, <code>false</code> otherwise.</p>
 </li>
             </ul>
         </div>
@@ -783,7 +789,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="size">
+    <div class="main-method-title here" id="size" title="size">
              <a class="url-link" href="#size">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -791,7 +797,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>int 
+            <b> returns </b><span class="builtin-type">int</span> 
         </span>
         
     </div>
@@ -803,8 +809,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int</span>)</li>
-                <li><p>The size of the cache</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span></span>)</li>
+                <li><p>The size of the cache.</p>
 </li>
             </ul>
         </div>
@@ -813,7 +819,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="put">
+    <div class="main-method-title here" id="put" title="put">
              <a class="url-link" href="#put">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -828,9 +834,12 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
                     <li>
-                        <p><p>value which should be used as the key</p>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
+                    <li>
+                        <p><p>Value which should be used as the key.</p>
 </p>
                     </li>
                 </ul>
@@ -838,9 +847,12 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> value<span class="type">  any </span></li>
                     <li>
-                        <p><p>value to be cached</p>
+                        value<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
+                    <li>
+                        <p><p>Value to be cached.</p>
 </p>
                     </li>
                 </ul>
@@ -853,15 +865,15 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="get">
+    <div class="main-method-title here" id="get" title="get">
              <a class="url-link" href="#get">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> get </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>any 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">any</span> 
         </span>
         
     </div>
@@ -874,9 +886,12 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
                     <li>
-                        <p><p>key which is used to retrieve the cached value</p>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
+                    <li>
+                        <p><p>Key which is used to retrieve the cached value.</p>
 </p>
                     </li>
                 </ul>
@@ -889,8 +904,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">any</span>)</li>
-                <li><p>The cached value associated with the given key</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">any</span></span>)</li>
+                <li><p>The cached value associated with the given key.</p>
 </li>
             </ul>
         </div>
@@ -899,7 +914,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="remove">
+    <div class="main-method-title here" id="remove" title="remove">
              <a class="url-link" href="#remove">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -914,9 +929,12 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
                     <li>
-                        <p><p>key of the cache entry which needs to be removed</p>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
+                    <li>
+                        <p><p>Key of the cache entry which needs to be removed.</p>
 </p>
                     </li>
                 </ul>
@@ -929,7 +947,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="keys">
+    <div class="main-method-title here" id="keys" title="keys">
              <a class="url-link" href="#keys">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -937,7 +955,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -949,8 +967,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
-                <li><p>all keys</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
+                <li><p>Array of all keys from the current cache.</p>
 </li>
             </ul>
         </div>

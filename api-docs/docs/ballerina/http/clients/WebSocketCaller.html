@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -395,7 +395,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -759,64 +759,44 @@
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#pushText">
-    <div class="param-sum">
-        <div class="param-name">
-        pushText 
-        </div>
-        <div class="param-details"> <p>Push text to the connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="pushText"><a
+                                            class="functions" href="#pushText">pushText</a></td>
+                                    <td class="module-desc"><p>Push text to the connection.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#pushBinary">
-    <div class="param-sum">
-        <div class="param-name">
-        pushBinary 
-        </div>
-        <div class="param-details"> <p>Push binary data to the connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="pushBinary"><a
+                                            class="functions" href="#pushBinary">pushBinary</a></td>
+                                    <td class="module-desc"><p>Push binary data to the connection.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#ping">
-    <div class="param-sum">
-        <div class="param-name">
-        ping 
-        </div>
-        <div class="param-details"> <p>Ping the connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="ping"><a
+                                            class="functions" href="#ping">ping</a></td>
+                                    <td class="module-desc"><p>Ping the connection.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#pong">
-    <div class="param-sum">
-        <div class="param-name">
-        pong 
-        </div>
-        <div class="param-details"> <p>Send pong message to the connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="pong"><a
+                                            class="functions" href="#pong">pong</a></td>
+                                    <td class="module-desc"><p>Send pong message to the connection.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#close">
-    <div class="param-sum">
-        <div class="param-name">
-        close 
-        </div>
-        <div class="param-details"> <p>Close the connection.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="close"><a
+                                            class="functions" href="#close">close</a></td>
+                                    <td class="module-desc"><p>Close the connection.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -909,14 +889,14 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="pushText">
+    <div class="main-method-title here" id="pushText" title="pushText">
              <a class="url-link" href="#pushText">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> pushText </h2>
         
         <span class="method-types">
-            <p>(string | json | xml | boolean | int | float | byte | byte data, boolean finalFrame)</p>
+            <p>(<span class="builtin-type">string</span> | <span class="builtin-type">json</span> | <span class="builtin-type">xml</span> | <span class="builtin-type">boolean</span> | <span class="builtin-type">int</span> | <span class="builtin-type">float</span> | <span class="builtin-type">byte</span> | <span class="builtin-type">byte</span> data, <span class="builtin-type">boolean</span> finalFrame)</p>
             <b> returns </b><a href="../../http/types.html#WebSocketError">WebSocketError</a>? 
         </span>
         
@@ -929,7 +909,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> data<span class="type">  string | json | xml | boolean | int | float | byte | byte </span></li>
+                    <li>
+                        data<span class="type">  <span class="builtin-type">string</span> | <span class="builtin-type">json</span> | <span class="builtin-type">xml</span> | <span class="builtin-type">boolean</span> | <span class="builtin-type">int</span> | <span class="builtin-type">float</span> | <span class="builtin-type">byte</span> | <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Data to be sent, if byte[] it is converted to a UTF-8 string for sending</p>
 </p>
@@ -939,7 +922,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> finalFrame<span class="type">  boolean </span>- true</li>
+                    <li>
+                        finalFrame<span class="type">  <span class="builtin-type">boolean</span> </span>
+                        <span class="default"> (default true)</span>
+                    </li>
                     <li>
                         <p><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </p>
@@ -964,14 +950,14 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="pushBinary">
+    <div class="main-method-title here" id="pushBinary" title="pushBinary">
              <a class="url-link" href="#pushBinary">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> pushBinary </h2>
         
         <span class="method-types">
-            <p>(byte data, boolean finalFrame)</p>
+            <p>(<span class="builtin-type">byte</span> data, <span class="builtin-type">boolean</span> finalFrame)</p>
             <b> returns </b><a href="../../http/types.html#WebSocketError">WebSocketError</a>? 
         </span>
         
@@ -984,7 +970,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> data<span class="type">  byte </span></li>
+                    <li>
+                        data<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Binary data to be sent</p>
 </p>
@@ -994,7 +983,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> finalFrame<span class="type">  boolean </span>- true</li>
+                    <li>
+                        finalFrame<span class="type">  <span class="builtin-type">boolean</span> </span>
+                        <span class="default"> (default true)</span>
+                    </li>
                     <li>
                         <p><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </p>
@@ -1019,14 +1011,14 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="ping">
+    <div class="main-method-title here" id="ping" title="ping">
              <a class="url-link" href="#ping">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> ping </h2>
         
         <span class="method-types">
-            <p>(byte data)</p>
+            <p>(<span class="builtin-type">byte</span> data)</p>
             <b> returns </b><a href="../../http/types.html#WebSocketError">WebSocketError</a>? 
         </span>
         
@@ -1039,7 +1031,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> data<span class="type">  byte </span></li>
+                    <li>
+                        data<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Binary data to be sent.</p>
 </p>
@@ -1064,14 +1059,14 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="pong">
+    <div class="main-method-title here" id="pong" title="pong">
              <a class="url-link" href="#pong">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> pong </h2>
         
         <span class="method-types">
-            <p>(byte data)</p>
+            <p>(<span class="builtin-type">byte</span> data)</p>
             <b> returns </b><a href="../../http/types.html#WebSocketError">WebSocketError</a>? 
         </span>
         
@@ -1084,7 +1079,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> data<span class="type">  byte </span></li>
+                    <li>
+                        data<span class="type">  <span class="builtin-type">byte</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Binary data to be sent</p>
 </p>
@@ -1109,14 +1107,14 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="close">
+    <div class="main-method-title here" id="close" title="close">
              <a class="url-link" href="#close">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> close </h2>
         
         <span class="method-types">
-            <p>(int statusCode, string reason, int timeoutInSeconds)</p>
+            <p>(<span class="builtin-type">int</span> statusCode, <span class="builtin-type">string</span> reason, <span class="builtin-type">int</span> timeoutInSeconds)</p>
             <b> returns </b><a href="../../http/types.html#WebSocketError">WebSocketError</a>? 
         </span>
         
@@ -1129,7 +1127,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> statusCode<span class="type">  int </span>- 1000</li>
+                    <li>
+                        statusCode<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default 1000)</span>
+                    </li>
                     <li>
                         <p><p>Status code for closing the connection</p>
 </p>
@@ -1139,7 +1140,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> reason<span class="type">  string </span>- ()</li>
+                    <li>
+                        reason<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Reason for closing the connection</p>
 </p>
@@ -1149,7 +1153,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> timeoutInSeconds<span class="type">  int </span>- 60</li>
+                    <li>
+                        timeoutInSeconds<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default 60)</span>
+                    </li>
                     <li>
                         <p><p>Time to wait for the close frame to be received from the remote endpoint before closing the
 connection. If the timeout exceeds, then the connection is terminated even though a close frame
@@ -1182,7 +1189,7 @@ within waiting period the connection is terminated immediately.</p>
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="setAttribute">
+    <div class="main-method-title here" id="setAttribute" title="setAttribute">
              <a class="url-link" href="#setAttribute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1197,7 +1204,10 @@ within waiting period the connection is terminated immediately.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>key that identifies the attribute</p>
 </p>
@@ -1207,7 +1217,10 @@ within waiting period the connection is terminated immediately.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> value<span class="type">  any </span></li>
+                    <li>
+                        value<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>value of the attribute</p>
 </p>
@@ -1222,15 +1235,15 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getAttribute">
+    <div class="main-method-title here" id="getAttribute" title="getAttribute">
              <a class="url-link" href="#getAttribute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> getAttribute </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>any 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">any</span> 
         </span>
         
     </div>
@@ -1242,7 +1255,10 @@ within waiting period the connection is terminated immediately.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the key to identify the attribute.</p>
 </p>
@@ -1257,7 +1273,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">any</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">any</span></span>)</li>
                 <li><p>the attribute related to the given key or <code>nil</code></p>
 </li>
             </ul>
@@ -1267,15 +1283,15 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="removeAttribute">
+    <div class="main-method-title here" id="removeAttribute" title="removeAttribute">
              <a class="url-link" href="#removeAttribute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> removeAttribute </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>any 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">any</span> 
         </span>
         
     </div>
@@ -1287,7 +1303,10 @@ within waiting period the connection is terminated immediately.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>the key to identify the attribute.</p>
 </p>
@@ -1302,7 +1321,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">any</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">any</span></span>)</li>
                 <li><p>the attribute related to the given key or <code>nil</code></p>
 </li>
             </ul>
@@ -1312,7 +1331,7 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getConnectionId">
+    <div class="main-method-title here" id="getConnectionId" title="getConnectionId">
              <a class="url-link" href="#getConnectionId">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1320,7 +1339,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1332,7 +1351,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>the unique id associated with the connection</p>
 </li>
             </ul>
@@ -1342,7 +1361,7 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getNegotiatedSubProtocol">
+    <div class="main-method-title here" id="getNegotiatedSubProtocol" title="getNegotiatedSubProtocol">
              <a class="url-link" href="#getNegotiatedSubProtocol">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1350,7 +1369,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -1362,7 +1381,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
                 <li><p>The subprotocol if any negotiated with the client or <code>nil</code></p>
 </li>
             </ul>
@@ -1372,7 +1391,7 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="isSecure">
+    <div class="main-method-title here" id="isSecure" title="isSecure">
              <a class="url-link" href="#isSecure">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1380,7 +1399,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1392,7 +1411,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p><code>true</code> if the connection is secure.</p>
 </li>
             </ul>
@@ -1402,7 +1421,7 @@ within waiting period the connection is terminated immediately.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="isOpen">
+    <div class="main-method-title here" id="isOpen" title="isOpen">
              <a class="url-link" href="#isOpen">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -1410,7 +1429,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>boolean 
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -1422,7 +1441,7 @@ within waiting period the connection is terminated immediately.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p><code>true</code> if the connection is open</p>
 </li>
             </ul>

@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Listeners</h3>
@@ -96,10 +96,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -355,7 +351,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Listeners</h3>
@@ -399,10 +395,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -678,12 +670,12 @@
                 
                     
                         <h2>Constructor</h2>
-<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> c)</p>
+<h3 >__init</h3><p>(<a href="../../nats/objects/Connection.html">Connection</a> connection)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>c</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
+                <li> <b>connection</b><span class="type">  <a href="../../nats/objects/Connection.html">Connection</a></span> </li>
                 <li>
                     <p>An already-established connection or configuration to create a new connection.</p>
 
@@ -715,7 +707,8 @@
         <div class="param-name">
         __gracefulStop 
         </div>
-        <div class="param-details">  </div>
+        <div class="param-details"> <p>Gracefully stops the listener in the lifecycle.</p>
+ </div>
     </div>
 </a>
                         
@@ -725,7 +718,7 @@
         <div class="param-name">
         __immediateStop 
         </div>
-        <div class="param-details"> <p>Stops the listener in the lifecyle.</p>
+        <div class="param-details"> <p>Forcefully stops the listener in the lifecycle.</p>
  </div>
     </div>
 </a>
@@ -754,7 +747,7 @@
         <div class="param-name">
         __start 
         </div>
-        <div class="param-details"> <p>Starts the listener in the lifecyle.</p>
+        <div class="param-details"> <p>Starts the listener in the lifecycle.</p>
  </div>
     </div>
 </a>
@@ -769,15 +762,15 @@
                     <h2>Methods</h2>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="__detach">
+    <div class="main-method-title here" id="__detach" title="__detach">
              <a class="url-link" href="#__detach">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> __detach </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKNOWN/service.html">service</a> s)</p>
-            <b> returns </b>error 
+            <p>(<span class="builtin-type">service</span> s)</p>
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -788,7 +781,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> s<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        s<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p></p>
                     </li>
@@ -802,7 +798,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li></li>
             </ul>
         </div>
@@ -811,7 +807,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="__gracefulStop">
+    <div class="main-method-title here" id="__gracefulStop" title="__gracefulStop">
              <a class="url-link" href="#__gracefulStop">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -819,39 +815,11 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>error 
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
-    <p></p>
-     
-
-    
-        
-        <div class="returns-listing">
-            <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
-                <li></li>
-            </ul>
-        </div>
-        
-    
-</div>
-                    
-                        <div class="method-content">
-    <div class="main-method-title here" id="__immediateStop">
-             <a class="url-link" href="#__immediateStop">
-                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
-            </a>
-            <h2> __immediateStop </h2>
-        
-        <span class="method-types">
-            <p>()</p>
-            <b> returns </b>error 
-        </span>
-        
-    </div>
-    <p><p>Stops the listener in the lifecyle.</p>
+    <p><p>Gracefully stops the listener in the lifecycle.</p>
 </p>
      
 
@@ -859,8 +827,38 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
-                <li><p>error or ().</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
+                <li><p>Error or ().</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="__immediateStop" title="__immediateStop">
+             <a class="url-link" href="#__immediateStop">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> __immediateStop </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><span class="builtin-type">error</span> 
+        </span>
+        
+    </div>
+    <p><p>Forcefully stops the listener in the lifecycle.</p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
+                <li><p>Error or ().</p>
 </li>
             </ul>
         </div>
@@ -874,15 +872,15 @@
                     <h2>LifeCycle Methods</h2>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="__attach">
+    <div class="main-method-title here" id="__attach" title="__attach">
              <a class="url-link" href="#__attach">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> __attach </h2>
         
         <span class="method-types">
-            <p>(<a href="../../lang.annotations/UNKNOWN/service.html">service</a> s, string name)</p>
-            <b> returns </b>error 
+            <p>(<span class="builtin-type">service</span> s, <span class="builtin-type">string</span> name)</p>
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -894,7 +892,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> s<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        s<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Type descriptor of the service.</p>
 </p>
@@ -904,7 +905,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> name<span class="type">  string </span>- ()</li>
+                    <li>
+                        name<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Name of the service.</p>
 </p>
@@ -919,7 +923,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Returns nil or the error upon failure to register the listener.</p>
 </li>
             </ul>
@@ -929,7 +933,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="__start">
+    <div class="main-method-title here" id="__start" title="__start">
              <a class="url-link" href="#__start">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -937,11 +941,11 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>error 
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
-    <p><p>Starts the listener in the lifecyle.</p>
+    <p><p>Starts the listener in the lifecycle.</p>
 </p>
      
 
@@ -949,7 +953,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>Error or ().</p>
 </li>
             </ul>

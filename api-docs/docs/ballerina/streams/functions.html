@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -511,7 +511,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -1368,7 +1368,7 @@ same name as this function's name.</p>
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="avg">
+    <div class="main-method-title here" id="avg" title="avg">
              <a class="url-link" href="#avg">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1399,14 +1399,14 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="buildStreamEvent">
+    <div class="main-method-title here" id="buildStreamEvent" title="buildStreamEvent">
              <a class="url-link" href="#buildStreamEvent">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> buildStreamEvent </h2>
         
         <span class="method-types">
-            <p>(anydata t, string streamName)</p>
+            <p>(<span class="builtin-type">anydata</span> t, <span class="builtin-type">string</span> streamName)</p>
             <b> returns </b><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] 
         </span>
         
@@ -1419,7 +1419,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> t<span class="type">  anydata </span></li>
+                    <li>
+                        t<span class="type">  <span class="builtin-type">anydata</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>A record received by the stream <code>streamName</code>.</p>
 </p>
@@ -1429,7 +1432,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> streamName<span class="type">  string </span></li>
+                    <li>
+                        streamName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Name of the stream to which the record <code>t</code> is received.</p>
 </p>
@@ -1454,7 +1460,7 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="count">
+    <div class="main-method-title here" id="count" title="count">
              <a class="url-link" href="#count">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1485,7 +1491,7 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createAndOperatorProcessor">
+    <div class="main-method-title here" id="createAndOperatorProcessor" title="createAndOperatorProcessor">
              <a class="url-link" href="#createAndOperatorProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1515,14 +1521,14 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createCompoundPatternProcessor">
+    <div class="main-method-title here" id="createCompoundPatternProcessor" title="createCompoundPatternProcessor">
              <a class="url-link" href="#createCompoundPatternProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createCompoundPatternProcessor </h2>
         
         <span class="method-types">
-            <p>(int withinTimeMillis)</p>
+            <p>(<span class="builtin-type">int</span> withinTimeMillis)</p>
             <b> returns </b><a href="../streams/objects/CompoundPatternProcessor.html">CompoundPatternProcessor</a> 
         </span>
         
@@ -1535,7 +1541,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> withinTimeMillis<span class="type">  int </span>- ()</li>
+                    <li>
+                        withinTimeMillis<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>time from initial state to current state</p>
 </p>
@@ -1560,14 +1569,14 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createFilter">
+    <div class="main-method-title here" id="createFilter" title="createFilter">
              <a class="url-link" href="#createFilter">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createFilter </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcPointer, <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code> conditionFunc)</p>
+            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcPointer, <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> conditionFunc)</p>
             <b> returns </b><a href="../streams/objects/Filter.html">Filter</a> 
         </span>
         
@@ -1580,7 +1589,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -1590,7 +1602,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> conditionFunc<span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code> </span></li>
+                    <li>
+                        conditionFunc<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to the condition evaluator. This is a function which returns true or false
 based on the boolean expression given in the where clause.</p>
@@ -1616,7 +1631,7 @@ based on the boolean expression given in the where clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createFollowedByProcessor">
+    <div class="main-method-title here" id="createFollowedByProcessor" title="createFollowedByProcessor">
              <a class="url-link" href="#createFollowedByProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1646,14 +1661,14 @@ based on the boolean expression given in the where clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createNotOperatorProcessor">
+    <div class="main-method-title here" id="createNotOperatorProcessor" title="createNotOperatorProcessor">
              <a class="url-link" href="#createNotOperatorProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createNotOperatorProcessor </h2>
         
         <span class="method-types">
-            <p>(int forTimeMillis)</p>
+            <p>(<span class="builtin-type">int</span> forTimeMillis)</p>
             <b> returns </b><a href="../streams/objects/NotOperatorProcessor.html">NotOperatorProcessor</a> 
         </span>
         
@@ -1666,7 +1681,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> forTimeMillis<span class="type">  int </span></li>
+                    <li>
+                        forTimeMillis<span class="type">  <span class="builtin-type">int</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p><code>for</code> time in milliseconds</p>
 </p>
@@ -1691,14 +1709,14 @@ based on the boolean expression given in the where clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createOperandProcessor">
+    <div class="main-method-title here" id="createOperandProcessor" title="createOperandProcessor">
              <a class="url-link" href="#createOperandProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createOperandProcessor </h2>
         
         <span class="method-types">
-            <p>(string alias, <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code> onConditionFunc, int minOccurs, int maxOccurs)</p>
+            <p>(<span class="builtin-type">string</span> alias, <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> onConditionFunc, <span class="builtin-type">int</span> minOccurs, <span class="builtin-type">int</span> maxOccurs)</p>
             <b> returns </b><a href="../streams/objects/OperandProcessor.html">OperandProcessor</a> 
         </span>
         
@@ -1711,7 +1729,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> alias<span class="type">  string </span></li>
+                    <li>
+                        alias<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>processor alias</p>
 </p>
@@ -1721,7 +1742,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> onConditionFunc<span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>boolean<span>)</span> </code> </span></li>
+                    <li>
+                        onConditionFunc<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>condition function (i.e [e1.id == id])</p>
 </p>
@@ -1731,7 +1755,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> minOccurs<span class="type">  int </span>- 1</li>
+                    <li>
+                        minOccurs<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default 1)</span>
+                    </li>
                     <li>
                         <p><p>minimum occurrences of the event</p>
 </p>
@@ -1741,7 +1768,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> maxOccurs<span class="type">  int </span>- 1</li>
+                    <li>
+                        maxOccurs<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default 1)</span>
+                    </li>
                     <li>
                         <p><p>maximum occurrences of the event</p>
 </p>
@@ -1766,7 +1796,7 @@ based on the boolean expression given in the where clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createOrOperatorProcessor">
+    <div class="main-method-title here" id="createOrOperatorProcessor" title="createOrOperatorProcessor">
              <a class="url-link" href="#createOrOperatorProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1796,14 +1826,14 @@ based on the boolean expression given in the where clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createOrderBy">
+    <div class="main-method-title here" id="createOrderBy" title="createOrderBy">
              <a class="url-link" href="#createOrderBy">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createOrderBy </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessorPointer, <code> <span>function(</span>map<span>) </span><span>returns (</span>anydata<span>)</span> </code> fields, string sortFieldMetadata)</p>
+            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessorPointer, <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> fields, <span class="builtin-type">string</span> sortFieldMetadata)</p>
             <b> returns </b><a href="../streams/objects/OrderBy.html">OrderBy</a> 
         </span>
         
@@ -1816,7 +1846,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessorPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcessorPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>A function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -1826,7 +1859,10 @@ based on the boolean expression given in the where clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> fields<span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>anydata<span>)</span> </code> </span></li>
+                    <li>
+                        fields<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An array of function pointers which each returns a field by which the events are sorted. Events are
 sorted by the first field, if there are elements of same value, the second field is used and so on.</p>
@@ -1837,7 +1873,10 @@ sorted by the first field, if there are elements of same value, the second field
                 
             <div class="params-listing">
                 <ul>
-                    <li> sortFieldMetadata<span class="type">  string </span></li>
+                    <li>
+                        sortFieldMetadata<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>sortTypes of the fields (<code>streams:ASCENDING</code> or <code>streams:DESCENDING</code>). First element is the
 sort type of the first element of <code>fields</code> and so on.</p>
@@ -1863,14 +1902,14 @@ sort type of the first element of <code>fields</code> and so on.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createOutputProcess">
+    <div class="main-method-title here" id="createOutputProcess" title="createOutputProcess">
              <a class="url-link" href="#createOutputProcess">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createOutputProcess </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span>map<span>) </span><span>returns (</span>()<span>)</span> </code> outputFunc)</p>
+            <p>(<code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> outputFunc)</p>
             <b> returns </b><a href="../streams/objects/OutputProcess.html">OutputProcess</a> 
         </span>
         
@@ -1883,7 +1922,10 @@ sort type of the first element of <code>fields</code> and so on.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> outputFunc<span class="type">  <code> <span>function(</span>map<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        outputFunc<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to a lambda function created out of the statements in the streaming action</p>
 </p>
@@ -1908,7 +1950,7 @@ sort type of the first element of <code>fields</code> and so on.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createResetStreamEvent">
+    <div class="main-method-title here" id="createResetStreamEvent" title="createResetStreamEvent">
              <a class="url-link" href="#createResetStreamEvent">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -1928,7 +1970,10 @@ sort type of the first element of <code>fields</code> and so on.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> event<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a> </span></li>
+                    <li>
+                        event<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The event from which the reset event is created.</p>
 </p>
@@ -1953,14 +1998,14 @@ sort type of the first element of <code>fields</code> and so on.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createSelect">
+    <div class="main-method-title here" id="createSelect" title="createSelect">
              <a class="url-link" href="#createSelect">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createSelect </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcPointer, <a href="../streams/objects/Aggregator.html">Aggregator</a>[] aggregatorArr, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>anydata<span>)</span> </code> groupbyFuncArray, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>, <a href="../streams/objects/Aggregator.html">Aggregator</a>[]<span>) </span><span>returns (</span>map<span>)</span> </code> selectFunc, string scopeName)</p>
+            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcPointer, <a href="../streams/objects/Aggregator.html">Aggregator</a>[] aggregatorArr, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> groupbyFuncArray, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>, <a href="../streams/objects/Aggregator.html">Aggregator</a>[]<span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code> selectFunc, <span class="builtin-type">string</span> scopeName)</p>
             <b> returns </b><a href="../streams/objects/Select.html">Select</a> 
         </span>
         
@@ -1973,7 +2018,10 @@ sort type of the first element of <code>fields</code> and so on.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -1983,7 +2031,10 @@ sort type of the first element of <code>fields</code> and so on.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> aggregatorArr<span class="type">  <a href="../streams/objects/Aggregator.html">Aggregator</a>[] </span></li>
+                    <li>
+                        aggregatorArr<span class="type">  <a href="../streams/objects/Aggregator.html">Aggregator</a>[] </span>
+                        
+                    </li>
                     <li>
                         <p><p>The array of aggregators used in the select clause. If the same aggregator is used twice, the
 <code>aggregatorArr</code> will contains that specific aggregator twice in the order they appear in the select
@@ -1995,7 +2046,10 @@ clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> groupbyFuncArray<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>anydata<span>)</span> </code> </span></li>
+                    <li>
+                        groupbyFuncArray<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">anydata</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The array of function pointer which contains the lambda function which returns the expressions
 in the group by clause.</p>
@@ -2006,7 +2060,10 @@ in the group by clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> selectFunc<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>, <a href="../streams/objects/Aggregator.html">Aggregator</a>[]<span>) </span><span>returns (</span>map<span>)</span> </code> </span></li>
+                    <li>
+                        selectFunc<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>, <a href="../streams/objects/Aggregator.html">Aggregator</a>[]<span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to a lambda function that creates the <code>data</code> field of the output stream event.</p>
 </p>
@@ -2016,7 +2073,10 @@ in the group by clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> scopeName<span class="type">  string </span>- $scope$name</li>
+                    <li>
+                        scopeName<span class="type">  <span class="builtin-type">string</span> </span>
+                        <span class="default"> (default $scope$name)</span>
+                    </li>
                     <li>
                         <p><p>A unique id to identify the forever block if there are multiple forever blocks.</p>
 </p>
@@ -2041,14 +2101,14 @@ in the group by clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createStateMachine">
+    <div class="main-method-title here" id="createStateMachine" title="createStateMachine">
              <a class="url-link" href="#createStateMachine">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createStateMachine </h2>
         
         <span class="method-types">
-            <p>(<a href="../streams/objects/CompoundPatternProcessor.html">CompoundPatternProcessor</a> rootProcessor, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcPointer)</p>
+            <p>(<a href="../streams/objects/CompoundPatternProcessor.html">CompoundPatternProcessor</a> rootProcessor, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcPointer)</p>
             <b> returns </b><a href="../streams/objects/StateMachine.html">StateMachine</a> 
         </span>
         
@@ -2061,7 +2121,10 @@ in the group by clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> rootProcessor<span class="type">  <a href="../streams/objects/CompoundPatternProcessor.html">CompoundPatternProcessor</a> </span></li>
+                    <li>
+                        rootProcessor<span class="type">  <a href="../streams/objects/CompoundPatternProcessor.html">CompoundPatternProcessor</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>pointer to the root processor</p>
 </p>
@@ -2071,7 +2134,10 @@ in the group by clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>pointer for the next processor</p>
 </p>
@@ -2096,14 +2162,14 @@ in the group by clause.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createStreamJoinProcessor">
+    <div class="main-method-title here" id="createStreamJoinProcessor" title="createStreamJoinProcessor">
              <a class="url-link" href="#createStreamJoinProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createStreamJoinProcessor </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessor, <a href="../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span>map, map<span>) </span><span>returns (</span>boolean<span>)</span> </code> conditionFunc)</p>
+            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessor, <a href="../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><span class="builtin-type">map</span>, <span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> conditionFunc)</p>
             <b> returns </b><a href="../streams/objects/StreamJoinProcessor.html">StreamJoinProcessor</a> 
         </span>
         
@@ -2116,7 +2182,10 @@ in the group by clause.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessor<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcessor<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>process</code> function of the next processor, which can be a <code>Select</code> processor, <code>Aggregator</code>
 processor, <code>Having</code> processor.. etc.</p>
@@ -2127,7 +2196,10 @@ processor, <code>Having</code> processor.. etc.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> joinType<span class="type">  <a href="../streams/types.html#JoinType">JoinType</a> </span></li>
+                    <li>
+                        joinType<span class="type">  <a href="../streams/types.html#JoinType">JoinType</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Type of the join being performed (&quot;JOIN&quot;|&quot;LEFTOUTERJOIN&quot;|&quot;RIGHTOUTERJOIN&quot;|&quot;FULLOUTERJOIN&quot;)</p>
 </p>
@@ -2137,7 +2209,10 @@ processor, <code>Having</code> processor.. etc.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> conditionFunc<span class="type">  <code> <span>function(</span>map, map<span>) </span><span>returns (</span>boolean<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        conditionFunc<span class="type">  <code> <span>function(</span><span class="builtin-type">map</span>, <span class="builtin-type">map</span><span>) </span><span>returns (</span><span class="builtin-type">boolean</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>A lambda function which contains the joining condition and return true if the condition satifies
 the condition.</p>
@@ -2163,14 +2238,14 @@ the condition.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="createTableJoinProcessor">
+    <div class="main-method-title here" id="createTableJoinProcessor" title="createTableJoinProcessor">
              <a class="url-link" href="#createTableJoinProcessor">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> createTableJoinProcessor </h2>
         
         <span class="method-types">
-            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessor, <a href="../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>map<span>)</span> </code> tableQuery)</p>
+            <p>(<code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessor, <a href="../streams/types.html#JoinType">JoinType</a> joinType, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code> tableQuery)</p>
             <b> returns </b><a href="../streams/objects/TableJoinProcessor.html">TableJoinProcessor</a> 
         </span>
         
@@ -2183,7 +2258,10 @@ the condition.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessor<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span></li>
+                    <li>
+                        nextProcessor<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to <code>process</code> function of the next processor, which can be a <code>Select</code> processor,
 <code>Aggregator</code> processor, <code>Having</code> processor.. etc</p>
@@ -2194,7 +2272,10 @@ the condition.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> joinType<span class="type">  <a href="../streams/types.html#JoinType">JoinType</a> </span></li>
+                    <li>
+                        joinType<span class="type">  <a href="../streams/types.html#JoinType">JoinType</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The type of the join and it can be any value defined by <code>streams:JoinType</code>.</p>
 </p>
@@ -2204,7 +2285,10 @@ the condition.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> tableQuery<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span>map<span>)</span> </code> </span></li>
+                    <li>
+                        tableQuery<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a><span>) </span><span>returns (</span><span class="builtin-type">map</span><span>)</span> </code> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The function pointer to a function which retrieves the records from the table and joins w ith
 each stream event.</p>
@@ -2230,14 +2314,14 @@ each stream event.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="delay">
+    <div class="main-method-title here" id="delay" title="delay">
              <a class="url-link" href="#delay">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> delay </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2250,7 +2334,10 @@ each stream event.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2261,7 +2348,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2286,7 +2376,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="distinctCount">
+    <div class="main-method-title here" id="distinctCount" title="distinctCount">
              <a class="url-link" href="#distinctCount">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2317,14 +2407,14 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="externalTime">
+    <div class="main-method-title here" id="externalTime" title="externalTime">
              <a class="url-link" href="#externalTime">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> externalTime </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2337,7 +2427,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2348,7 +2441,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2373,14 +2469,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="externalTimeBatch">
+    <div class="main-method-title here" id="externalTimeBatch" title="externalTimeBatch">
              <a class="url-link" href="#externalTimeBatch">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> externalTimeBatch </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2393,7 +2489,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2404,7 +2503,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2429,14 +2531,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="getStreamEvent">
+    <div class="main-method-title here" id="getStreamEvent" title="getStreamEvent">
              <a class="url-link" href="#getStreamEvent">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> getStreamEvent </h2>
         
         <span class="method-types">
-            <p>(any anyEvent)</p>
+            <p>(<span class="builtin-type">any</span> anyEvent)</p>
             <b> returns </b><a href="../streams/objects/StreamEvent.html">StreamEvent</a> 
         </span>
         
@@ -2450,7 +2552,10 @@ streams:StreamEvent.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> anyEvent<span class="type">  any </span></li>
+                    <li>
+                        anyEvent<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The object from which, the stream event is extracted.</p>
 </p>
@@ -2475,14 +2580,14 @@ streams:StreamEvent.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="hopping">
+    <div class="main-method-title here" id="hopping" title="hopping">
              <a class="url-link" href="#hopping">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> hopping </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2495,7 +2600,10 @@ streams:StreamEvent.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2506,7 +2614,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2531,7 +2642,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="initPersistence">
+    <div class="main-method-title here" id="initPersistence" title="initPersistence">
              <a class="url-link" href="#initPersistence">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2546,14 +2657,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="length">
+    <div class="main-method-title here" id="length" title="length">
              <a class="url-link" href="#length">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> length </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2566,7 +2677,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2577,7 +2691,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2602,14 +2719,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="lengthBatch">
+    <div class="main-method-title here" id="lengthBatch" title="lengthBatch">
              <a class="url-link" href="#lengthBatch">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> lengthBatch </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2622,7 +2739,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2633,7 +2753,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2658,7 +2781,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="max">
+    <div class="main-method-title here" id="max" title="max">
              <a class="url-link" href="#max">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2689,7 +2812,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="maxForever">
+    <div class="main-method-title here" id="maxForever" title="maxForever">
              <a class="url-link" href="#maxForever">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2720,7 +2843,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="min">
+    <div class="main-method-title here" id="min" title="min">
              <a class="url-link" href="#min">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2751,7 +2874,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="minForever">
+    <div class="main-method-title here" id="minForever" title="minForever">
              <a class="url-link" href="#minForever">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2782,7 +2905,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="registerSnapshotable">
+    <div class="main-method-title here" id="registerSnapshotable" title="registerSnapshotable">
              <a class="url-link" href="#registerSnapshotable">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2797,7 +2920,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An unique <code>string</code> identifier for the snapshotable reference.</p>
 </p>
@@ -2807,7 +2933,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> reference<span class="type">  any </span></li>
+                    <li>
+                        reference<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The snapshotable reference to be registered.</p>
 </p>
@@ -2822,15 +2951,15 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="removeState">
+    <div class="main-method-title here" id="removeState" title="removeState">
              <a class="url-link" href="#removeState">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> removeState </h2>
         
         <span class="method-types">
-            <p>(string key)</p>
-            <b> returns </b>boolean 
+            <p>(<span class="builtin-type">string</span> key)</p>
+            <b> returns </b><span class="builtin-type">boolean</span> 
         </span>
         
     </div>
@@ -2842,7 +2971,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An unique <code>string</code> identifier for the snapshotable reference.</p>
 </p>
@@ -2857,7 +2989,7 @@ have the same name as this function's name.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">boolean</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">boolean</span></span>)</li>
                 <li><p>A <code>boolean</code> indicating whether the state for the given key removed successfully.</p>
 </li>
             </ul>
@@ -2867,7 +2999,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="restoreState">
+    <div class="main-method-title here" id="restoreState" title="restoreState">
              <a class="url-link" href="#restoreState">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2882,7 +3014,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> key<span class="type">  string </span></li>
+                    <li>
+                        key<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>An unique <code>string</code> identifier for the snapshotable reference.</p>
 </p>
@@ -2892,7 +3027,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> reference<span class="type">  any </span></li>
+                    <li>
+                        reference<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The snapshotable reference to be restored.</p>
 </p>
@@ -2907,14 +3045,14 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="sort">
+    <div class="main-method-title here" id="sort" title="sort">
              <a class="url-link" href="#sort">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> sort </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -2927,7 +3065,10 @@ have the same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -2938,7 +3079,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -2963,7 +3107,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="stdDev">
+    <div class="main-method-title here" id="stdDev" title="stdDev">
              <a class="url-link" href="#stdDev">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -2994,7 +3138,7 @@ have the same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="sum">
+    <div class="main-method-title here" id="sum" title="sum">
              <a class="url-link" href="#sum">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -3025,14 +3169,14 @@ same name as this function's name.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="time">
+    <div class="main-method-title here" id="time" title="time">
              <a class="url-link" href="#time">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> time </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3045,7 +3189,10 @@ same name as this function's name.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3056,7 +3203,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -3081,14 +3231,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="timeAccum">
+    <div class="main-method-title here" id="timeAccum" title="timeAccum">
              <a class="url-link" href="#timeAccum">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> timeAccum </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3101,7 +3251,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3112,7 +3265,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -3137,14 +3293,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="timeBatch">
+    <div class="main-method-title here" id="timeBatch" title="timeBatch">
              <a class="url-link" href="#timeBatch">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> timeBatch </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3157,7 +3313,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3168,7 +3327,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -3193,14 +3355,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="timeLength">
+    <div class="main-method-title here" id="timeLength" title="timeLength">
              <a class="url-link" href="#timeLength">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> timeLength </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3213,7 +3375,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3224,7 +3389,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -3249,14 +3417,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="timeOrder">
+    <div class="main-method-title here" id="timeOrder" title="timeOrder">
              <a class="url-link" href="#timeOrder">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> timeOrder </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3269,7 +3437,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3280,7 +3451,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>
@@ -3305,7 +3479,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="toSnapshottableEvent">
+    <div class="main-method-title here" id="toSnapshottableEvent" title="toSnapshottableEvent">
              <a class="url-link" href="#toSnapshottableEvent">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -3325,7 +3499,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> event<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a> </span></li>
+                    <li>
+                        event<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>streams:StreamEvent</code> object to be converted to snapshotable event.</p>
 </p>
@@ -3350,14 +3527,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="toSnapshottableEvents">
+    <div class="main-method-title here" id="toSnapshottableEvents" title="toSnapshottableEvents">
              <a class="url-link" href="#toSnapshottableEvents">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> toSnapshottableEvents </h2>
         
         <span class="method-types">
-            <p>(<a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] | any | () events)</p>
+            <p>(<a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] | <span class="builtin-type">any</span> | <span class="builtin-type">()</span> events)</p>
             <b> returns </b><a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a>[] 
         </span>
         
@@ -3370,7 +3547,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> events<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] | any | () </span></li>
+                    <li>
+                        events<span class="type">  <a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] | <span class="builtin-type">any</span> | <span class="builtin-type">()</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The events to be coverted to snapshotable events.</p>
 </p>
@@ -3395,7 +3575,7 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="toStreamEvent">
+    <div class="main-method-title here" id="toStreamEvent" title="toStreamEvent">
              <a class="url-link" href="#toStreamEvent">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -3415,7 +3595,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> event<span class="type">  <a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a> </span></li>
+                    <li>
+                        event<span class="type">  <a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>The <code>streams:SnapshottableStreamEvent</code> object to be converted to a stream event.</p>
 </p>
@@ -3440,14 +3623,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="toStreamEvents">
+    <div class="main-method-title here" id="toStreamEvents" title="toStreamEvents">
              <a class="url-link" href="#toStreamEvents">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> toStreamEvents </h2>
         
         <span class="method-types">
-            <p>(<a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a>[] | any | () events)</p>
+            <p>(<a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a>[] | <span class="builtin-type">any</span> | <span class="builtin-type">()</span> events)</p>
             <b> returns </b><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[] 
         </span>
         
@@ -3460,7 +3643,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> events<span class="type">  <a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a>[] | any | () </span></li>
+                    <li>
+                        events<span class="type">  <a href="../streams/records/SnapshottableStreamEvent.html">SnapshottableStreamEvent</a>[] | <span class="builtin-type">any</span> | <span class="builtin-type">()</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Snapshotable events to be converted to <code>streams:StreamEvents</code>.</p>
 </p>
@@ -3485,14 +3671,14 @@ they appear in the argument list.</p>
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="uniqueLength">
+    <div class="main-method-title here" id="uniqueLength" title="uniqueLength">
              <a class="url-link" href="#uniqueLength">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> uniqueLength </h2>
         
         <span class="method-types">
-            <p>(any windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> nextProcessPointer)</p>
+            <p>(<span class="builtin-type">any</span> windowParameters, <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> nextProcessPointer)</p>
             <b> returns </b><a href="../streams/objects/Window.html">Window</a> 
         </span>
         
@@ -3505,7 +3691,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> windowParameters<span class="type">  any </span></li>
+                    <li>
+                        windowParameters<span class="type">  <span class="builtin-type">any</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Arguments which should be passed with the window function in the streams query in the order
 they appear in the argument list.</p>
@@ -3516,7 +3705,10 @@ they appear in the argument list.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span>()<span>)</span> </code> </span>- ()</li>
+                    <li>
+                        nextProcessPointer<span class="type">  <code> <span>function(</span><a href="../streams/objects/StreamEvent.html">StreamEvent</a>[]<span>) </span><span>returns (</span><span class="builtin-type">()</span><span>)</span> </code> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The function pointer to the <code>process</code> function of the next processor.</p>
 </p>

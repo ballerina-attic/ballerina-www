@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Records</h3>
@@ -431,7 +431,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Records</h3>
@@ -832,7 +832,7 @@
         
     <div class="params-listing">
         <ul>
-            <li> dockerHost<span class="type">  string</span> </li>
+            <li> dockerHost<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Docker host IP and docker PORT. ( e.g minikube IP and docker PORT).
 Default is to use DOCKER_HOST environment variable.
@@ -844,7 +844,7 @@ If DOCKER_HOST is unavailable, use <code>&quot;unix:///var/run/docker.sock&quot;
         
     <div class="params-listing">
         <ul>
-            <li> dockerCertPath<span class="type">  string</span> </li>
+            <li> dockerCertPath<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Docker certificate path. Default is &quot;DOCKER_CERT_PATH&quot; environment variable.</p>
 </p>
@@ -854,7 +854,7 @@ If DOCKER_HOST is unavailable, use <code>&quot;unix:///var/run/docker.sock&quot;
         
     <div class="params-listing">
         <ul>
-            <li> registry<span class="type">  string</span> </li>
+            <li> registry<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Docker registry url.</p>
 </p>
@@ -864,7 +864,7 @@ If DOCKER_HOST is unavailable, use <code>&quot;unix:///var/run/docker.sock&quot;
         
     <div class="params-listing">
         <ul>
-            <li> username<span class="type">  string</span> </li>
+            <li> username<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Username for docker registry.</p>
 </p>
@@ -874,7 +874,7 @@ If DOCKER_HOST is unavailable, use <code>&quot;unix:///var/run/docker.sock&quot;
         
     <div class="params-listing">
         <ul>
-            <li> password<span class="type">  string</span> </li>
+            <li> password<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Password for docker registry.</p>
 </p>
@@ -884,7 +884,7 @@ If DOCKER_HOST is unavailable, use <code>&quot;unix:///var/run/docker.sock&quot;
         
     <div class="params-listing">
         <ul>
-            <li> baseImage<span class="type">  string</span> </li>
+            <li> baseImage<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Base image for docker image building. Default value is <code>&quot;ballerina/ballerina-runtime:&lt;BALLERINA_VERSION&gt;&quot;</code>.
 Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the latest stable ballerina runtime docker image.</p>
@@ -895,7 +895,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> image<span class="type">  string</span> </li>
+            <li> image<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Docker image name with tag. Default is <code>&quot;&lt;OUTPUT_FILE_NAME&gt;:latest&quot;</code>. If field <code>registry</code> is set then it will be prepended to the docker image name as <code>&lt;registry&gt;/&lt;OUTPUT_FILE_NAME&gt;:latest</code>.</p>
 </p>
@@ -905,7 +905,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> buildImage<span class="type">  boolean</span> true</li>
+            <li> buildImage<span class="type">  <span class="builtin-type">boolean</span></span> true</li>
             <li>
                 <p><p>Docker image to be build or not. Default is <code>true</code>.</p>
 </p>
@@ -915,7 +915,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> push<span class="type">  boolean</span> false</li>
+            <li> push<span class="type">  <span class="builtin-type">boolean</span></span> false</li>
             <li>
                 <p><p>Enable pushing docker image to registry. Field <code>buildImage</code> must be set to <code>true</code> to be effective. Default value is <code>false</code>.</p>
 </p>
@@ -935,7 +935,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> singleYAML<span class="type">  boolean</span> true</li>
+            <li> singleYAML<span class="type">  <span class="builtin-type">boolean</span></span> true</li>
             <li>
                 <p><p>Generate a single yaml file with all kubernetes artifacts (services, deployment, ingress and etc). Default is <code>true</code>.</p>
 </p>
@@ -945,7 +945,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> namespace<span class="type">  string</span> </li>
+            <li> namespace<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Kubernetes namespace to be used on all artifacts.</p>
 </p>
@@ -955,7 +955,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> replicas<span class="type">  int</span> 1</li>
+            <li> replicas<span class="type">  <span class="builtin-type">int</span></span> 1</li>
             <li>
                 <p><p>Number of replicas. Default is <code>1</code>.</p>
 </p>
@@ -965,7 +965,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> livenessProbe<span class="type">  boolean | <a href="../../kubernetes/records/ProbeConfiguration.html">ProbeConfiguration</a></span> false</li>
+            <li> livenessProbe<span class="type">  <span class="builtin-type">boolean</span> | <a href="../../kubernetes/records/ProbeConfiguration.html">ProbeConfiguration</a></span> false</li>
             <li>
                 <p><p>Enable/Disable liveness probe and configure it. Default is <code>false</code>.</p>
 </p>
@@ -975,7 +975,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> readinessProbe<span class="type">  boolean | <a href="../../kubernetes/records/ProbeConfiguration.html">ProbeConfiguration</a></span> false</li>
+            <li> readinessProbe<span class="type">  <span class="builtin-type">boolean</span> | <a href="../../kubernetes/records/ProbeConfiguration.html">ProbeConfiguration</a></span> false</li>
             <li>
                 <p><p>Enable/Disable readiness probe and configure it. Default is <code>false</code>.</p>
 </p>
@@ -995,7 +995,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> env<span class="type">  map</span> </li>
+            <li> env<span class="type">  <span class="builtin-type">map</span></span> </li>
             <li>
                 <p><p>Environment variable map for containers.</p>
 </p>
@@ -1005,7 +1005,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> podAnnotations<span class="type">  map</span> </li>
+            <li> podAnnotations<span class="type">  <span class="builtin-type">map</span></span> </li>
             <li>
                 <p><p>Map of annotations for pods.</p>
 </p>
@@ -1025,7 +1025,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> buildExtension<span class="type">  <a href="../../kubernetes/records/BuildExtension.html">BuildExtension</a> | string</span> </li>
+            <li> buildExtension<span class="type">  <a href="../../kubernetes/records/BuildExtension.html">BuildExtension</a> | <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Docker image build extensions.</p>
 </p>
@@ -1035,7 +1035,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> dependsOn<span class="type">  string</span> </li>
+            <li> dependsOn<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Services this deployment depends on.</p>
 </p>
@@ -1045,7 +1045,7 @@ Use <code>&quot;ballerina/ballerina-runtime:latest&quot;</code> to use the lates
         
     <div class="params-listing">
         <ul>
-            <li> imagePullSecrets<span class="type">  string</span> </li>
+            <li> imagePullSecrets<span class="type">  <span class="builtin-type">string</span></span> </li>
             <li>
                 <p><p>Image pull secrets.</p>
 </p>

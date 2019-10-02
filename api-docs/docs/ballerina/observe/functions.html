@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -347,7 +347,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -710,15 +710,15 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="addTagToSpan">
+    <div class="main-method-title here" id="addTagToSpan" title="addTagToSpan">
              <a class="url-link" href="#addTagToSpan">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> addTagToSpan </h2>
         
         <span class="method-types">
-            <p>(string tagKey, string tagValue, int spanId)</p>
-            <b> returns </b>error 
+            <p>(<span class="builtin-type">string</span> tagKey, <span class="builtin-type">string</span> tagValue, <span class="builtin-type">int</span> spanId)</p>
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -730,7 +730,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tagKey<span class="type">  string </span></li>
+                    <li>
+                        tagKey<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Key of the tag</p>
 </p>
@@ -740,7 +743,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tagValue<span class="type">  string </span></li>
+                    <li>
+                        tagValue<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Value of the tag</p>
 </p>
@@ -750,7 +756,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> spanId<span class="type">  int </span>- -1</li>
+                    <li>
+                        spanId<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default -1)</span>
+                    </li>
                     <li>
                         <p><p>Id of span to which the tags should be added or -1 to add tags to the current active span</p>
 </p>
@@ -765,7 +774,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>An error if an error occurred while attaching tag to the span</p>
 </li>
             </ul>
@@ -775,15 +784,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="finishSpan">
+    <div class="main-method-title here" id="finishSpan" title="finishSpan">
              <a class="url-link" href="#finishSpan">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> finishSpan </h2>
         
         <span class="method-types">
-            <p>(int spanId)</p>
-            <b> returns </b>error 
+            <p>(<span class="builtin-type">int</span> spanId)</p>
+            <b> returns </b><span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -795,7 +804,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> spanId<span class="type">  int </span></li>
+                    <li>
+                        spanId<span class="type">  <span class="builtin-type">int</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Id of span to finish</p>
 </p>
@@ -810,7 +822,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">error</span></span>)</li>
                 <li><p>An error if an error occurred while finishing the span</p>
 </li>
             </ul>
@@ -820,7 +832,7 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="getAllMetrics">
+    <div class="main-method-title here" id="getAllMetrics" title="getAllMetrics">
              <a class="url-link" href="#getAllMetrics">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
@@ -850,15 +862,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="lookupMetric">
+    <div class="main-method-title here" id="lookupMetric" title="lookupMetric">
              <a class="url-link" href="#lookupMetric">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> lookupMetric </h2>
         
         <span class="method-types">
-            <p>(string name, map tags)</p>
-            <b> returns </b><a href="../observe/objects/Counter.html">Counter</a> | <a href="../observe/objects/Gauge.html">Gauge</a> | () 
+            <p>(<span class="builtin-type">string</span> name, <span class="builtin-type">map</span> tags)</p>
+            <b> returns </b><a href="../observe/objects/Counter.html">Counter</a> | <a href="../observe/objects/Gauge.html">Gauge</a> | <span class="builtin-type">()</span> 
         </span>
         
     </div>
@@ -870,7 +882,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> name<span class="type">  string </span></li>
+                    <li>
+                        name<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Name of the metric to lookup.</p>
 </p>
@@ -880,7 +895,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tags<span class="type">  map </span>- ()</li>
+                    <li>
+                        tags<span class="type">  <span class="builtin-type">map</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>The key/value pair tags that associated with the metric that should be looked up.</p>
 </p>
@@ -895,7 +913,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../observe/objects/Counter.html">Counter</a> | <a href="../observe/objects/Gauge.html">Gauge</a> | ()</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../observe/objects/Counter.html">Counter</a> | <a href="../observe/objects/Gauge.html">Gauge</a> | <span class="builtin-type">()</span></span>)</li>
                 <li><p>The metric instance.</p>
 </li>
             </ul>
@@ -905,15 +923,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="startRootSpan">
+    <div class="main-method-title here" id="startRootSpan" title="startRootSpan">
              <a class="url-link" href="#startRootSpan">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> startRootSpan </h2>
         
         <span class="method-types">
-            <p>(string spanName, map tags)</p>
-            <b> returns </b>int 
+            <p>(<span class="builtin-type">string</span> spanName, <span class="builtin-type">map</span> tags)</p>
+            <b> returns </b><span class="builtin-type">int</span> 
         </span>
         
     </div>
@@ -925,7 +943,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> spanName<span class="type">  string </span></li>
+                    <li>
+                        spanName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Name of the span</p>
 </p>
@@ -935,7 +956,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tags<span class="type">  map </span>- ()</li>
+                    <li>
+                        tags<span class="type">  <span class="builtin-type">map</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Tags to be associated to the span</p>
 </p>
@@ -950,7 +974,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span></span>)</li>
                 <li><p>SpanId of the started span</p>
 </li>
             </ul>
@@ -960,15 +984,15 @@
 </div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="startSpan">
+    <div class="main-method-title here" id="startSpan" title="startSpan">
              <a class="url-link" href="#startSpan">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
             <h2> startSpan </h2>
         
         <span class="method-types">
-            <p>(string spanName, map tags, int parentSpanId)</p>
-            <b> returns </b>int | error 
+            <p>(<span class="builtin-type">string</span> spanName, <span class="builtin-type">map</span> tags, <span class="builtin-type">int</span> parentSpanId)</p>
+            <b> returns </b><span class="builtin-type">int</span> | <span class="builtin-type">error</span> 
         </span>
         
     </div>
@@ -980,7 +1004,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> spanName<span class="type">  string </span></li>
+                    <li>
+                        spanName<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Name of the span</p>
 </p>
@@ -990,7 +1017,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> tags<span class="type">  map </span>- ()</li>
+                    <li>
+                        tags<span class="type">  <span class="builtin-type">map</span> </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Tags to be associated to the span</p>
 </p>
@@ -1000,7 +1030,10 @@
                 
             <div class="params-listing">
                 <ul>
-                    <li> parentSpanId<span class="type">  int </span>- -1</li>
+                    <li>
+                        parentSpanId<span class="type">  <span class="builtin-type">int</span> </span>
+                        <span class="default"> (default -1)</span>
+                    </li>
                     <li>
                         <p><p>Id of the parent span or -1 if parent span should be taken from system trace</p>
 </p>
@@ -1015,7 +1048,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">int | error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">int</span> | <span class="builtin-type">error</span></span>)</li>
                 <li><p>SpanId of the started span</p>
 </li>
             </ul>

@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -359,7 +359,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -687,12 +687,12 @@ provides includes functions to send request/error messages.</p>
                     
                         
                             <h2>Constructor</h2>
-<h3 >__init</h3><p>(string url, <a href="../../grpc/records/ClientConfiguration.html">ClientConfiguration</a>? config)</p>
+<h3 >__init</h3><p>(<span class="builtin-type">string</span> url, <a href="../../grpc/records/ClientConfiguration.html">ClientConfiguration</a>? config)</p>
 <div class="data-wrapper">
     
         <div class="params-listing">
             <ul>
-                <li> <b>url</b><span class="type">  string</span> </li>
+                <li> <b>url</b><span class="type">  <span class="builtin-type">string</span></span> </li>
                 <li>
                     <p>The server url.</p>
 
@@ -718,42 +718,30 @@ provides includes functions to send request/error messages.</p>
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#blockingExecute">
-    <div class="param-sum">
-        <div class="param-name">
-        blockingExecute 
-        </div>
-        <div class="param-details"> <p>Calls when executing blocking call with gRPC service.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="blockingExecute"><a
+                                            class="functions" href="#blockingExecute">blockingExecute</a></td>
+                                    <td class="module-desc"><p>Calls when executing blocking call with gRPC service.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#nonBlockingExecute">
-    <div class="param-sum">
-        <div class="param-name">
-        nonBlockingExecute 
-        </div>
-        <div class="param-details"> <p>Calls when executing non-blocking call with gRPC service.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="nonBlockingExecute"><a
+                                            class="functions" href="#nonBlockingExecute">nonBlockingExecute</a></td>
+                                    <td class="module-desc"><p>Calls when executing non-blocking call with gRPC service.</p>
+</td>
+                                </tr>
                             
-                                
-<a href="#streamingExecute">
-    <div class="param-sum">
-        <div class="param-name">
-        streamingExecute 
-        </div>
-        <div class="param-details"> <p>Calls when executing streaming call with gRPC service.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="streamingExecute"><a
+                                            class="functions" href="#streamingExecute">streamingExecute</a></td>
+                                    <td class="module-desc"><p>Calls when executing streaming call with gRPC service.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -780,15 +768,15 @@ provides includes functions to send request/error messages.</p>
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="blockingExecute">
+    <div class="main-method-title here" id="blockingExecute" title="blockingExecute">
              <a class="url-link" href="#blockingExecute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> blockingExecute </h2>
         
         <span class="method-types">
-            <p>(string methodID, anydata payload, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
-            <b> returns </b><span>[</span>anydata, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a> 
+            <p>(<span class="builtin-type">string</span> methodID, <span class="builtin-type">anydata</span> payload, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
+            <b> returns </b><span>[</span><span class="builtin-type">anydata</span>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a> 
         </span>
         
     </div>
@@ -800,7 +788,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> methodID<span class="type">  string </span></li>
+                    <li>
+                        methodID<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Remote service method id.</p>
 </p>
@@ -810,7 +801,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  anydata </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">anydata</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Request message. Message type varies with remote service method parameter.</p>
 </p>
@@ -820,7 +814,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>- ()</li>
+                    <li>
+                        headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </p>
@@ -835,7 +832,7 @@ provides includes functions to send request/error messages.</p>
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span>anydata, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><span class="builtin-type">anydata</span>, <a href="../../grpc/objects/Headers.html">Headers</a><span>]</span> | <a href="../../grpc/types.html#Error">Error</a></span>)</li>
                 <li><p>Returns response message and headers if executes successfully, error otherwise.</p>
 </li>
             </ul>
@@ -845,14 +842,14 @@ provides includes functions to send request/error messages.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="nonBlockingExecute">
+    <div class="main-method-title here" id="nonBlockingExecute" title="nonBlockingExecute">
              <a class="url-link" href="#nonBlockingExecute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> nonBlockingExecute </h2>
         
         <span class="method-types">
-            <p>(string methodID, anydata payload, <a href="../../lang.annotations/UNKNOWN/service.html">service</a> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
+            <p>(<span class="builtin-type">string</span> methodID, <span class="builtin-type">anydata</span> payload, <span class="builtin-type">service</span> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
             <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
@@ -865,7 +862,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> methodID<span class="type">  string </span></li>
+                    <li>
+                        methodID<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Remote service method id.</p>
 </p>
@@ -875,7 +875,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> payload<span class="type">  anydata </span></li>
+                    <li>
+                        payload<span class="type">  <span class="builtin-type">anydata</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Request message. Message type varies with remote service method parameter..</p>
 </p>
@@ -885,7 +888,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> listenerService<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        listenerService<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Call back listener service. This service listens the response message from service.</p>
 </p>
@@ -895,7 +901,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>- ()</li>
+                    <li>
+                        headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </p>
@@ -920,14 +929,14 @@ provides includes functions to send request/error messages.</p>
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="streamingExecute">
+    <div class="main-method-title here" id="streamingExecute" title="streamingExecute">
              <a class="url-link" href="#streamingExecute">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> streamingExecute </h2>
         
         <span class="method-types">
-            <p>(string methodID, <a href="../../lang.annotations/UNKNOWN/service.html">service</a> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
+            <p>(<span class="builtin-type">string</span> methodID, <span class="builtin-type">service</span> listenerService, <a href="../../grpc/objects/Headers.html">Headers</a>? headers)</p>
             <b> returns </b><a href="../../grpc/clients/StreamingClient.html">StreamingClient</a> | <a href="../../grpc/types.html#Error">Error</a> 
         </span>
         
@@ -940,7 +949,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> methodID<span class="type">  string </span></li>
+                    <li>
+                        methodID<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Remote service method id.</p>
 </p>
@@ -950,7 +962,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> listenerService<span class="type">  <a href="../../lang.annotations/UNKNOWN/service.html">service</a> </span></li>
+                    <li>
+                        listenerService<span class="type">  <span class="builtin-type">service</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Call back listener service. This service listens the response message from service.</p>
 </p>
@@ -960,7 +975,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>- ()</li>
+                    <li>
+                        headers<span class="type">  <a href="../../grpc/objects/Headers.html">Headers</a>? </span>
+                        <span class="default"> (default ())</span>
+                    </li>
                     <li>
                         <p><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </p>
@@ -989,14 +1007,14 @@ provides includes functions to send request/error messages.</p>
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="initStub">
+    <div class="main-method-title here" id="initStub" title="initStub">
              <a class="url-link" href="#initStub">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> initStub </h2>
         
         <span class="method-types">
-            <p>(<a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> clientEndpoint, string stubType, string descriptorKey, map descriptorMap)</p>
+            <p>(<a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> clientEndpoint, <span class="builtin-type">string</span> stubType, <span class="builtin-type">string</span> descriptorKey, <span class="builtin-type">map</span> descriptorMap)</p>
             <b> returns </b><a href="../../grpc/types.html#Error">Error</a>? 
         </span>
         
@@ -1009,7 +1027,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> clientEndpoint<span class="type">  <a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> </span></li>
+                    <li>
+                        clientEndpoint<span class="type">  <a href="../../grpc/objects/AbstractClientEndpoint.html">AbstractClientEndpoint</a> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Client endpoint</p>
 </p>
@@ -1019,7 +1040,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> stubType<span class="type">  string </span></li>
+                    <li>
+                        stubType<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Service Stub type. possible values: blocking, nonblocking.</p>
 </p>
@@ -1029,7 +1053,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> descriptorKey<span class="type">  string </span></li>
+                    <li>
+                        descriptorKey<span class="type">  <span class="builtin-type">string</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Proto descriptor key. Key of proto descriptor.</p>
 </p>
@@ -1039,7 +1066,10 @@ provides includes functions to send request/error messages.</p>
                 
             <div class="params-listing">
                 <ul>
-                    <li> descriptorMap<span class="type">  map </span></li>
+                    <li>
+                        descriptorMap<span class="type">  <span class="builtin-type">map</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Proto descriptor map. descriptor map with all dependent descriptors.</p>
 </p>

@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -308,7 +308,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -584,8 +584,10 @@
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/stringutils;
 
-function checkStrings(string str1, string str2) {
-        io:print(&quot;String &quot; + str1 + &quot; and &quot; + str2 + &quot; are &quot;);
+public function main() {
+    string str1 = &quot;Comparing String&quot;;
+    string str2 = &quot;cOmpaRinG sTrinG&quot;;
+    io:print(&quot;String '&quot; + str1 + &quot;' and '&quot; + str2 + &quot;' are&quot;);
     if (stringutils:equalsIgnoreCase(str1, str2)) {
         io:println(&quot; equal&quot;);
     } else {
@@ -594,22 +596,28 @@ function checkStrings(string str1, string str2) {
 }
 </code></pre>
 <h3>Replace a substring in a string, using a regex</h3>
-<pre><code class="language-ballerina">import ballerina/stringutils;
-
-function replaceByRegex() {
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/stringutils;
+ 
+public function main() {
     string str = &quot;OriginalPPPString&quot;;
-    string regex = &quot;PPP&quot;;
+    string regex = &quot;P+&quot;;
     string newString = stringutils:replaceAll(str, regex, &quot; &quot;);
     // newString will be 'Original String'
+    io:println(newString);
 }
 </code></pre>
 <h3>Split a string</h3>
-<pre><code class="language-ballerina">import ballerina/stringutils;
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/stringutils;
 
-function splitString() {
-    string str = &quot;Sam,Ru,Supun&quot;;
-    string[] result = stringutils:split(str, &quot;,&quot;);
+public function main() {
+    string stringsArray = &quot;Sam,Ru,Supun&quot;;
+    string[] result = stringutils:split(stringsArray, &quot;,&quot;);
     // result will be {&quot;Sam&quot;, &quot;Ru&quot;, &quot;Supun&quot;}
+    foreach var str in result {
+        io:println(str);
+    }
 }
 </code></pre>
 
@@ -634,50 +642,50 @@ function splitString() {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="contains"><a
+                            <td class="module-title truncate functions" id="contains" title="contains"><a
                                     class="functions" href="functions.html#contains">contains</a></td>
                             <td class="module-desc"><p>Checks whether the given string contains a particular substring.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="equalsIgnoreCase"><a
+                            <td class="module-title truncate functions" id="equalsIgnoreCase" title="equalsIgnoreCase"><a
                                     class="functions" href="functions.html#equalsIgnoreCase">equalsIgnoreCase</a></td>
-                            <td class="module-desc"><p>Checks if two strings are equal ignoring the case of the strings.</p>
+                            <td class="module-desc"><p>Checks if two strings are equal, ignoring the case of the strings.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="hashCode"><a
+                            <td class="module-title truncate functions" id="hashCode" title="hashCode"><a
                                     class="functions" href="functions.html#hashCode">hashCode</a></td>
                             <td class="module-desc"><p>Returns a hash code for a given string.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="lastIndexOf"><a
+                            <td class="module-title truncate functions" id="lastIndexOf" title="lastIndexOf"><a
                                     class="functions" href="functions.html#lastIndexOf">lastIndexOf</a></td>
                             <td class="module-desc"><p>Returns the last index of the provided substring within a string.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="matches"><a
+                            <td class="module-title truncate functions" id="matches" title="matches"><a
                                     class="functions" href="functions.html#matches">matches</a></td>
-                            <td class="module-desc"><p>Checks whether the given string matches the provided regex.</p>
+                            <td class="module-desc"><p>Checks whether the given string matches with the provided regex.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="replace"><a
+                            <td class="module-title truncate functions" id="replace" title="replace"><a
                                     class="functions" href="functions.html#replace">replace</a></td>
-                            <td class="module-desc"><p>Replaces each substring of this string that matches the literal target sequence with the specified literal
-replacement sequence.</p>
+                            <td class="module-desc"><p>Replaces each substring of the provided string, that matches the provided substring, with the specified replacement
+string.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="replaceAll"><a
+                            <td class="module-title truncate functions" id="replaceAll" title="replaceAll"><a
                                     class="functions" href="functions.html#replaceAll">replaceAll</a></td>
                             <td class="module-desc"><p>Replaces each substring which matches the given regular expression, from the given original string value, with the
 specified replacement string.</p>
@@ -685,7 +693,7 @@ specified replacement string.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="replaceFirst"><a
+                            <td class="module-title truncate functions" id="replaceFirst" title="replaceFirst"><a
                                     class="functions" href="functions.html#replaceFirst">replaceFirst</a></td>
                             <td class="module-desc"><p>Replaces the first substring that matches the given sequence from the provided string, with the specified literal
 replacement sequence.</p>
@@ -693,14 +701,14 @@ replacement sequence.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="split"><a
+                            <td class="module-title truncate functions" id="split" title="split"><a
                                     class="functions" href="functions.html#split">split</a></td>
-                            <td class="module-desc"><p>Splits a string around matches of the given delimiter.</p>
+                            <td class="module-desc"><p>Splits a string using the given delimiter.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="toBoolean"><a
+                            <td class="module-title truncate functions" id="toBoolean" title="toBoolean"><a
                                     class="functions" href="functions.html#toBoolean">toBoolean</a></td>
                             <td class="module-desc"><p>Returns a boolean value of a given string.</p>
 </td>

@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Clients</h3>
@@ -100,10 +100,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -359,7 +355,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Clients</h3>
@@ -407,10 +403,6 @@
                 <a data="listeners" href="../../nats/index.html#listeners">Listeners</a>
             </li>
         
-        
-            <li>
-                <a data="functions" href="../../nats/index.html#functions">Functions</a>
-            </li>
         
         
             <li>
@@ -684,49 +676,19 @@
             <div class="constants">
                 <div class="method-sum">
                     
-                        
-                            <h2>Constructor</h2>
-<h3 >__init</h3><p>(string subject, byte content)</p>
-<div class="data-wrapper">
-    
-        <div class="params-listing">
-            <ul>
-                <li> <b>subject</b><span class="type">  string</span> </li>
-                <li>
-                    
-                </li>
-            </ul>
-        </div>
-    
-        <div class="params-listing">
-            <ul>
-                <li> <b>content</b><span class="type">  byte</span> </li>
-                <li>
-                    
-                </li>
-            </ul>
-        </div>
-    
-</div>
-                        
-                    
 
                     
                         <h2>Remote Methods</h2>
-                        <div class="method-list">
+                        <table>
                             
-                                
-<a href="#ack">
-    <div class="param-sum">
-        <div class="param-name">
-        ack 
-        </div>
-        <div class="param-details"> <p>Acknowledge the NATS Streaming server upon the receipt of the message.</p>
- </div>
-    </div>
-</a>
+                                <tr>
+                                    <td class="module-title truncate functions" title="ack"><a
+                                            class="functions" href="#ack">ack</a></td>
+                                    <td class="module-desc"><p>Acknowledge the NATS Streaming server upon the receipt of the message.</p>
+</td>
+                                </tr>
                             
-                        </div>
+                        </table>
                     
 
                     
@@ -764,7 +726,7 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="ack">
+    <div class="main-method-title here" id="ack" title="ack">
              <a class="url-link" href="#ack">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -772,7 +734,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>Error 
+            <b> returns </b><a href="../../nats/errors.html#Error">Error</a>? 
         </span>
         
     </div>
@@ -784,7 +746,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../nats/errors.html#Error">Error</a>?</span>)</li>
                 <li><p>Returns () if the acknowledgment completes successfully or an error.</p>
 </li>
             </ul>
@@ -798,7 +760,7 @@
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getData">
+    <div class="main-method-title here" id="getData" title="getData">
              <a class="url-link" href="#getData">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -806,7 +768,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>byte 
+            <b> returns </b><span class="builtin-type">byte</span> 
         </span>
         
     </div>
@@ -818,8 +780,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">byte</span>)</li>
-                <li><p>the data from the message as a 'byte[]'.</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">byte</span></span>)</li>
+                <li><p>The data from the message as a 'byte[]'.</p>
 </li>
             </ul>
         </div>
@@ -828,7 +790,7 @@
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="getSubject">
+    <div class="main-method-title here" id="getSubject" title="getSubject">
              <a class="url-link" href="#getSubject">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -836,7 +798,7 @@
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string 
+            <b> returns </b><span class="builtin-type">string</span> 
         </span>
         
     </div>
@@ -848,8 +810,8 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string</span>)</li>
-                <li><p>subject value.</p>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span></span>)</li>
+                <li><p>The subject that this message was sent to.</p>
 </li>
             </ul>
         </div>

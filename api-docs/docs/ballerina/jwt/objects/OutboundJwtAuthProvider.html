@@ -52,7 +52,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list">
                 <h3>Objects</h3>
@@ -343,7 +343,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 <div class="primary-list">
                     <h3>Objects</h3>
@@ -770,7 +770,7 @@ contentWrapper.addEventListener("scroll", event => {
                 
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="generateToken">
+    <div class="main-method-title here" id="generateToken" title="generateToken">
              <a class="url-link" href="#generateToken">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
@@ -778,7 +778,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <span class="method-types">
             <p>()</p>
-            <b> returns </b>string | Error 
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../../auth/errors.html#Error">Error</a> 
         </span>
         
     </div>
@@ -790,7 +790,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | Error</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../auth/errors.html#Error">Error</a></span>)</li>
                 <li><p>Generated token or <code>auth:Error</code> if an error occurred during the JWT issuing or validation</p>
 </li>
             </ul>
@@ -800,15 +800,15 @@ contentWrapper.addEventListener("scroll", event => {
 </div>
                     
                         <div class="method-content">
-    <div class="main-method-title here" id="inspect">
+    <div class="main-method-title here" id="inspect" title="inspect">
              <a class="url-link" href="#inspect">
                 <img class="url-link-img" src="../../html-template-resources/images/link.svg">
             </a>
             <h2> inspect </h2>
         
         <span class="method-types">
-            <p>(map data)</p>
-            <b> returns </b>string | Error | () 
+            <p>(<span class="builtin-type">map</span> data)</p>
+            <b> returns </b><span class="builtin-type">string</span> | <a href="../../auth/errors.html#Error">Error</a> | <span class="builtin-type">()</span> 
         </span>
         
     </div>
@@ -820,7 +820,10 @@ contentWrapper.addEventListener("scroll", event => {
                 
             <div class="params-listing">
                 <ul>
-                    <li> data<span class="type">  map </span></li>
+                    <li>
+                        data<span class="type">  <span class="builtin-type">map</span> </span>
+                        
+                    </li>
                     <li>
                         <p><p>Map of data which is extracted from the HTTP response</p>
 </p>
@@ -835,7 +838,7 @@ contentWrapper.addEventListener("scroll", event => {
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type">string | Error | ()</span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span class="builtin-type">string</span> | <a href="../../auth/errors.html#Error">Error</a> | <span class="builtin-type">()</span></span>)</li>
                 <li><p>String token, or <code>auth:Error</code> occurred when generating token or <code>()</code> if nothing to be returned</p>
 </li>
             </ul>
