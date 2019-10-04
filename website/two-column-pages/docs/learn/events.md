@@ -24,18 +24,8 @@
 
 
 <table class="cEventTable cConferencesList" style="width:100%;">      
-            <tr>
-                        <td class="cEventDateContainer"><span class="cEventDate">September 9-12 </span>
-                          <p class="cEventLocation">Las Vegas, NV</p>
-                          </td>
-                          <td class="cEventDetail"><a target="_blank" href="https://www.apachecon.com/acna19/schedule.html"><h4>APACHECON</h4></a>
-                              <!-- <h5>Microservices with Ballerina: A Open Source, Statically Typed, Cloud Native Programming Language</h5> -->
-                              <b>Anjana Fernando,</b> Director, WSO2</p>
-                     </td>
-                   <td class="cEventURL"><a class="cEventRegistration" href="https://www.apachecon.com/acna19/schedule.html" target="_blank">More Info</a></td> 
-                      </tr>
-                 <tr>
-                            <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
+            <tr> 
+            <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
                               <p class="cEventLocation">San Jose, CA</p>
                               </td>
                               <td class="cEventDetail"><a target="_blank" href="https://apiworld.co/"><h4>API World 2019</h4></a>
@@ -44,17 +34,26 @@
                          </td>
                        <td class="cEventURL"><a class="cEventRegistration" href="https://apiworld.co/" target="_blank">More Info</a></td> 
                           </tr>
+                          <tr>
+                            <td class="cEventDateContainer"><span class="cEventDate">November 5-7</span>
+                              <p class="cEventLocation">Austin, TX</p>
+                              </td>
+                              <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/Austin/conference/"><h4>DeveloperWeek Austin 2019 </h4></a>
+                                  <h5>Pro Session: Microservices in Practice with Ballerina, Kubernetes and Istio</h5>
+                                   <b>Lakmal Warusawithana,</b> Senior Director - Cloud Architecture, WSO2</p>
+                         </td>
+                       <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/Austin/conference/" target="_blank">More Info</a></td> 
+                          </tr>
                         <tr>
                             <td class="cEventDateContainer"><span class="cEventDate">November 19-21 </span>
-                              <p class="cEventLocation">San Diego, California</p>
+                              <p class="cEventLocation">San Diego, CA</p>
                               </td>
                               <td class="cEventDetail"><a target="_blank" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/"><h4>KubeCon + CloudNativeCon North America 2019</h4></a>
                                   <h5>Platinum Sponsor</h5>
                          </td>
                        <td class="cEventURL"><a class="cEventRegistration" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2019/" target="_blank">More Info</a></td> 
                           </tr>
-                           
-                              
+                          
 </table>
 
 ## Meetups
