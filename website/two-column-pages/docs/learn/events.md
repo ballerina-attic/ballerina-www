@@ -41,7 +41,7 @@
                           
 </table>
 
-## Meetups
+<!-- ## Meetups
 
 <table class="cEventTable cMeetupsList" style="width:100%;">
  <tr>
@@ -56,4 +56,4 @@
  </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/columbus-microservices/events/264064167/" target="_blank">Register Now</a></td>
 </tr>
-</table> 
+</table>  -->
