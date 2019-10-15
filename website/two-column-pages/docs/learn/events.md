@@ -9,7 +9,7 @@
 
 
 <table class="cEventTable cConferencesList" style="width:100%;">      
-            <tr> 
+            <!-- <tr> 
             <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
                               <p class="cEventLocation">San Jose, CA</p>
                               </td>
@@ -18,7 +18,7 @@
                                   <b>Anjana Fernando,</b> Director, WSO2</p>
                          </td>
                        <td class="cEventURL"><a class="cEventRegistration" href="https://apiworld.co/" target="_blank">More Info</a></td> 
-                          </tr>
+                          </tr> -->
                           <tr>
                             <td class="cEventDateContainer"><span class="cEventDate">November 5-7</span>
                               <p class="cEventLocation">Austin, TX</p>
