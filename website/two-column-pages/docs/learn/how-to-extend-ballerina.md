@@ -4,20 +4,20 @@ Annotations can be used to provide structured metadata about a particular constr
 but can be used to alter the behaviour of constructs they are attached to.
 
 Annotations can be attached to:
-- Services and resources
-- Type definitions
-- Function definitions
-- Function parameters
-- Function return
-- Module level variables and constants
-- Annotations
-- Listeners
-- Workers
-- Type cast expressions
+- services and resources
+- type definitions
+- function definitions
+- function parameters
+- function return
+- module-level variables and constants
+- annotations
+- listeners
+- workers
+- type cast expressions
 
-The Ballerina compiler can be extended using compiler extensions if required for additional verification or processing 
+The Ballerina compiler can be extended using compiler extensions (if required) for additional verification or processing 
 (e.g., modifications, artifact generation etc.). Such custom extensions provided will be executed at the end of the 
-compilation phase, before generating the Ballerina Intermediate Representation (BIR). A compiler extension can make use 
+compilation phase before generating the Ballerina Intermediate Representation (BIR). A compiler extension can make use 
 of the metadata provided via annotations to introduce additional behaviour to the compilation process. 
 
 Custom annotations are how the `ballerina/docker` and `ballerina/kubernetes` modules work. They introduce new 
@@ -26,16 +26,16 @@ Ballerina source file. The respective compiler extensions then run a post-compil
 annotations and generates the Docker and Kubernetes deployment artifacts.
 
 > **Note:** Currently there are two caveats to writing compiler extensions:
-> 1. The Ballerina Compiler is written in Java 8. Therefore you will need JDK 1.8.
-> 2. End users will have to manually install the extension.
+> 1. The Ballerina Compiler is written in Java 8. Therefore, you will need JDK 1.8.
+> 2. End users will have to install the extension manually.
 
 ## Hello World: The Annotation Way
 
-In this guide we will take a look at how to create a custom annotation and how to write a compiler extension to read 
-and act upon our custom annotation. The custom annotation, `@hello:Greeting`, is attachable to functions. It has an 
-attribute called salutation which will be read by the compiler extension and written to a file when building the 
-program. The annotation can be shared with others by publishing it to Ballerina Central. Currently there isn’t a 
-mechanism for sharing compiler extensions. The compiler extension has to be copied to `<BALLERINA_HOME>/bre/lib`.
+In this guide, we will take a look at how to create a custom annotation and how to write a compiler extension to read 
+and act upon our custom annotation. The custom annotation,(i.e., `@hello:Greeting`), is attachable to functions. It has an 
+attribute called `salutation`, which will be read by the compiler extension and written to a file when building the 
+program. The annotation can be shared with others by publishing it to Ballerina Central. Currently, there isn’t a 
+mechanism for sharing compiler extensions. The compiler extension has to be copied to the `<BALLERINA_HOME>/bre/lib` directory.
 
 The end user would be able to write a program such as the following:
 
@@ -59,7 +59,7 @@ At the end of the build, the user should be able to see a `<module_name>.txt` fi
 ## Defining a Custom Annotation
 
 ### Creating the Annotation
-Create a new Ballerina project and add a module named `hello`. For the purpose of our exercise, let’s add a single 
+Create a new Ballerina project and add a module named `hello`. For this instance, add a single 
 source file named `annotation.bal` and remove other boilerplate code and files. Your project structure should look 
 similar to the following:
 ```
@@ -70,7 +70,7 @@ similar to the following:
         └── annotation.bal
 ```
 
-Add the following code for defining the `@hello:Greeting` annotation to the `annotation.bal` file.
+Add the following code to define the `@hello:Greeting` annotation in the `annotation.bal` file.
 
 ```ballerina
 # This record defines the fields of the @hello:Greeting annotation. 
@@ -85,12 +85,12 @@ public type HelloConfiguration record {|
 public annotation HelloConfiguration Greeting on service;
 ```
 
-Now let’s build this annotation. The `-c` flag is used since this module will only be used as a library.
+Now, build this annotation. The `-c` flag is used since this module will only be used as a library.
 ```
 $ ballerina build -c hello
 ```
 
-If all went well, your should have a `/target` directory with the built artifacts.
+If all went well, a `/target` directory should be created with the built artifacts.
 ```
 target/
 ├── balo
@@ -112,11 +112,11 @@ target/
 
 ### Verifying the Annotation
 
-Although you cannot do anything with the annotation just yet, you can verify what we’ve done so far by using the 
+At this stage, you can use the annotation only to verify what was done so far by using it 
 annotation in a program. Create a demo project, add our `hello` module as a dependency, and attach it to a function. 
 Your program should compile without any errors.
 
-Our demo project structure looks like the following:
+The demo project structure looks like the following:
 ```
 .
 ├── Ballerina.toml
@@ -136,7 +136,7 @@ version= "0.1.0"
 "foo/hello" = {path = "<path_to_annotation_project_dir>/hello-annot/target/balo/hello-2019r3-any-0.1.0.balo"}
 ```
 
-In the `greeting.bal`, add a function. Note how we’ve annotated the function using our `@hello:Greeting` annotation. 
+Add a function to the `greeting.bal` file. Note that the function is annotated using the `@hello:Greeting` annotation. 
 
 ```ballerina
 import foo/hello;
@@ -160,7 +160,7 @@ Building the `greet` module should produce an executable named `greet.jar` in th
 The Ballerina compiler can be extended through compiler extensions if there are additional verifications or tasks you 
 would like to perform. Such custom extensions will be executed towards the end of the compilation phase. A compiler 
 extension can be created by implementing the `CompilerPlugin` interface provided by the 
-`org.ballerinalang.compiler.plugins` package. It defines the following methods which the user can implement to add 
+`org.ballerinalang.compiler.plugins` package. It defines the following methods, which the user can implement to add 
 additional verifications. 
 - `void process(PackageNode packageNode)`
 - `void process(BLangTestablePackage testablePackageNode)`
@@ -175,14 +175,14 @@ Each of the `process()` methods correspond to annotable constructs of the langua
 invoked once the code generation phase is completed. The `org.ballerinalang.compiler.plugins` package also provides a 
 convenience class named `AbstractCompilerPlugin` with empty implementations for the above methods.
 
-The extension we write will read the salutation field of the `@hello:Greeting` annotation and write its value to a 
+The extension will read the salutation field of the `@hello:Greeting` annotation and write its value to a 
 file in the `/target` directory. 
 
 ### Setting up the Project
 
-Let’s start by creating a Java project for the extension. We’ll need two classes: `HelloPlugin` and `HelloModel`. Also 
+Start by creating a Java project for the extension. It needs two classes: `HelloPlugin` and `HelloModel`. Also,
 create a resource file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in the `resources/META-INF/services` 
-directory. This file should contain the fully qualified class name of the extension class (which in this case, is 
+directory. This file should contain the fully-qualified class name of the extension class (which in this case, is 
 `xyz.foo.hello.HelloPlugin`).
 ```
 src/
@@ -200,7 +200,7 @@ src/
 ```
 
 The only dependency you will need for this extension is the `ballerina-lang` project. Add the following Maven repository 
-to your project to get the `ballerina-lang-1.0.0.jar`.
+to your project to get the `ballerina-lang` dependency.
 > http://maven.wso2.org/nexus/content/repositories/releases/
 
 Given below is a sample `build.gradle` file for the project.
@@ -268,13 +268,13 @@ public class HelloPlugin extends AbstractCompilerPlugin {
         this.dlog = diagnosticLog;
     }
 
-    // Our annotation is attached to functions. Therefore, we override the process() method for functions.
+    // The annotation is attached to functions. Therefore, the process() method is overridden for functions.
     @Override
     public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations) {
-        // Iterate through the annotations attached to the service
+        // Iterate through the annotations attached to the service.
         for (AnnotationAttachmentNode annotation : annotations) {
             // The `annotations` list contains all the annotations attached to the service.
-            // Since we are only interested in our annotation, we'll just skip the other annotations.
+            // Since only the `@hello:Greeting` annotation is considered, skip the other annotations.
             if (!"Greeting".equals(annotation.getAnnotationName().getValue())) {
                 continue;
             }
@@ -284,7 +284,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
                     ((BLangRecordLiteral) ((BLangAnnotationAttachment) annotation).expr).getKeyValuePairs();
 
             // In this particular case, there is no need to iterate through the list since our annotation only has
-            // one field. So let's just take the first element of the fields list.
+            // one field. Therefore, take the first element of the fields list.
             BLangRecordKeyValue salutationField = annotFields.get(0);
             String annotFieldValue = ((BLangLiteral) salutationField.getValue()).getValue().toString();
             String greeting = String.format("%s from %s()\n", annotFieldValue, functionNode.getName().getValue());
@@ -292,7 +292,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
         }
     }
 
-    // The codeGenerated() method gets invoked once the executable is built. We write the greeting to a text file
+    // The `codeGenerated()` method gets invoked once the executable is built. The greeting is written to a text file
     // with the same name as the executable and in the same directory as the executable.
     @Override
     public void codeGenerated(PackageID packageID, Path binaryPath) {
@@ -380,5 +380,5 @@ The `target/greetings/greet.txt` file should contain the following text: `Guten 
 
 ## Learning More About Writing Compiler Extensions
 
-The example we considered in this how-to guide is a basic compiler extension. If you are looking for something which 
+The example considered in this how-to guide is a basic compiler extension. If you are looking for something which 
 goes beyond this, take a look at the compiler extensions written for generating Docker and Kubernetes artifacts.
