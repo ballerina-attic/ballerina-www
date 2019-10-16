@@ -283,7 +283,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
             List<BLangRecordKeyValue> annotFields =
                     ((BLangRecordLiteral) ((BLangAnnotationAttachment) annotation).expr).getKeyValuePairs();
 
-            // In this particular case, there is no need to iterate through the list since our annotation only has
+            // In this particular case, there is no need to iterate through the list since the `@hello:Greeting` annotation only has
             // one field. Therefore, take the first element of the fields list.
             BLangRecordKeyValue salutationField = annotFields.get(0);
             String annotFieldValue = ((BLangLiteral) salutationField.getValue()).getValue().toString();
