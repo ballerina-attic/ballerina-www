@@ -1,7 +1,7 @@
 # Extending Ballerina
 
 Annotations can be used to provide structured metadata about a particular construct. Annotations are not executable.
-but can be used to alter the behaviour of constructs they are attached to.
+However, they can be used to alter the behavior of constructs they are attached to.
 
 Annotations can be attached to:
 - services and resources
@@ -20,12 +20,12 @@ The Ballerina compiler can be extended using compiler extensions (if required) f
 compilation phase before generating the Ballerina Intermediate Representation (BIR). A compiler extension can make use 
 of the metadata provided via annotations to introduce additional behaviour to the compilation process. 
 
-Custom annotations are how the `ballerina/docker` and `ballerina/kubernetes` modules work. They introduce new 
+The `ballerina/docker` and `ballerina/kubernetes` modules make use of custom annotations. They introduce new 
 annotations such as `@docker:Config` and `@kubernetes:Deployment` that can be attached to certain constructs in a 
 Ballerina source file. The respective compiler extensions then run a post-compilation process that reads these 
 annotations and generates the Docker and Kubernetes deployment artifacts.
 
-> **Note:** Currently there are two caveats to writing compiler extensions:
+> **Note:** Currently, there are two caveats when writing compiler extensions:
 > 1. The Ballerina Compiler is written in Java 8. Therefore, you will need JDK 1.8.
 > 2. End users will have to install the extension manually.
 
