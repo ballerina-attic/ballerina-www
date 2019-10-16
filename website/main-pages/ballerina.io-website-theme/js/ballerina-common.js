@@ -215,7 +215,7 @@ $(document).ready(function() {
         '</li>' +
         '<li><a class="cBioFooterLink" href="https://stackoverflow.com/questions/tagged/ballerina" target="_blank"><img src="/img/stackoverflow.svg"/></a></li>' +
         '<li><a class="cBioFooterLink" href="https://twitter.com/ballerinalang" target="_blank"><img src="/img/twitter.svg"/></a></li>' +
-        '<li><a class="cBioFooterLink" href="/open-source/slack/"><img src="/img/slack.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="/community/slack/"><img src="/img/slack.svg"/></a></li>' +
         '</ul>' +
         '<div class="pdframe"></div>' +
         '</div>' +
@@ -565,7 +565,7 @@ $(document).ready(function() {
 //     $(window).scroll(a);a()
 //   });
 
-
+/*
 function sticky_relocate() {
     var window_top = $(window).scrollTop();
     var div_top = $('#scroller-anchor').offset().top;
@@ -579,4 +579,4 @@ function sticky_relocate() {
   $(function() {
     $(window).scroll(sticky_relocate);
     sticky_relocate();
-  });
+  });*/

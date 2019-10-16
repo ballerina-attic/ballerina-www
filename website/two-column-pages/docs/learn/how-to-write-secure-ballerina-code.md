@@ -5,35 +5,61 @@ This document demonstrates different security features and controls available wi
 
 **Table of Contents**
 
-- [Secure by Design](#Secure-by-Design)
-  - [Ensuring security of Ballerina standard libraries](#Ensuring-security-of-Ballerina-standard-libraries)
-  - [Securely using tainted data with security-sensitive parameters](#Securely-using-tainted-data-with-security-sensitive-parameters)
-- [Securing Passwords and Secrets](#Securing-Passwords-and-Secrets)
-- [Authentication and Authorization](#Authentication-and-Authorization)
-  - [Inbound Authentication and Authorization](#Inbound-Authentication-and-Authorization)
-    - [Advanced Use Cases](#Advanced-Use-Cases)
-      - [Using Multiple Auth Handlers](#Using-Multiple-Auth-Handlers)
-      - [Using Multiple Scopes](#Using-Multiple-Scopes)
-      - [Per-Resource and Per-Service Customization](#Per-Resource-and-Per-Service-Customization)
-      - [Implementing Inbound Custom Authentication Mechanism](#Implementing-Inbound-Custom-Authentication-Mechanism)
-      - [Disable HTTPS Enforcement](#Disable-HTTPS-Enforcement)
-      - [Modify Authn/Authz Filter Index](#Modify-Authn/Authz-Filter-Index)
-    - [JWT Inbound Authentication and Authorization](#JWT-Inbound-Authentication-and-Authorization)
-    - [OAuth2 Inbound Authentication and Authorization](#OAuth2-Inbound-Authentication-and-Authorization)
-    - [LDAP Inbound Authentication and Authorization](#LDAP-Inbound-Authentication-and-Authorization)
-    - [Basic Auth Inbound Authentication and Authorization](#Basic-Auth-Inbound-Authentication-and-Authorization)
-  - [Outbound Authentication and Authorization](#Outbound-Authentication-and-Authorization)
-    - [Advanced Use Cases](#Advanced-Use-Cases)
-      - [Implementing Outbound Custom Authentication Mechanism](#Implementing-Outbound-Custom-Authentication-Mechanism)
-    - [JWT Outbound Authentication](#JWT-Outbound-Authentication)
-    - [OAuth2 Outbound Authentication](#OAuth2-Outbound-Authentication)
-      - [Client Credentials Grant Type](#Client-Credentials-Grant-Type)
-      - [Password Grant Type](#Password-Grant-Type)
-      - [Direct Token Mode](#Direct-Token-Mode)
-    - [Basic Authentication](#Basic-Authentication)
-    - [Token Propagation for Outbound Authentication](#Token-Propagation-for-Outbound-Authentication)
-      - [Example - 1](#Example---1)
-      - [Example - 2](#Example---2)
+<ul>
+<li><a href="#secure-by-design">Secure by Design</a>
+<ul>
+<li><a href="#ensuring-security-of-ballerina-standard-libraries">Ensuring security of Ballerina standard libraries</a></li>
+<li><a href="#securely-using-tainted-data-with-security-sensitive-parameters">Securely using tainted data with security-sensitive parameters</a></li>
+</ul>
+</li>
+<li><a href="#securing-passwords-and-secrets">Securing Passwords and Secrets</a></li>
+<li><a href="#authentication-and-authorization">Authentication and Authorization</a>
+<ul>
+<li><a href="#iInbound-authentication--authorization">Inbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#advanced-use-cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#using-multiple-auth-handlers">Using Multiple Auth Handlers</a></li>
+<li><a href="#using-multiple-scopes">Using Multiple Scopes</a></li>
+<li><a href="#per-resource-and-per-service-customization">Per-Resource and Per-Service Customization</a></li>
+<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+<li><a href="#disable-https-enforcement">Disable HTTPS Enforcement</a></li>
+<li><a href="#modify-authn/authz-filter-index">Modify Authn/Authz Filter Index</a></li>
+</ul>
+</li>
+<li><a href="#jwt-inbound-authentication-and-authorization">JWT Inbound Authentication and Authorization</a></li>
+<li><a href="#oauth2-inbound-authentication-and-authorization">OAuth2 Inbound Authentication and Authorization</a></li>
+<li><a href="#ldap-inbound-authentication-and-authorization">LDAP Inbound Authentication and Authorization</a></li>
+<li><a href="#basic-auth-inbound-authentication-and-authorization">Basic Auth Inbound Authentication and Authorization</a></li>
+</ul>
+</li>
+<li><a href="#outbound-authentication--authorization">Outbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#advanced-use-cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+</ul>
+</li>
+<li><a href="#jwt-outbound-authentication">JWT Outbound Authentication</a></li>
+<li><a href="#oauth2-outbound-authentication">OAuth2 Outbound Authentication</a>
+<ul>
+<li><a href="#client-credentials-grant-type">Client Credentials Grant Type</a></li>
+<li><a href="#password-grant-type">Password Grant Type</a></li>
+<li><a href="#direct-token-mode">Direct Token Mode</a></li>
+</ul>
+</li>
+<li><a href="#basic-authentication">Basic Authentication</a></li>
+<li><a href="#token-propagation-for-outbound-authentication">Token Propagation for Outbound Authentication</a>
+<ul>
+<li><a href="#example---1">Example - 1</a></li>
+<li><a href="#example---2">Example - 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 ## Secure by Design
 
@@ -161,17 +187,17 @@ The encrypt command will prompt for the plain-text value to be encrypted and an 
 
 ```cmd
 $ ballerina encrypt
-Enter value:
+Enter value: 
 
-Enter secret:
+Enter secret: 
 
-Re-enter secret to verify:
+Re-enter secret to verify: 
 
-Add the following to the runtime config:
-@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Add the following to the configuration file:
+<key>="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 
-Or add to the runtime command line:
--e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Or provide it as a command line argument:
+--<key>=@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}
 ```
 
 Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
@@ -179,7 +205,7 @@ Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated e
 For example, contents of a configuration file that includes a secret value should look as follows:
 
 ```
-api.secret="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
+api.secret="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 api.provider="not-a-security-sensitive-value"
 ```
 
@@ -190,13 +216,12 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -e ballerina.config.secret=path/to/secret/file \
-securing_configuration_values.balx
+$ ballerina run --b7a.config.secret=path/to/secret/file securing_configuration_values.bal
 ```
 
 ## Authentication and Authorization
 
-### Inbound Authentication and Authorization
+### Inbound Authentication & Authorization
 
 Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in support for the following inbound authentication mechanisms whereas it is possible to add custom mechanisms: 
 
@@ -366,7 +391,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 The same configuration patterns used for the listener-level configurations are applied for `authHandlers` and the `scopes` attributes in service-level configurations and resource-level configurations.
 
-##### Implementing Inbound Custom Authentication Mechanism
+##### Implementing Custom Authentication Mechanism
 
 The user can implement a custom version of AuthHandler and AuthProvider with the use of the object-equivalency pattern as follows. With that, the `http:Listener` can be enforced with custom authentication and authorization mechanisms.
 
@@ -968,7 +993,7 @@ Hello, World!
 
 ---
 
-### Outbound Authentication and Authorization
+### Outbound Authentication & Authorization
 
 The Ballerina HTTP client can be configured to send authentication and authorization information to the endpoint being invoked. Ballerina has built-in support for the following outbound authentication mechanisms, whereas it is possible to add custom mechanisms:
 
@@ -1015,7 +1040,7 @@ _Note: It is better to use HTTPS when enforcing authentication and authorization
 
 #### Advanced Use Cases
 
-##### Implementing Outbound Custom Authentication Mechanism
+##### Implementing Custom Authentication Mechanism
 
 The user can implement a custom version of the AuthHandler and AuthProvider with the use of the object equivalency pattern as follows. With that, the `http:Client` can be enforced with custom authentication and authorization mechanisms.
 

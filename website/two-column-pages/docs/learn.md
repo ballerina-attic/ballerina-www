@@ -43,19 +43,19 @@
 <div class="col-sm-12 col-md-12 cBallerinaLearnWrapper cGrayWrapper">
 <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Need to understand a particular feature? Check out an example about it!</p><br>
+     <p class="cBoxpara">Need to understand a particular feature? Check out an example about it!</p>
          <a class="cBallerinaLearnButtons cBBEButton" href="/learn/by-example/"><img src="/img/ballerina-bbe-logo.svg"/></a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Learn the “batteries-included” standard library</p><br>
+     <p class="cBoxpara">Learn the “batteries-included” standard library</p>
          <a class="cBallerinaLearnButtons" href="/learn/api-docs/ballerina">The Standard Library</a>
       </div>
    </div>
    <div class="col-sm-12 col-md-4 cBoxContainer">
       <div class="cBallerina-Box">
-     <p>Read the language & platform specifications to really understand the guts of the language.</p>
+     <p class="cBoxpara">Read the language & platform specifications to really understand the guts of the language.</p>
          <a class="cBallerinaLearnButtons" href="/spec/">Language Specification</a>
       </div>
    </div>
@@ -118,7 +118,7 @@
 <table class="cComandTable">
 <tr>
 <td class="cCommand">search</td>
-<td class="cDescription">Search Ballerina central for modules
+<td class="cDescription">Search Ballerina Central for modules
 </td>
 </tr>
 <tr>
