@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -100,7 +100,15 @@
         <ul>
             
                 <li>
+                    <a href="../auth/index.html">auth</a>
+                </li>
+            
+                <li>
                     <a href="../cache/index.html">cache</a>
+                </li>
+            
+                <li>
+                    <a href="../config/index.html">config</a>
                 </li>
             
                 <li>
@@ -120,6 +128,18 @@
                 </li>
             
                 <li>
+                    <a href="../filepath/index.html">filepath</a>
+                </li>
+            
+                <li>
+                    <a href="../grpc/index.html">grpc</a>
+                </li>
+            
+                <li>
+                    <a href="../http/index.html">http</a>
+                </li>
+            
+                <li>
                     <a href="../io/index.html">io</a>
                 </li>
             
@@ -132,7 +152,19 @@
                 </li>
             
                 <li>
+                    <a href="../java.arrays/index.html">java.arrays</a>
+                </li>
+            
+                <li>
+                    <a href="../java.jdbc/index.html">java.jdbc</a>
+                </li>
+            
+                <li>
                     <a href="../jsonutils/index.html">jsonutils</a>
+                </li>
+            
+                <li>
+                    <a href="../jwt/index.html">jwt</a>
                 </li>
             
                 <li>
@@ -216,6 +248,10 @@
                 </li>
             
                 <li>
+                    <a href="../oauth2/index.html">oauth2</a>
+                </li>
+            
+                <li>
                     <a href="../observe/index.html">observe</a>
                 </li>
             
@@ -240,6 +276,14 @@
                 </li>
             
                 <li>
+                    <a href="../streams/index.html">streams</a>
+                </li>
+            
+                <li>
+                    <a href="../stringutils/index.html">stringutils</a>
+                </li>
+            
+                <li>
                     <a href="../system/index.html">system</a>
                 </li>
             
@@ -253,6 +297,10 @@
             
                 <li>
                     <a href="../time/index.html">time</a>
+                </li>
+            
+                <li>
+                    <a href="../transactions/index.html">transactions</a>
                 </li>
             
                 <li>
@@ -276,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -325,7 +373,15 @@
         <ul>
             
                 <li>
+                    <a href="../auth/index.html">auth</a>
+                </li>
+            
+                <li>
                     <a href="../cache/index.html">cache</a>
+                </li>
+            
+                <li>
+                    <a href="../config/index.html">config</a>
                 </li>
             
                 <li>
@@ -345,6 +401,18 @@
                 </li>
             
                 <li>
+                    <a href="../filepath/index.html">filepath</a>
+                </li>
+            
+                <li>
+                    <a href="../grpc/index.html">grpc</a>
+                </li>
+            
+                <li>
+                    <a href="../http/index.html">http</a>
+                </li>
+            
+                <li>
                     <a href="../io/index.html">io</a>
                 </li>
             
@@ -357,7 +425,19 @@
                 </li>
             
                 <li>
+                    <a href="../java.arrays/index.html">java.arrays</a>
+                </li>
+            
+                <li>
+                    <a href="../java.jdbc/index.html">java.jdbc</a>
+                </li>
+            
+                <li>
                     <a href="../jsonutils/index.html">jsonutils</a>
+                </li>
+            
+                <li>
+                    <a href="../jwt/index.html">jwt</a>
                 </li>
             
                 <li>
@@ -441,6 +521,10 @@
                 </li>
             
                 <li>
+                    <a href="../oauth2/index.html">oauth2</a>
+                </li>
+            
+                <li>
                     <a href="../observe/index.html">observe</a>
                 </li>
             
@@ -465,6 +549,14 @@
                 </li>
             
                 <li>
+                    <a href="../streams/index.html">streams</a>
+                </li>
+            
+                <li>
+                    <a href="../stringutils/index.html">stringutils</a>
+                </li>
+            
+                <li>
                     <a href="../system/index.html">system</a>
                 </li>
             
@@ -478,6 +570,10 @@
             
                 <li>
                     <a href="../time/index.html">time</a>
+                </li>
+            
+                <li>
+                    <a href="../transactions/index.html">transactions</a>
                 </li>
             
                 <li>
@@ -530,7 +626,7 @@ public function main() {
     // Get the user home path.
     io:println(&quot;User home: &quot; + system:getUserHome());  // E.g. “/home/john”
 
-    // Execute an OS command as a subprocess
+    // Execute an OS command as a subprocess.
     system:Process|system:Error proc = checkpanic system:exec(&quot;ls&quot;, {}, &quot;/&quot;, &quot;-la&quot;);
 }
 </code></pre>
@@ -549,7 +645,7 @@ public function main() {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate objects" id="Process">
+                            <td class="module-title truncate objects" id="Process" title="Process">
                                 <a class="objects"
                                    href="objects/Process.html">
                                     Process
@@ -580,35 +676,35 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="exec"><a
+                            <td class="module-title truncate functions" id="exec" title="exec"><a
                                     class="functions" href="functions.html#exec">exec</a></td>
                             <td class="module-desc"><p>Executes an operating system command as a subprocess of the current process.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getEnv"><a
+                            <td class="module-title truncate functions" id="getEnv" title="getEnv"><a
                                     class="functions" href="functions.html#getEnv">getEnv</a></td>
                             <td class="module-desc"><p>Returns the environment variable value associated with the provided name.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getUserHome"><a
+                            <td class="module-title truncate functions" id="getUserHome" title="getUserHome"><a
                                     class="functions" href="functions.html#getUserHome">getUserHome</a></td>
                             <td class="module-desc"><p>Returns the current user's home directory path.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="getUsername"><a
+                            <td class="module-title truncate functions" id="getUsername" title="getUsername"><a
                                     class="functions" href="functions.html#getUsername">getUsername</a></td>
                             <td class="module-desc"><p>Returns the current user's name.</p>
 </td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate functions" id="uuid"><a
+                            <td class="module-title truncate functions" id="uuid" title="uuid"><a
                                     class="functions" href="functions.html#uuid">uuid</a></td>
                             <td class="module-desc"><p>Returns a random UUID string.</p>
 </td>
@@ -630,27 +726,31 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="INVALID_OPERATION_ERROR"><a
+                            <td class="module-title truncate constant" id="INVALID_OPERATION_ERROR" title="INVALID_OPERATION_ERROR"><a
                                     class="constant" href="constants.html#INVALID_OPERATION_ERROR">INVALID_OPERATION_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for invalid operations</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PERMISSION_ERROR"><a
+                            <td class="module-title truncate constant" id="PERMISSION_ERROR" title="PERMISSION_ERROR"><a
                                     class="constant" href="constants.html#PERMISSION_ERROR">PERMISSION_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for permission errors</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FILE_SYSTEM_ERROR"><a
+                            <td class="module-title truncate constant" id="FILE_SYSTEM_ERROR" title="FILE_SYSTEM_ERROR"><a
                                     class="constant" href="constants.html#FILE_SYSTEM_ERROR">FILE_SYSTEM_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for file system errors</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR"><a
+                            <td class="module-title truncate constant" id="FILE_NOT_FOUND_ERROR" title="FILE_NOT_FOUND_ERROR"><a
                                     class="constant" href="constants.html#FILE_NOT_FOUND_ERROR">FILE_NOT_FOUND_ERROR</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents the error code for file not found</p>
+</td>
                         </tr>
                     
                 </table>
@@ -671,10 +771,11 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Error">
+                            <td class="module-title truncate types" id="Error" title="Error">
                                 <a class="types" href="types.html#Error">Error</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents System related errors.</p>
+</td>
                         </tr>
                     
                 </table>
@@ -692,31 +793,35 @@ This is returned from the <code>exec</code> function in the <code>system</code> 
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="FileNotFoundError">
+                            <td class="module-title truncate errors" id="FileNotFoundError" title="FileNotFoundError">
                                 <a class="errors" href="errors.html#FileNotFoundError">FileNotFoundError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>FileNotFoundError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="FileSystemError">
+                            <td class="module-title truncate errors" id="FileSystemError" title="FileSystemError">
                                 <a class="errors" href="errors.html#FileSystemError">FileSystemError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>FileSystemError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="InvalidOperationError">
+                            <td class="module-title truncate errors" id="InvalidOperationError" title="InvalidOperationError">
                                 <a class="errors" href="errors.html#InvalidOperationError">InvalidOperationError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>InvalidOperationError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="PermissionError">
+                            <td class="module-title truncate errors" id="PermissionError" title="PermissionError">
                                 <a class="errors" href="errors.html#PermissionError">PermissionError</a>
                             </td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Represents an <code>PermissionError</code> with a detailed message.</p>
+</td>
                         </tr>
                     
                 </table>

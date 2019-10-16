@@ -2,6 +2,65 @@
 
 This document demonstrates different security features and controls available within Ballerina, and serves the purpose of providing guidelines on writing secure Ballerina programs.
 
+
+**Table of Contents**
+
+<ul>
+<li><a href="#secure-by-design">Secure by Design</a>
+<ul>
+<li><a href="#ensuring-security-of-ballerina-standard-libraries">Ensuring security of Ballerina standard libraries</a></li>
+<li><a href="#securely-using-tainted-data-with-security-sensitive-parameters">Securely using tainted data with security-sensitive parameters</a></li>
+</ul>
+</li>
+<li><a href="#securing-passwords-and-secrets">Securing Passwords and Secrets</a></li>
+<li><a href="#authentication-and-authorization">Authentication and Authorization</a>
+<ul>
+<li><a href="#iInbound-authentication--authorization">Inbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#advanced-use-cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#using-multiple-auth-handlers">Using Multiple Auth Handlers</a></li>
+<li><a href="#using-multiple-scopes">Using Multiple Scopes</a></li>
+<li><a href="#per-resource-and-per-service-customization">Per-Resource and Per-Service Customization</a></li>
+<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+<li><a href="#disable-https-enforcement">Disable HTTPS Enforcement</a></li>
+<li><a href="#modify-authn/authz-filter-index">Modify Authn/Authz Filter Index</a></li>
+</ul>
+</li>
+<li><a href="#jwt-inbound-authentication-and-authorization">JWT Inbound Authentication and Authorization</a></li>
+<li><a href="#oauth2-inbound-authentication-and-authorization">OAuth2 Inbound Authentication and Authorization</a></li>
+<li><a href="#ldap-inbound-authentication-and-authorization">LDAP Inbound Authentication and Authorization</a></li>
+<li><a href="#basic-auth-inbound-authentication-and-authorization">Basic Auth Inbound Authentication and Authorization</a></li>
+</ul>
+</li>
+<li><a href="#outbound-authentication--authorization">Outbound Authentication &amp; Authorization</a>
+<ul>
+<li><a href="#advanced-use-cases">Advanced Use Cases</a>
+<ul>
+<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+</ul>
+</li>
+<li><a href="#jwt-outbound-authentication">JWT Outbound Authentication</a></li>
+<li><a href="#oauth2-outbound-authentication">OAuth2 Outbound Authentication</a>
+<ul>
+<li><a href="#client-credentials-grant-type">Client Credentials Grant Type</a></li>
+<li><a href="#password-grant-type">Password Grant Type</a></li>
+<li><a href="#direct-token-mode">Direct Token Mode</a></li>
+</ul>
+</li>
+<li><a href="#basic-authentication">Basic Authentication</a></li>
+<li><a href="#token-propagation-for-outbound-authentication">Token Propagation for Outbound Authentication</a>
+<ul>
+<li><a href="#example---1">Example - 1</a></li>
+<li><a href="#example---2">Example - 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 ## Secure by Design
 
 This approach makes it unnecessary for developers to review best practice coding lists that itemize how to avoid security vulnerabilities. The Ballerina compiler ensures that Ballerina programs do not introduce security vulnerabilities.
@@ -9,7 +68,6 @@ This approach makes it unnecessary for developers to review best practice coding
 A taint analysis mechanism is used to achieve this.
 
 Parameters in function calls can be designated as security-sensitive. The compiler will generate an error if you pass untrusted data (tainted data) into a security-sensitive parameter:
-
 
 ```
 tainted value passed to sensitive parameter 'sqlQuery'
@@ -129,17 +187,17 @@ The encrypt command will prompt for the plain-text value to be encrypted and an 
 
 ```cmd
 $ ballerina encrypt
-Enter value:
+Enter value: 
 
-Enter secret:
+Enter secret: 
 
-Re-enter secret to verify:
+Re-enter secret to verify: 
 
-Add the following to the runtime config:
-@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Add the following to the configuration file:
+<key>="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 
-Or add to the runtime command line:
--e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+Or provide it as a command line argument:
+--<key>=@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}
 ```
 
 Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
@@ -147,7 +205,7 @@ Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated e
 For example, contents of a configuration file that includes a secret value should look as follows:
 
 ```
-api.secret="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
+api.secret="@encrypted:{hcBLnR+b4iaGS9PEtCMSQOUXJQTQo+zknNxCkpZ0t7w=}"
 api.provider="not-a-security-sensitive-value"
 ```
 
@@ -158,8 +216,7 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -e ballerina.config.secret=path/to/secret/file \
-securing_configuration_values.balx
+$ ballerina run --b7a.config.secret=path/to/secret/file securing_configuration_values.bal
 ```
 
 ## Authentication and Authorization
@@ -413,7 +470,7 @@ service helloWorld on secureHelloWorldEp {
 }
 ```
 
-### JWT Inbound Authentication and Authorization
+#### JWT Inbound Authentication and Authorization
 
 Ballerina supports JWT Authentication and Authorizations for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value which is `Bearer <token>`. Then the extracted credential will be passed to the initialized AuthProvider and get validated. The `jwt:InboundJwtAuthProvider` is used to validate the credentials (JWT) passed by the AuthHandler against the `jwt:JwtValidatorConfig` provided by the user.
 
@@ -575,7 +632,7 @@ mAEcstgiHVw
 Hello, World!
 ```
 
-### OAuth2 Inbound Authentication and Authorization
+#### OAuth2 Inbound Authentication and Authorization
 
 Ballerina supports OAuth2 Authentication and Authorization for services. The `http:BearerAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credentials from the header value, which is the `Bearer <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider to get them validated. The `oauth2:InboundOAuth2Provider` is used to validate the credentials passed by the AuthHandler against the introspection endpoint configured at `oauth2:IntrospectionServerConfig`, which is provided by the user.
 
@@ -678,7 +735,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Bearer <token>'
 Hello, World!
 ```
 
-### LDAP Inbound Authentication and Authorization
+#### LDAP Inbound Authentication and Authorization
 
 Ballerina supports LDAP Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credentials from the header value, which is `Basic <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider to get validated. The `ldap:InboundLdapAuthProvider` is used to validate the credentials passed by the AuthHandler against the LDAP server configured at `ldap:LdapConnectionConfig`, which is provided by the user.
 
@@ -821,7 +878,7 @@ curl -k -v https://localhost:9091/hello -H 'Authorization: Basic <token>'
 Hello, World!
 ```
 
-### Basic Auth Inbound Authentication and Authorization
+#### Basic Auth Inbound Authentication and Authorization
 
 Ballerina supports Basic Authentication and Authorizations for services. The `http:BasicAuthHandler` is used to extract the HTTP `Authorization` header from the request and extract the credential from the header value, which is the `Basic <token>`. Then, the extracted credentials will be passed to the initialized AuthProvider and gets validated. The `jwt:InboundBasicAuthProvider` is used to read the user information from the configuration file and authenticate the credentials passed by the AuthHandler.
 

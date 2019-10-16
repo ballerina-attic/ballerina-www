@@ -52,7 +52,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
             <div class="primary-list module">
     
@@ -100,7 +100,15 @@
         <ul>
             
                 <li>
+                    <a href="../auth/index.html">auth</a>
+                </li>
+            
+                <li>
                     <a href="../cache/index.html">cache</a>
+                </li>
+            
+                <li>
+                    <a href="../config/index.html">config</a>
                 </li>
             
                 <li>
@@ -120,6 +128,18 @@
                 </li>
             
                 <li>
+                    <a href="../filepath/index.html">filepath</a>
+                </li>
+            
+                <li>
+                    <a href="../grpc/index.html">grpc</a>
+                </li>
+            
+                <li>
+                    <a href="../http/index.html">http</a>
+                </li>
+            
+                <li>
                     <a href="../io/index.html">io</a>
                 </li>
             
@@ -132,7 +152,19 @@
                 </li>
             
                 <li>
+                    <a href="../java.arrays/index.html">java.arrays</a>
+                </li>
+            
+                <li>
+                    <a href="../java.jdbc/index.html">java.jdbc</a>
+                </li>
+            
+                <li>
                     <a href="../jsonutils/index.html">jsonutils</a>
+                </li>
+            
+                <li>
+                    <a href="../jwt/index.html">jwt</a>
                 </li>
             
                 <li>
@@ -216,6 +248,10 @@
                 </li>
             
                 <li>
+                    <a href="../oauth2/index.html">oauth2</a>
+                </li>
+            
+                <li>
                     <a href="../observe/index.html">observe</a>
                 </li>
             
@@ -240,6 +276,14 @@
                 </li>
             
                 <li>
+                    <a href="../streams/index.html">streams</a>
+                </li>
+            
+                <li>
+                    <a href="../stringutils/index.html">stringutils</a>
+                </li>
+            
+                <li>
                     <a href="../system/index.html">system</a>
                 </li>
             
@@ -253,6 +297,10 @@
             
                 <li>
                     <a href="../time/index.html">time</a>
+                </li>
+            
+                <li>
+                    <a href="../transactions/index.html">transactions</a>
                 </li>
             
                 <li>
@@ -276,7 +324,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v1.0.0</div>
+<div class="version">v1.0.1</div>
 
                 
                 <div class="primary-list module">
@@ -325,7 +373,15 @@
         <ul>
             
                 <li>
+                    <a href="../auth/index.html">auth</a>
+                </li>
+            
+                <li>
                     <a href="../cache/index.html">cache</a>
+                </li>
+            
+                <li>
+                    <a href="../config/index.html">config</a>
                 </li>
             
                 <li>
@@ -345,6 +401,18 @@
                 </li>
             
                 <li>
+                    <a href="../filepath/index.html">filepath</a>
+                </li>
+            
+                <li>
+                    <a href="../grpc/index.html">grpc</a>
+                </li>
+            
+                <li>
+                    <a href="../http/index.html">http</a>
+                </li>
+            
+                <li>
                     <a href="../io/index.html">io</a>
                 </li>
             
@@ -357,7 +425,19 @@
                 </li>
             
                 <li>
+                    <a href="../java.arrays/index.html">java.arrays</a>
+                </li>
+            
+                <li>
+                    <a href="../java.jdbc/index.html">java.jdbc</a>
+                </li>
+            
+                <li>
                     <a href="../jsonutils/index.html">jsonutils</a>
+                </li>
+            
+                <li>
+                    <a href="../jwt/index.html">jwt</a>
                 </li>
             
                 <li>
@@ -441,6 +521,10 @@
                 </li>
             
                 <li>
+                    <a href="../oauth2/index.html">oauth2</a>
+                </li>
+            
+                <li>
                     <a href="../observe/index.html">observe</a>
                 </li>
             
@@ -465,6 +549,14 @@
                 </li>
             
                 <li>
+                    <a href="../streams/index.html">streams</a>
+                </li>
+            
+                <li>
+                    <a href="../stringutils/index.html">stringutils</a>
+                </li>
+            
+                <li>
                     <a href="../system/index.html">system</a>
                 </li>
             
@@ -478,6 +570,10 @@
             
                 <li>
                     <a href="../time/index.html">time</a>
+                </li>
+            
+                <li>
+                    <a href="../transactions/index.html">transactions</a>
                 </li>
             
                 <li>
@@ -534,7 +630,8 @@ listener kafka:Consumer consumer = new(consumerConfigs);
 
 service kafkaService on consumer {
 
-    resource function onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
+    resource function onMessage(kafka:ConsumerAction consumerAction,
+                  kafka:ConsumerRecord[] records) {
         // Dispatched set of Kafka records to service, We process each one by one.
         foreach var kafkaRecord in records {
             processKafkaRecord(kafkaRecord);
@@ -558,9 +655,10 @@ function processKafkaRecord(kafka:ConsumerRecord kafkaRecord) {
 <pre><code class="language-ballerina">import ballerina/kafka;
 
 kafka:ProducerConfig producerConfigs = {
-    // Here we create a producer configs with optional parameters client.id - used for broker side logging.
+    // Here we create a producer configs with optional parameters 
+    // client.id - used for broker side logging.
     // acks - number of acknowledgments for request complete,
-    // noRetries - number of retries if record send fails.
+    // retryCount - number of retries if record send fails.
     bootstrapServers: &quot;localhost:9092&quot;,
     clientId:&quot;basic-producer&quot;,
     acks:&quot;all&quot;,
@@ -578,39 +676,8 @@ function main () {
     }
 }
 </code></pre>
-<p>Please find the producer configuration parameters below:</p>
-<p>| Parameter | Description  |
-| :---   | :- |
-| bootstrapServers | List of remote server endpoints of Kafka brokers. |
-| acks | Number of acknowledgments. |
-| compressionType | Compression type to be used for messages. |
-| clientId | Identifier to be used for server side logging. |
-| metricsRecordingLevel | Metrics recording level. |
-| metricReporterClasses | Metrics reporter classes. |
-| partitionerClass | Partitioner class to be used to select partition to which the message is sent. |
-| interceptorClasses | Interceptor classes to be used before sending records. |
-| transactionalId | Transactional ID to be used in transactional delivery. |
-| bufferMemory | Total bytes of memory the producer can use to buffer records. |
-| noRetries | Number of retries to resend a record. |
-| batchSize | Number of records to be batched for a single request. Use 0 for no batching. |
-| linger | Delay to allow other records to be batched. |
-| sendBuffer | Size of the TCP send buffer (SO_SNDBUF). |
-| receiveBuffer | Size of the TCP receive buffer (SO_RCVBUF). |
-| maxRequestSize | The maximum size of a request in bytes. |
-| reconnectBackoffTimeInMillis | Time to wait before attempting to reconnect. |
-| reconnectBackoffMaxTimeInMillis | Maximum amount of time in milliseconds to wait when reconnecting. |
-| retryBackoffTimeInMillis | Time to wait before attempting to retry a failed request. |
-| maxBlock | Maximum block time which the send is blocked, when the buffer is full. |
-| requestTimeoutInMillis | Wait time for response of a request. |
-| metadataMaxAgeInMillis | Maximum time to force a refresh of metadata. |
-| metricsSampleWindowInMillis | Time window for a metrics sample to computed over. |
-| metricsNumSamples | Number of samples maintained to compute metrics. |
-| maxInFlightRequestsPerConnection | Maximum number of unacknowledged requests on a single connection. |
-| connectionsMaxIdleTimeInMillis | Close idle connections after the number of milliseconds. |
-| transactionTimeoutInMillis | Timeout for transaction status update from the producer. |
-| enableIdempotence | Exactly one copy of each message is written in the stream when enabled. |</p>
 <blockquote>
-<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processers available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
+<p><strong>Note:</strong> The default thread pool size used in Ballerina is number of processors available * 2. You can configure the thread pool size by using the <code>BALLERINA_MAX_POOL_SIZE</code> environment variable.</p>
 </blockquote>
 
 
@@ -626,7 +693,7 @@ function main () {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate records" id="ConsumerConfig">
+                            <td class="module-title truncate records" id="ConsumerConfig" title="ConsumerConfig">
                                 <a class="records"
                                    href="records/ConsumerConfig.html">ConsumerConfig</a></td>
                             <td class="module-desc">Configuration related to consumer endpoint.
@@ -634,7 +701,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="ConsumerRecord">
+                            <td class="module-title truncate records" id="ConsumerRecord" title="ConsumerRecord">
                                 <a class="records"
                                    href="records/ConsumerRecord.html">ConsumerRecord</a></td>
                             <td class="module-desc">Type related to consumer record.
@@ -642,14 +709,15 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="Detail">
+                            <td class="module-title truncate records" id="Detail" title="Detail">
                                 <a class="records"
                                    href="records/Detail.html">Detail</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc">Represents the details of an error.
+</td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="KeyStore">
+                            <td class="module-title truncate records" id="KeyStore" title="KeyStore">
                                 <a class="records"
                                    href="records/KeyStore.html">KeyStore</a></td>
                             <td class="module-desc">Record for providing key-store related configurations.
@@ -657,7 +725,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="PartitionOffset">
+                            <td class="module-title truncate records" id="PartitionOffset" title="PartitionOffset">
                                 <a class="records"
                                    href="records/PartitionOffset.html">PartitionOffset</a></td>
                             <td class="module-desc">This type represents topic partition position in which consumed record is stored.
@@ -665,7 +733,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="ProducerConfig">
+                            <td class="module-title truncate records" id="ProducerConfig" title="ProducerConfig">
                                 <a class="records"
                                    href="records/ProducerConfig.html">ProducerConfig</a></td>
                             <td class="module-desc">Struct which represents Kafka Producer configuration.
@@ -673,7 +741,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="Protocols">
+                            <td class="module-title truncate records" id="Protocols" title="Protocols">
                                 <a class="records"
                                    href="records/Protocols.html">Protocols</a></td>
                             <td class="module-desc">A record for configuring SSL/TLS protocol and version to be used.
@@ -681,7 +749,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="SecureSocket">
+                            <td class="module-title truncate records" id="SecureSocket" title="SecureSocket">
                                 <a class="records"
                                    href="records/SecureSocket.html">SecureSocket</a></td>
                             <td class="module-desc">Provides configurations for facilitating secure communication with the Kafka server.
@@ -689,7 +757,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="TopicPartition">
+                            <td class="module-title truncate records" id="TopicPartition" title="TopicPartition">
                                 <a class="records"
                                    href="records/TopicPartition.html">TopicPartition</a></td>
                             <td class="module-desc">This type represents a topic partition.
@@ -697,7 +765,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate records" id="TrustStore">
+                            <td class="module-title truncate records" id="TrustStore" title="TrustStore">
                                 <a class="records"
                                    href="records/TrustStore.html">TrustStore</a></td>
                             <td class="module-desc">Record for providing trust-store related configurations.
@@ -721,7 +789,7 @@ function main () {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate clients" id="Consumer">
+                            <td class="module-title truncate clients" id="Consumer" title="Consumer">
                                 <a class="clients"
                                    href="clients/Consumer.html">Consumer</a></td>
                             <td class="module-desc"><p>Represent a Kafka consumer endpoint.</p>
@@ -729,7 +797,7 @@ function main () {
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate clients" id="Producer">
+                            <td class="module-title truncate clients" id="Producer" title="Producer">
                                 <a class="clients"
                                    href="clients/Producer.html">Producer</a></td>
                             <td class="module-desc"><p>Represent a Kafka producer endpoint.</p>
@@ -757,19 +825,19 @@ function main () {
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="CONSUMER_ERROR"><a
+                            <td class="module-title truncate constant" id="CONSUMER_ERROR" title="CONSUMER_ERROR"><a
                                     class="constant" href="constants.html#CONSUMER_ERROR">CONSUMER_ERROR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="PRODUCER_ERROR"><a
+                            <td class="module-title truncate constant" id="PRODUCER_ERROR" title="PRODUCER_ERROR"><a
                                     class="constant" href="constants.html#PRODUCER_ERROR">PRODUCER_ERROR</a></td>
                             <td class="module-desc"></td>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="ACKS_ALL"><a
+                            <td class="module-title truncate constant" id="ACKS_ALL" title="ACKS_ALL"><a
                                     class="constant" href="constants.html#ACKS_ALL">ACKS_ALL</a></td>
                             <td class="module-desc"><p>Producer acknowledgement type <code>all</code>. This will gurantee that the record will not be lost as long as at least one
 in-sync replica is alive.</p>
@@ -777,7 +845,7 @@ in-sync replica is alive.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="ACKS_NONE"><a
+                            <td class="module-title truncate constant" id="ACKS_NONE" title="ACKS_NONE"><a
                                     class="constant" href="constants.html#ACKS_NONE">ACKS_NONE</a></td>
                             <td class="module-desc"><p>Producer acknowledgement type <code>0</code>. If the acknowledgement type set to this, the producer will not wait for any
 acknowledgement from the server.</p>
@@ -785,7 +853,7 @@ acknowledgement from the server.</p>
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate constant" id="ACKS_SINGLE"><a
+                            <td class="module-title truncate constant" id="ACKS_SINGLE" title="ACKS_SINGLE"><a
                                     class="constant" href="constants.html#ACKS_SINGLE">ACKS_SINGLE</a></td>
                             <td class="module-desc"><p>Producer acknowledgement type <code>1</code>. If the acknowledgement type set to this, the leader will write the record to its
 local log but will respond without awaiting full acknowledgement from all followers.</p>
@@ -810,7 +878,7 @@ local log but will respond without awaiting full acknowledgement from all follow
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate types" id="Producer_Acks">
+                            <td class="module-title truncate types" id="Producer_Acks" title="Producer_Acks">
                                 <a class="types" href="types.html#Producer_Acks">Producer_Acks</a>
                             </td>
                             <td class="module-desc"><p>Kafka producer acknowledgement type.</p>
@@ -832,7 +900,7 @@ local log but will respond without awaiting full acknowledgement from all follow
                 <table>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ConsumerError">
+                            <td class="module-title truncate errors" id="ConsumerError" title="ConsumerError">
                                 <a class="errors" href="errors.html#ConsumerError">ConsumerError</a>
                             </td>
                             <td class="module-desc"><p>Kafka Consumer related errors</p>
@@ -840,7 +908,7 @@ local log but will respond without awaiting full acknowledgement from all follow
                         </tr>
                     
                         <tr>
-                            <td class="module-title truncate errors" id="ProducerError">
+                            <td class="module-title truncate errors" id="ProducerError" title="ProducerError">
                                 <a class="errors" href="errors.html#ProducerError">ProducerError</a>
                             </td>
                             <td class="module-desc"><p>Kafka Producer related errors</p>
