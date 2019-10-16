@@ -1,6 +1,6 @@
 # Extending Ballerina
 
-Annotations can be used to provide structured metadata about a particular construct. Annotations are not executable, 
+Annotations can be used to provide structured metadata about a particular construct. Annotations are not executable.
 but can be used to alter the behaviour of constructs they are attached to.
 
 Annotations can be attached to:
