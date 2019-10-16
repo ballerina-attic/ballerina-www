@@ -15,14 +15,14 @@ This document demonstrates different security features and controls available wi
 <li><a href="#securing-passwords-and-secrets">Securing Passwords and Secrets</a></li>
 <li><a href="#authentication-and-authorization">Authentication and Authorization</a>
 <ul>
-<li><a href="#iInbound-authentication--authorization">Inbound Authentication &amp; Authorization</a>
+<li><a href="#iInbound-authentication-and-authorization">Inbound Authentication and Authorization</a>
 <ul>
 <li><a href="#advanced-use-cases">Advanced Use Cases</a>
 <ul>
 <li><a href="#using-multiple-auth-handlers">Using Multiple Auth Handlers</a></li>
 <li><a href="#using-multiple-scopes">Using Multiple Scopes</a></li>
 <li><a href="#per-resource-and-per-service-customization">Per-Resource and Per-Service Customization</a></li>
-<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+<li><a href="#implementing-inbound-custom-authentication-mechanism">Implementing Inbound Custom Authentication Mechanism</a></li>
 <li><a href="#disable-https-enforcement">Disable HTTPS Enforcement</a></li>
 <li><a href="#modify-authn/authz-filter-index">Modify Authn/Authz Filter Index</a></li>
 </ul>
@@ -33,11 +33,11 @@ This document demonstrates different security features and controls available wi
 <li><a href="#basic-auth-inbound-authentication-and-authorization">Basic Auth Inbound Authentication and Authorization</a></li>
 </ul>
 </li>
-<li><a href="#outbound-authentication--authorization">Outbound Authentication &amp; Authorization</a>
+<li><a href="#outbound-authentication-and-authorization">Outbound Authentication and Authorization</a>
 <ul>
 <li><a href="#advanced-use-cases">Advanced Use Cases</a>
 <ul>
-<li><a href="#implementing-custom-authentication-mechanism">Implementing Custom Authentication Mechanism</a></li>
+<li><a href="#implementing-outbound-custom-authentication-mechanism">Implementing Outbound Custom Authentication Mechanism</a></li>
 </ul>
 </li>
 <li><a href="#jwt-outbound-authentication">JWT Outbound Authentication</a></li>
@@ -221,7 +221,7 @@ $ ballerina run --b7a.config.secret=path/to/secret/file securing_configuration_v
 
 ## Authentication and Authorization
 
-### Inbound Authentication & Authorization
+### Inbound Authentication and Authorization
 
 Ballerina HTTP services can be configured to enforce authentication and authorization. Ballerina has built-in support for the following inbound authentication mechanisms whereas it is possible to add custom mechanisms: 
 
@@ -391,7 +391,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 The same configuration patterns used for the listener-level configurations are applied for `authHandlers` and the `scopes` attributes in service-level configurations and resource-level configurations.
 
-##### Implementing Custom Authentication Mechanism
+##### Implementing Inbound Custom Authentication Mechanism
 
 The user can implement a custom version of AuthHandler and AuthProvider with the use of the object-equivalency pattern as follows. With that, the `http:Listener` can be enforced with custom authentication and authorization mechanisms.
 
@@ -993,7 +993,7 @@ Hello, World!
 
 ---
 
-### Outbound Authentication & Authorization
+### Outbound Authentication and Authorization
 
 The Ballerina HTTP client can be configured to send authentication and authorization information to the endpoint being invoked. Ballerina has built-in support for the following outbound authentication mechanisms, whereas it is possible to add custom mechanisms:
 
@@ -1040,7 +1040,7 @@ _Note: It is better to use HTTPS when enforcing authentication and authorization
 
 #### Advanced Use Cases
 
-##### Implementing Custom Authentication Mechanism
+##### Implementing Outbound Custom Authentication Mechanism
 
 The user can implement a custom version of the AuthHandler and AuthProvider with the use of the object equivalency pattern as follows. With that, the `http:Client` can be enforced with custom authentication and authorization mechanisms.
 
