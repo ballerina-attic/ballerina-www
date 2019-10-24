@@ -10,11 +10,15 @@ ballerina push <module-name>
 
 ## Setting up
 
-Before you push your module, you must enter your Ballerina Central access token in `Settings.toml` in your home repository (`<USER_HOME>/.ballerina/`).
+Before you push your module, 
 
-To get your token, register on Ballerina Central and visit the user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard).
+- Enter a description about the module in the `Module.md` file of the module directory. For more information, see [Documenting A Module](/learn/how-to-document-ballerina-code#documenting-a-module).
 
-If you are connected to the internet via an HTTP proxy, add the following section to `Settings.toml` and change accordingly.
+- Enter your Ballerina Central access token in `Settings.toml` in your home repository (`<USER_HOME>/.ballerina/`).
+
+    To get your token, register on Ballerina Central and visit the user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard).
+
+    If you are connected to the internet via an HTTP proxy, add the following section to `Settings.toml` and change accordingly.
 
 ```
 [proxy]
