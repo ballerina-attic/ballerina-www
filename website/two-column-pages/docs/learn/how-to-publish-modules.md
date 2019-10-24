@@ -12,7 +12,7 @@ ballerina push <module-name>
 
 Before you push your module, 
 
-- Enter a description about the module in the `Module.md` file of the module directory. For more information, see [Documenting A Module](/learn/how-to-document-ballerina-code).
+- Enter a description about the module in the `Module.md` file of the module directory. For more information, see [Documenting A Module](/learn/how-to-document-ballerina-code#documenting-a-module).
 
 - Enter your Ballerina Central access token in `Settings.toml` in your home repository (`<USER_HOME>/.ballerina/`).
 
